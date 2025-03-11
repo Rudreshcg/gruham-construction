@@ -28,7 +28,7 @@ const Header = () => {
         position="static"
         sx={{
           backgroundColor: 'white',
-          color: 'black',
+          color: '#595959',
           width: '100%',
           overflowX: 'hidden'
         }}
@@ -63,21 +63,6 @@ const Header = () => {
             <Button
               color="inherit"
               component={RouterLink}
-              to="/projects"
-              sx={{
-                color: '#4b4f58',
-                p: "16px 24px",
-                '&:hover': {
-                  color: 'blue',
-                  backgroundColor: 'inherit'
-                }
-              }}
-            >
-              PROJECTS
-            </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
               to="/about"
               sx={{
                 color: '#4b4f58',
@@ -89,6 +74,36 @@ const Header = () => {
               }}
             >
               ABOUT
+            </Button>
+            <Button
+              color="inherit"
+              component={RouterLink}
+              to="/careers"
+              sx={{
+                color: '#4b4f58',
+                p: "16px 24px",
+                '&:hover': {
+                  color: 'blue',
+                  backgroundColor: 'inherit'
+                }
+              }}
+            >
+              CAREERS
+            </Button>
+            <Button
+              color="inherit"
+              component={RouterLink}
+              to="/blogs"
+              sx={{
+                color: '#4b4f58',
+                p: "16px 24px",
+                '&:hover': {
+                  color: 'blue',
+                  backgroundColor: 'inherit'
+                }
+              }}
+            >
+              BLOGS
             </Button>
             <Button
               color="inherit"
@@ -128,18 +143,21 @@ const Header = () => {
             left: 0,
             backgroundColor: 'white',
             zIndex: 1,
-            boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)'
+            boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
           }}
         >
           <List>
             <ListItem button component={RouterLink} to="/" onClick={toggleDrawer}>
               <ListItemText primary="HOME" />
             </ListItem>
-            <ListItem button component={RouterLink} to="/projects" onClick={toggleDrawer}>
-              <ListItemText primary="PROJECTS" />
-            </ListItem>
             <ListItem button component={RouterLink} to="/about" onClick={toggleDrawer}>
               <ListItemText primary="ABOUT" />
+            </ListItem>
+            <ListItem button component={RouterLink} to="/careers" onClick={toggleDrawer}>
+              <ListItemText primary="CAREERS" />
+            </ListItem>
+            <ListItem button component={RouterLink} to="/blogs" onClick={toggleDrawer}>
+              <ListItemText primary="BLOGS" />
             </ListItem>
             <ListItem button component={RouterLink} to="/contact" onClick={toggleDrawer}>
               <ListItemText primary="CONTACT" />
