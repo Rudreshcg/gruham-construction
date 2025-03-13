@@ -48,7 +48,7 @@ const Header = () => {
             <Button
               color="inherit"
               component={RouterLink}
-              to="/"
+              to="/home"
               sx={{
                 color: '#4b4f58',
                 p: "16px 24px",
