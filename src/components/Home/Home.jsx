@@ -1,7 +1,13 @@
+import { Box } from "@mui/material";
+import Hero from "./Hero";
 
 
 const Home = () =>{
     
-    return <h1 style={{color:'black'}}>Home</h1>
+    return (
+        <Box>
+            <Hero/>
+        </Box>
+    )
 }
 export default Home;
