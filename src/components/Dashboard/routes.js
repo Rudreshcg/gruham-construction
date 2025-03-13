@@ -7,7 +7,7 @@ import Home from "../Home/Home";
 export const routes = [{
     name:'Home',
     component:Home,
-    path:'home'
+    path:''
 }, {
     name:'About',
     component:About,
