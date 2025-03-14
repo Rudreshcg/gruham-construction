@@ -32,12 +32,12 @@ const Footer = () => {
               initial="initial"
               whileInView="animate"
             >
-              <Box display="flex" alignItems="center" mb={2}>
+              <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
                 <img
                   src={Logo}
                   alt="Logo"
                   style={{
-                    maxWidth: '150px',
+                    maxWidth: '50px',
                     height: 'auto',
                   }}
                 />
