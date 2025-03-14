@@ -17,10 +17,17 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [seletedTab, setSelectedTab]= useState(null)
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
+
+  const tabHandler =(value) =>{
+    setSelectedTab(value)
+  }
+
+  const tabMenu = [{tabName:'HOME', to:'/'},, {tabName:'ABOUT', to:'/about'}, {tabName:'CAREERS', to:'/careers'}, {tabName:'BLOGS', to:'/blogs'}, {tabName:'CONTENT', to:'/content'}]
 
   return (
     <>
@@ -45,81 +52,26 @@ const Header = () => {
             </RouterLink>
           </Box>
           <DesktopMenu>
-            <Button
+            {tabMenu.map((tab)=>{
+              return <Button
+              key={tab.tabName}
               color="inherit"
               component={RouterLink}
-              to="/"
+              onClick={()=>tabHandler(tab.tabName)}
+              to={tab.to}
               sx={{
-                color: '#4b4f58',
+                color:seletedTab===tab.tabName?'#C2B280': '#4A4A4A',
                 p: "16px 24px",
                 '&:hover': {
-                  color: 'blue',
+                  color: '#C2B280',
                   backgroundColor: 'inherit'
                 }
               }}
             >
-              HOME
+              {tab.tabName}
             </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/about"
-              sx={{
-                color: '#4b4f58',
-                p: "16px 24px",
-                '&:hover': {
-                  color: 'blue',
-                  backgroundColor: 'inherit'
-                }
-              }}
-            >
-              ABOUT
-            </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/careers"
-              sx={{
-                color: '#4b4f58',
-                p: "16px 24px",
-                '&:hover': {
-                  color: 'blue',
-                  backgroundColor: 'inherit'
-                }
-              }}
-            >
-              CAREERS
-            </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/blogs"
-              sx={{
-                color: '#4b4f58',
-                p: "16px 24px",
-                '&:hover': {
-                  color: 'blue',
-                  backgroundColor: 'inherit'
-                }
-              }}
-            >
-              BLOGS
-            </Button>
-            <Button
-              color="inherit"
-              component={RouterLink}
-              to="/contact"
-              sx={{
-                color: '#4b4f58',
-                p: "16px 24px",
-                '&:hover': {
-                  color: 'blue',
-                  backgroundColor: 'inherit'
-                }
-              }}
-            >
-              CONTACT
-            </Button>
+            })}
+            
           </DesktopMenu>
           <IconButton
             edge="start"
