@@ -3,10 +3,9 @@ import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import { Route, Routes } from "react-router-dom";
 import { routes } from "./routes";
-import Home from "../Home/Home";
 
 const Dashboard = () =>{
-    return   <div className="body">
+    return   <div >
         <Header />
         <Routes>
             {routes.map(route=>{
