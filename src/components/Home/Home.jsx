@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Hero from "./Hero";
-import ProjectSection from "./Projects";
+import ConstructionSection from "./ConstructionSection";
+import InteriorSection from "./InteriorSection";
 
 
 const Home = () =>{
@@ -8,7 +9,8 @@ const Home = () =>{
     return (
         <Box>
             <Hero/>
-            <ProjectSection/>
+            <ConstructionSection/>
+            <InteriorSection/>
         </Box>
     )
 }

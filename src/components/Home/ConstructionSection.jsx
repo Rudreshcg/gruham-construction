@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion"; // Import motion
+import { motion } from "framer-motion";
 import ProjectImage from '../../assets/images/projects/livingarea-4.png';
-import { SlideLeft, SlideDown, SlideRight, SlideUp } from "../../animation/animate";
+import { SlideLeft, SlideRight, SlideUp, FadeIn } from "../../animation/animate";
 
 const projects = [
   {
@@ -26,15 +26,26 @@ const projects = [
   }
 ];
 
-const ProjectSection = () => {
+const ConstructionSection = () => {
   const navigate = useNavigate();
 
   return (
     <Container sx={{ py: 8 }}>
-      {projects.map((project, index) => (
-        <motion.div
-          
+      {/* Section Heading */}
+      <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          textAlign="center"
+          gutterBottom
+          sx={{ color: "#222", mb: 4 }}
         >
+          Our Featured Projects
+        </Typography>
+      </motion.div>
+
+      {projects.map((project, index) => (
+        <motion.div key={project.id}>
           <Grid
             container
             spacing={6}
@@ -44,21 +55,21 @@ const ProjectSection = () => {
               flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
             }}
           >
+            {/* Project Image */}
             <Grid item xs={12} md={6}>
               <motion.div
-               key={project.id}
-               variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)} // SlideLeft for regular row, SlideRight for reversed row
-               initial="initial"
-               whileInView="animate"
+                variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)}
+                initial="initial"
+                whileInView="animate"
               >
                 <Box
                   component="img"
                   src={project.image}
                   alt={project.title}
                   sx={{
-                    width: "100%", // Ensures the image takes full width
-                    height: { xs: "200px", md: "300px" },
-                    borderRadius: "12px",
+                    width: "100%",
+                    height: { xs: "250px", md: "350px" },
+                    borderRadius: "16px",
                     boxShadow: 5,
                     objectFit: "cover",
                   }}
@@ -69,15 +80,23 @@ const ProjectSection = () => {
             {/* Project Content */}
             <Grid item xs={12} md={6}>
               <motion.div
-                key={project.id}
-                variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)} // SlideLeft for regular row, SlideRight for reversed row
+                variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)}
                 initial="initial"
                 whileInView="animate"
               >
-                <Typography variant="h3" fontWeight="bold" gutterBottom sx={{ color: "#333" }}>
+                <Typography
+                  variant="h5"
+                  fontWeight="bold"
+                  gutterBottom
+                  sx={{ color: "#333" }}
+                >
                   {project.title}
                 </Typography>
-                <Typography variant="h6" color="text.secondary" sx={{ lineHeight: 1.8 }}>
+                <Typography
+                  variant="h6"
+                  color="text.secondary"
+                  sx={{ lineHeight: 1.8, mb: 3 }}
+                >
                   {project.description}
                 </Typography>
               </motion.div>
@@ -88,21 +107,22 @@ const ProjectSection = () => {
 
       {/* See More Projects Button */}
       <Box display="flex" justifyContent="center" mt={6}>
-        <motion.div
-          variants={SlideUp(0.5)}
-          initial="initial"
-          whileInView="animate"
-        >
+        <motion.div variants={SlideUp(0.5)} initial="initial" whileInView="animate">
           <Button
             variant="contained"
             color="primary"
             sx={{
-              px: 4,
+              px: 5,
               py: 1.5,
               fontSize: "1.1rem",
               fontWeight: "bold",
               borderRadius: "8px",
               textTransform: "none",
+              transition: "0.3s",
+              "&:hover": {
+                backgroundColor: "secondary.main",
+                transform: "scale(1.05)",
+              },
             }}
             onClick={() => navigate("/projects")}
           >
@@ -114,4 +134,4 @@ const ProjectSection = () => {
   );
 };
 
-export default ProjectSection;
+export default ConstructionSection;
