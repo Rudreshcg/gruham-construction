@@ -30,7 +30,7 @@ const ConstructionSection = () => {
   const navigate = useNavigate();
 
   return (
-    <Container sx={{ py: 8 }}>
+    <Container sx={{ py: 8, backgroundColor: "#f6f6f6" }}>
       {/* Section Heading */}
       <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
         <Typography
