@@ -1,8 +1,10 @@
-import { Box, Grid2, styled, Typography } from "@mui/material";
+import React, { useState, useEffect, useRef } from "react";
+import { Box, Grid, styled, Typography } from "@mui/material";
 import "../WhyGruham/WhyGruham.css";
 import openBook from "../../assets/images/SVGIcons/OpenBookIcon.svg";
 import StarHeadHuman from "../../assets/images/SVGIcons/StarHeadHuman.svg";
 import NestedHumans from "../../assets/images/SVGIcons/NestedHumans.svg";
+import ContactModal from "../Home/ContactModal";
 
 export const FlexBox = styled("div")(({ theme }) => ({
   display: "flex",
@@ -26,27 +28,54 @@ const contentWhyArr = [
   {
     icon: NestedHumans,
     header: "Experienced Project Managers",
-    description: "25+ high end homes executed to perfection",
+    description: "25+ high-end homes executed to perfection",
   },
 ];
 
 const WhyGruham = () => {
+  const [open, setOpen] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasOpened) {
+          setOpen(true);
+          setHasOpened(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [hasOpened]);
+
   return (
-    <FlexBox>
+    <FlexBox ref={sectionRef}>
+      <ContactModal open={open} setOpen={setOpen} />
       <Typography className="luxury-text" variant="H1">
         Why Gruham?
       </Typography>
-      <Grid2 container>
-        {contentWhyArr.map((content) => (
-          <Grid2>
+      <Grid container spacing={2}>
+        {contentWhyArr.map((content, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
             <FlexBox>
-              <img src={content.icon} />
+              <img src={content.icon} alt={content.header} />
               <div className="header-text">{content.header}</div>
               <div className="description-text">{content.description}</div>
             </FlexBox>
-          </Grid2>
+          </Grid>
         ))}
-      </Grid2>
+      </Grid>
     </FlexBox>
   );
 };
