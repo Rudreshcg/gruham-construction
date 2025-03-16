@@ -28,7 +28,7 @@ const Header = () => {
     setSelectedTab(value)
   }
 
-  const tabMenu = [{tabName:'HOME', to:'/'}, {tabName:'ABOUT', to:'/about'}, {tabName:'CAREERS', to:'/careers'}, {tabName:'BLOGS', to:'/blogs'}, {tabName:'CONTENT', to:'/content'}]
+  const tabMenu = [{tabName:'HOME', to:'/'}, {tabName:'ABOUT', to:'/about'}, {tabName:'SERVICES', to:'/services'}, {tabName:'CAREERS', to:'/careers'}, {tabName:'BLOGS', to:'/blogs'}, {tabName:'CONTACT', to:'/contact'}]
 
   return (
     <>

@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { routes } from "./routes";
 
 const Dashboard = () =>{
-    return   <div >
+    return   <div style={{ width: "100%", margin: "0", padding: "0", overflowX: "hidden" }}>
         <Header />
         <Routes>
             {routes.map(route=>{

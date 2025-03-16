@@ -1,4 +1,5 @@
 import About from "../About/About";
+import Services from "../Services/Services";
 import Blogs from "../Blogs/Blogs";
 import Careers from "../Careers/Careers";
 import Contact from "../Contact/Contact";
@@ -12,6 +13,10 @@ export const routes = [{
     name:'About',
     component:About,
     path:'about'
+}, {
+    name:'Services',
+    component:Services,
+    path:'services'
 }, {
     name:'Careers',
     component:Careers,
