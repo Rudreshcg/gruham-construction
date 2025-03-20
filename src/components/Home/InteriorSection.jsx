@@ -30,7 +30,7 @@ const InteriorSection = () => {
   const navigate = useNavigate();
 
   return (
-    <Container sx={{ py: 8 }}>
+    <Container sx={{ py: 8, mt: 2, backgroundColor: "#f6f6f6" }}>
       {/* Section Heading */}
       <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
         <Typography
@@ -40,7 +40,7 @@ const InteriorSection = () => {
           gutterBottom
           sx={{ color: "#222", mb: 4 }}
         >
-          Our Featured Projects
+          Our Featured Interior Projects
         </Typography>
       </motion.div>
 
