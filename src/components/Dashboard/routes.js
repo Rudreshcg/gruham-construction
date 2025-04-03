@@ -17,6 +17,11 @@ export const routes = [
     path: "about",
   },
   {
+    name: 'Services',
+    component: Services,
+    path: 'services'
+  },
+  {
     name: "Careers",
     component: Careers,
     path: "careers",
@@ -29,6 +34,6 @@ export const routes = [
   {
     name: "Contact",
     component: Contact,
-    path: "content",
+    path: "contact",
   },
 ];
