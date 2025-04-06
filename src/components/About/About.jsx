@@ -5,113 +5,389 @@ import {
   Grid,
   Card,
   CardContent,
-  Avatar,
+  Container,
+  Button,
 } from "@mui/material";
-import { Groups, Business, EmojiEvents } from "@mui/icons-material";
+import { motion } from "framer-motion";
+import { 
+  Architecture, 
+  Engineering, 
+  DesignServices,
+  EmojiEvents,
+  Groups,
+  Business
+} from "@mui/icons-material";
 import aboutBg from "../../assets/images/careers_bg.jpg";
+import { FadeIn, SlideUp } from "../../animation/animate";
+import { styled } from "@mui/material/styles";
+import { 
+  brandColors, 
+  typography, 
+  spacing, 
+  shadows, 
+  transitions,
+  borderRadius,
+} from "../../theme/designSystem";
+
+const StyledCard = styled(Card)({
+  height: '100%',
+  backgroundColor: brandColors.background.primary,
+  boxShadow: shadows.small,
+  transition: transitions.default,
+  '&:hover': {
+    transform: 'translateY(-8px)',
+    boxShadow: shadows.large,
+  }
+});
+
+const ValueCard = styled(Card)({
+  padding: spacing.xl,
+  height: '100%',
+  textAlign: 'center',
+  backgroundColor: brandColors.background.primary,
+  transition: transitions.default,
+  '&:hover': {
+    transform: 'translateY(-8px)',
+    boxShadow: shadows.large,
+  }
+});
 
 const About = () => {
+  const values = [
+    {
+      icon: <Architecture sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
+      title: "Excellence in Design",
+      description: "Creating timeless architectural masterpieces that blend aesthetics with functionality."
+    },
+    {
+      icon: <Engineering sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
+      title: "Quality Craftsmanship",
+      description: "Delivering superior construction quality through skilled expertise and attention to detail."
+    },
+    {
+      icon: <DesignServices sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
+      title: "Innovative Solutions",
+      description: "Implementing cutting-edge design and construction techniques for modern living spaces."
+    },
+    {
+      icon: <EmojiEvents sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
+      title: "Industry Recognition",
+      description: "Award-winning projects that set new standards in luxury construction and design."
+    },
+    {
+      icon: <Groups sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
+      title: "Expert Team",
+      description: "A dedicated team of professionals committed to bringing your vision to life."
+    },
+    {
+      icon: <Business sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
+      title: "Client Success",
+      description: "Building lasting relationships through trust, transparency, and exceptional service."
+    }
+  ];
+
   return (
     <Box>
-      {/* Header Section with Background Image */}
+      {/* Hero Section */}
       <Box
         sx={{
+          position: 'relative',
+          height: '60vh',
+          width: '100%',
           backgroundImage: `url(${aboutBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "300px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          textAlign: "center",
-          position: "relative",
-          padding: "1rem",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+          }
         }}
       >
-        <Typography variant="h4" fontWeight={600} sx={{ background: "rgba(0, 0, 0, 0.6)", padding: "1rem", borderRadius: "8px" }}>
-          About Us
-        </Typography>
+        <Container maxWidth="lg">
+          <motion.div variants={FadeIn(0.8)} initial="initial" animate="animate">
+            <Typography
+              variant="h1"
+              sx={{
+                color: brandColors.text.light,
+                fontSize: typography.fontSize.h1,
+                fontWeight: typography.fontWeight.bold,
+                mb: spacing.md,
+                fontFamily: typography.fontFamily.heading,
+                textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                letterSpacing: typography.letterSpacing.heading,
+                textAlign: "center"
+              }}
+            >
+              About Gruham
+            </Typography>
+            <Typography
+              variant="h2"
+              sx={{
+                color: brandColors.text.light,
+                fontSize: typography.fontSize.h3,
+                mb: spacing.xl,
+                maxWidth: "800px",
+                margin: "0 auto",
+                textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
+                fontFamily: typography.fontFamily.body,
+                fontWeight: typography.fontWeight.regular,
+                letterSpacing: typography.letterSpacing.body,
+                textAlign: "center"
+              }}
+            >
+              Building Dreams, Creating Excellence
+            </Typography>
+          </motion.div>
+        </Container>
       </Box>
 
-      {/* Company Mission & Vision Section */}
-      <Box sx={{ maxWidth: "1200px", margin: "auto", padding: "3rem 2rem" }}>
-        <Typography variant="h4" fontWeight={600} textAlign="center" gutterBottom>
-          Who We Are
-        </Typography>
-        <Typography variant="body1" textAlign="center" color="textSecondary">
-          We are a team of passionate professionals dedicated to delivering top-quality solutions.
-        </Typography>
+      {/* Mission & Vision Section */}
+      <Container maxWidth="lg" sx={{ py: spacing.xxl }}>
+        <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: typography.fontFamily.heading,
+              fontSize: typography.fontSize.h2,
+              color: brandColors.secondary,
+              textAlign: "center",
+              mb: spacing.md,
+              fontWeight: typography.fontWeight.bold,
+              letterSpacing: typography.letterSpacing.heading
+            }}
+          >
+            Our Story
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              color: brandColors.text.secondary,
+              textAlign: "center",
+              mb: spacing.xl,
+              maxWidth: "800px",
+              mx: "auto",
+              fontFamily: typography.fontFamily.body,
+              fontSize: typography.fontSize.h6,
+              fontWeight: typography.fontWeight.regular,
+              letterSpacing: typography.letterSpacing.body
+            }}
+          >
+            Founded with a vision to transform the construction industry, Gruham has been at the forefront of innovative design and exceptional craftsmanship.
+          </Typography>
+        </motion.div>
 
-        <Grid container spacing={4} sx={{ marginTop: "3rem" }}>
+        <Grid container spacing={4} sx={{ mb: spacing.xxl }}>
           <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: 3, backgroundColor: "#f5f5f5" }}>
-              <CardContent>
-                <Typography variant="h5" fontWeight={600} color="primary">
-                  Our Mission
-                </Typography>
-                <Typography variant="body1" sx={{ marginTop: "1rem" }}>
-                  To empower businesses with innovative technology solutions and exceptional service.
-                </Typography>
-              </CardContent>
-            </Card>
+            <motion.div variants={SlideUp(0.5)} initial="initial" whileInView="animate">
+              <StyledCard>
+                <CardContent sx={{ p: spacing.xl }}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      color: brandColors.secondary,
+                      fontWeight: typography.fontWeight.semiBold,
+                      mb: spacing.md,
+                      fontFamily: typography.fontFamily.heading,
+                      fontSize: typography.fontSize.h4,
+                      letterSpacing: typography.letterSpacing.heading
+                    }}
+                  >
+                    Our Mission
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: brandColors.text.secondary,
+                      lineHeight: typography.lineHeight.body,
+                      fontFamily: typography.fontFamily.body,
+                      fontSize: typography.fontSize.body1,
+                      letterSpacing: typography.letterSpacing.body
+                    }}
+                  >
+                    To deliver exceptional construction and design services that exceed client expectations, while maintaining the highest standards of quality, innovation, and sustainability.
+                  </Typography>
+                </CardContent>
+              </StyledCard>
+            </motion.div>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: 3, backgroundColor: "#f5f5f5" }}>
-              <CardContent>
-                <Typography variant="h5" fontWeight={600} color="primary">
-                  Our Vision
-                </Typography>
-                <Typography variant="body1" sx={{ marginTop: "1rem" }}>
-                  To be the leading provider of cutting-edge digital solutions that transform industries.
-                </Typography>
-              </CardContent>
-            </Card>
+            <motion.div variants={SlideUp(0.7)} initial="initial" whileInView="animate">
+              <StyledCard>
+                <CardContent sx={{ p: spacing.xl }}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      color: brandColors.secondary,
+                      fontWeight: typography.fontWeight.semiBold,
+                      mb: spacing.md,
+                      fontFamily: typography.fontFamily.heading,
+                      fontSize: typography.fontSize.h4,
+                      letterSpacing: typography.letterSpacing.heading
+                    }}
+                  >
+                    Our Vision
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: brandColors.text.secondary,
+                      lineHeight: typography.lineHeight.body,
+                      fontFamily: typography.fontFamily.body,
+                      fontSize: typography.fontSize.body1,
+                      letterSpacing: typography.letterSpacing.body
+                    }}
+                  >
+                    To be the leading construction company known for creating iconic structures that inspire, while fostering innovation and sustainable practices in the industry.
+                  </Typography>
+                </CardContent>
+              </StyledCard>
+            </motion.div>
           </Grid>
         </Grid>
-      </Box>
 
-      {/* Core Values or Team Section */}
-      <Box sx={{ backgroundColor: "#f9f9f9", padding: "3rem 2rem" }}>
-        <Typography variant="h4" fontWeight={600} textAlign="center" gutterBottom>
-          What We Stand For
-        </Typography>
-        <Grid container spacing={4} sx={{ maxWidth: "1000px", margin: "auto", marginTop: "2rem" }}>
-          <Grid item xs={12} md={4} textAlign="center">
-            <Avatar sx={{ bgcolor: "primary.main", margin: "auto", width: 64, height: 64 }}>
-              <Groups fontSize="large" />
-            </Avatar>
-            <Typography variant="h6" fontWeight={600} sx={{ marginTop: "1rem" }}>
-              Teamwork
-            </Typography>
-            <Typography variant="body2" color="textSecondary">
-              Collaboration is key to our success.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={4} textAlign="center">
-            <Avatar sx={{ bgcolor: "secondary.main", margin: "auto", width: 64, height: 64 }}>
-              <Business fontSize="large" />
-            </Avatar>
-            <Typography variant="h6" fontWeight={600} sx={{ marginTop: "1rem" }}>
-              Innovation
-            </Typography>
-            <Typography variant="body2" color="textSecondary">
-              We strive to be pioneers in our industry.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={4} textAlign="center">
-            <Avatar sx={{ bgcolor: "success.main", margin: "auto", width: 64, height: 64 }}>
-              <EmojiEvents fontSize="large" />
-            </Avatar>
-            <Typography variant="h6" fontWeight={600} sx={{ marginTop: "1rem" }}>
-              Excellence
-            </Typography>
-            <Typography variant="body2" color="textSecondary">
-              We deliver quality results in everything we do.
-            </Typography>
-          </Grid>
+        {/* Values Section */}
+        <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: typography.fontFamily.heading,
+              fontSize: typography.fontSize.h2,
+              color: brandColors.secondary,
+              textAlign: "center",
+              mb: spacing.md,
+              fontWeight: typography.fontWeight.bold,
+              letterSpacing: typography.letterSpacing.heading
+            }}
+          >
+            Our Core Values
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              color: brandColors.text.secondary,
+              textAlign: "center",
+              mb: spacing.xl,
+              maxWidth: "800px",
+              mx: "auto",
+              fontFamily: typography.fontFamily.body,
+              fontSize: typography.fontSize.h6,
+              fontWeight: typography.fontWeight.regular,
+              letterSpacing: typography.letterSpacing.body
+            }}
+          >
+            The principles that guide our work and define our success
+          </Typography>
+        </motion.div>
+
+        <Grid container spacing={4}>
+          {values.map((value, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <motion.div
+                variants={SlideUp(0.5 + index * 0.1)}
+                initial="initial"
+                whileInView="animate"
+              >
+                <ValueCard>
+                  {value.icon}
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      color: brandColors.secondary,
+                      fontWeight: typography.fontWeight.semiBold,
+                      mb: spacing.md,
+                      fontFamily: typography.fontFamily.heading,
+                      fontSize: typography.fontSize.h5,
+                      letterSpacing: typography.letterSpacing.heading
+                    }}
+                  >
+                    {value.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: brandColors.text.secondary,
+                      lineHeight: typography.lineHeight.body,
+                      fontFamily: typography.fontFamily.body,
+                      fontSize: typography.fontSize.body1,
+                      letterSpacing: typography.letterSpacing.body
+                    }}
+                  >
+                    {value.description}
+                  </Typography>
+                </ValueCard>
+              </motion.div>
+            </Grid>
+          ))}
         </Grid>
-      </Box>
+
+        {/* CTA Section */}
+        <Box
+          sx={{
+            textAlign: "center",
+            mt: spacing.xxl,
+            p: spacing.xl,
+            backgroundColor: brandColors.background.secondary,
+            borderRadius: borderRadius.medium,
+            boxShadow: shadows.medium
+          }}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              color: brandColors.secondary,
+              mb: spacing.md,
+              fontFamily: typography.fontFamily.heading,
+              fontSize: typography.fontSize.h3,
+              fontWeight: typography.fontWeight.bold,
+              letterSpacing: typography.letterSpacing.heading
+            }}
+          >
+            Ready to Start Your Project?
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: brandColors.text.secondary,
+              mb: spacing.lg,
+              fontFamily: typography.fontFamily.body,
+              fontSize: typography.fontSize.body1,
+              letterSpacing: typography.letterSpacing.body
+            }}
+          >
+            Let's discuss how we can bring your vision to life
+          </Typography>
+          <Button
+            variant="contained"
+            size="large"
+            sx={{
+              backgroundColor: brandColors.primary,
+              color: brandColors.text.light,
+              px: spacing.xl,
+              py: spacing.md,
+              fontSize: typography.fontSize.body1,
+              fontWeight: typography.fontWeight.semiBold,
+              borderRadius: borderRadius.medium,
+              textTransform: "none",
+              transition: transitions.default,
+              fontFamily: typography.fontFamily.body,
+              "&:hover": {
+                backgroundColor: "#B39375",
+                transform: "scale(1.05)",
+              },
+            }}
+          >
+            Contact Us Today
+          </Button>
+        </Box>
+      </Container>
     </Box>
   );
 };

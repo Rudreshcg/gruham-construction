@@ -1,30 +1,31 @@
 import React from "react";
-import { Box, Button, Container, Grid, Typography, Divider } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import ProjectImage from '../../assets/images/projects/livingarea-4.png';
 import { SlideLeft, SlideRight, SlideUp, FadeIn } from "../../animation/animate";
-import { FlexBox } from "../../common/FlexBox";
-
 
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "A beautifully designed living area with modern interiors, bringing warmth and style to your home. The space is designed to maximize comfort and functionality, with an open floor plan and sleek furniture.",
+    title: "Luxury Interior Design",
+    description: "Transform your living space into a masterpiece of elegance and comfort. Our luxury interior design services combine timeless aesthetics with modern functionality to create spaces that inspire and delight.",
     image: ProjectImage,
+    features: ["Custom Furniture", "Art Curation", "Lighting Design"]
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "An elegant and spacious architecture project with unique aesthetics and high-end materials. The project combines innovative designs with traditional craftsmanship, offering a luxurious feel throughout the entire space.",
+    title: "Modern Kitchen Design",
+    description: "Create the kitchen of your dreams with our expert design services. We focus on creating functional, beautiful spaces that make cooking and entertaining a joy, while maximizing storage and workflow efficiency.",
     image: ProjectImage,
+    features: ["Custom Cabinetry", "Premium Appliances", "Smart Storage"]
   },
   {
     id: 3,
-    title: "Project Three",
-    description: "A stunning outdoor landscape project that perfectly blends nature with contemporary design. From lush greenery to carefully designed hardscapes, this outdoor space creates a serene environment for relaxation and entertainment.",
+    title: "Bathroom Renovation",
+    description: "Elevate your bathroom into a luxurious sanctuary. Our bathroom renovation services combine premium materials with innovative design to create spaces that are both beautiful and functional.",
     image: ProjectImage,
+    features: ["Custom Fixtures", "Luxury Materials", "Spa Features"]
   }
 ];
 
@@ -32,112 +33,168 @@ const InteriorSection = () => {
   const navigate = useNavigate();
 
   return (
-    <Container sx={{ py: 8 }}>
-      {/* Section Heading */}
-      <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
-        <Typography
-          variant="h4"
-          fontWeight="bold"
-          textAlign="center"
-          gutterBottom
-          sx={{ color: "#222", mb: 4 }}
-        >
-          Our Featured Projects
-        </Typography>
-      </motion.div>
-
-      {projects.map((project, index) => (
-        <motion.div key={project.id}>
-          <Grid
-            container
-            spacing={6}
-            alignItems="center"
+    <Box sx={{ py: 8, backgroundColor: "#f8f8f8" }}>
+      <Container maxWidth="lg">
+        <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
+          <Typography
+            variant="h2"
             sx={{
-              mb: 8,
-              flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
+              fontFamily: "'Playfair Display', serif",
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              color: "#4a5942",
+              textAlign: "center",
+              mb: 2,
+              fontWeight: 700,
+              letterSpacing: "0.02em"
             }}
           >
-            {/* Project Image */}
-            <Grid item xs={12} md={6}>
-              <motion.div
-                variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)}
-                initial="initial"
-                whileInView="animate"
-              >
-                <Box
-                  component="img"
-                  src={project.image}
-                  alt={project.title}
-                  sx={{
-                    width: "100%",
-                    height: { xs: "250px", md: "350px" },
-                    borderRadius: "16px",
-                    boxShadow: 5,
-                    objectFit: "cover",
-                  }}
-                />
-              </motion.div>
-            </Grid>
-
-            {/* Project Content */}
-            <Grid item xs={12} md={6}>
-              <motion.div
-                variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)}
-                initial="initial"
-                whileInView="animate"
-              >
-                <Typography
-                  variant="h5"
-                  fontWeight="bold"
-                  gutterBottom
-                  sx={{ color: "#333" }}
-                >
-                  {project.title}
-                </Typography>
-                <Typography
-                  variant="h6"
-                  color="text.secondary"
-                  sx={{ lineHeight: 1.8, mb: 3 }}
-                >
-                  {project.description}
-                </Typography>
-              </motion.div>
-            </Grid>
-          </Grid>
-        </motion.div>
-      ))}
-
-      {/* See More Projects Button */}
-      <Box display="flex" justifyContent="center" mt={6}>
-        <motion.div variants={SlideUp(0.5)} initial="initial" whileInView="animate">
-          <Button
-            variant="contained"
-            color="primary"
+            Interior Excellence
+          </Typography>
+          <Typography
+            variant="h3"
             sx={{
-              px: 5,
-              py: 1.5,
-              fontSize: "1.1rem",
-              fontWeight: "bold",
-              borderRadius: "8px",
-              textTransform: "none",
-              transition: "0.3s",
-              "&:hover": {
-                backgroundColor: "secondary.main",
-                transform: "scale(1.05)",
-              },
+              color: "#666",
+              textAlign: "center",
+              mb: 6,
+              maxWidth: "800px",
+              mx: "auto",
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: { xs: "1rem", md: "1.25rem" },
+              fontWeight: 400,
+              letterSpacing: "0.01em"
             }}
-            onClick={() => navigate("/projects")}
           >
-            See More Projects
-          </Button>
+            Discover our range of interior design services that transform spaces into beautiful, functional environments
+          </Typography>
         </motion.div>
-      </Box>
-    </Container>
-    // <FlexBox>
-    //   <Typography className="luxury-text" variant="H1">
-    //      Gruham Offerings?
-    //   </Typography>
-    // </FlexBox>
+
+        {projects.map((project, index) => (
+          <motion.div key={project.id}>
+            <Grid
+              container
+              spacing={6}
+              alignItems="center"
+              sx={{
+                mb: 8,
+                flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
+              }}
+            >
+              <Grid item xs={12} md={6}>
+                <motion.div
+                  variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)}
+                  initial="initial"
+                  whileInView="animate"
+                >
+                  <Box
+                    component="img"
+                    src={project.image}
+                    alt={project.title}
+                    sx={{
+                      width: "100%",
+                      height: { xs: "300px", md: "400px" },
+                      borderRadius: "16px",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+                      objectFit: "cover",
+                      transition: "transform 0.3s ease-in-out",
+                      "&:hover": {
+                        transform: "scale(1.02)",
+                      },
+                    }}
+                  />
+                </motion.div>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <motion.div
+                  variants={index % 2 === 0 ? SlideRight(0.5) : SlideLeft(0.5)}
+                  initial="initial"
+                  whileInView="animate"
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      color: "#4a5942",
+                      fontWeight: 600,
+                      mb: 2,
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.5rem", md: "1.75rem" },
+                      letterSpacing: "0.01em"
+                    }}
+                  >
+                    {project.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: "#666",
+                      mb: 3,
+                      lineHeight: 1.8,
+                      fontFamily: "'Montserrat', sans-serif",
+                      fontSize: "1rem",
+                      letterSpacing: "0.01em"
+                    }}
+                  >
+                    {project.description}
+                  </Typography>
+                  <Box sx={{ mb: 3 }}>
+                    {project.features.map((feature, idx) => (
+                      <Typography
+                        key={idx}
+                        variant="body2"
+                        sx={{
+                          color: "#4a5942",
+                          mb: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          fontFamily: "'Montserrat', sans-serif",
+                          fontSize: "0.875rem",
+                          letterSpacing: "0.01em",
+                          "&:before": {
+                            content: '"•"',
+                            color: "#95805a",
+                            mr: 1,
+                            fontSize: "1.5rem"
+                          }
+                        }}
+                      >
+                        {feature}
+                      </Typography>
+                    ))}
+                  </Box>
+                </motion.div>
+              </Grid>
+            </Grid>
+          </motion.div>
+        ))}
+
+        <Box display="flex" justifyContent="center" mt={6}>
+          <motion.div variants={SlideUp(0.5)} initial="initial" whileInView="animate">
+            <Button
+              variant="contained"
+              onClick={() => navigate("/interior")}
+              sx={{
+                backgroundColor: "#95805a",
+                color: "white",
+                px: 5,
+                py: 1.5,
+                fontSize: "1rem",
+                fontWeight: 600,
+                borderRadius: "8px",
+                textTransform: "none",
+                transition: "0.3s",
+                fontFamily: "'Montserrat', sans-serif",
+                "&:hover": {
+                  backgroundColor: "#7a6a4a",
+                  transform: "scale(1.05)",
+                },
+              }}
+            >
+              Explore Interior Services
+            </Button>
+          </motion.div>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

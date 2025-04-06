@@ -1,10 +1,10 @@
 import React from "react";
-import { 
-  Container, 
-  Grid, 
-  Card, 
-  Typography, 
-  Box, 
+import {
+  Container,
+  Grid,
+  Card,
+  Typography,
+  Box,
   Button,
   Tab,
   Tabs,
@@ -12,10 +12,10 @@ import {
   useMediaQuery
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { 
-  HomeWork, 
-  Business, 
-  Architecture, 
+import {
+  HomeWork,
+  Business,
+  Architecture,
   DesignServices,
   Construction,
   Apartment,
@@ -24,12 +24,15 @@ import {
   Engineering,
   Handyman
 } from "@mui/icons-material";
-
-// Brand colors
-const brandColors = {
-  primary: '#C4A484',
-  text: '#2C2C2C',
-};
+import serviceImage from "../../assets/images/service.png";
+import {
+  brandColors,
+  typography,
+  spacing,
+  shadows,
+  transitions,
+  borderRadius
+} from "../../theme/designSystem";
 
 const services = [
   {
@@ -38,7 +41,7 @@ const services = [
     description: "Build your dream home from the ground up with our expert craftsmanship and attention to detail.",
     features: ["Custom Design Collaboration", "Premium Materials", "Energy Efficient Solutions"],
     icon: <HomeWork sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/custom-home.jpg" // You'll need to add these images
+    image: serviceImage
   },
   {
     category: "residential",
@@ -46,7 +49,7 @@ const services = [
     description: "Transform your existing home into a modern masterpiece with our comprehensive renovation services.",
     features: ["Complete Home Makeovers", "Kitchen & Bath Remodeling", "Room Additions"],
     icon: <Apartment sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/renovation.jpg"
+    image: serviceImage
   },
   {
     category: "residential",
@@ -54,7 +57,7 @@ const services = [
     description: "Create stunning living spaces that reflect your personal style and enhance your lifestyle.",
     features: ["Custom Cabinetry", "High-end Finishes", "Smart Home Integration"],
     icon: <DesignServices sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/interior.jpg"
+    image: serviceImage
   },
   {
     category: "commercial",
@@ -62,7 +65,7 @@ const services = [
     description: "Develop state-of-the-art commercial spaces that drive business success and growth.",
     features: ["Office Buildings", "Retail Spaces", "Industrial Facilities"],
     icon: <Business sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/commercial.jpg"
+    image: serviceImage
   },
   {
     category: "commercial",
@@ -70,7 +73,7 @@ const services = [
     description: "Customize commercial spaces to meet your specific business needs and brand identity.",
     features: ["Space Planning", "Custom Build-outs", "Modern Amenities"],
     icon: <Architecture sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/tenant.jpg"
+    image: serviceImage
   },
   {
     category: "specialized",
@@ -78,7 +81,7 @@ const services = [
     description: "Create your dream kitchen with premium materials and expert craftsmanship.",
     features: ["Custom Cabinetry", "High-end Appliances", "Luxury Countertops"],
     icon: <Kitchen sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/kitchen.jpg"
+    image: serviceImage
   },
   {
     category: "specialized",
@@ -86,7 +89,7 @@ const services = [
     description: "Transform your bathroom into a luxurious spa-like retreat.",
     features: ["Custom Showers", "Premium Fixtures", "Luxury Tiles"],
     icon: <Bathroom sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/bathroom.jpg"
+    image: serviceImage
   },
   {
     category: "specialized",
@@ -94,7 +97,7 @@ const services = [
     description: "Specialized construction services tailored to your unique needs.",
     features: ["Home Theaters", "Wine Cellars", "Outdoor Living"],
     icon: <Engineering sx={{ fontSize: 45, color: brandColors.primary }} />,
-    image: "/images/custom.jpg"
+    image: serviceImage
   }
 ];
 
@@ -102,7 +105,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
-  transition: 'transform 0.3s ease-in-out',
+  transition: transitions.default,
   cursor: 'pointer',
   overflow: 'hidden',
   '&:hover': {
@@ -121,7 +124,7 @@ const ImageBox = styled(Box)({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    transition: 'transform 0.3s ease-in-out'
+    transition: transitions.default
   }
 });
 
@@ -137,49 +140,56 @@ const Services = () => {
     { label: "Specialized", value: "specialized" }
   ];
 
-  const filteredServices = selectedTab === 0 
-    ? services 
+  const filteredServices = selectedTab === 0
+    ? services
     : services.filter(service => service.category === categories[selectedTab].value);
 
   return (
-    <Box sx={{ py: 8, backgroundColor: '#fafafa' }}>
+    <Box sx={{ py: spacing.xxl, backgroundColor: brandColors.background.primary }}>
       <Container maxWidth="lg">
         {/* Header Section */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography 
-            variant="h3" 
-            sx={{ 
-              fontWeight: 600, 
-              color: brandColors.text,
-              mb: 2 
+        <Box sx={{ textAlign: 'center', mb: spacing.xxl }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: typography.fontFamily.heading,
+              fontSize: typography.fontSize.h2,
+              color: brandColors.secondary,
+              textAlign: "center",
+              mb: spacing.md,
+              fontWeight: typography.fontWeight.bold,
+              letterSpacing: typography.letterSpacing.heading
             }}
           >
             Our Services
           </Typography>
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              color: 'text.secondary',
+          <Typography
+            variant="h6"
+            sx={{
+              color: brandColors.text.secondary,
               maxWidth: 800,
               mx: 'auto',
-              mb: 4
+              mb: spacing.lg,
+              fontFamily: typography.fontFamily.body,
+              fontSize: typography.fontSize.h6
             }}
           >
             From concept to completion, we deliver exceptional construction and design services
             tailored to your vision.
           </Typography>
-          
+
           {/* Category Tabs */}
-          <Tabs 
-            value={selectedTab} 
+          <Tabs
+            value={selectedTab}
             onChange={(e, newValue) => setSelectedTab(newValue)}
             centered
             sx={{
-              mb: 4,
+              mb: spacing.lg,
               '& .MuiTab-root': {
                 textTransform: 'none',
-                fontSize: '1rem',
+                fontSize: typography.fontSize.body1,
                 minWidth: isMobile ? 'auto' : 120,
+                fontFamily: typography.fontFamily.body
               },
               '& .Mui-selected': {
                 color: `${brandColors.primary} !important`,
@@ -210,45 +220,53 @@ const Services = () => {
                   <Box
                     sx={{
                       position: 'absolute',
-                      top: 16,
-                      right: 16,
+                      top: spacing.md,
+                      right: spacing.md,
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       borderRadius: '50%',
-                      p: 1,
+                      p: spacing.xs,
                     }}
                   >
                     {service.icon}
                   </Box>
                 </ImageBox>
-                <Box sx={{ p: 3, flexGrow: 1 }}>
-                  <Typography 
-                    variant="h5" 
-                    sx={{ 
-                      fontWeight: 600,
-                      mb: 2,
-                      color: brandColors.text
+                <Box sx={{ p: spacing.lg, flexGrow: 1 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: typography.fontWeight.semiBold,
+                      mb: spacing.md,
+                      color: brandColors.text.secondary,
+                      fontFamily: typography.fontFamily.heading,
+                      fontSize: typography.fontSize.h5
                     }}
                   >
                     {service.title}
                   </Typography>
-                  <Typography 
-                    variant="body1" 
+                  <Typography
+                    variant="body1"
                     color="text.secondary"
-                    sx={{ mb: 2 }}
+                    sx={{
+                      mb: spacing.md,
+                      fontFamily: typography.fontFamily.body,
+                      fontSize: typography.fontSize.body1
+                    }}
                   >
                     {service.description}
                   </Typography>
-                  <Box sx={{ mt: 2 }}>
+                  <Box sx={{ mt: spacing.md }}>
                     {service.features.map((feature, idx) => (
-                      <Typography 
-                        key={idx} 
-                        variant="body2" 
-                        sx={{ 
-                          color: 'text.secondary',
+                      <Typography
+                        key={idx}
+                        variant="body2"
+                        sx={{
+                          color: brandColors.text.secondary,
                           display: 'flex',
                           alignItems: 'center',
-                          gap: 1,
-                          mb: 1
+                          gap: spacing.xs,
+                          mb: spacing.xs,
+                          fontFamily: typography.fontFamily.body,
+                          fontSize: typography.fontSize.body2
                         }}
                       >
                         <Construction sx={{ fontSize: 16, color: brandColors.primary }} />
@@ -257,13 +275,16 @@ const Services = () => {
                     ))}
                   </Box>
                 </Box>
-                <Box sx={{ p: 3, pt: 0 }}>
-                  <Button 
-                    variant="outlined" 
+                <Box sx={{ p: spacing.lg, pt: 0 }}>
+                  <Button
+                    variant="outlined"
                     fullWidth
-                    sx={{ 
+                    sx={{
                       borderColor: brandColors.primary,
                       color: brandColors.primary,
+                      fontFamily: typography.fontFamily.body,
+                      fontSize: typography.fontSize.body1,
+                      fontWeight: typography.fontWeight.medium,
                       '&:hover': {
                         borderColor: brandColors.primary,
                         backgroundColor: 'rgba(196, 164, 132, 0.1)',
@@ -279,29 +300,49 @@ const Services = () => {
         </Grid>
 
         {/* Call to Action */}
-        <Box 
-          sx={{ 
-            textAlign: 'center', 
-            mt: 8,
-            p: 6,
-            backgroundColor: 'white',
-            borderRadius: 2,
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+        <Box
+          sx={{
+            textAlign: 'center',
+            mt: spacing.xxl,
+            p: spacing.xl,
+            backgroundColor: brandColors.background.primary,
+            borderRadius: borderRadius.medium,
+            boxShadow: shadows.medium
           }}
         >
-          <Typography variant="h4" sx={{ color: brandColors.text, mb: 2 }}>
+          <Typography
+            variant="h4"
+            sx={{
+              color: brandColors.text.primary,
+              mb: spacing.md,
+              fontFamily: typography.fontFamily.heading,
+              fontSize: typography.fontSize.h4,
+              fontWeight: typography.fontWeight.semiBold
+            }}
+          >
             Ready to Start Your Project?
           </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
+          <Typography
+            variant="body1"
+            sx={{
+              color: brandColors.text.secondary,
+              mb: spacing.lg,
+              fontFamily: typography.fontFamily.body,
+              fontSize: typography.fontSize.body1
+            }}
+          >
             Let's discuss how we can bring your vision to life.
           </Typography>
-          <Button 
+          <Button
             variant="contained"
             size="large"
             sx={{
               backgroundColor: brandColors.primary,
-              px: 4,
-              py: 1.5,
+              px: spacing.xl,
+              py: spacing.md,
+              fontFamily: typography.fontFamily.body,
+              fontSize: typography.fontSize.body1,
+              fontWeight: typography.fontWeight.medium,
               '&:hover': {
                 backgroundColor: '#B39375',
               }

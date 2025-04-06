@@ -1,308 +1,244 @@
 import React from "react";
+import { Box, Typography, Button, Container, Grid, Card } from "@mui/material";
+import { motion } from "framer-motion";
+import { FadeIn, SlideUp } from "../../animation/animate";
 import { 
-  Box, 
-  Typography, 
-  Grid, 
-  Card, 
-  Button,
-  Container,
-  List, 
-  ListItem, 
-  ListItemText, 
-  ListItemIcon,
-  Chip,
-  useMediaQuery, 
-  useTheme 
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { 
-  WorkOutline, 
-  ArrowForward, 
-  Engineering, 
-  Architecture, 
-  Construction, 
-  School, 
-  HealthAndSafety,
-  Diversity3
-} from "@mui/icons-material";
-import careersBg from "../../assets/images/careers_bg.jpg";
+  brandColors, 
+  typography, 
+  spacing, 
+  shadows, 
+  transitions,
+  borderRadius
+} from "../../theme/designSystem";
 
-// Brand colors
-const brandColors = {
-  primary: '#C4A484',
-  text: '#2C2C2C',
-};
-
-// Styled components
-const StyledHeroSection = styled(Box)(({ theme }) => ({
-  position: 'relative',
-  height: '70vh',
-  width: '100%',
-  backgroundImage: `url(${careersBg})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  }
-}));
-
-const JobCard = styled(Card)({
-  backgroundColor: '#fff',
-  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-  transition: 'transform 0.2s ease',
-  '&:hover': {
-    transform: 'translateY(-5px)',
-  },
-});
-
-const StyledListItem = styled(ListItem)({
-  padding: '24px',
-  '&:hover': {
-    backgroundColor: 'rgba(196, 164, 132, 0.1)',
-  },
-});
-
-const ValueCard = styled(Card)(({ theme }) => ({
-  padding: theme.spacing(4),
-  height: '100%',
-  textAlign: 'center',
-  transition: 'all 0.3s ease',
-  '&:hover': {
-    transform: 'translateY(-8px)',
-    boxShadow: '0 8px 24px rgba(196, 164, 132, 0.2)',
-  },
-}));
-
-const openPositions = [
+const careers = [
   {
-    title: "Senior Project Manager",
+    id: 1,
+    title: "Project Manager",
+    department: "Construction",
     location: "Portland, OR",
     type: "Full-time",
-    experience: "7+ years",
-    department: "Project Management",
-    description: "Lead high-value residential and commercial construction projects"
+    description: "We are seeking an experienced Project Manager to oversee construction projects and ensure successful delivery.",
+    requirements: [
+      "5+ years of construction project management experience",
+      "Strong leadership and communication skills",
+      "Knowledge of construction processes and regulations",
+      "Bachelor's degree in Construction Management or related field"
+    ]
   },
   {
-    title: "Architectural Designer",
-    location: "Seattle, WA",
-    type: "Full-time",
-    experience: "3-5 years",
+    id: 2,
+    title: "Interior Designer",
     department: "Design",
-    description: "Create innovative designs for luxury residential projects"
-  },
-  {
-    title: "Construction Superintendent",
     location: "Portland, OR",
     type: "Full-time",
-    experience: "5+ years",
-    department: "Operations",
-    description: "Oversee on-site construction activities and team management"
+    description: "Join our design team to create beautiful and functional spaces for our clients.",
+    requirements: [
+      "3+ years of interior design experience",
+      "Proficiency in design software",
+      "Strong portfolio of completed projects",
+      "Bachelor's degree in Interior Design"
+    ]
   },
   {
-    title: "MEP Coordinator",
-    location: "Vancouver, WA",
-    type: "Full-time",
-    experience: "4+ years",
-    department: "Engineering",
-    description: "Coordinate mechanical, electrical, and plumbing systems integration"
-  },
-  {
-    title: "Interior Design Specialist",
+    id: 3,
+    title: "Construction Supervisor",
+    department: "Construction",
     location: "Portland, OR",
     type: "Full-time",
-    experience: "3+ years",
-    department: "Design",
-    description: "Create stunning interior spaces for luxury homes"
+    description: "Lead construction teams and ensure quality workmanship on all projects.",
+    requirements: [
+      "7+ years of construction experience",
+      "Strong leadership and problem-solving skills",
+      "Knowledge of safety regulations",
+      "Trade certification or equivalent experience"
+    ]
   }
 ];
 
-const companyValues = [
-  {
-    icon: <Engineering sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
-    title: "Excellence in Craft",
-    description: "We take pride in delivering exceptional quality in every project we undertake."
-  },
-  {
-    icon: <Architecture sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
-    title: "Innovation",
-    description: "Embracing new technologies and methods to push the boundaries of construction."
-  },
-  {
-    icon: <Diversity3 sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
-    title: "Inclusive Culture",
-    description: "Fostering a diverse workplace where every voice matters and contributes to our success."
-  }
-];
-
-const benefits = [
-  {
-    icon: <HealthAndSafety />,
-    title: "Comprehensive Benefits",
-    items: ["Medical, Dental & Vision", "401(k) with Company Match", "Life Insurance"]
-  },
-  {
-    icon: <School />,
-    title: "Growth & Development",
-    items: ["Professional Certifications", "Leadership Training", "Education Reimbursement"]
-  },
-  {
-    icon: <Construction />,
-    title: "Work Perks",
-    items: ["Flexible Work Hours", "Paid Time Off", "Employee Stock Options"]
-  }
-];
-
-const Career = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+const Careers = () => {
   return (
-    <Box>
-      {/* Hero Section */}
-      <StyledHeroSection>
-        <Box sx={{ position: 'relative', textAlign: 'center', color: 'white', zIndex: 1, px: 2 }}>
-          <Typography variant="h2" component="h1" sx={{ fontWeight: 600, mb: 3 }}>
-            Build Your Future With Us
-          </Typography>
-          <Typography variant="h5" sx={{ maxWidth: 800, mx: 'auto', mb: 4 }}>
-            Join a team that's reshaping the landscape of luxury construction and creating extraordinary spaces.
-          </Typography>
-          <Button 
-            variant="contained" 
-            size="large"
-            sx={{ 
-              backgroundColor: brandColors.primary,
-              '&:hover': {
-                backgroundColor: '#B39375',
-              },
-              px: 4,
-              py: 1.5
+    <Box sx={{ py: spacing.xxl, backgroundColor: brandColors.background.light }}>
+      <Container maxWidth="lg">
+        <motion.div variants={FadeIn(0.8)} initial="initial" animate="animate">
+          <Typography
+            variant="h2"
+            sx={{
+              color: brandColors.text.primary,
+              fontSize: typography.fontSize.h2,
+              fontWeight: typography.fontWeight.bold,
+              mb: spacing.md,
+              fontFamily: typography.fontFamily.heading,
+              letterSpacing: typography.letterSpacing.heading,
+              textAlign: "center"
             }}
           >
-            View Open Positions
-          </Button>
-        </Box>
-      </StyledHeroSection>
-
-      {/* Main Content */}
-      <Container maxWidth="lg" sx={{ my: 8 }}>
-        {/* Company Values Section */}
-        <Box sx={{ mb: 10 }}>
-          <Typography variant="h4" sx={{ color: brandColors.text, mb: 6, textAlign: 'center' }}>
-            Our Values
+            Join Our Team
           </Typography>
-          <Grid container spacing={4}>
-            {companyValues.map((value, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <ValueCard>
-                  {value.icon}
-                  <Typography variant="h5" sx={{ mb: 2, color: brandColors.text }}>
-                    {value.title}
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary">
-                    {value.description}
-                  </Typography>
-                </ValueCard>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* Open Positions Section */}
-        <Box sx={{ mb: 10 }}>
-          <Typography variant="h4" sx={{ color: brandColors.text, mb: 4, textAlign: 'center' }}>
-            Current Opportunities
+          <Typography
+            variant="h3"
+            sx={{
+              color: brandColors.text.secondary,
+              fontSize: typography.fontSize.h3,
+              mb: spacing.xl,
+              maxWidth: "800px",
+              margin: "0 auto",
+              fontFamily: typography.fontFamily.body,
+              fontWeight: typography.fontWeight.regular,
+              letterSpacing: typography.letterSpacing.body,
+              textAlign: "center"
+            }}
+          >
+            Build your career with us and be part of something extraordinary
           </Typography>
-          <JobCard>
-            <List disablePadding>
-              {openPositions.map((position, index) => (
-                <StyledListItem
-                  key={index}
-                  divider={index !== openPositions.length - 1}
-                  secondaryAction={
-                    <Button
-                      endIcon={<ArrowForward />}
-                      sx={{
-                        color: brandColors.primary,
-                        '&:hover': {
-                          backgroundColor: 'rgba(196, 164, 132, 0.1)',
-                        }
-                      }}
-                    >
-                      Learn More
-                    </Button>
-                  }
+        </motion.div>
+
+        <Grid container spacing={spacing.xl}>
+          {careers.map((career) => (
+            <Grid item xs={12} key={career.id}>
+              <motion.div variants={SlideUp(0.5)} initial="initial" animate="animate">
+                <Card
+                  sx={{
+                    p: spacing.xl,
+                    backgroundColor: brandColors.background.white,
+                    borderRadius: borderRadius.large,
+                    boxShadow: shadows.medium,
+                    transition: transitions.default,
+                    "&:hover": {
+                      transform: "translateY(-5px)",
+                      boxShadow: shadows.large,
+                    },
+                  }}
                 >
-                  <ListItemIcon>
-                    <WorkOutline sx={{ color: brandColors.primary }} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={
-                      <Box sx={{ mb: 1 }}>
-                        <Typography variant="h6" sx={{ color: brandColors.text, fontSize: '1.1rem', mb: 1 }}>
-                          {position.title}
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                          <Chip size="small" label={position.location} />
-                          <Chip size="small" label={position.experience} />
-                          <Chip size="small" label={position.department} />
-                        </Box>
-                      </Box>
-                    }
-                    secondary={
-                      <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                        {position.description}
+                  <Grid container spacing={spacing.lg}>
+                    <Grid item xs={12} md={8}>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          color: brandColors.text.primary,
+                          fontSize: typography.fontSize.h4,
+                          fontWeight: typography.fontWeight.bold,
+                          mb: spacing.sm,
+                          fontFamily: typography.fontFamily.heading,
+                          letterSpacing: typography.letterSpacing.heading,
+                        }}
+                      >
+                        {career.title}
                       </Typography>
-                    }
-                  />
-                </StyledListItem>
-              ))}
-            </List>
-          </JobCard>
-        </Box>
-
-        {/* Benefits Section */}
-        <Box sx={{ textAlign: 'center' }}>
-          <Typography variant="h4" sx={{ color: brandColors.text, mb: 6 }}>
-            Why Choose Gruham
-          </Typography>
-          <Grid container spacing={4}>
-            {benefits.map((benefit, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Card sx={{ p: 4, height: '100%', backgroundColor: index % 2 === 0 ? '#fff' : 'rgba(196, 164, 132, 0.05)' }}>
-                  <Box sx={{ color: brandColors.primary, mb: 2 }}>
-                    {benefit.icon}
-                  </Box>
-                  <Typography variant="h6" sx={{ mb: 2, color: brandColors.text }}>
-                    {benefit.title}
-                  </Typography>
-                  <List>
-                    {benefit.items.map((item, idx) => (
-                      <ListItem key={idx} sx={{ px: 0 }}>
-                        <ListItemText 
-                          primary={item}
-                          sx={{ textAlign: 'center' }}
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
+                      <Box sx={{ mb: spacing.md }}>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: brandColors.text.secondary,
+                            fontSize: typography.fontSize.body1,
+                            fontFamily: typography.fontFamily.body,
+                            letterSpacing: typography.letterSpacing.body,
+                            mb: spacing.xs,
+                          }}
+                        >
+                          Department: {career.department}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: brandColors.text.secondary,
+                            fontSize: typography.fontSize.body1,
+                            fontFamily: typography.fontFamily.body,
+                            letterSpacing: typography.letterSpacing.body,
+                            mb: spacing.xs,
+                          }}
+                        >
+                          Location: {career.location}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: brandColors.text.secondary,
+                            fontSize: typography.fontSize.body1,
+                            fontFamily: typography.fontFamily.body,
+                            letterSpacing: typography.letterSpacing.body,
+                          }}
+                        >
+                          Type: {career.type}
+                        </Typography>
+                      </Box>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: brandColors.text.secondary,
+                          fontSize: typography.fontSize.body1,
+                          fontFamily: typography.fontFamily.body,
+                          letterSpacing: typography.letterSpacing.body,
+                          mb: spacing.md,
+                        }}
+                      >
+                        {career.description}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: brandColors.text.primary,
+                          fontSize: typography.fontSize.h6,
+                          fontWeight: typography.fontWeight.bold,
+                          mb: spacing.sm,
+                          fontFamily: typography.fontFamily.heading,
+                          letterSpacing: typography.letterSpacing.heading,
+                        }}
+                      >
+                        Requirements:
+                      </Typography>
+                      <Box component="ul" sx={{ pl: spacing.md, mb: spacing.md }}>
+                        {career.requirements.map((req, index) => (
+                          <Typography
+                            key={index}
+                            component="li"
+                            variant="body1"
+                            sx={{
+                              color: brandColors.text.secondary,
+                              fontSize: typography.fontSize.body1,
+                              fontFamily: typography.fontFamily.body,
+                              letterSpacing: typography.letterSpacing.body,
+                              mb: spacing.xs,
+                            }}
+                          >
+                            {req}
+                          </Typography>
+                        ))}
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} md={4} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Button
+                        variant="contained"
+                        size="large"
+                        sx={{
+                          backgroundColor: brandColors.primary,
+                          color: brandColors.text.light,
+                          px: spacing.xl,
+                          py: spacing.md,
+                          fontSize: typography.fontSize.body1,
+                          fontWeight: typography.fontWeight.semiBold,
+                          borderRadius: borderRadius.medium,
+                          textTransform: "none",
+                          transition: transitions.default,
+                          fontFamily: typography.fontFamily.body,
+                          "&:hover": {
+                            backgroundColor: "#B39375",
+                            transform: "scale(1.05)",
+                          },
+                        }}
+                      >
+                        Apply Now
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </Box>
   );
 };
 
-export default Career;
+export default Careers;
