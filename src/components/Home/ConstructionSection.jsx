@@ -47,65 +47,82 @@ const ConstructionSection = () => {
   return (
     <Box sx={{ py: 8, backgroundColor: "white" }}>
       <Container maxWidth="lg">
-        <motion.div
-          variants={FadeIn(0.5)}
-          initial="initial"
-          whileInView="animate"
-        >
-          <ManiHeader headerText={"Our Construction Projects"} />
-          <DiscriptionTypography
-            text={
-              "Discover our portfolio of exceptional construction projects that showcase our commitment to quality and innovation"
-            }
-          />
-        </motion.div>
+      <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
+        <Typography
+            variant="h2"
+            sx={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              color: "#4a5942",
+              textAlign: "center",
+              mb: 2,
+              fontWeight: 700,
+              letterSpacing: "0.02em"
+            }}
+          >
+            Our Construction Projects
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              color: "#666",
+              textAlign: "center",
+              mb: 6,
+              maxWidth: "800px",
+              mx: "auto",
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: { xs: "1rem", md: "1.25rem" },
+              fontWeight: 400,
+              letterSpacing: "0.01em"
+            }}
+          >
+            Discover our portfolio of exceptional construction projects that showcase our commitment to quality and innovation
+        </Typography>
+      </motion.div>
 
-        {projects.map((project, index) => (
-          <motion.div key={project.id}>
-            <Grid
-              container
-              spacing={6}
-              alignItems="center"
-              sx={{
-                mb: 8,
-                flexDirection: {
-                  xs: "column",
-                  md: index % 2 === 0 ? "row" : "row-reverse",
-                },
-              }}
-            >
-              <Grid item xs={12} md={6}>
-                <motion.div
-                  variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)}
-                  initial="initial"
-                  whileInView="animate"
-                >
-                  <Box
-                    component="img"
-                    src={project.image}
-                    alt={project.title}
-                    sx={{
-                      width: "100%",
+      {projects.map((project, index) => (
+        <motion.div key={project.id}>
+          <Grid
+            container
+            spacing={6}
+            alignItems="center"
+            sx={{
+              mb: 8,
+              flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
+            }}
+          >
+            <Grid item xs={12} md={6}>
+              <motion.div
+                variants={index % 2 === 0 ? SlideLeft(0.5) : SlideRight(0.5)}
+                initial="initial"
+                whileInView="animate"
+              >
+                <Box
+                  component="img"
+                  src={project.image}
+                  alt={project.title}
+                  sx={{
+                    width: "100%",
                       height: { xs: "300px", md: "400px" },
-                      borderRadius: "16px",
+                    borderRadius: "16px",
                       boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-                      objectFit: "cover",
+                    objectFit: "cover",
                       transition: "transform 0.3s ease-in-out",
                       "&:hover": {
                         transform: "scale(1.02)",
                       },
-                    }}
-                  />
-                </motion.div>
-              </Grid>
+                  }}
+                />
+              </motion.div>
+            </Grid>
 
-              <Grid item xs={12} md={6}>
-                <motion.div
+            <Grid item xs={12} md={6}>
+              <motion.div
                   variants={index % 2 === 0 ? SlideRight(0.5) : SlideLeft(0.5)}
-                  initial="initial"
-                  whileInView="animate"
-                >
-                  <Typography
+                initial="initial"
+                whileInView="animate"
+              >
+                <Typography
                     variant="h4"
                     sx={{
                       color: "#4a5942",
@@ -115,10 +132,10 @@ const ConstructionSection = () => {
                       fontSize: { xs: "1.5rem", md: "1.75rem" },
                       letterSpacing: "0.01em",
                     }}
-                  >
-                    {project.title}
-                  </Typography>
-                  <Typography
+                >
+                  {project.title}
+                </Typography>
+                <Typography
                     variant="body1"
                     sx={{
                       color: "#666",
@@ -128,9 +145,9 @@ const ConstructionSection = () => {
                       fontSize: "1rem",
                       letterSpacing: "0.01em",
                     }}
-                  >
-                    {project.description}
-                  </Typography>
+                >
+                  {project.description}
+                </Typography>
                   <Box sx={{ mb: 3 }}>
                     {project.features.map((feature, idx) => (
                       <Typography
@@ -156,43 +173,39 @@ const ConstructionSection = () => {
                       </Typography>
                     ))}
                   </Box>
-                </motion.div>
-              </Grid>
+              </motion.div>
             </Grid>
-          </motion.div>
-        ))}
+          </Grid>
+        </motion.div>
+      ))}
 
-        <Box display="flex" justifyContent="center" mt={6}>
-          <motion.div
-            variants={SlideUp(0.5)}
-            initial="initial"
-            whileInView="animate"
-          >
-            <Button
-              variant="contained"
+      <Box display="flex" justifyContent="center" mt={6}>
+        <motion.div variants={SlideUp(0.5)} initial="initial" whileInView="animate">
+          <Button
+            variant="contained"
               onClick={() => navigate("/projects")}
-              sx={{
+            sx={{
                 backgroundColor: "#95805a",
                 color: "white",
-                px: 5,
-                py: 1.5,
+              px: 5,
+              py: 1.5,
                 fontSize: "1rem",
                 fontWeight: 600,
-                borderRadius: "8px",
-                textTransform: "none",
-                transition: "0.3s",
+              borderRadius: "8px",
+              textTransform: "none",
+              transition: "0.3s",
                 fontFamily: "'Montserrat', sans-serif",
-                "&:hover": {
+              "&:hover": {
                   backgroundColor: "#7a6a4a",
-                  transform: "scale(1.05)",
-                },
-              }}
-            >
+                transform: "scale(1.05)",
+              },
+            }}
+          >
               View All Projects
-            </Button>
-          </motion.div>
-        </Box>
-      </Container>
+          </Button>
+        </motion.div>
+      </Box>
+    </Container>
     </Box>
   );
 };

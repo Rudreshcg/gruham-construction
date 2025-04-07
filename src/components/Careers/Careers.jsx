@@ -224,8 +224,8 @@ const Careers = () => {
   const filteredJobs = selectedCategory === "all" 
     ? careers 
     : careers.filter(job => job.department.toLowerCase() === selectedCategory);
-
-  return (
+    
+    return (
     <Box>
       {/* Hero Section */}
       <StyledHeroSection>
@@ -497,7 +497,7 @@ const Careers = () => {
                     }}
                   >
                     {selectedJob.title}
-                  </Typography>
+            </Typography>
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: spacing.sm, mb: spacing.lg }}>
                     <Chip
                       label={selectedJob.department}
@@ -539,8 +539,8 @@ const Careers = () => {
                     }}
                   >
                     {selectedJob.description}
-                  </Typography>
-                  
+            </Typography>
+
                   <Typography
                     variant="h5"
                     sx={{
@@ -661,8 +661,8 @@ const Careers = () => {
                   </Button>
                 </Card>
               ) : (
-                <Box
-                  sx={{
+            <Box
+                sx={{
                     p: spacing.xl,
                     backgroundColor: brandColors.background.light,
                     borderRadius: borderRadius.large,
@@ -683,13 +683,13 @@ const Careers = () => {
                     }}
                   >
                     Select a position to view details
-                  </Typography>
+                </Typography>
                 </Box>
               )}
             </Grid>
           </Grid>
         </Container>
-      </Box>
+            </Box>
 
       {/* Application Process Section */}
       <Box sx={{ py: spacing.xxl, backgroundColor: brandColors.background.light }}>
@@ -796,7 +796,7 @@ const Careers = () => {
                       }}
                     >
                       {item.description}
-                    </Typography>
+                </Typography>
                     {index < 4 && (
                       <Box
                         sx={{
@@ -814,11 +814,11 @@ const Careers = () => {
                 </motion.div>
               </Grid>
             ))}
-          </Grid>
+                    </Grid>
         </Container>
-      </Box>
-    </Box>
-  );
+            </Box>
+        </Box>
+    );
 };
 
 export default Careers;
