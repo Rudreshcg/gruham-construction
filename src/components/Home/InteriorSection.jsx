@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import ProjectImage from '../../assets/images/projects/livingarea-4.png';
 import { SlideLeft, SlideRight, SlideUp, FadeIn } from "../../animation/animate";
+import { DiscriptionTypography, ManiHeader } from "../../common/headerComponents";
 
 const projects = [
   {
@@ -36,36 +37,8 @@ const InteriorSection = () => {
     <Box sx={{ py: 8, backgroundColor: "#f8f8f8" }}>
       <Container maxWidth="lg">
         <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
-          <Typography
-            variant="h2"
-            sx={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: { xs: "2rem", md: "2.5rem" },
-              color: "#4a5942",
-              textAlign: "center",
-              mb: 2,
-              fontWeight: 700,
-              letterSpacing: "0.02em"
-            }}
-          >
-            Interior Excellence
-          </Typography>
-          <Typography
-            variant="h3"
-            sx={{
-              color: "#666",
-              textAlign: "center",
-              mb: 6,
-              maxWidth: "800px",
-              mx: "auto",
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: { xs: "1rem", md: "1.25rem" },
-              fontWeight: 400,
-              letterSpacing: "0.01em"
-            }}
-          >
-            Discover our range of interior design services that transform spaces into beautiful, functional environments
-          </Typography>
+          <ManiHeader headerText={'Interior Excellence'}/>
+          <DiscriptionTypography text={'Discover our range of interior design services that transform spaces into beautiful, functional environments'}/>
         </motion.div>
 
         {projects.map((project, index) => (
