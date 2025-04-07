@@ -2,31 +2,43 @@ import React from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import ProjectImage from '../../assets/images/projects/livingarea-4.png';
-import { SlideLeft, SlideRight, SlideUp, FadeIn } from "../../animation/animate";
+import ProjectImage from "../../assets/images/projects/livingarea-4.png";
+import {
+  SlideLeft,
+  SlideRight,
+  SlideUp,
+  FadeIn,
+} from "../../animation/animate";
+import {
+  DiscriptionTypography,
+  ManiHeader,
+} from "../../common/headerComponents";
 
 const projects = [
   {
     id: 1,
     title: "Luxury Villa Construction",
-    description: "Experience the epitome of luxury living with our custom villa construction services. We combine innovative design with premium materials to create stunning, functional spaces that reflect your unique style and preferences.",
+    description:
+      "Experience the epitome of luxury living with our custom villa construction services. We combine innovative design with premium materials to create stunning, functional spaces that reflect your unique style and preferences.",
     image: ProjectImage,
-    features: ["Custom Design", "Premium Materials", "Smart Home Integration"]
+    features: ["Custom Design", "Premium Materials", "Smart Home Integration"],
   },
   {
     id: 2,
     title: "Modern Apartment Complex",
-    description: "Our modern apartment complexes are designed with contemporary living in mind. We focus on creating spaces that maximize natural light, promote community interaction, and offer luxurious amenities for a premium living experience.",
+    description:
+      "Our modern apartment complexes are designed with contemporary living in mind. We focus on creating spaces that maximize natural light, promote community interaction, and offer luxurious amenities for a premium living experience.",
     image: ProjectImage,
-    features: ["Community Spaces", "Energy Efficient", "Modern Amenities"]
+    features: ["Community Spaces", "Energy Efficient", "Modern Amenities"],
   },
   {
     id: 3,
     title: "Commercial Development",
-    description: "Transform your business space with our commercial construction expertise. We specialize in creating functional, aesthetically pleasing environments that enhance productivity and leave a lasting impression on clients.",
+    description:
+      "Transform your business space with our commercial construction expertise. We specialize in creating functional, aesthetically pleasing environments that enhance productivity and leave a lasting impression on clients.",
     image: ProjectImage,
-    features: ["Custom Layouts", "Professional Finish", "Business Solutions"]
-  }
+    features: ["Custom Layouts", "Professional Finish", "Business Solutions"],
+  },
 ];
 
 const ConstructionSection = () => {
@@ -35,37 +47,17 @@ const ConstructionSection = () => {
   return (
     <Box sx={{ py: 8, backgroundColor: "white" }}>
       <Container maxWidth="lg">
-        <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
-          <Typography
-            variant="h2"
-            sx={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: { xs: "2rem", md: "2.5rem" },
-              color: "#4a5942",
-              textAlign: "center",
-              mb: 2,
-              fontWeight: 700,
-              letterSpacing: "0.02em"
-            }}
-          >
-            Our Construction Projects
-          </Typography>
-          <Typography
-            variant="h3"
-            sx={{
-              color: "#666",
-              textAlign: "center",
-              mb: 6,
-              maxWidth: "800px",
-              mx: "auto",
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: { xs: "1rem", md: "1.25rem" },
-              fontWeight: 400,
-              letterSpacing: "0.01em"
-            }}
-          >
-            Discover our portfolio of exceptional construction projects that showcase our commitment to quality and innovation
-          </Typography>
+        <motion.div
+          variants={FadeIn(0.5)}
+          initial="initial"
+          whileInView="animate"
+        >
+          <ManiHeader headerText={"Our Construction Projects"} />
+          <DiscriptionTypography
+            text={
+              "Discover our portfolio of exceptional construction projects that showcase our commitment to quality and innovation"
+            }
+          />
         </motion.div>
 
         {projects.map((project, index) => (
@@ -76,7 +68,10 @@ const ConstructionSection = () => {
               alignItems="center"
               sx={{
                 mb: 8,
-                flexDirection: { xs: "column", md: index % 2 === 0 ? "row" : "row-reverse" },
+                flexDirection: {
+                  xs: "column",
+                  md: index % 2 === 0 ? "row" : "row-reverse",
+                },
               }}
             >
               <Grid item xs={12} md={6}>
@@ -118,7 +113,7 @@ const ConstructionSection = () => {
                       mb: 2,
                       fontFamily: "'Playfair Display', serif",
                       fontSize: { xs: "1.5rem", md: "1.75rem" },
-                      letterSpacing: "0.01em"
+                      letterSpacing: "0.01em",
                     }}
                   >
                     {project.title}
@@ -131,7 +126,7 @@ const ConstructionSection = () => {
                       lineHeight: 1.8,
                       fontFamily: "'Montserrat', sans-serif",
                       fontSize: "1rem",
-                      letterSpacing: "0.01em"
+                      letterSpacing: "0.01em",
                     }}
                   >
                     {project.description}
@@ -153,8 +148,8 @@ const ConstructionSection = () => {
                             content: '"•"',
                             color: "#95805a",
                             mr: 1,
-                            fontSize: "1.5rem"
-                          }
+                            fontSize: "1.5rem",
+                          },
                         }}
                       >
                         {feature}
@@ -168,7 +163,11 @@ const ConstructionSection = () => {
         ))}
 
         <Box display="flex" justifyContent="center" mt={6}>
-          <motion.div variants={SlideUp(0.5)} initial="initial" whileInView="animate">
+          <motion.div
+            variants={SlideUp(0.5)}
+            initial="initial"
+            whileInView="animate"
+          >
             <Button
               variant="contained"
               onClick={() => navigate("/projects")}
