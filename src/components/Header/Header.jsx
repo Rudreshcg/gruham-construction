@@ -9,7 +9,6 @@ import {
   useMediaQuery,
   useTheme,
   MenuItem,
-  Menu,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -35,18 +34,21 @@ const Header = () => {
     setDrawerOpen(Boolean(drawerOpen) ? !drawerOpen : e.currentTarget);
   };
 
-  const tabHandler =(value) =>{
-    setSelectedTab(value)
-  }
-
-  const tabMenu = [{tabName:'HOME', to:'/'}, {tabName:'ABOUT', to:'/about'}, {tabName:'SERVICES', to:'/services'}, {tabName:'CAREERS', to:'/careers'}, {tabName:'BLOGS', to:'/blogs'}, {tabName:'CONTACT', to:'/contact'}]
+  const tabMenu = [
+    { tabName: "HOME", to: "/" },
+    { tabName: "ABOUT", to: "/about" },
+    { tabName: "SERVICES", to: "/services" },
+    { tabName: "CAREERS", to: "/careers" },
+    { tabName: "BLOGS", to: "/blogs" },
+    { tabName: "CONTACT", to: "/contact" },
+  ];
 
   return (
     <>
       <AppBar
         position="static"
         sx={{
-          backgroundColor: "white",
+          backgroundColor: isMobile && Boolean(drawerOpen) ? "black" : "white",
           color: "#595959",
           width: "100%",
           overflowX: "hidden",
@@ -106,7 +108,14 @@ const Header = () => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ display: { xs: "block", md: "none", paddingRight: "12px" } }}
+            sx={{
+              display: {
+                xs: "block",
+                md: "none",
+                paddingRight: "12px",
+                color: drawerOpen ? "white" : "black",
+              },
+            }}
             onClick={toggleDrawer}
           >
             {drawerOpen ? <CloseIcon /> : <MenuIcon />}
@@ -115,44 +124,53 @@ const Header = () => {
         <Divider sx={{ width: "100%" }} />
       </AppBar>
 
-      <Menu
-        anchorEl={drawerOpen}
-        open={Boolean(drawerOpen)}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        onClose={toggleDrawer}
-      >
-        {tabMenu.map((tab) => (
-          <MenuItem
-            key={tab.id}
-            button
-            component={RouterLink}
-            to={tab.to}
-            sx={{
-              color:
-                (params["*"] === "" && tab.to === "/") ||
-                (params["*"] !== "" && tab.to.includes(params["*"]))
-                  ? "#C2B280"
-                  : "#4A4A4A",
-              width: "100vw",
-              // p: "16px 24px",
-              "&:hover": {
-                color: "#C2B280",
-                backgroundColor: "inherit",
-              },
-            }}
-            name={tab.tabName}
-            onClick={toggleDrawer}
-          >
-            {tab.tabName}
-          </MenuItem>
-        ))}
-      </Menu>
-
-      {/* <Box sx={{ marginTop: drawerOpen ? '32vh' : 0 }}>
-      </Box> */}
+      {Boolean(drawerOpen) && (
+        <Box
+          sx={{
+            backgroundColor: "black",
+            width: "100%",
+            // height: "2vh",
+            zIndex: 100,
+            position: "absolute",
+          }}
+        >
+          {tabMenu.map((tab, index) => (
+            <>
+              <MenuItem
+                key={tab.id}
+                button
+                component={RouterLink}
+                to={tab.to}
+                sx={{
+                  color:
+                    (params["*"] === "" && tab.to === "/") ||
+                    (params["*"] !== "" && tab.to.includes(params["*"]))
+                      ? "#C2B280"
+                      : "white",
+                  width: "100vw",
+                  display: "flex",
+                  alignItems: "center",
+                  // p: "16px 24px",
+                  "&:hover": {
+                    color: "#C2B280",
+                    backgroundColor: "inherit",
+                  },
+                }}
+                name={tab.tabName}
+                onClick={toggleDrawer}
+              >
+                {tab.tabName}
+              </MenuItem>
+              {index != tabMenu.length - 1 && (
+                <Divider
+                  sx={{ backgroundColor: "white" }}
+                  variant="fullWidth"
+                />
+              )}
+            </>
+          ))}
+        </Box>
+      )}
     </>
   );
 };
