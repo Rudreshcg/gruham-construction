@@ -129,7 +129,7 @@ const Header = () => {
           sx={{
             backgroundColor: "black",
             width: "100%",
-            // height: "2vh",
+            height: "100vh",
             zIndex: 100,
             position: "absolute",
           }}
@@ -162,6 +162,12 @@ const Header = () => {
               >
                 {tab.tabName}
               </MenuItem>
+              {index === tabMenu.length - 1 && (
+                <Divider
+                  sx={{ backgroundColor: "white" }}
+                  variant="fullWidth"
+                />
+              )}
             </>
           ))}
         </Box>
