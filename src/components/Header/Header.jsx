@@ -136,6 +136,7 @@ const Header = () => {
         >
           {tabMenu.map((tab, index) => (
             <>
+              <Divider sx={{ backgroundColor: "white" }} variant="fullWidth" />
               <MenuItem
                 key={tab.id}
                 button
@@ -161,12 +162,6 @@ const Header = () => {
               >
                 {tab.tabName}
               </MenuItem>
-              {index != tabMenu.length - 1 && (
-                <Divider
-                  sx={{ backgroundColor: "white" }}
-                  variant="fullWidth"
-                />
-              )}
             </>
           ))}
         </Box>
