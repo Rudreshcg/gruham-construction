@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import landingPageImage from "../../assets/images/hero_image.webp";
 import { SlideUp, FadeIn } from "../../animation/animate";
+import RadialGradient from "../../common/RadialGradient";
 
 const Hero = () => {
+  const maindivRef = useRef(null);
   const navigate = useNavigate();
 
   return (
@@ -35,8 +37,13 @@ const Hero = () => {
           zIndex: 1,
         },
       }}
+      ref={maindivRef}
     >
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>
+      <RadialGradient outerDivRef={maindivRef} />
+      <Container
+        maxWidth="lg"
+        sx={{ position: "relative", zIndex: 2, textAlign: "center" }}
+      >
         <motion.div variants={FadeIn(0.8)} initial="initial" animate="animate">
           <Typography
             variant="h1"
