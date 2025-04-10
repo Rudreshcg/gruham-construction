@@ -62,11 +62,11 @@ function RadialGradient({ outerDivRef }) {
         height: "100%",
         background: `radial-gradient(
               circle,
-              transparent 30px,
-               rgba(245, 241, 241, 0.5) 31px
+              transparent ,
+               black
             )`,
         position: "absolute",
-        zIndex: 100,
+        zIndex: 95,
         // cursor: "none",
       }}
     >
