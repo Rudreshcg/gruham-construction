@@ -17,7 +17,7 @@ import {
   Groups,
   Business,
 } from "@mui/icons-material";
-import aboutBg from "../../assets/images/careers_bg.jpg";
+import aboutBg from "../../assets/images/careers_bg.jpg"; // Ensure this path is correct
 import { FadeIn, SlideUp } from "../../animation/animate";
 import { styled } from "@mui/material/styles";
 import {
@@ -27,41 +27,49 @@ import {
   shadows,
   transitions,
   borderRadius,
-} from "../../theme/designSystem";
-import {
-  DiscriptionTypography,
-  ManiHeader,
-} from "../../common/headerComponents";
+} from "../../theme/designSystem"; // Ensure this designSystem provides breakpoints or use explicit responsive values
 
-const StyledCard = styled(Card)({
+// Removed imports for DiscriptionTypography and ManiHeader as their styles are inlined
+
+// Styled components remain, ensuring consistent styling from your design system
+const StyledCard = styled(Card)(({ theme }) => ({
   height: "100%",
   backgroundColor: brandColors.background.primary,
   boxShadow: shadows.small,
   transition: transitions.default,
+  borderRadius: borderRadius.medium, // Apply border radius from design system
   "&:hover": {
     transform: "translateY(-8px)",
     boxShadow: shadows.large,
   },
-});
+  [theme.breakpoints.down('sm')]: {
+    padding: spacing.md, // Adjust padding on smaller screens
+  },
+}));
 
-const ValueCard = styled(Card)({
+const ValueCard = styled(Card)(({ theme }) => ({
   padding: spacing.xl,
   height: "100%",
   textAlign: "center",
   backgroundColor: brandColors.background.primary,
+  boxShadow: shadows.small, // Apply shadow from design system
+  borderRadius: borderRadius.medium, // Apply border radius from design system
   transition: transitions.default,
   "&:hover": {
     transform: "translateY(-8px)",
-    boxShadow: shadows.large,
+    boxShadow: shadows.large, // Apply stronger shadow on hover
   },
-});
+  [theme.breakpoints.down('sm')]: {
+    padding: spacing.md, // Adjust padding on smaller screens
+  },
+}));
 
 const About = () => {
   const values = [
     {
       icon: (
         <Architecture
-          sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }}
+          sx={{ fontSize: { xs: 32, md: 40 }, color: brandColors.primary, mb: { xs: 1, md: 2 } }}
         />
       ),
       title: "Excellence in Design",
@@ -70,7 +78,7 @@ const About = () => {
     },
     {
       icon: (
-        <Engineering sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />
+        <Engineering sx={{ fontSize: { xs: 32, md: 40 }, color: brandColors.primary, mb: { xs: 1, md: 2 } }} />
       ),
       title: "Quality Craftsmanship",
       description:
@@ -79,7 +87,7 @@ const About = () => {
     {
       icon: (
         <DesignServices
-          sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }}
+          sx={{ fontSize: { xs: 32, md: 40 }, color: brandColors.primary, mb: { xs: 1, md: 2 } }}
         />
       ),
       title: "Innovative Solutions",
@@ -88,21 +96,21 @@ const About = () => {
     },
     {
       icon: (
-        <EmojiEvents sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />
+        <EmojiEvents sx={{ fontSize: { xs: 32, md: 40 }, color: brandColors.primary, mb: { xs: 1, md: 2 } }} />
       ),
       title: "Industry Recognition",
       description:
         "Award-winning projects that set new standards in luxury construction and design.",
     },
     {
-      icon: <Groups sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />,
+      icon: <Groups sx={{ fontSize: { xs: 32, md: 40 }, color: brandColors.primary, mb: { xs: 1, md: 2 } }} />,
       title: "Expert Team",
       description:
         "A dedicated team of professionals committed to bringing your vision to life.",
     },
     {
       icon: (
-        <Business sx={{ fontSize: 40, color: brandColors.primary, mb: 2 }} />
+        <Business sx={{ fontSize: { xs: 32, md: 40 }, color: brandColors.primary, mb: { xs: 1, md: 2 } }} />
       ),
       title: "Client Success",
       description:
@@ -116,7 +124,7 @@ const About = () => {
       <Box
         sx={{
           position: "relative",
-          height: "60vh",
+          height: { xs: "40vh", sm: "50vh", md: "60vh" }, // Responsive height
           width: "100%",
           backgroundImage: `url(${aboutBg})`,
           backgroundSize: "cover",
@@ -124,6 +132,7 @@ const About = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          px: { xs: 2, sm: 3, md: 4 }, // Add horizontal padding for safety
           "&::before": {
             content: '""',
             position: "absolute",
@@ -132,10 +141,11 @@ const About = () => {
             right: 0,
             bottom: 0,
             backgroundColor: "rgba(0, 0, 0, 0.6)",
+            zIndex: 1, // Ensure overlay is above image
           },
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}> {/* Ensure content is above overlay */}
           <motion.div
             variants={FadeIn(0.8)}
             initial="initial"
@@ -145,30 +155,32 @@ const About = () => {
               variant="h1"
               sx={{
                 color: brandColors.text.light,
-                fontSize: typography.fontSize.h1,
+                fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" }, // Responsive font size
                 fontWeight: typography.fontWeight.bold,
-                mb: spacing.md,
-                fontFamily: typography.fontFamily.heading,
-                textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                mb: { xs: 1, md: spacing.md }, // Responsive margin
+                fontFamily: typography.fontFamily.heading, // Playfair Display
+                textShadow: "2px 2px 6px rgba(0,0,0,0.4)", // Stronger shadow
                 letterSpacing: typography.letterSpacing.heading,
                 textAlign: "center",
+                lineHeight: 1.2,
               }}
             >
               About Gruham
             </Typography>
             <Typography
-              variant="h2"
+              variant="subtitle1" // Semantic change from h2
               sx={{
                 color: brandColors.text.light,
-                fontSize: typography.fontSize.h3,
-                mb: spacing.xl,
+                fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem", lg: "1.75rem" }, // Responsive font size
+                mb: { xs: 3, md: spacing.xl }, // Responsive margin
                 maxWidth: "800px",
-                margin: "0 auto",
-                textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
-                fontFamily: typography.fontFamily.body,
+                margin: "0 auto", // Centers the text block
+                textShadow: "1px 1px 3px rgba(0,0,0,0.3)", // Stronger shadow
+                fontFamily: typography.fontFamily.body, // Montserrat
                 fontWeight: typography.fontWeight.regular,
                 letterSpacing: typography.letterSpacing.body,
                 textAlign: "center",
+                lineHeight: 1.5,
               }}
             >
               Building Dreams, Creating Excellence
@@ -178,21 +190,50 @@ const About = () => {
       </Box>
 
       {/* Mission & Vision Section */}
-      <Container maxWidth="lg" sx={{ py: spacing.xxl }}>
+      <Container maxWidth="lg" sx={{ py: { xs: spacing.xl, md: spacing.xxl } }}> {/* Responsive padding */}
         <motion.div
           variants={FadeIn(0.5)}
           initial="initial"
           whileInView="animate"
         >
-          <ManiHeader headerText={"Our Story"} />
-          <DiscriptionTypography
-            text={`Founded with a vision to transform the construction industry, Gruham
-            has been at the forefront of innovative design and exceptional
-            craftsmanship.`}
-          />
+          {/* Replaced ManiHeader */}
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: typography.fontFamily.heading, // Playfair Display
+              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" }, // Responsive font size
+              color: brandColors.secondary,
+              textAlign: "center",
+              mb: { xs: 1, md: spacing.md },
+              fontWeight: typography.fontWeight.bold,
+              letterSpacing: typography.letterSpacing.heading,
+              lineHeight: 1.2,
+            }}
+          >
+            Our Story
+          </Typography>
+          {/* Replaced DiscriptionTypography */}
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: brandColors.text.secondary,
+              textAlign: "center",
+              mb: { xs: spacing.xl, md: spacing.xxl }, // Responsive margin
+              maxWidth: "800px",
+              mx: "auto",
+              fontFamily: typography.fontFamily.body, // Montserrat
+              fontSize: { xs: "0.95rem", md: "1.15rem" }, // Responsive font size
+              fontWeight: typography.fontWeight.regular,
+              letterSpacing: typography.letterSpacing.body,
+              lineHeight: 1.6,
+              px: { xs: 2, sm: 0 }, // Add horizontal padding for mobile text
+            }}
+          >
+            Founded with a vision to transform the construction industry, Gruham has been at the forefront of innovative design and exceptional craftsmanship.
+          </Typography>
         </motion.div>
 
-        <Grid container spacing={4} sx={{ mb: spacing.xxl }}>
+        <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: spacing.xl, md: spacing.xxl } }}> {/* Responsive spacing and margin */}
           <Grid item xs={12} md={6}>
             <motion.div
               variants={SlideUp(0.5)}
@@ -200,16 +241,17 @@ const About = () => {
               whileInView="animate"
             >
               <StyledCard>
-                <CardContent sx={{ p: spacing.xl }}>
+                <CardContent sx={{ p: { xs: spacing.md, md: spacing.xl } }}> {/* Responsive padding */}
                   <Typography
                     variant="h4"
                     sx={{
                       color: brandColors.secondary,
                       fontWeight: typography.fontWeight.semiBold,
-                      mb: spacing.md,
-                      fontFamily: typography.fontFamily.heading,
-                      fontSize: typography.fontSize.h4,
+                      mb: { xs: spacing.sm, md: spacing.md }, // Responsive margin
+                      fontFamily: typography.fontFamily.heading, // Playfair Display
+                      fontSize: { xs: "1.25rem", md: "1.75rem" }, // Responsive font size
                       letterSpacing: typography.letterSpacing.heading,
+                      textAlign: { xs: "center", md: "left" }, // Center on mobile, left on desktop
                     }}
                   >
                     Our Mission
@@ -219,14 +261,13 @@ const About = () => {
                     sx={{
                       color: brandColors.text.secondary,
                       lineHeight: typography.lineHeight.body,
-                      fontFamily: typography.fontFamily.body,
-                      fontSize: typography.fontSize.body1,
+                      fontFamily: typography.fontFamily.body, // Montserrat
+                      fontSize: { xs: "0.95rem", md: "1rem" }, // Responsive font size
                       letterSpacing: typography.letterSpacing.body,
+                      textAlign: { xs: "center", md: "left" }, // Center on mobile, left on desktop
                     }}
                   >
-                    To deliver exceptional construction and design services that
-                    exceed client expectations, while maintaining the highest
-                    standards of quality, innovation, and sustainability.
+                    To deliver exceptional construction and design services that exceed client expectations, while maintaining the highest standards of quality, innovation, and sustainability.
                   </Typography>
                 </CardContent>
               </StyledCard>
@@ -239,16 +280,17 @@ const About = () => {
               whileInView="animate"
             >
               <StyledCard>
-                <CardContent sx={{ p: spacing.xl }}>
+                <CardContent sx={{ p: { xs: spacing.md, md: spacing.xl } }}> {/* Responsive padding */}
                   <Typography
                     variant="h4"
                     sx={{
                       color: brandColors.secondary,
                       fontWeight: typography.fontWeight.semiBold,
-                      mb: spacing.md,
-                      fontFamily: typography.fontFamily.heading,
-                      fontSize: typography.fontSize.h4,
+                      mb: { xs: spacing.sm, md: spacing.md }, // Responsive margin
+                      fontFamily: typography.fontFamily.heading, // Playfair Display
+                      fontSize: { xs: "1.25rem", md: "1.75rem" }, // Responsive font size
                       letterSpacing: typography.letterSpacing.heading,
+                      textAlign: { xs: "center", md: "left" }, // Center on mobile, left on desktop
                     }}
                   >
                     Our Vision
@@ -258,14 +300,13 @@ const About = () => {
                     sx={{
                       color: brandColors.text.secondary,
                       lineHeight: typography.lineHeight.body,
-                      fontFamily: typography.fontFamily.body,
-                      fontSize: typography.fontSize.body1,
+                      fontFamily: typography.fontFamily.body, // Montserrat
+                      fontSize: { xs: "0.95rem", md: "1rem" }, // Responsive font size
                       letterSpacing: typography.letterSpacing.body,
+                      textAlign: { xs: "center", md: "left" }, // Center on mobile, left on desktop
                     }}
                   >
-                    To be the leading construction company known for creating
-                    iconic structures that inspire, while fostering innovation
-                    and sustainable practices in the industry.
+                    To be the leading construction company known for creating iconic structures that inspire, while fostering innovation and sustainable practices in the industry.
                   </Typography>
                 </CardContent>
               </StyledCard>
@@ -279,13 +320,44 @@ const About = () => {
           initial="initial"
           whileInView="animate"
         >
-          <ManiHeader headerText={"Our Core Values"} />
-          <DiscriptionTypography
-            text={"The principles that guide our work and define our success"}
-          />
+          {/* Replaced ManiHeader */}
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: typography.fontFamily.heading, // Playfair Display
+              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" }, // Responsive font size
+              color: brandColors.secondary,
+              textAlign: "center",
+              mb: { xs: 1, md: spacing.md },
+              fontWeight: typography.fontWeight.bold,
+              letterSpacing: typography.letterSpacing.heading,
+              lineHeight: 1.2,
+            }}
+          >
+            Our Core Values
+          </Typography>
+          {/* Replaced DiscriptionTypography */}
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: brandColors.text.secondary,
+              textAlign: "center",
+              mb: { xs: spacing.xl, md: spacing.xxl }, // Responsive margin
+              maxWidth: "800px",
+              mx: "auto",
+              fontFamily: typography.fontFamily.body, // Montserrat
+              fontSize: { xs: "0.95rem", md: "1.15rem" }, // Responsive font size
+              fontWeight: typography.fontWeight.regular,
+              letterSpacing: typography.letterSpacing.body,
+              lineHeight: 1.6,
+              px: { xs: 2, sm: 0 }, // Add horizontal padding for mobile text
+            }}
+          >
+            The principles that guide our work and define our success.
+          </Typography>
         </motion.div>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 3, md: 4 }}> {/* Responsive spacing */}
           {values.map((value, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <motion.div
@@ -300,9 +372,9 @@ const About = () => {
                     sx={{
                       color: brandColors.secondary,
                       fontWeight: typography.fontWeight.semiBold,
-                      mb: spacing.md,
-                      fontFamily: typography.fontFamily.heading,
-                      fontSize: typography.fontSize.h5,
+                      mb: { xs: spacing.sm, md: spacing.md }, // Responsive margin
+                      fontFamily: typography.fontFamily.heading, // Playfair Display
+                      fontSize: { xs: "1.15rem", md: "1.25rem" }, // Responsive font size
                       letterSpacing: typography.letterSpacing.heading,
                     }}
                   >
@@ -313,8 +385,8 @@ const About = () => {
                     sx={{
                       color: brandColors.text.secondary,
                       lineHeight: typography.lineHeight.body,
-                      fontFamily: typography.fontFamily.body,
-                      fontSize: typography.fontSize.body1,
+                      fontFamily: typography.fontFamily.body, // Montserrat
+                      fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
                       letterSpacing: typography.letterSpacing.body,
                     }}
                   >
@@ -330,39 +402,73 @@ const About = () => {
         <Box
           sx={{
             textAlign: "center",
-            mt: spacing.xxl,
-            p: spacing.xl,
+            mt: { xs: spacing.xxl, md: spacing.xxxl }, // Responsive top margin
+            p: { xs: spacing.xl, md: spacing.xxl }, // Responsive padding
             backgroundColor: brandColors.background.secondary,
             borderRadius: borderRadius.medium,
             boxShadow: shadows.medium,
           }}
         >
-          <ManiHeader headerText={"Ready to Start Your Project?"} />
-          <DiscriptionTypography
-            text={"Let's discuss how we can bring your vision to life"}
-          />
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              backgroundColor: brandColors.primary,
-              color: brandColors.text.light,
-              px: spacing.xl,
-              py: spacing.md,
-              fontSize: typography.fontSize.body1,
-              fontWeight: typography.fontWeight.semiBold,
-              borderRadius: borderRadius.medium,
-              textTransform: "none",
-              transition: transitions.default,
-              fontFamily: typography.fontFamily.body,
-              "&:hover": {
-                backgroundColor: "#B39375",
-                transform: "scale(1.05)",
-              },
-            }}
-          >
-            Contact Us Today
-          </Button>
+          <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
+            {/* Replaced ManiHeader */}
+            <Typography
+              variant="h2"
+              sx={{
+                fontFamily: typography.fontFamily.heading, // Playfair Display
+                fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" }, // Responsive font size
+                color: brandColors.primaryDark, // Use a darker shade for contrast on light background
+                textAlign: "center",
+                mb: { xs: 1, md: spacing.md },
+                fontWeight: typography.fontWeight.bold,
+                letterSpacing: typography.letterSpacing.heading,
+                lineHeight: 1.2,
+              }}
+            >
+              Ready to Start Your Project?
+            </Typography>
+            {/* Replaced DiscriptionTypography */}
+            <Typography
+              variant="subtitle1"
+              sx={{
+                color: brandColors.text.secondary,
+                textAlign: "center",
+                mb: { xs: spacing.md, md: spacing.xl }, // Responsive margin
+                maxWidth: "600px",
+                mx: "auto",
+                fontFamily: typography.fontFamily.body, // Montserrat
+                fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
+                fontWeight: typography.fontWeight.regular,
+                letterSpacing: typography.letterSpacing.body,
+                lineHeight: 1.5,
+                px: { xs: 2, sm: 0 }, // Add horizontal padding for mobile text
+              }}
+            >
+              Let's discuss how we can bring your vision to life.
+            </Typography>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                backgroundColor: brandColors.primary,
+                color: brandColors.text.light,
+                px: { xs: spacing.lg, md: spacing.xl }, // Responsive padding
+                py: { xs: spacing.sm, md: spacing.md }, // Responsive padding
+                fontSize: { xs: "0.95rem", md: "1rem" }, // Responsive font size
+                fontWeight: typography.fontWeight.semiBold,
+                borderRadius: borderRadius.medium,
+                textTransform: "none",
+                transition: transitions.default,
+                fontFamily: typography.fontFamily.body, // Montserrat
+                "&:hover": {
+                  backgroundColor: "#7a6a4a", // Slightly darker shade for hover
+                  transform: "scale(1.05)",
+                  boxShadow: shadows.large, // Add subtle shadow on hover
+                },
+              }}
+            >
+              Contact Us Today
+            </Button>
+          </motion.div>
         </Box>
       </Container>
     </Box>

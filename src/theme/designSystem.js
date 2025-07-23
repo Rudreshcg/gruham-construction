@@ -4,7 +4,7 @@ export const brandColors = {
   secondary: '#4a5942',
   text: {
     primary: '#2C2C2C',
-    secondary: '#666666',
+    secondary: '#4a5942',
     light: '#FFFFFF'
   },
   background: {
