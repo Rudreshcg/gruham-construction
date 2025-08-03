@@ -39,7 +39,7 @@ const Header = () => {
     { tabName: "ABOUT", to: "/about" },
     { tabName: "SERVICES", to: "/services" },
     { tabName: "CAREERS", to: "/careers" },
-    { tabName: "BLOGS", to: "/blogs" },
+    // { tabName: "BLOGS", to: "/blogs" },
     { tabName: "CONTACT", to: "/contact" },
   ];
 
@@ -118,7 +118,7 @@ const Header = () => {
             }}
             onClick={toggleDrawer}
           >
-            {drawerOpen ? <CloseIcon /> : <MenuIcon />}
+            {drawerOpen ? <CloseIcon /> : <MenuIcon fontSize="large"/>}
           </IconButton>
         </Toolbar>
         <Divider sx={{ width: "100%" }} />

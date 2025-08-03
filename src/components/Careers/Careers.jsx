@@ -1,38 +1,40 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, Container, Grid, Card, Chip, Divider, Tabs, Tab } from "@mui/material";
+import { Box, Typography, Button, Container, Grid, Card, Chip, Tabs, Tab } from "@mui/material";
 import { motion } from "framer-motion";
 import { FadeIn, SlideUp } from "../../animation/animate";
-import { 
-  brandColors, 
-  typography, 
-  spacing, 
-  shadows, 
+import {
+  brandColors,
+  typography,
+  spacing,
+  shadows,
   transitions,
-  borderRadius
+  borderRadius,
 } from "../../theme/designSystem";
-import careersBg from "../../assets/images/careers_bg.jpg";
 import styled from "@emotion/styled";
 
-// Styled components
+// Accent divider as on Services/Contact pages
+const AccentDivider = styled("div")({
+  width: 64,
+  height: 4,
+  borderRadius: 6,
+  background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
+  margin: "18px auto 0",
+});
+
+// HeroSection styled as a neutral content block (not image)
 const StyledHeroSection = styled(Box)({
-  position: 'relative',
-  height: '60vh',
-  width: '100%',
-  backgroundImage: `url(${careersBg})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  }
+  width: "100%",
+  minHeight: 190,
+  backgroundColor: brandColors.background.light,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "48px 0 24px",
+  borderBottom: `1.5px solid ${brandColors.border}`,
+  boxShadow: "none",
+  position: "relative",
+  zIndex: 1,
 });
 
 const careers = [
@@ -47,21 +49,21 @@ const careers = [
       "5+ years of construction project management experience",
       "Strong leadership and communication skills",
       "Knowledge of construction processes and regulations",
-      "Bachelor's degree in Construction Management or related field"
+      "Bachelor's degree in Construction Management or related field",
     ],
     responsibilities: [
       "Manage construction projects from start to finish",
       "Coordinate with clients, architects, and contractors",
       "Ensure projects are completed on time and within budget",
-      "Implement quality control measures"
+      "Implement quality control measures",
     ],
     benefits: [
       "Competitive salary",
       "Health insurance",
       "401(k) with company match",
       "Paid time off",
-      "Professional development opportunities"
-    ]
+      "Professional development opportunities",
+    ],
   },
   {
     id: 2,
@@ -74,21 +76,21 @@ const careers = [
       "3+ years of interior design experience",
       "Proficiency in design software",
       "Strong portfolio of completed projects",
-      "Bachelor's degree in Interior Design"
+      "Bachelor's degree in Interior Design",
     ],
     responsibilities: [
       "Create interior design concepts",
       "Select materials, furniture, and accessories",
       "Collaborate with clients to meet their needs",
-      "Prepare design presentations"
+      "Prepare design presentations",
     ],
     benefits: [
       "Competitive salary",
       "Health insurance",
       "401(k) with company match",
       "Paid time off",
-      "Design software subscription"
-    ]
+      "Design software subscription",
+    ],
   },
   {
     id: 3,
@@ -101,21 +103,21 @@ const careers = [
       "7+ years of construction experience",
       "Strong leadership and problem-solving skills",
       "Knowledge of safety regulations",
-      "Trade certification or equivalent experience"
+      "Trade certification or equivalent experience",
     ],
     responsibilities: [
       "Supervise construction crews",
       "Ensure compliance with safety regulations",
       "Monitor project progress",
-      "Coordinate with subcontractors"
+      "Coordinate with subcontractors",
     ],
     benefits: [
       "Competitive salary",
       "Health insurance",
       "401(k) with company match",
       "Paid time off",
-      "Tool allowance"
-    ]
+      "Tool allowance",
+    ],
   },
   {
     id: 4,
@@ -128,21 +130,21 @@ const careers = [
       "5+ years of architectural design experience",
       "Proficiency in AutoCAD, Revit, and other design software",
       "Strong portfolio of completed projects",
-      "Bachelor's or Master's degree in Architecture"
+      "Bachelor's or Master's degree in Architecture",
     ],
     responsibilities: [
       "Develop architectural designs and plans",
       "Create detailed drawings and specifications",
       "Collaborate with clients and construction teams",
-      "Ensure designs meet building codes and regulations"
+      "Ensure designs meet building codes and regulations",
     ],
     benefits: [
       "Competitive salary",
       "Health insurance",
       "401(k) with company match",
       "Paid time off",
-      "Professional development opportunities"
-    ]
+      "Professional development opportunities",
+    ],
   },
   {
     id: 5,
@@ -155,21 +157,21 @@ const careers = [
       "3+ years of marketing experience",
       "Strong written and verbal communication skills",
       "Experience with digital marketing",
-      "Bachelor's degree in Marketing or related field"
+      "Bachelor's degree in Marketing or related field",
     ],
     responsibilities: [
       "Develop marketing campaigns",
       "Create content for website and social media",
       "Track marketing performance metrics",
-      "Coordinate with external marketing agencies"
+      "Coordinate with external marketing agencies",
     ],
     benefits: [
       "Competitive salary",
       "Health insurance",
       "401(k) with company match",
       "Paid time off",
-      "Marketing tools and software"
-    ]
+      "Marketing tools and software",
+    ],
   },
   {
     id: 6,
@@ -182,22 +184,22 @@ const careers = [
       "2+ years of customer service experience",
       "Excellent communication and problem-solving skills",
       "Ability to work in a fast-paced environment",
-      "High school diploma or equivalent"
+      "High school diploma or equivalent",
     ],
     responsibilities: [
       "Respond to client inquiries",
       "Schedule appointments and consultations",
       "Follow up with clients on project status",
-      "Resolve client concerns and issues"
+      "Resolve client concerns and issues",
     ],
     benefits: [
       "Competitive salary",
       "Health insurance",
       "401(k) with company match",
       "Paid time off",
-      "Customer service training"
-    ]
-  }
+      "Customer service training",
+    ],
+  },
 ];
 
 const jobCategories = [
@@ -205,7 +207,7 @@ const jobCategories = [
   { id: "construction", label: "Construction" },
   { id: "design", label: "Design" },
   { id: "marketing", label: "Marketing" },
-  { id: "customer-service", label: "Customer Service" }
+  { id: "customer-service", label: "Customer Service" },
 ];
 
 const Careers = () => {
@@ -221,42 +223,53 @@ const Careers = () => {
     setSelectedJob(job);
   };
 
-  const filteredJobs = selectedCategory === "all" 
-    ? careers 
-    : careers.filter(job => job.department.toLowerCase() === selectedCategory);
-    
-    return (
+  const filteredJobs =
+    selectedCategory === "all"
+      ? careers
+      : careers.filter(
+          (job) =>
+            job.department.toLowerCase().replace(/\s/g, "-") === selectedCategory
+        );
+
+  return (
     <Box>
       {/* Hero Section */}
       <StyledHeroSection>
-        <Box sx={{ position: 'relative', textAlign: 'center', color: 'white', zIndex: 1 }}>
-          <Typography 
-            variant="h2" 
-            component="h1" 
-            sx={{ 
-              fontWeight: typography.fontWeight.bold, 
-              mb: spacing.md,
+        <Container maxWidth="md" sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h2"
+            component="h1"
+            sx={{
               fontFamily: typography.fontFamily.heading,
-              fontSize: typography.fontSize.h2,
+              color: brandColors.secondary,
+              fontWeight: typography.fontWeight.bold,
+              fontSize: { xs: typography.fontSize.h3, md: typography.fontSize.h2 },
               letterSpacing: typography.letterSpacing.heading,
+              mb: 0,
             }}
           >
             Join Our Team
           </Typography>
-          <Typography 
-            variant="h5" 
-            sx={{ 
-              maxWidth: 600, 
-              mx: 'auto',
+          <AccentDivider />
+          <Typography
+            variant="h5"
+            sx={{
+              maxWidth: 700,
+              mx: "auto",
+              mt: spacing.md,
+              mb: 0,
               fontFamily: typography.fontFamily.body,
-              fontSize: typography.fontSize.h5,
+              color: brandColors.text.primary,
+              fontSize: { xs: typography.fontSize.body1, md: typography.fontSize.h5 },
               fontWeight: typography.fontWeight.regular,
               letterSpacing: typography.letterSpacing.body,
+              lineHeight: 1.6,
+              opacity: 0.95,
             }}
           >
             Build your career with us and be part of something extraordinary
           </Typography>
-        </Box>
+        </Container>
       </StyledHeroSection>
 
       {/* Why Work With Us Section */}
@@ -280,23 +293,31 @@ const Careers = () => {
             {[
               {
                 title: "Growth Opportunities",
-                description: "We invest in our employees' development with training programs and career advancement paths."
+                description:
+                  "We invest in our employees' development with training programs and career advancement paths.",
               },
               {
                 title: "Work-Life Balance",
-                description: "We value your time and offer flexible schedules and paid time off to ensure a healthy work-life balance."
+                description:
+                  "We value your time and offer flexible schedules and paid time off to ensure a healthy work-life balance.",
               },
               {
                 title: "Competitive Benefits",
-                description: "Enjoy comprehensive health insurance, 401(k) matching, and other perks that support your well-being."
+                description:
+                  "Enjoy comprehensive health insurance, 401(k) matching, and other perks that support your well-being.",
               },
               {
                 title: "Inclusive Culture",
-                description: "Join a diverse team where everyone's voice matters and collaboration is encouraged."
-              }
+                description:
+                  "Join a diverse team where everyone's voice matters and collaboration is encouraged.",
+              },
             ].map((item, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
-                <motion.div variants={SlideUp(0.2 * index)} initial="initial" animate="animate">
+                <motion.div
+                  variants={SlideUp(0.2 * index)}
+                  initial="initial"
+                  animate="animate"
+                >
                   <Card
                     sx={{
                       p: spacing.lg,
@@ -360,7 +381,7 @@ const Careers = () => {
           >
             Open Positions
           </Typography>
-          
+
           <Box sx={{ mb: spacing.xl }}>
             <Tabs
               value={selectedCategory}
@@ -402,8 +423,14 @@ const Careers = () => {
                     sx={{
                       p: spacing.lg,
                       mb: spacing.md,
-                      backgroundColor: selectedJob?.id === job.id ? brandColors.primary : brandColors.background.white,
-                      color: selectedJob?.id === job.id ? brandColors.text.light : brandColors.text.primary,
+                      backgroundColor:
+                        selectedJob?.id === job.id
+                          ? brandColors.primary
+                          : brandColors.background.white,
+                      color:
+                        selectedJob?.id === job.id
+                          ? brandColors.text.light
+                          : brandColors.text.primary,
                       borderRadius: borderRadius.large,
                       boxShadow: shadows.medium,
                       transition: transitions.default,
@@ -432,8 +459,14 @@ const Careers = () => {
                         label={job.department}
                         size="small"
                         sx={{
-                          backgroundColor: selectedJob?.id === job.id ? "rgba(255, 255, 255, 0.2)" : brandColors.background.light,
-                          color: selectedJob?.id === job.id ? brandColors.text.light : brandColors.text.secondary,
+                          backgroundColor:
+                            selectedJob?.id === job.id
+                              ? "rgba(255, 255, 255, 0.2)"
+                              : brandColors.background.light,
+                          color:
+                            selectedJob?.id === job.id
+                              ? brandColors.text.light
+                              : brandColors.text.secondary,
                           fontFamily: typography.fontFamily.body,
                           fontSize: typography.fontSize.caption,
                         }}
@@ -442,8 +475,14 @@ const Careers = () => {
                         label={job.location}
                         size="small"
                         sx={{
-                          backgroundColor: selectedJob?.id === job.id ? "rgba(255, 255, 255, 0.2)" : brandColors.background.light,
-                          color: selectedJob?.id === job.id ? brandColors.text.light : brandColors.text.secondary,
+                          backgroundColor:
+                            selectedJob?.id === job.id
+                              ? "rgba(255, 255, 255, 0.2)"
+                              : brandColors.background.light,
+                          color:
+                            selectedJob?.id === job.id
+                              ? brandColors.text.light
+                              : brandColors.text.secondary,
                           fontFamily: typography.fontFamily.body,
                           fontSize: typography.fontSize.caption,
                         }}
@@ -452,8 +491,14 @@ const Careers = () => {
                         label={job.type}
                         size="small"
                         sx={{
-                          backgroundColor: selectedJob?.id === job.id ? "rgba(255, 255, 255, 0.2)" : brandColors.background.light,
-                          color: selectedJob?.id === job.id ? brandColors.text.light : brandColors.text.secondary,
+                          backgroundColor:
+                            selectedJob?.id === job.id
+                              ? "rgba(255, 255, 255, 0.2)"
+                              : brandColors.background.light,
+                          color:
+                            selectedJob?.id === job.id
+                              ? brandColors.text.light
+                              : brandColors.text.secondary,
                           fontFamily: typography.fontFamily.body,
                           fontSize: typography.fontSize.caption,
                         }}
@@ -497,7 +542,7 @@ const Careers = () => {
                     }}
                   >
                     {selectedJob.title}
-            </Typography>
+                  </Typography>
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: spacing.sm, mb: spacing.lg }}>
                     <Chip
                       label={selectedJob.department}
@@ -527,7 +572,7 @@ const Careers = () => {
                       }}
                     />
                   </Box>
-                  
+
                   <Typography
                     variant="body1"
                     sx={{
@@ -539,7 +584,7 @@ const Careers = () => {
                     }}
                   >
                     {selectedJob.description}
-            </Typography>
+                  </Typography>
 
                   <Typography
                     variant="h5"
@@ -572,7 +617,7 @@ const Careers = () => {
                       </Typography>
                     ))}
                   </Box>
-                  
+
                   <Typography
                     variant="h5"
                     sx={{
@@ -604,7 +649,7 @@ const Careers = () => {
                       </Typography>
                     ))}
                   </Box>
-                  
+
                   <Typography
                     variant="h5"
                     sx={{
@@ -636,7 +681,7 @@ const Careers = () => {
                       </Typography>
                     ))}
                   </Box>
-                  
+
                   <Button
                     variant="contained"
                     size="large"
@@ -661,8 +706,8 @@ const Careers = () => {
                   </Button>
                 </Card>
               ) : (
-            <Box
-                sx={{
+                <Box
+                  sx={{
                     p: spacing.xl,
                     backgroundColor: brandColors.background.light,
                     borderRadius: borderRadius.large,
@@ -683,13 +728,13 @@ const Careers = () => {
                     }}
                   >
                     Select a position to view details
-                </Typography>
+                  </Typography>
                 </Box>
               )}
             </Grid>
           </Grid>
         </Container>
-            </Box>
+      </Box>
 
       {/* Application Process Section */}
       <Box sx={{ py: spacing.xxl, backgroundColor: brandColors.background.light }}>
@@ -713,28 +758,32 @@ const Careers = () => {
               {
                 step: "1",
                 title: "Submit Application",
-                description: "Fill out our online application form with your details and resume."
+                description: "Fill out our online application form with your details and resume.",
               },
               {
                 step: "2",
                 title: "Initial Interview",
-                description: "Meet with our HR team to discuss your experience and career goals."
+                description:
+                  "Meet with our HR team to discuss your experience and career goals.",
               },
               {
                 step: "3",
                 title: "Technical Assessment",
-                description: "Complete a skills assessment relevant to the position you're applying for."
+                description:
+                  "Complete a skills assessment relevant to the position you're applying for.",
               },
               {
                 step: "4",
                 title: "Final Interview",
-                description: "Meet with the hiring manager and team members to discuss the role in detail."
+                description:
+                  "Meet with the hiring manager and team members to discuss the role in detail.",
               },
               {
                 step: "5",
                 title: "Offer & Onboarding",
-                description: "Receive an offer letter and begin the onboarding process to join our team."
-              }
+                description:
+                  "Receive an offer letter and begin the onboarding process to join our team.",
+              },
             ].map((item, index) => (
               <Grid item xs={12} sm={6} md={2.4} key={index}>
                 <motion.div variants={SlideUp(0.2 * index)} initial="initial" animate="animate">
@@ -796,7 +845,7 @@ const Careers = () => {
                       }}
                     >
                       {item.description}
-                </Typography>
+                    </Typography>
                     {index < 4 && (
                       <Box
                         sx={{
@@ -814,11 +863,11 @@ const Careers = () => {
                 </motion.div>
               </Grid>
             ))}
-                    </Grid>
+          </Grid>
         </Container>
-            </Box>
-        </Box>
-    );
+      </Box>
+    </Box>
+  );
 };
 
 export default Careers;

@@ -7,9 +7,11 @@ import {
   Container,
   Grid,
   Typography,
-  Link,
+  Link as MuiLink,
   IconButton,
+  Divider,
 } from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Facebook,
   Twitter,
@@ -19,12 +21,11 @@ import {
   LinkedIn,
 } from "@mui/icons-material";
 
-
 const Footer = () => {
   return (
-    <Box component={motion.footer} bgcolor="#1C1C1E" color="white" py={11}>
-      <Container>
-        <Grid container spacing={8}>
+    <Box component={motion.footer} bgcolor="#1C1C1E" color="white" py={10}>
+      <Container maxWidth="lg">
+        <Grid container spacing={{ xs: 4, md: 8 }}>
           {/* Company info section */}
           <Grid item xs={12} md={3}>
             <motion.div
@@ -43,32 +44,29 @@ const Footer = () => {
                 />
 
               </Box>
-
-              <Typography variant="h6" textAlign="center" color="burlywood">
+              <Typography variant="body1" textAlign="center" color="burlywood" sx={{ fontWeight: 500 }}>
                 Where design meets your dream lifestyle.
               </Typography>
-              <Box mt={2}>
-                <IconButton color="inherit" href="#">
-                  <Facebook />
-                </IconButton>
-                <IconButton color="inherit" href="#">
-                  <Twitter />
-                </IconButton>
-                <IconButton color="inherit" href="#">
-                  <Instagram />
-                </IconButton>
-                <IconButton color="inherit" href="#">
-                  <YouTube />
-                </IconButton>
-                <IconButton color="inherit" href="#">
-                  <Pinterest />
-                </IconButton>
-                <IconButton color="inherit" href="#">
-                  <LinkedIn />
-                </IconButton>
+              <Box mt={3} display="flex" justifyContent="center" gap={1.5}>
+                {[Facebook, Twitter, Instagram, YouTube, Pinterest, LinkedIn].map((Icon, idx) => (
+                  <IconButton
+                    key={idx}
+                    color="inherit"
+                    size="large"
+                    href="#"
+                    aria-label={Icon.displayName || "social link"}
+                    sx={{
+                      transition: 'color 0.3s ease',
+                      '&:hover': { color: '#bfa974' }
+                    }}
+                  >
+                    <Icon fontSize="inherit" />
+                  </IconButton>
+                ))}
               </Box>
             </motion.div>
           </Grid>
+
           {/* Useful Links */}
           <Grid item xs={12} md={3}>
             <motion.div
@@ -76,25 +74,50 @@ const Footer = () => {
               initial="initial"
               whileInView="animate"
             >
-              <Typography variant="h6" fontWeight="bold">
+              <Typography variant="h6" fontWeight="bold" mb={2}>
                 Useful Links
               </Typography>
-              <Box mt={2}>
-                <Link color="inherit" display="block" mb={1}>
+              <Box display="flex" flexDirection="column" gap={1}>
+                <MuiLink
+                  component={RouterLink}
+                  to="/about"
+                  color="inherit"
+                  underline="hover"
+                  sx={{ fontWeight: 500, cursor: 'pointer' }}
+                >
                   About Us
-                </Link>
-                <Link color="inherit" display="block" mb={1}>
+                </MuiLink>
+                <MuiLink
+                  component={RouterLink}
+                  to="/contact"
+                  color="inherit"
+                  underline="hover"
+                  sx={{ fontWeight: 500, cursor: 'pointer' }}
+                >
                   Contact Us
-                </Link>
-                <Link color="inherit" display="block" mb={1}>
+                </MuiLink>
+                <MuiLink
+                  component={RouterLink}
+                  to="/privacy-policy"
+                  color="inherit"
+                  underline="hover"
+                  sx={{ fontWeight: 500, cursor: 'pointer' }}
+                >
                   Privacy Policy
-                </Link>
-                <Link color="inherit" display="block" mb={1}>
+                </MuiLink>
+                <MuiLink
+                  component={RouterLink}
+                  to="/terms"
+                  color="inherit"
+                  underline="hover"
+                  sx={{ fontWeight: 500, cursor: 'pointer' }}
+                >
                   Terms & Conditions
-                </Link>
+                </MuiLink>
               </Box>
             </motion.div>
           </Grid>
+
           {/* Contact Information */}
           <Grid item xs={12} md={3}>
             <motion.div
@@ -102,20 +125,27 @@ const Footer = () => {
               initial="initial"
               whileInView="animate"
             >
-              <Typography variant="h6" fontWeight="bold">
+              <Typography variant="h6" fontWeight="bold" mb={2}>
                 Call
               </Typography>
-              <Typography mt={2}>+91-8431000242</Typography>
-              <Typography variant="h6" fontWeight="bold" mt={4}>
+              <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                +91-8431000242
+              </Typography>
+
+              <Typography variant="h6" fontWeight="bold" mt={4} mb={2}>
                 Write
               </Typography>
-              <Typography mt={2}>
-                <Link href="mailto:info@gruham.in" color="inherit">
-                  info@gruham.in
-                </Link>
-              </Typography>
+              <MuiLink
+                href="mailto:info@gruham.in"
+                color="inherit"
+                underline="hover"
+                sx={{ fontWeight: 500 }}
+              >
+                info@gruham.in
+              </MuiLink>
             </motion.div>
           </Grid>
+
           {/* Visit Us */}
           <Grid item xs={12} md={3}>
             <motion.div
@@ -123,26 +153,31 @@ const Footer = () => {
               initial="initial"
               whileInView="animate"
             >
-              <Typography variant="h6" fontWeight="bold">
+              <Typography variant="h6" fontWeight="bold" mb={2}>
                 Visit
               </Typography>
-              <Typography mt={2}>Gruham</Typography>
-              <Typography mt={2}>
+              <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                Gruham
+              </Typography>
+              <Typography variant="body2" mt={1}>
                 Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
               </Typography>
             </motion.div>
           </Grid>
         </Grid>
+
+        <Divider sx={{ mt: 6, borderColor: '#444' }} />
+
         {/* bottom section */}
         <Typography
           textAlign="center"
           variant="body2"
           fontWeight="bold"
-          borderTop={2}
-          pt={5}
-          mt={5}
+          pt={4}
+          color="gray"
+          sx={{ userSelect: "none" }}
         >
-          &copy; 2024 Gruham. All rights reserved
+          &copy; {new Date().getFullYear()} Gruham. All rights reserved.
         </Typography>
       </Container>
     </Box>

@@ -17,7 +17,6 @@ import {
   Groups,
   Business,
 } from "@mui/icons-material";
-import aboutBg from "../../assets/images/careers_bg.jpg";
 import { FadeIn, SlideUp } from "../../animation/animate";
 import { styled } from "@mui/material/styles";
 import {
@@ -28,8 +27,18 @@ import {
   transitions,
   borderRadius,
 } from "../../theme/designSystem";
+import { Link } from 'react-router-dom';
 
-// Styled components
+
+// Accent divider for hero section consistency
+const AccentDivider = styled("div")({
+  width: 64,
+  height: 4,
+  borderRadius: 6,
+  background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
+  margin: "18px auto 0",
+});
+
 const StyledCard = styled(Card)(({ theme }) => ({
   height: "100%",
   backgroundColor: brandColors.background.primary,
@@ -61,6 +70,21 @@ const ValueCard = styled(Card)(({ theme }) => ({
     padding: spacing.md,
   },
 }));
+
+const StyledHeroSection = styled(Box)({
+  width: "100%",
+  minHeight: 190,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: brandColors.background.light,
+  boxShadow: "none",
+  borderBottom: `1.5px solid ${brandColors.border}`,
+  position: "relative",
+  zIndex: 1,
+  padding: "48px 0 24px",
+});
 
 const About = () => {
   // Enhanced company values
@@ -154,79 +178,49 @@ const About = () => {
   return (
     <Box>
       {/* Hero Section */}
-      <Box
-        sx={{
-          position: "relative",
-          height: { xs: "40vh", sm: "50vh", md: "60vh" },
-          width: "100%",
-          backgroundImage: `url(${aboutBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          px: { xs: 2, sm: 3, md: 4 },
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            zIndex: 1,
-          },
-        }}
-      >
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-          <motion.div variants={FadeIn(0.8)} initial="initial" animate="animate">
-            <Typography
-              variant="h1"
-              sx={{
-                color: brandColors.text.light,
-                fontSize: {
-                  xs: "2.5rem",
-                  sm: "3.5rem",
-                  md: "4.5rem",
-                  lg: "5rem",
-                },
-                fontWeight: typography.fontWeight.bold,
-                mb: { xs: 1, md: spacing.md },
-                fontFamily: typography.fontFamily.heading,
-                textShadow: "2px 2px 6px rgba(0,0,0,0.4)",
-                letterSpacing: typography.letterSpacing.heading,
-                textAlign: "center",
-                lineHeight: 1.2,
-              }}
-            >
-              Welcome to Gruham
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{
-                color: brandColors.text.light,
-                fontSize: {
-                  xs: "1rem",
-                  sm: "1.25rem",
-                  md: "1.5rem",
-                  lg: "1.75rem",
-                },
-                mb: { xs: 3, md: spacing.xl },
-                maxWidth: "800px",
-                margin: "0 auto",
-                textShadow: "1px 1px 3px rgba(0,0,0,0.3)",
-                fontFamily: typography.fontFamily.body,
-                fontWeight: typography.fontWeight.regular,
-                letterSpacing: typography.letterSpacing.body,
-                textAlign: "center",
-                lineHeight: 1.5,
-              }}
-            >
-              Transforming the spaces where you live, work, and dream.
-            </Typography>
-          </motion.div>
+      <StyledHeroSection>
+        <Container maxWidth="md" sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h1"
+            sx={{
+              color: brandColors.secondary,
+              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" },
+              fontWeight: typography.fontWeight.bold,
+              mb: { xs: 1, md: spacing.md },
+              fontFamily: typography.fontFamily.heading,
+              letterSpacing: typography.letterSpacing.heading,
+              textAlign: "center",
+              lineHeight: 1.2,
+            }}
+          >
+            Welcome to Gruham
+          </Typography>
+          <AccentDivider />
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: brandColors.text.primary,
+              fontSize: {
+                xs: "1rem",
+                sm: "1.25rem",
+                md: "1.5rem",
+                lg: "1.75rem",
+              },
+              mb: { xs: 3, md: spacing.xl },
+              maxWidth: "800px",
+              margin: "0 auto",
+              fontFamily: typography.fontFamily.body,
+              fontWeight: typography.fontWeight.regular,
+              letterSpacing: typography.letterSpacing.body,
+              textAlign: "center",
+              lineHeight: 1.5,
+              opacity: 0.95,
+            }}
+          >
+            Transforming the spaces where you live, work, and dream.
+          </Typography>
         </Container>
-      </Box>
+      </StyledHeroSection>
 
       {/* Story Section */}
       <Container maxWidth="lg" sx={{ py: { xs: spacing.xl, md: spacing.xxl } }}>
@@ -266,9 +260,7 @@ const About = () => {
               px: { xs: 2, sm: 0 },
             }}
           >
-            Gruham was founded on a simple but powerful idea: to create spaces that elevate everyday living.
-            With unwavering passion, technical expertise, and a commitment to clients, we've become a trusted
-            name in construction—delivering iconic projects across residential, commercial, and landmark developments.
+            Gruham was founded on a simple but powerful idea: to create spaces that elevate everyday living. With unwavering passion, technical expertise, and a commitment to clients, we've become a trusted name in construction—delivering iconic projects across residential, commercial, and landmark developments.
           </Typography>
         </motion.div>
         <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: spacing.xl, md: spacing.xxl } }}>
@@ -305,8 +297,7 @@ const About = () => {
                       textAlign: { xs: "center", md: "left" },
                     }}
                   >
-                    To deliver inspiring, sustainable, and technically excellent environments—placing each client's aspirations
-                    at the heart of our craft.
+                    To deliver inspiring, sustainable, and technically excellent environments—placing each client's aspirations at the heart of our craft.
                   </Typography>
                 </CardContent>
               </StyledCard>
@@ -451,7 +442,7 @@ const About = () => {
               sx={{
                 fontFamily: typography.fontFamily.heading,
                 fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
-                color: brandColors.primaryDark,
+                color: brandColors.secondary,
                 textAlign: "center",
                 mb: { xs: 1, md: spacing.md },
                 fontWeight: typography.fontWeight.bold,
@@ -477,32 +468,35 @@ const About = () => {
                 px: { xs: 2, sm: 0 },
               }}
             >
-              Whether you're starting a new project or looking for a partner to bring your vision to reality,
-              the Gruham team is here to help. Reach out and let's make something extraordinary together.
+              Whether you're starting a new project or looking for a partner to bring your vision to reality, the Gruham team is here to help. Reach out and let's make something extraordinary together.
             </Typography>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                backgroundColor: brandColors.primary,
-                color: brandColors.text.light,
-                px: { xs: spacing.lg, md: spacing.xl },
-                py: { xs: spacing.sm, md: spacing.md },
-                fontSize: { xs: "0.95rem", md: "1rem" },
-                fontWeight: typography.fontWeight.semiBold,
-                borderRadius: borderRadius.medium,
-                textTransform: "none",
-                transition: transitions.default,
-                fontFamily: typography.fontFamily.body,
-                "&:hover": {
-                  backgroundColor: "#7a6a4a",
-                  transform: "scale(1.05)",
-                  boxShadow: shadows.large,
-                },
-              }}
-            >
-              Contact Gruham
-            </Button>
+            <Link to="/contact" style={{ textDecoration: 'none' }}>
+              <Button
+                variant="contained"
+                size="large"
+                sx={{
+                  background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
+                  px: spacing.lg,
+                  py: spacing.sm,
+                  minWidth: 174,
+                  fontFamily: typography.fontFamily.body,
+                  fontSize: typography.fontSize.body1,
+                  fontWeight: typography.fontWeight.semiBold,
+                  textTransform: "none",
+                  color: "#332900",
+                  boxShadow: "0 6px 24px #bfa9741c",
+                  borderRadius: "14px",
+                  letterSpacing: "0.05em",
+                  transition: "background .28s, box-shadow .28s, color .14s",
+                  '&:hover': {
+                    background: "#B39375",
+                    color: "#fffbe7"
+                  },
+                }}
+              >
+                Contact Gruham
+              </Button>
+            </Link>
           </motion.div>
         </Box>
       </Container>

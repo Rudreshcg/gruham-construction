@@ -8,36 +8,38 @@ import {
   Container,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import contactBg from "../../assets/images/careers_bg.jpg";
 import {
   brandColors,
   typography,
   spacing,
   shadows,
   transitions,
-  borderRadius
+  borderRadius,
 } from "../../theme/designSystem";
 
+// Accent divider (reuse from Services page)
+const AccentDivider = styled("div")({
+  width: 64,
+  height: 4,
+  borderRadius: 6,
+  background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
+  margin: "18px auto 0",
+});
+
+// Hero section styled to match Services, without image or gradient
 const StyledHeroSection = styled(Box)({
-  position: "relative",
-  height: "60vh",
   width: "100%",
-  backgroundImage: `url(${contactBg})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
+  minHeight: 190,
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    zIndex: 1
-  }
+  backgroundColor: brandColors.background.light,
+  boxShadow: "none",
+  borderBottom: `1.5px solid ${brandColors.border}`,
+  position: "relative",
+  zIndex: 1,
+  padding: "48px 0 24px",
 });
 
 const textFieldStyles = {
@@ -78,7 +80,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate API call
     setSubmissionMessage("Thank you for contacting Gruham! We will respond soon.");
     setTimeout(() => {
       setFormData({
@@ -93,38 +94,43 @@ const Contact = () => {
 
   return (
     <Box sx={{ backgroundColor: brandColors.background.light, minHeight: "100vh" }}>
-      {/* Hero Section */}
+      {/* Hero Section (clean, matches Services page, no background) */}
       <StyledHeroSection>
-        <Box sx={{ position: "relative", textAlign: "center", color: brandColors.text.light, zIndex: 2, p: spacing.md }}>
+        <Container maxWidth="md" sx={{ textAlign: "center" }}>
           <Typography
             variant="h2"
             component="h1"
             sx={{
-              fontWeight: typography.fontWeight.bold,
-              mb: spacing.md,
               fontFamily: typography.fontFamily.heading,
+              color: brandColors.secondary,
+              fontWeight: typography.fontWeight.bold,
               fontSize: { xs: typography.fontSize.h3, md: typography.fontSize.h2 },
               letterSpacing: typography.letterSpacing.heading,
-              textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+              mb: 0,
             }}
           >
             Contact Gruham
           </Typography>
+          <AccentDivider />
           <Typography
             variant="h5"
             sx={{
-              maxWidth: 600,
+              maxWidth: 700,
               mx: "auto",
+              mt: spacing.md,
+              mb: 0,
               fontFamily: typography.fontFamily.body,
+              color: brandColors.text.primary,
               fontSize: { xs: typography.fontSize.body1, md: typography.fontSize.h5 },
               fontWeight: typography.fontWeight.regular,
               letterSpacing: typography.letterSpacing.body,
               lineHeight: 1.6,
+              opacity: 0.95,
             }}
           >
             Planning a new project or need expert advice? Our team is ready to guide you every step of the way.
           </Typography>
-        </Box>
+        </Container>
       </StyledHeroSection>
 
       {/* Contact Form Section */}
@@ -207,27 +213,26 @@ const Contact = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Button
-                      type="submit"
                       variant="contained"
                       size="large"
                       sx={{
-                        backgroundColor: brandColors.primary,
-                        color: brandColors.text.light,
-                        px: spacing.xl,
-                        py: spacing.md,
+                        background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
+                        px: spacing.lg,
+                        py: spacing.sm,
+                        minWidth: 174,
+                        fontFamily: typography.fontFamily.body,
                         fontSize: typography.fontSize.body1,
                         fontWeight: typography.fontWeight.semiBold,
-                        borderRadius: borderRadius.medium,
                         textTransform: "none",
-                        transition: transitions.default,
-                        fontFamily: typography.fontFamily.body,
-                        boxShadow: shadows.medium,
-                        "&:hover": {
-                          backgroundColor: "#B39375",
-                          transform: "translateY(-2px)",
-                          boxShadow: shadows.large,
+                        color: "#332900",
+                        boxShadow: "0 6px 24px #bfa9741c",
+                        borderRadius: "14px",
+                        letterSpacing: "0.05em",
+                        transition: "background .28s, box-shadow .28s, color .14s",
+                        '&:hover': {
+                          background: "#B39375",
+                          color: "#fffbe7"
                         },
-                        width: { xs: "100%", sm: "auto" },
                       }}
                     >
                       Send Message

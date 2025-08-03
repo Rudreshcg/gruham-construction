@@ -32,6 +32,31 @@ import architectureStructural from '../../assets/images/architecture-structural.
 import ResidentialDevImage from '../../assets/images/residential-development.png'
 
 
+
+// Accent divider (reuse from Services page)
+const AccentDivider = styled("div")({
+  width: 64,
+  height: 4,
+  borderRadius: 6,
+  background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
+  margin: "18px auto 0",
+});
+
+const StyledHeroSection = styled(Box)({
+  width: "100%",
+  minHeight: 190,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: brandColors.background.light,
+  boxShadow: "none",
+  borderBottom: `1.5px solid ${brandColors.border}`,
+  position: "relative",
+  zIndex: 1,
+  padding: "48px 0 24px",
+});
+
 const ServiceIcon = styled(Box)(({ theme }) => ({
   width: '250px',
   height: '150px',
@@ -54,15 +79,32 @@ const Services = () => {
   // Define the services data with more content
   const servicesData = [
     {
-      title: "Home Renovation",
-      description: "Upgrade your existing spaces with modern designs, superior craftsmanship, and attention to detail to make your home feel brand new. We handle everything from minor updates to major overhauls, ensuring a seamless transformation that reflects your style and enhances functionality.",
-      image: homeRenovationImage
-    },
-    {
       title: "Home Construction",
       description: "Build your dream home from the ground up with expert planning, quality materials, and flawless execution tailored to your preferences. Our team works closely with you through every phase, from initial design concepts to the final touches, to ensure your vision becomes a reality.",
       image: homeConstructionImage, // Use the imported image
     },
+
+    {
+      title: "Residential Development",
+      description: "Developing high-quality residential projects, from single-family homes to multi-unit complexes. We create communities that offer comfort, convenience, and modern living, ensuring every residence is built to the highest standards.",
+      image: ResidentialDevImage, // Use the imported image
+    },
+    {
+      title: "Architecture Structural Design",
+      description: "Bring your vision to life with innovative and sustainable architectural designs combined with strong and reliable structural planning. Our architects and engineers collaborate to create structures that are not only visually appealing but also safe, durable, and environmentally conscious.",
+      image: architectureStructural, // Use the imported image
+    },
+    {
+      title: "Commercial Construction",
+      description: "Specializing in the construction of commercial properties, including offices, retail spaces, and industrial facilities. We focus on delivering functional, efficient, and aesthetically pleasing commercial buildings that meet business needs and industry standards.",
+      image: commercialContructionImage, // Use the imported image
+    },
+    {
+      title: "Home Renovation",
+      description: "Upgrade your existing spaces with modern designs, superior craftsmanship, and attention to detail to make your home feel brand new. We handle everything from minor updates to major overhauls, ensuring a seamless transformation that reflects your style and enhances functionality.",
+      image: homeRenovationImage
+    },
+
     {
       title: "Outdoor Living Spaces",
       description: "Transforming your outdoor areas into functional and stunning spaces, including patios, gardens, decks, and more, designed for relaxation and entertainment. We create bespoke outdoor environments that seamlessly blend with your home's architecture and the natural landscape.",
@@ -83,21 +125,8 @@ const Services = () => {
       description: "Enjoy a hassle-free experience with our end-to-end project management, covering timelines, budgeting, and seamless coordination. We meticulously plan and execute every step, ensuring your project progresses smoothly and efficiently from start to finish.",
       image: ProjectManagementImage, // Use the imported image
     },
-    {
-      title: "Architecture Structural Design",
-      description: "Bring your vision to life with innovative and sustainable architectural designs combined with strong and reliable structural planning. Our architects and engineers collaborate to create structures that are not only visually appealing but also safe, durable, and environmentally conscious.",
-      image: architectureStructural, // Use the imported image
-    },
-    {
-      title: "Commercial Construction",
-      description: "Specializing in the construction of commercial properties, including offices, retail spaces, and industrial facilities. We focus on delivering functional, efficient, and aesthetically pleasing commercial buildings that meet business needs and industry standards.",
-      image: commercialContructionImage, // Use the imported image
-    },
-    {
-      title: "Residential Development",
-      description: "Developing high-quality residential projects, from single-family homes to multi-unit complexes. We create communities that offer comfort, convenience, and modern living, ensuring every residence is built to the highest standards.",
-      image: ResidentialDevImage, // Use the imported image
-    },
+
+
   ];
 
   // Function to dynamically determine the lg size for Grid items
@@ -118,40 +147,46 @@ const Services = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: brandColors.background.light, py: spacing.xxl, minHeight: '100vh' }}>
+    <Box sx={{ backgroundColor: brandColors.background.light, minHeight: "100vh" }}>
       <Container maxWidth="lg">
-        <Typography
-          variant="h2"
-          component="h2"
-          align="center"
-          sx={{
-            fontWeight: typography.fontWeight.bold,
-            mb: spacing.xl,
-            color: brandColors.secondary,
-            fontFamily: typography.fontFamily.heading,
-            fontSize: { xs: typography.fontSize.h3, md: typography.fontSize.h2 },
-            letterSpacing: typography.letterSpacing.heading,
-          }}
-        >
-          Our Services
-        </Typography>
-        <Typography
-          variant="h5"
-          align="center"
-          sx={{
-            maxWidth: 800,
-            mx: 'auto',
-            mb: spacing.xxl,
-            color: brandColors.text.primary,
-            fontFamily: typography.fontFamily.body,
-            fontSize: { xs: typography.fontSize.body1, md: typography.fontSize.h5 },
-            fontWeight: typography.fontWeight.regular,
-            letterSpacing: typography.letterSpacing.body,
-            lineHeight: 1.6,
-          }}
-        >
-          We offer a comprehensive range of construction services, from initial planning and design to final execution and interior finishing, ensuring your project is handled with unparalleled expertise.
-        </Typography>
+
+        <StyledHeroSection>
+          <Container maxWidth="md" sx={{ textAlign: "center" }}>
+            <Typography
+              variant="h2"
+              component="h1"
+              sx={{
+                fontFamily: typography.fontFamily.heading,
+                color: brandColors.secondary,
+                fontWeight: typography.fontWeight.bold,
+                fontSize: { xs: typography.fontSize.h3, md: typography.fontSize.h2 },
+                letterSpacing: typography.letterSpacing.heading,
+                mb: 0,
+              }}
+            >
+              Our Services
+            </Typography>
+            <AccentDivider />
+            <Typography
+              variant="h5"
+              sx={{
+                maxWidth: 700,
+                mx: "auto",
+                mt: spacing.md,
+                mb: 0,
+                fontFamily: typography.fontFamily.body,
+                color: brandColors.text.primary,
+                fontSize: { xs: typography.fontSize.body1, md: typography.fontSize.h5 },
+                fontWeight: typography.fontWeight.regular,
+                letterSpacing: typography.letterSpacing.body,
+                lineHeight: 1.6,
+                opacity: 0.95,
+              }}
+            >
+              We offer a comprehensive range of construction services, from initial planning and design to final execution and interior finishing, ensuring your project is handled with unparalleled expertise.
+            </Typography>
+          </Container>
+        </StyledHeroSection>
 
         <Grid container spacing={spacing.xl} justifyContent="center">
           {servicesData.map((service, index) => (
@@ -183,12 +218,13 @@ const Services = () => {
                     variant="h5"
                     component="h3"
                     sx={{
-                      color: brandColors.text.secondary,
-                      mb: spacing.md,
+                      color: brandColors.primary,
+                      mb: 1,
                       fontFamily: typography.fontFamily.heading,
-                      fontSize: typography.fontSize.h5,
-                      fontWeight: typography.fontWeight.semiBold,
-                      letterSpacing: typography.letterSpacing.heading,
+                      fontSize: { xs: 20, md: 23, lg: 24 },
+                      fontWeight: 700,
+                      letterSpacing: 1.2,
+                      textShadow: "0 2px 12px #fcecd1bb"
                     }}
                   >
                     {service.title}
@@ -216,21 +252,24 @@ const Services = () => {
         <Box
           sx={{
             textAlign: 'center',
-            mt: spacing.xxl,
-            p: spacing.xl,
+            my: spacing.xxl,
+            p: spacing.xxl,
             backgroundColor: brandColors.background.primary,
             borderRadius: borderRadius.medium,
             boxShadow: shadows.medium
           }}
         >
           <Typography
-            variant="h4"
+            variant="h2"
             sx={{
-              color: brandColors.text.secondary,
-              mb: spacing.md,
               fontFamily: typography.fontFamily.heading,
-              fontSize: typography.fontSize.h4,
-              fontWeight: typography.fontWeight.semiBold
+              fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
+              color: brandColors.secondary,
+              textAlign: "center",
+              mb: { xs: 1, md: spacing.md },
+              fontWeight: typography.fontWeight.bold,
+              letterSpacing: typography.letterSpacing.heading,
+              lineHeight: 1.2,
             }}
           >
             Ready to Start Your Project?
@@ -253,16 +292,23 @@ const Services = () => {
               variant="contained"
               size="large"
               sx={{
-                backgroundColor: brandColors.primary,
-                px: spacing.lg, // Reduce width padding
-                py: spacing.sm, // Reduce height padding
+                background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
+                px: spacing.lg,
+                py: spacing.sm,
+                minWidth: 174,
                 fontFamily: typography.fontFamily.body,
                 fontSize: typography.fontSize.body1,
-                fontWeight: typography.fontWeight.medium,
-                textTransform: 'none',
+                fontWeight: typography.fontWeight.semiBold,
+                textTransform: "none",
+                color: "#332900",
+                boxShadow: "0 6px 24px #bfa9741c",
+                borderRadius: "14px",
+                letterSpacing: "0.05em",
+                transition: "background .28s, box-shadow .28s, color .14s",
                 '&:hover': {
-                  backgroundColor: '#B39375',
-                }
+                  background: "#B39375",
+                  color: "#fffbe7"
+                },
               }}
             >
               Contact Us Today
