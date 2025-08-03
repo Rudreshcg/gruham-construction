@@ -2,7 +2,14 @@ import React from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import ProjectImage from "../../assets/images/projects/livingarea-4.png";
+import LuxuryVilla from "../../assets/images/projects/Luxury_Villa_Construction.png"
+import ModernApartment from "../../assets/images/projects/Modern_Apartment.png"
+import CommercialDev from "../../assets/images/projects/Commercial_dev.png"
+
+
+
+
+
 import {
   SlideLeft,
   SlideRight,
@@ -20,7 +27,7 @@ const projects = [
     title: "Luxury Villa Construction",
     description:
       "Experience the epitome of luxury living with our custom villa construction services. We combine innovative design with premium materials to create stunning, functional spaces that reflect your unique style and preferences.",
-    image: ProjectImage,
+    image: LuxuryVilla,
     features: ["Custom Design", "Premium Materials", "Smart Home Integration"],
   },
   {
@@ -28,7 +35,7 @@ const projects = [
     title: "Modern Apartment Complex",
     description:
       "Our modern apartment complexes are designed with contemporary living in mind. We focus on creating spaces that maximize natural light, promote community interaction, and offer luxurious amenities for a premium living experience.",
-    image: ProjectImage,
+    image: ModernApartment,
     features: ["Community Spaces", "Energy Efficient", "Modern Amenities"],
   },
   {
@@ -36,7 +43,7 @@ const projects = [
     title: "Commercial Development",
     description:
       "Transform your business space with our commercial construction expertise. We specialize in creating functional, aesthetically pleasing environments that enhance productivity and leave a lasting impression on clients.",
-    image: ProjectImage,
+    image: CommercialDev,
     features: ["Custom Layouts", "Professional Finish", "Business Solutions"],
   },
 ];

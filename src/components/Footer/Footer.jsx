@@ -110,8 +110,8 @@ const Footer = () => {
                 Write
               </Typography>
               <Typography mt={2}>
-                <Link href="mailto:info@tvashtainterior.com" color="inherit">
-                  info@tvashtainterior.com
+                <Link href="mailto:info@gruham.in" color="inherit">
+                  info@gruham.in
                 </Link>
               </Typography>
             </motion.div>
@@ -126,7 +126,7 @@ const Footer = () => {
               <Typography variant="h6" fontWeight="bold">
                 Visit
               </Typography>
-              <Typography mt={2}>Tvashta Interior</Typography>
+              <Typography mt={2}>Gruham</Typography>
               <Typography mt={2}>
                 Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
               </Typography>
@@ -142,7 +142,7 @@ const Footer = () => {
           pt={5}
           mt={5}
         >
-          &copy; 2024 Tvashta Interior. All rights reserved
+          &copy; 2024 Gruham. All rights reserved
         </Typography>
       </Container>
     </Box>

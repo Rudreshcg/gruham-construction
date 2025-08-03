@@ -3,6 +3,8 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import ProjectImage from '../../assets/images/projects/livingarea-4.png';
+import ModernKitchen from '../../assets/images/projects/modern_kitchen.png'
+import BathRoom from '../../assets/images/projects/bathroom_design.png'
 import { SlideLeft, SlideRight, SlideUp, FadeIn } from "../../animation/animate";
 import { DiscriptionTypography, ManiHeader } from "../../common/headerComponents";
 
@@ -18,14 +20,14 @@ const projects = [
     id: 2,
     title: "Modern Kitchen Design",
     description: "Create the kitchen of your dreams with our expert design services. We focus on creating functional, beautiful spaces that make cooking and entertaining a joy, while maximizing storage and workflow efficiency.",
-    image: ProjectImage,
+    image: ModernKitchen,
     features: ["Custom Cabinetry", "Premium Appliances", "Smart Storage"]
   },
   {
     id: 3,
     title: "Bathroom Renovation",
     description: "Elevate your bathroom into a luxurious sanctuary. Our bathroom renovation services combine premium materials with innovative design to create spaces that are both beautiful and functional.",
-    image: ProjectImage,
+    image: BathRoom,
     features: ["Custom Fixtures", "Luxury Materials", "Spa Features"]
   }
 ];

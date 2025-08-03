@@ -8,11 +8,7 @@ import {
   Container,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-// Removed unused imports: motion, FadeIn, SlideUp, as they are not utilized in the component
-import contactBg from "../../assets/images/careers_bg.jpg"; // Keeping the original hero image import as requested
-
-// Importing design system variables from the external file as requested
-// This assumes your '../../theme/designSystem' file correctly exports these constants.
+import contactBg from "../../assets/images/careers_bg.jpg";
 import {
   brandColors,
   typography,
@@ -22,30 +18,28 @@ import {
   borderRadius
 } from "../../theme/designSystem";
 
-
-// Styled components for reusability and cleaner code
 const StyledHeroSection = styled(Box)({
-  position: 'relative',
-  height: '60vh',
-  width: '100%',
-  backgroundImage: `url(${contactBg})`, // Using the original contactBg image
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  '&::before': {
+  position: "relative",
+  height: "60vh",
+  width: "100%",
+  backgroundImage: `url(${contactBg})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "&::before": {
     content: '""',
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Slightly adjusted overlay for better text contrast
+    backgroundColor: "rgba(0,0,0,0.5)",
+    zIndex: 1
   }
 });
 
-// Reusable styles for TextField to reduce repetition
 const textFieldStyles = {
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -57,7 +51,7 @@ const textFieldStyles = {
     "&.Mui-focused fieldset": {
       borderColor: brandColors.primary,
     },
-    borderRadius: borderRadius.medium, // Rounded text fields
+    borderRadius: borderRadius.medium,
   },
   "& .MuiInputLabel-root": {
     color: brandColors.text.secondary,
@@ -73,7 +67,7 @@ const Contact = () => {
     phone: "",
     message: "",
   });
-  const [submissionMessage, setSubmissionMessage] = useState(""); // State for submission feedback
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -84,10 +78,8 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate form submission (e.g., API call)
-    console.log("Form Data Submitted:", formData);
-    setSubmissionMessage("Thank you for your message! We will get back to you soon.");
-    // Clear form after a short delay for user to see the message
+    // Simulate API call
+    setSubmissionMessage("Thank you for contacting Gruham! We will respond soon.");
     setTimeout(() => {
       setFormData({
         name: "",
@@ -95,15 +87,15 @@ const Contact = () => {
         phone: "",
         message: "",
       });
-      setSubmissionMessage(""); // Clear message after clearing form
-    }, 3000); // Clear after 3 seconds
+      setSubmissionMessage("");
+    }, 3000);
   };
 
   return (
-    <Box sx={{ backgroundColor: brandColors.background.light, minHeight: '100vh' }}> {/* Overall page background */}
+    <Box sx={{ backgroundColor: brandColors.background.light, minHeight: "100vh" }}>
       {/* Hero Section */}
       <StyledHeroSection>
-        <Box sx={{ position: 'relative', textAlign: 'center', color: brandColors.text.light, zIndex: 1, p: spacing.md }}>
+        <Box sx={{ position: "relative", textAlign: "center", color: brandColors.text.light, zIndex: 2, p: spacing.md }}>
           <Typography
             variant="h2"
             component="h1"
@@ -111,33 +103,33 @@ const Contact = () => {
               fontWeight: typography.fontWeight.bold,
               mb: spacing.md,
               fontFamily: typography.fontFamily.heading,
-              fontSize: { xs: typography.fontSize.h3, md: typography.fontSize.h2 }, // Responsive font size
+              fontSize: { xs: typography.fontSize.h3, md: typography.fontSize.h2 },
               letterSpacing: typography.letterSpacing.heading,
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)', // Add text shadow for better readability
+              textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
             }}
           >
-            Contact Us
+            Contact Gruham
           </Typography>
           <Typography
             variant="h5"
             sx={{
               maxWidth: 600,
-              mx: 'auto',
+              mx: "auto",
               fontFamily: typography.fontFamily.body,
-              fontSize: { xs: typography.fontSize.body1, md: typography.fontSize.h5 }, // Responsive font size
+              fontSize: { xs: typography.fontSize.body1, md: typography.fontSize.h5 },
               fontWeight: typography.fontWeight.regular,
               letterSpacing: typography.letterSpacing.body,
               lineHeight: 1.6,
             }}
           >
-            If you'd like to learn more about how we can help make your dream home a reality, please reach out. We can't wait to hear from you!
+            Planning a new project or need expert advice? Our team is ready to guide you every step of the way.
           </Typography>
         </Box>
       </StyledHeroSection>
 
       {/* Contact Form Section */}
       <Container maxWidth="lg" sx={{ my: spacing.xxl }}>
-        <Grid container spacing={spacing.xl} alignItems="stretch"> {/* Use alignItems="stretch" for equal height cards */}
+        <Grid container spacing={spacing.xl} alignItems="stretch">
           {/* Contact Form */}
           <Grid item xs={12} md={7}>
             <Box
@@ -145,11 +137,11 @@ const Contact = () => {
                 p: spacing.xl,
                 backgroundColor: brandColors.background.white,
                 borderRadius: borderRadius.large,
-                boxShadow: shadows.large, // Enhanced shadow
-                height: "100%", // Make it take full height
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between', // Distribute content vertically
+                boxShadow: shadows.large,
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
               }}
             >
               <Typography
@@ -163,9 +155,9 @@ const Contact = () => {
                   letterSpacing: typography.letterSpacing.heading,
                 }}
               >
-                Send us a Message
+                Get in Touch
               </Typography>
-              <Box component="form" onSubmit={handleSubmit} sx={{ flexGrow: 1 }}> {/* Allow form to grow */}
+              <Box component="form" onSubmit={handleSubmit} sx={{ flexGrow: 1 }}>
                 <Grid container spacing={spacing.md}>
                   <Grid item xs={12} sm={6}>
                     <TextField
@@ -175,7 +167,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       fullWidth
-                      sx={textFieldStyles} // Applied reusable styles
+                      sx={textFieldStyles}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -187,17 +179,17 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       fullWidth
-                      sx={textFieldStyles} // Applied reusable styles
+                      sx={textFieldStyles}
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
-                      label="Phone"
+                      label="Phone (optional)"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       fullWidth
-                      sx={textFieldStyles} // Applied reusable styles
+                      sx={textFieldStyles}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -210,7 +202,7 @@ const Contact = () => {
                       multiline
                       rows={4}
                       fullWidth
-                      sx={textFieldStyles} // Applied reusable styles
+                      sx={textFieldStyles}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -229,19 +221,19 @@ const Contact = () => {
                         textTransform: "none",
                         transition: transitions.default,
                         fontFamily: typography.fontFamily.body,
-                        boxShadow: shadows.medium, // Add shadow to button
+                        boxShadow: shadows.medium,
                         "&:hover": {
-                          backgroundColor: '#B39375', // A slightly darker gold on hover
-                          transform: "translateY(-2px)", // Slight lift on hover
+                          backgroundColor: "#B39375",
+                          transform: "translateY(-2px)",
                           boxShadow: shadows.large,
                         },
-                        width: { xs: '100%', sm: 'auto' }, // Full width on small screens, auto on larger
+                        width: { xs: "100%", sm: "auto" },
                       }}
                     >
                       Send Message
                     </Button>
                   </Grid>
-                  {submissionMessage && ( // Display submission message
+                  {submissionMessage && (
                     <Grid item xs={12}>
                       <Typography
                         variant="body1"
@@ -249,7 +241,7 @@ const Contact = () => {
                           mt: spacing.md,
                           color: brandColors.success,
                           fontFamily: typography.fontFamily.body,
-                          textAlign: 'center',
+                          textAlign: "center",
                         }}
                       >
                         {submissionMessage}
@@ -268,11 +260,11 @@ const Contact = () => {
                 p: spacing.xl,
                 backgroundColor: brandColors.background.white,
                 borderRadius: borderRadius.large,
-                boxShadow: shadows.large, // Enhanced shadow
-                height: "100%", // Make it take full height
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
+                boxShadow: shadows.large,
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
               }}
             >
               <Typography
@@ -286,7 +278,7 @@ const Contact = () => {
                   letterSpacing: typography.letterSpacing.heading,
                 }}
               >
-                Contact Information
+                Contact Details
               </Typography>
               <Box sx={{ mb: spacing.lg, flexGrow: 1 }}>
                 <Typography
@@ -348,10 +340,8 @@ const Contact = () => {
                     letterSpacing: typography.letterSpacing.body,
                   }}
                 >
-                  Monday - Friday: 9:00 AM - 6:00 PM
-                  <br />
-                  Saturday: 10:00 AM - 4:00 PM
-                  <br />
+                  Monday - Friday: 9:00 AM - 6:00 PM<br />
+                  Saturday: 10:00 AM - 4:00 PM<br />
                   Sunday: Closed
                 </Typography>
               </Box>
@@ -361,16 +351,16 @@ const Contact = () => {
       </Container>
 
       {/* Google Maps Section */}
-      <Box sx={{ height: { xs: '300px', md: '450px' }, width: '100%', mt: spacing.xxl, mb: 0 }}>
+      <Box sx={{ height: { xs: "300px", md: "450px" }, width: "100%", mt: 20, mb: 0 }}>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.4910851644447!2d-122.5672493!3d45.4285799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495740aa5c2c8ab%3A0x2c5b75b1b4a6c8a4!2s9206%20SE%20Idleman%20Rd%2C%20Happy%20Valley%2C%20OR%2097086!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7548691524453!2d77.69393267484278!3d13.051269187271448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11003102f8d5%3A0x9e9517053a418d75!2sTVASHTA%20INTERIOR%20SOLUTIONS%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1753849182414!5m2!1sen!2sin"
           width="100%"
           height="100%"
-          style={{ border: 0, borderRadius: borderRadius.large }} // Apply border radius to map
+          style={{ border: 0, borderRadius: borderRadius.large }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Google Maps Location" // Add a title for accessibility
+          title="Google Maps Location"
         />
       </Box>
     </Box>
