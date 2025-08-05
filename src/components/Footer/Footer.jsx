@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from '../../assets/images/Logo.jpeg';
+import Logo from '../../assets/images/Logo.png';
 import { motion } from "framer-motion";
 import { SlideLeft } from "../../animation/animate";
 import {

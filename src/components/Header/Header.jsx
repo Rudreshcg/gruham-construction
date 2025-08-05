@@ -14,7 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link as RouterLink, useParams } from "react-router-dom";
 import { styled } from "@mui/system";
-import Logo from "../../assets/images/Logo.jpeg";
+import Logo from "../../assets/images/Logo.png";
 
 const DesktopMenu = styled("div")(({ theme }) => ({
   display: "none",
