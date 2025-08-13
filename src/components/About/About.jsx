@@ -181,16 +181,15 @@ const About = () => {
       <StyledHeroSection>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>
           <Typography
-            variant="h1"
+            variant="h2"
+            component="h1"
             sx={{
-              color: brandColors.secondary,
-              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" },
-              fontWeight: typography.fontWeight.bold,
-              mb: { xs: 1, md: spacing.md },
               fontFamily: typography.fontFamily.heading,
+              color: brandColors.secondary,
+              fontWeight: typography.fontWeight.bold,
+              fontSize: { xs: typography.fontSize.h3, md: typography.fontSize.h2 },
               letterSpacing: typography.letterSpacing.heading,
-              textAlign: "center",
-              lineHeight: 1.2,
+              mb: 0,
             }}
           >
             Welcome to Gruham
@@ -230,7 +229,7 @@ const About = () => {
           whileInView="animate"
         >
           <Typography
-            variant="h2"
+            variant="h3"
             sx={{
               fontFamily: typography.fontFamily.heading,
               fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
@@ -351,7 +350,7 @@ const About = () => {
           whileInView="animate"
         >
           <Typography
-            variant="h2"
+            variant="h3"
             sx={{
               fontFamily: typography.fontFamily.heading,
               fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
@@ -438,7 +437,7 @@ const About = () => {
         >
           <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
             <Typography
-              variant="h2"
+              variant="h3"
               sx={{
                 fontFamily: typography.fontFamily.heading,
                 fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },

@@ -47,23 +47,32 @@ const Footer = () => {
               <Typography variant="body1" textAlign="center" color="burlywood" sx={{ fontWeight: 500 }}>
                 Where design meets your dream lifestyle.
               </Typography>
-              <Box mt={3} display="flex" justifyContent="center" gap={1.5}>
+              <Box
+                mt={3}
+                display="flex"
+                justifyContent="center"
+                flexWrap="wrap"
+                gap={{ xs: 1, sm: 1.5, md: 2 }} // responsive spacing
+              >
                 {[Facebook, Twitter, Instagram, YouTube, Pinterest, LinkedIn].map((Icon, idx) => (
                   <IconButton
                     key={idx}
                     color="inherit"
-                    size="large"
                     href="#"
                     aria-label={Icon.displayName || "social link"}
                     sx={{
+                      fontSize: { xs: 20, sm: 24, md: 28 }, // responsive icon size
+                      '& svg': { fontSize: 'inherit' },
                       transition: 'color 0.3s ease',
-                      '&:hover': { color: '#bfa974' }
+                      '&:hover': { color: '#bfa974' },
+                      padding: { xs: 0.75, sm: 1 } // smaller padding on mobile
                     }}
                   >
-                    <Icon fontSize="inherit" />
+                    <Icon />
                   </IconButton>
                 ))}
               </Box>
+
             </motion.div>
           </Grid>
 
