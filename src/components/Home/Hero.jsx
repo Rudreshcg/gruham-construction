@@ -1,37 +1,51 @@
-import React, { useRef } from "react";
-import { Box, Typography, Button, Container } from "@mui/material";
-import { motion } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { Box, Typography, Button, Container, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import landingPageImageWebp from "../../assets/images/hero_image.webp"; // WebP version
-import landingPageImageJpg from "../../assets/images/hero_image.jpg"; // JPEG fallback
-import { SlideUp, FadeIn } from "../../animation/animate";
-import RadialGradient from "../../common/RadialGradient"; // Assuming this component is correctly implemented
+import landingPageImageWebp from "../../assets/images/heros_image.jpg";
+import landingPageImageJpg from "../../assets/images/heros_image.jpg";
+import RadialGradient from "../../common/RadialGradient";
 
 const Hero = () => {
   const maindivRef = useRef(null);
   const navigate = useNavigate();
+
+  // Dynamic form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}`);
+    setFormData({ name: "", email: "", phone: "" });
+     navigate("/About");
+  };
 
   return (
     <Box
       sx={{
         position: "relative",
         width: "100%",
-        // Using minHeight with 100vh for better mobile compatibility
-        // 100dvh (dynamic viewport height) is a newer, more robust option for mobile
-        // but 100vh is widely supported.
         minHeight: "100vh",
         maxWidth: "100%",
-        overflow: "hidden", // Prevents scrollbars if content slightly overflows
+        overflow: "hidden",
         display: "flex",
-        flexDirection: "column", // Ensure content stacks vertically
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        textAlign: "center", // Center text within the Box itself
-        p: { xs: 2, sm: 3, md: 4 }, // Add padding around the entire hero section for mobile safety
+        textAlign: "center",
+        p: { xs: 2, sm: 3, md: 4 },
       }}
       ref={maindivRef}
     >
-      {/* Background Image with <picture> for WebP and JPEG fallback */}
+      {/* Background Image */}
       <picture>
         <source srcSet={landingPageImageWebp} type="image/webp" />
         <img
@@ -43,13 +57,14 @@ const Hero = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover", // Ensures the image covers the area without distortion
-            zIndex: 0, // Image at the lowest layer
+            objectFit: "cover",
+            zIndex: 0,
+            transition: "filter 0.6s ease-in-out",
           }}
         />
       </picture>
 
-      {/* Overlay gradient for text readability */}
+      {/* Overlay Gradient */}
       <Box
         sx={{
           position: "absolute",
@@ -57,94 +72,163 @@ const Hero = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7))",
-          zIndex: 1, // Gradient above image, below content
+          background: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))",
+          zIndex: 1,
         }}
       />
 
-      {/* Radial gradient effect (assuming this component works as intended) */}
-      {/* Ensure RadialGradient's internal z-index is managed relative to other layers */}
+      {/* Radial Gradient (brightness / swipe effect) */}
       <RadialGradient outerDivRef={maindivRef} />
 
-      {/* Main content container (text and button) */}
+      {/* Main Container */}
       <Container
         maxWidth="lg"
         sx={{
           position: "relative",
-          zIndex: 2, // Ensure content is above image and gradients
+          zIndex: 2,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          height: "100%", // Allow container to take full height for vertical centering
-          py: { xs: 4, sm: 6, md: 0 }, // Add vertical padding to container on smaller screens
+          height: "100%",
+          py: { xs: 4, sm: 6, md: 0 },
         }}
       >
-        <motion.div variants={FadeIn(0.8)} initial="initial" animate="animate">
-          <Typography
-            variant="h1"
-            sx={{
-              color: "white",
-              // Responsive font sizes for main heading
-              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" },
-              fontWeight: 700,
-              mb: { xs: 1.5, md: 2 }, // Adjusted margin bottom for mobile
-              fontFamily: "'Playfair Display', serif", // Ensure this font is loaded globally
-              textShadow: "2px 2px 4px rgba(0,0,0,0.4)", // Slightly stronger shadow
-              letterSpacing: { xs: "0.01em", md: "0.02em" }, // Adjust letter spacing for mobile
-              lineHeight: { xs: 1.2, md: 1.1 }, // Adjust line height for better readability
-            }}
-          >
-            Welcome to Gruham
-          </Typography>
-          <Typography
-            variant="h2" // Using h2 for semantic hierarchy, but styled as a subheading
-            sx={{
-              color: "white",
-              // Responsive font sizes for subheading
-              fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem", lg: "1.75rem" },
-              mb: { xs: 3, md: 4 }, // Adjusted margin bottom for mobile
-              maxWidth: "800px",
-              margin: "0 auto", // Centers the text block
-              textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
-              fontFamily: "'Montserrat', sans-serif", // Ensure this font is loaded globally
-              fontWeight: 400,
-              letterSpacing: "0.01em",
-              lineHeight: 1.5,
-              px: { xs: 2, sm: 0 }, // Add horizontal padding for very small screens
-            }}
-          >
-            Crafting Luxury Living Spaces with Excellence and Innovation
-          </Typography>
-          <motion.div variants={SlideUp(1)} initial="initial" animate="animate">
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => navigate("/contact")}
-              sx={{
-                backgroundColor: "#95805a",
-                color: "white",
-                px: { xs: 3, md: 4 }, // Responsive horizontal padding
-                py: { xs: 1.2, md: 1.5 }, // Responsive vertical padding
-                fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
-                fontWeight: 600,
-                borderRadius: "8px",
-                textTransform: "none", // Keeps button text as is (e.g., "Start Your Project")
-                transition: "0.3s",
-                fontFamily: "'Montserrat', sans-serif",
-                "&:hover": {
-                  backgroundColor: "#7a6a4a",
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 15px rgba(0,0,0,0.2)", // Add subtle shadow on hover
-                },
-                mt: { xs: 1, md: 0 }, // Add top margin on mobile if needed
-              }}
-            >
-              Start Your Project
-            </Button>
-          </motion.div>
-        </motion.div>
+        <Typography
+          variant="h2"
+          sx={{
+            fontWeight: 700,
+            color: "#bfa974",
+            textShadow: "0 2px 10px rgba(0,0,0,0.8)",
+            mb: 2,
+          }}
+        >
+           Luxury Living
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            color: "#fff",
+            maxWidth: "600px",
+            textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+          }}
+        >
+          Experience elegance redefined — crafted with precision and passion.
+        </Typography>
       </Container>
+
+      {/* Contact Form (Bottom-left corner) */}
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          position: "absolute",
+          bottom: { xs: 20, sm: 30 },
+          left: { xs: 20, sm: 30 },
+          backgroundColor: "rgba(0,0,0,0.6)",
+          border: "1px solid #bfa974",
+          borderRadius: "16px",
+          padding: "22px",
+          width: { xs: "85%", sm: "320px" },
+          boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
+          backdropFilter: "blur(10px)",
+          zIndex: 100,
+          display: "flex",
+          flexDirection: "column",
+          gap: 1.8,
+        }}
+      >
+        <Typography
+          variant="h6"
+          sx={{
+            color: "#bfa974",
+            fontWeight: 700,
+            textAlign: "center",
+            mb: 1,
+          }}
+        >
+          Contact Us
+        </Typography>
+
+        <TextField
+          label="Name"
+          name="name"
+          variant="outlined"
+          size="small"
+          fullWidth
+          value={formData.name}
+          onChange={handleChange}
+          InputLabelProps={{ style: { color: "#bfa974" } }}
+          InputProps={{
+            style: { color: "#fff", borderColor: "#bfa974" },
+          }}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#bfa974" },
+              "&:hover fieldset": { borderColor: "#bfa974" },
+              "&.Mui-focused fieldset": { borderColor: "#bfa974" },
+            },
+          }}
+        />
+
+        <TextField
+          label="Email"
+          name="email"
+          type="email"
+          variant="outlined"
+          size="small"
+          fullWidth
+          value={formData.email}
+          onChange={handleChange}
+          InputLabelProps={{ style: { color: "#bfa974" } }}
+          InputProps={{
+            style: { color: "#fff" },
+          }}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#bfa974" },
+              "&:hover fieldset": { borderColor: "#bfa974" },
+              "&.Mui-focused fieldset": { borderColor: "#bfa974" },
+            },
+          }}
+        />
+
+        <TextField
+          label="Phone Number"
+          name="phone"
+          type="tel"
+          variant="outlined"
+          size="small"
+          fullWidth
+          value={formData.phone}
+          onChange={handleChange}
+          InputLabelProps={{ style: { color: "#bfa974" } }}
+          InputProps={{
+            style: { color: "#fff" },
+          }}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#bfa974" },
+              "&:hover fieldset": { borderColor: "#bfa974" },
+              "&.Mui-focused fieldset": { borderColor: "#bfa974" },
+            },
+          }}
+        />
+
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            backgroundColor: "#bfa974",
+            color: "#000",
+            "&:hover": { backgroundColor: "#bfa974" },
+            fontWeight: 600,
+            mt: 1,
+          }}
+        >
+          Submit
+        </Button>
+      </Box>
     </Box>
   );
 };
