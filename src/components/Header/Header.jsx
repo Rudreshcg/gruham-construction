@@ -37,6 +37,7 @@ const Header = () => {
   const tabMenu = [
     { tabName: "HOME", to: "/" },
     { tabName: "ABOUT", to: "/about" },
+    { tabName: "PORTFOLIO", to: "/portfolio" },
     { tabName: "SERVICES", to: "/services" },
     { tabName: "CAREERS", to: "/careers" },
     // { tabName: "BLOGS", to: "/blogs" },

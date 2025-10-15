@@ -1,0 +1,115 @@
+/* Color Variables for easy theme changes */
+:root {
+    --button-color: #ffc400; /* Bright Yellow color from the image */
+    --text-color-light: white;
+}
+
+/* --- Portfolio Card Styling --- */
+.portfolio-card {
+    position: relative;
+    width: 100%; 
+    max-width: 400px; 
+    margin: 0 auto; 
+    overflow: hidden;
+    border-radius: 5px; 
+    
+    /* Box shadow is the initial state */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    /* 🚀 Initial Scale and Lift Transition */
+    transform: translateY(0) scale(1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Increased time slightly for smoother feel */
+    cursor: pointer;
+}
+
+/* 🚀 CSS-ONLY ZOOM/LIFT ANIMATION */
+.portfolio-card:hover {
+    transform: translateY(-8px) scale(1.02); /* Lift card up and slightly zoom */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Enhance shadow on hover */
+}
+
+.card-image {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover; 
+    display: block;
+    
+    /* Image Zoom Transition */
+    transform: scale(1);
+    transition: transform 0.5s ease-out; 
+}
+
+/* 🚀 Inner Image Zoom */
+.portfolio-card:hover .card-image {
+    transform: scale(1.05); /* Image zooms more than the card for a deeper effect */
+}
+
+
+/* --- Overlay Styling for Name and Button Positioning --- */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    background: transparent; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; 
+    
+    height: 120px; 
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* --- Project Name Styling (Text on the black band) --- */
+.project-name {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: var(--text-color-light);
+    
+    font-size: 1.2em; 
+    font-weight: 500;
+    text-align: center;
+    padding: 8px 10px;
+    margin: 0; 
+}
+
+/* --- Explore Button Styling --- */
+.explore-button {
+    width: 100%; 
+    height: 55px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: var(--button-color); 
+    color: #333; 
+    
+    padding: 0; 
+    text-decoration: none;
+    font-weight: 700; 
+    font-size: 1.1em; 
+    letter-spacing: 1px;
+    
+    border-radius: 0 0 5px 5px; 
+    transition: background-color 0.2s ease;
+}
+
+.explore-button:hover {
+    background-color: #ffd647; 
+}
+
+.explore-button .arrow {
+    margin-left: 10px;
+    font-size: 1em;
+    vertical-align: middle;
+    transition: margin-left 0.2s ease; /* Arrow animation */
+}
+
+/* 🚀 ARROW ANIMATION: Moves slightly forward on hover */
+.explore-button:hover .arrow {
+    margin-left: 15px; /* Slightly more prominent movement */
+}
