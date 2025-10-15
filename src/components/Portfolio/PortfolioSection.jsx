@@ -2,8 +2,8 @@ import React from 'react';
 import PortfolioCard from './PortfolioCard';
 import './PortfolioSection.css';
 import jayachandraImage from '../../assets/images/residential-architects-mr-jayachandra-residence.webp';
-import AdityaImage from '../../assets/images/WhatsApp Image 2025-10-15 at 18.19.19_dfc7e126.jpg';
-import BrindavanamImage from '../../assets/images/RENDERED 3D VIEW-04.R2[1].png';
+import AdityaImage from '../../assets/images/adityaImage.jpg';
+import BrindavanamImage from '../../assets/images/brindavanam.png';
 
 const portfolioData = [
   
