@@ -66,7 +66,7 @@ function RadialGradient({ outerDivRef }) {
                black
             )`,
         position: "absolute",
-        zIndex: 95,
+        zIndex: 2,
         // cursor: "none",
       }}
     >
