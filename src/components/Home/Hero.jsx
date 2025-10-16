@@ -70,25 +70,28 @@ const Hero = () => {
           justifyContent: "center",
           height: "100%",
           transform: { 
-            xs: "translateY(-15%)", 
-            sm: "translateY(-20%)", 
-            md: "translateY(-25%)" 
+            xs: "translateY(-35%)", 
+            sm: "translateY(-25%)", 
+            md: "translateY(-30%)" 
           },
-          pt: { xs: 4, sm: 6, md: 8 },
-          pb: { xs: 8, sm: 10, md: 12 },
+          pt: { xs: 8, sm: 10, md: 12 },
+          pb: { xs: 16, sm: 18, md: 20 },
+          px: { xs: 2, sm: 3, md: 4 },
         }}
       >
         {/* Main heading */}
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
+            fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.8rem", lg: "3.2rem" },
             fontWeight: 800,
             color: "#fff",
             textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-            mb: 1.5,
+            mb: { xs: 1, sm: 1.5 },
             lineHeight: 1.1,
             letterSpacing: "-0.02em",
+            textAlign: "center",
+            width: "100%",
           }}
         >
           Gruham's
@@ -100,12 +103,14 @@ const Hero = () => {
         <Typography
           variant="h5"
           sx={{
-            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1.05rem" },
             color: "rgba(255, 255, 255, 0.9)",
-            mb: 9,
-            maxWidth: "500px",
-            lineHeight: 1.5,
+            mb: { xs: 3, sm: 4, md: 5 },
+            maxWidth: { xs: "100%", sm: "90%", md: "80%" },
+            lineHeight: 1.4,
             textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
+            textAlign: "center",
+            px: { xs: 1, sm: 0 },
           }}
         >
           Transform your vision into reality with our premium construction and design services.
@@ -119,14 +124,16 @@ const Hero = () => {
           sx={{
             background: "linear-gradient(135deg, #bfa974, #9c8658)",
             color: "#000",
-            px: 4,
-            py: 1.5,
-            fontSize: "1.1rem",
+            px: { xs: 3, sm: 4 },
+            py: { xs: 1.2, sm: 1.5 },
+            fontSize: { xs: "0.95rem", sm: "1.05rem" },
             fontWeight: 700,
             borderRadius: "50px",
             textTransform: "none",
             boxShadow: "0 8px 25px rgba(191, 169, 116, 0.4)",
             transition: "all 0.3s ease",
+            width: { xs: "100%", sm: "auto" },
+            maxWidth: { xs: "280px", sm: "none" },
             "&:hover": {
               background: "linear-gradient(135deg, #a48d5e, #c5b07a)",
               transform: "translateY(-3px)",
@@ -142,11 +149,14 @@ const Hero = () => {
       <Box
         sx={{
           position: "absolute",
-          bottom: { xs: 10, sm: 20, md: 30 },
-          left: { xs: 10, sm: 20, md: 30 },
-          right: { xs: 10, sm: "auto" },
+          bottom: { xs: 8, sm: 20, md: 30 },
+          left: { xs: "50%", sm: "50%", md: 30 },
+          right: { xs: 8, sm: "auto", md: "auto" },
+          transform: { xs: "translateX(-50%)", sm: "translateX(-50%)", md: "none" },
           zIndex: 100,
-          maxWidth: { xs: "calc(100% - 20px)", sm: "none" },
+          maxWidth: { xs: "calc(100vw - 16px)", sm: "none" },
+          display: { xs: "block", sm: "block" },
+          overflow: "visible",
         }}
       >
         <ContactUs />

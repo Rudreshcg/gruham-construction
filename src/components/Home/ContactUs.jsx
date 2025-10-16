@@ -73,8 +73,8 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       animation: `${glow} 2s ease-in-out infinite`,
     },
     "& input": { 
-      padding: "10px 14px",
-      fontSize: "0.9rem",
+      padding: { xs: "8px 12px", sm: "10px 14px" },
+      fontSize: { xs: "0.85rem", sm: "0.9rem" },
       "&::placeholder": {
         color: "rgba(255, 255, 255, 0.6)",
         opacity: 1,
@@ -84,7 +84,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   "& .MuiInputLabel-root": {
     color: "rgba(255, 255, 255, 0.8)",
     fontWeight: 600,
-    fontSize: "0.85rem",
+    fontSize: { xs: "0.8rem", sm: "0.85rem" },
     "&.Mui-focused": { 
       color: "#bfa974",
       fontWeight: 700,
@@ -166,11 +166,12 @@ const ContactUs = () => {
           borderRadius: "16px",
           backdropFilter: "blur(20px)",
           boxShadow: "0 12px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)",
-          p: { xs: 1.5, sm: 2 },
-          width: { xs: "260px", sm: "280px" },
+          p: { xs: 1, sm: 1.8, md: 2.2 },
+          width: { xs: "200px", sm: "260px", md: "280px" },
+          maxWidth: { xs: "calc(100vw - 32px)", sm: "none" },
           display: "flex",
           flexDirection: "column",
-          gap: 1.5,
+          gap: { xs: 1, sm: 1.5, md: 1.8 },
           position: "relative",
           overflow: "hidden",
           "&:before": {
@@ -185,23 +186,23 @@ const ContactUs = () => {
         }}
       >
         {/* Header with compact styling */}
-        <Box sx={{ textAlign: "center", mb: 0.5 }}>
+        <Box sx={{ textAlign: "center", mb: { xs: 0.3, sm: 0.5 } }}>
           <Typography
             variant="h6"
             sx={{
               color: "#fff",
               fontWeight: 700,
-              fontSize: "1.1rem",
+              fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.1rem" },
               letterSpacing: "0.3px",
               textShadow: "0 2px 10px rgba(0,0,0,0.5)",
-              mb: 0.5,
+              mb: { xs: 0.3, sm: 0.5 },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: 0.5,
+              gap: { xs: 0.3, sm: 0.5 },
             }}
           >
-            <Construction sx={{ color: "#bfa974", fontSize: "1.2rem" }} />
+            <Construction sx={{ color: "#bfa974", fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" } }} />
             Get Free Quote
           </Typography>
           
@@ -209,7 +210,7 @@ const ContactUs = () => {
             variant="body2"
             sx={{
               color: "rgba(255, 255, 255, 0.7)",
-              fontSize: "0.75rem",
+              fontSize: { xs: "0.7rem", sm: "0.75rem" },
               fontWeight: 500,
             }}
           >
@@ -309,9 +310,13 @@ const ContactUs = () => {
           endIcon={isLoading ? <Star sx={{ animation: `${float} 1s ease-in-out infinite` }} /> : <SendRounded />}
           disabled={isLoading || isSubmitted}
           sx={{ 
-            mt: 1,
-            py: 1,
-            fontSize: "0.9rem",
+            mt: { xs: 0.8, sm: 1 },
+            py: { xs: 0.8, sm: 1 },
+            px: { xs: 1.5, sm: 2 },
+            fontSize: { xs: "0.8rem", sm: "0.9rem" },
+            width: "100%",
+            maxWidth: "100%",
+            minHeight: { xs: "36px", sm: "40px" },
             opacity: isSubmitted ? 0.7 : 1,
             "&:disabled": {
               background: "rgba(191, 169, 116, 0.3)",
@@ -327,33 +332,37 @@ const ContactUs = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            gap: 1,
-            mt: 1,
+            gap: { xs: 0.5, sm: 1 },
+            mt: { xs: 0.8, sm: 1 },
             flexWrap: "wrap",
+            width: "100%",
+            overflow: "hidden",
           }}
         >
           <Chip
-            icon={<Star sx={{ fontSize: "0.7rem" }} />}
+            icon={<Star sx={{ fontSize: "0.6rem" }} />}
             label="5-Star Rated"
             size="small"
             sx={{
               background: "rgba(191, 169, 116, 0.15)",
               color: "#bfa974",
               border: "1px solid rgba(191, 169, 116, 0.3)",
-              fontSize: "0.65rem",
-              height: "20px",
+              fontSize: { xs: "0.6rem", sm: "0.65rem" },
+              height: { xs: "18px", sm: "20px" },
+              maxWidth: "100%",
             }}
           />
           <Chip
-            icon={<CheckCircle sx={{ fontSize: "0.7rem" }} />}
+            icon={<CheckCircle sx={{ fontSize: "0.6rem" }} />}
             label="Free Consultation"
             size="small"
             sx={{
               background: "rgba(191, 169, 116, 0.15)",
               color: "#bfa974",
               border: "1px solid rgba(191, 169, 116, 0.3)",
-              fontSize: "0.65rem",
-              height: "20px",
+              fontSize: { xs: "0.6rem", sm: "0.65rem" },
+              height: { xs: "18px", sm: "20px" },
+              maxWidth: "100%",
             }}
           />
         </Box>
