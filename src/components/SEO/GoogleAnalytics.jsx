@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 
 // Google Analytics configuration
 const GA_TRACKING_ID = 'G-XXXXXXXXXX'; // Replace with your actual Google Analytics tracking ID
@@ -52,29 +51,37 @@ export const trackEmailClick = (emailAddress) => {
 // Google Analytics component
 const GoogleAnalytics = () => {
   useEffect(() => {
+    // Add Google Analytics script
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+    document.head.appendChild(script1);
+
+    // Add Google Analytics configuration script
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_TRACKING_ID}', {
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+    `;
+    document.head.appendChild(script2);
+
     initGA();
+
+    // Cleanup function
+    return () => {
+      // Remove scripts on unmount
+      const scripts = document.querySelectorAll('script[src*="googletagmanager.com"]');
+      scripts.forEach(script => script.remove());
+    };
   }, []);
 
-  return (
-    <Helmet>
-      {/* Google Analytics */}
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-      />
-      <script>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_TRACKING_ID}', {
-            page_title: document.title,
-            page_location: window.location.href,
-          });
-        `}
-      </script>
-    </Helmet>
-  );
+  // This component doesn't render anything visible
+  return null;
 };
 
 export default GoogleAnalytics;
