@@ -29,6 +29,7 @@ import {
 } from "../../theme/designSystem";
 import { Link } from "react-router-dom";
 import Team from "./Team"; // Your reusable team component
+import SEOHead from "../SEO/SEOHead";
 
 const AccentDivider = styled("div")({
   width: 64,
@@ -175,6 +176,22 @@ const About = () => {
 
   return (
     <Box>
+      <SEOHead
+        title="About Gruham's Construction - Leading Construction Company in Bangalore"
+        description="Learn about Gruham's Construction, a premier construction company in Bangalore. Discover our mission, values, and commitment to delivering exceptional construction services, luxury homes, and commercial buildings."
+        keywords="about Gruham construction, construction company Bangalore, construction mission, construction values, Bangalore construction team, construction expertise"
+        canonical="/about"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Gruham's Construction",
+            "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
+            "url": "https://gruham.in/about"
+          }
+        }}
+      />
       {/* Hero Section */}
       <StyledHeroSection>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>

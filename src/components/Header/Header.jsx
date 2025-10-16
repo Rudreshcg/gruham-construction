@@ -70,7 +70,7 @@ const Header = () => {
             <RouterLink to="/" style={{ textDecoration: "none" }}>
               <img
                 src={Logo}
-                alt="My App"
+                alt="Gruham's Construction - Leading Construction Company in Bangalore"
                 style={{
                   height: "60px",
                   width: "auto",

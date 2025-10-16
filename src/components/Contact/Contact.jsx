@@ -16,6 +16,7 @@ import {
   transitions,
   borderRadius,
 } from "../../theme/designSystem";
+import SEOHead from "../SEO/SEOHead";
 
 // Accent divider (reuse from Services page)
 const AccentDivider = styled("div")({
@@ -94,6 +95,30 @@ const Contact = () => {
 
   return (
     <Box sx={{ backgroundColor: brandColors.background.light, minHeight: "100vh" }}>
+      <SEOHead
+        title="Contact Gruham's Construction - Get Construction Quote in Bangalore"
+        description="Contact Gruham's Construction for your construction project in Bangalore. Get expert consultation, quotes, and project planning for home construction, commercial buildings, and renovation services."
+        keywords="contact Gruham construction, construction quote Bangalore, construction consultation, construction planning, building contractor contact, construction services inquiry"
+        canonical="/contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Gruham's Construction",
+          "description": "Contact information and inquiry form for Gruham's Construction services in Bangalore.",
+          "url": "https://gruham.in/contact",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Gruham's Construction",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-8431000242",
+              "contactType": "customer service",
+              "email": "info@gruham.in",
+              "areaServed": "Bangalore"
+            }
+          }
+        }}
+      />
       {/* Hero Section (clean, matches Services page, no background) */}
       <StyledHeroSection>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>
@@ -296,7 +321,7 @@ const Contact = () => {
                     mb: spacing.sm,
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Address:</Box> 123 Construction Ave, Building District
+                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Address:</Box> Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
                 </Typography>
                 <Typography
                   variant="body1"
@@ -308,7 +333,7 @@ const Contact = () => {
                     mb: spacing.sm,
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Phone:</Box> +1 234 567 8900
+                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Phone:</Box> +91-8431000242
                 </Typography>
                 <Typography
                   variant="body1"
@@ -319,7 +344,7 @@ const Contact = () => {
                     letterSpacing: typography.letterSpacing.body,
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Email:</Box> info@gruhamconstruction.com
+                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Email:</Box> info@gruham.in
                 </Typography>
               </Box>
               <Box>
