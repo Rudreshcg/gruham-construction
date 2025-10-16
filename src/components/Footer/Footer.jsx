@@ -145,12 +145,12 @@ const Footer = () => {
                 Write
               </Typography>
               <MuiLink
-                href="mailto:info@gruham.in"
+                href="mailto:info@gruhams.in"
                 color="inherit"
                 underline="hover"
                 sx={{ fontWeight: 500 }}
               >
-                info@gruham.in
+                info@gruhams.in
               </MuiLink>
             </motion.div>
           </Grid>

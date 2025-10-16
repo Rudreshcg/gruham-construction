@@ -105,7 +105,7 @@ const Contact = () => {
           "@type": "ContactPage",
           "name": "Contact Gruham's Construction",
           "description": "Contact information and inquiry form for Gruham's Construction services in Bangalore.",
-          "url": "https://gruham.in/contact",
+          "url": "https://gruhams.in/contact",
           "mainEntity": {
             "@type": "Organization",
             "name": "Gruham's Construction",
@@ -113,7 +113,7 @@ const Contact = () => {
               "@type": "ContactPoint",
               "telephone": "+91-8431000242",
               "contactType": "customer service",
-              "email": "info@gruham.in",
+              "email": "info@gruhams.in",
               "areaServed": "Bangalore"
             }
           }
@@ -344,7 +344,7 @@ const Contact = () => {
                     letterSpacing: typography.letterSpacing.body,
                   }}
                 >
-                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Email:</Box> info@gruham.in
+                  <Box component="span" sx={{ fontWeight: typography.fontWeight.semiBold }}>Email:</Box> info@gruhams.in
                 </Typography>
               </Box>
               <Box>

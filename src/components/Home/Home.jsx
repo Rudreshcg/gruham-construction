@@ -17,11 +17,11 @@ const Home = () => {
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": "Gruham's Construction",
-          "url": "https://gruham.in",
+          "url": "https://gruhams.in",
           "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://gruham.in/search?q={search_term_string}",
+            "target": "https://gruhams.in/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         }}
