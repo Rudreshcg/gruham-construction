@@ -4,11 +4,13 @@ import { routes } from "./routes";
 
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Breadcrumbs from "../SEO/Breadcrumbs.jsx";
 
 const Dashboard = () =>{
     return (
         <div style={{ width: "100%", margin: "0", padding: "0", overflowX: "hidden" }}>
             <Header />
+            <Breadcrumbs />
             <Routes>
                 {/* 🚀 FIX: Use 'element' and render the component as JSX (<Component />) */}
                 {routes.map(route => {

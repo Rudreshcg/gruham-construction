@@ -81,6 +81,7 @@ const Hero = () => {
       >
         {/* Main heading */}
         <Typography
+          component="h1"
           variant="h1"
           sx={{
             fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.8rem", lg: "3.2rem" },
@@ -101,11 +102,12 @@ const Hero = () => {
 
         {/* Subtitle */}
         <Typography
+          component="h2"
           variant="h5"
           sx={{
             fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1.05rem" },
             color: "rgba(255, 255, 255, 0.9)",
-            mb: { xs: 3, sm: 4, md: 5 },
+            mb: { xs: 2, sm: 3, md: 8 },
             maxWidth: { xs: "100%", sm: "90%", md: "80%" },
             lineHeight: 1.4,
             textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
@@ -141,7 +143,7 @@ const Hero = () => {
             },
           }}
         >
-          Start Your Project
+          Start Your Construction Project
         </Button>
       </Container>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PortfolioSection from '../Portfolio/PortfolioSection'; // Import the new section
 import SEOHead from '../SEO/SEOHead';
+import InternalLinks from '../SEO/InternalLinks';
 
 function Portfolio() {
   return (
@@ -26,6 +27,7 @@ function Portfolio() {
       {/* You can add a title here if you wish */}
       {/* <h2>Our Latest Projects</h2> */}
       <PortfolioSection />
+      <InternalLinks currentPage="portfolio" />
     </div>
   );
 }

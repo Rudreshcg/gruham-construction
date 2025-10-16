@@ -19,6 +19,7 @@ import {
 } from "../../theme/designSystem";
 import { Link } from 'react-router-dom';
 import SEOHead from '../SEO/SEOHead';
+import InternalLinks from '../SEO/InternalLinks';
 
 
 // Import your image
@@ -282,6 +283,9 @@ const Services = () => {
             </Grid>
           ))}
         </Grid>
+
+        {/* Internal Links */}
+        <InternalLinks currentPage="services" />
 
         <Box
           sx={{

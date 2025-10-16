@@ -30,6 +30,7 @@ import {
 import { Link } from "react-router-dom";
 import Team from "./Team"; // Your reusable team component
 import SEOHead from "../SEO/SEOHead";
+import InternalLinks from "../SEO/InternalLinks";
 
 const AccentDivider = styled("div")({
   width: 64,
@@ -421,6 +422,9 @@ const About = () => {
 
         {/* Team Section */}
         <Team />
+
+        {/* Internal Links */}
+        <InternalLinks currentPage="about" />
 
         {/* Call to Action */}
         <Box

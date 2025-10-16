@@ -17,6 +17,7 @@ import {
   borderRadius,
 } from "../../theme/designSystem";
 import SEOHead from "../SEO/SEOHead";
+import InternalLinks from "../SEO/InternalLinks";
 
 // Accent divider (reuse from Services page)
 const AccentDivider = styled("div")({
@@ -378,6 +379,11 @@ const Contact = () => {
             </Box>
           </Grid>
         </Grid>
+      </Container>
+
+      {/* Internal Links */}
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <InternalLinks currentPage="contact" />
       </Container>
 
       {/* Google Maps Section */}

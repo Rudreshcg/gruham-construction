@@ -4,6 +4,8 @@ import ConstructionSection from "./ConstructionSection";
 import InteriorSection from "./InteriorSection";
 import WhyGruham from "./WhyGruham/WhyGruham.jsx";
 import SEOHead from "../SEO/SEOHead";
+import InternalLinks from "../SEO/InternalLinks";
+import FAQ from "../SEO/FAQ";
 
 const Home = () => {
   return (
@@ -30,6 +32,8 @@ const Home = () => {
       <WhyGruham />
       <ConstructionSection />
       <InteriorSection />
+      <FAQ />
+      <InternalLinks currentPage="home" />
     </Box>
   );
 };
