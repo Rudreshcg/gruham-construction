@@ -37,6 +37,7 @@ const Header = () => {
   const tabMenu = [
     { tabName: "HOME", to: "/" },
     { tabName: "ABOUT", to: "/about" },
+    { tabName: "PORTFOLIO", to: "/portfolio" },
     { tabName: "SERVICES", to: "/services" },
     { tabName: "CAREERS", to: "/careers" },
     // { tabName: "BLOGS", to: "/blogs" },
@@ -69,7 +70,7 @@ const Header = () => {
             <RouterLink to="/" style={{ textDecoration: "none" }}>
               <img
                 src={Logo}
-                alt="My App"
+                alt="Gruham's Construction - Leading Construction Company in Bangalore"
                 style={{
                   height: "60px",
                   width: "auto",

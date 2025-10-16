@@ -1,37 +1,30 @@
 import React, { useRef } from "react";
-import { Box, Typography, Button, Container } from "@mui/material";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import landingPageImageWebp from "../../assets/images/hero_image.webp"; // WebP version
-import landingPageImageJpg from "../../assets/images/hero_image.jpg"; // JPEG fallback
-import { SlideUp, FadeIn } from "../../animation/animate";
-import RadialGradient from "../../common/RadialGradient"; // Assuming this component is correctly implemented
+import { Box, Container, Typography, Button } from "@mui/material";
+import { ArrowForward } from "@mui/icons-material";
+import landingPageImageWebp from "../../assets/images/hero_new.png";
+import landingPageImageJpg from "../../assets/images/heros_image.jpg";
+import ContactUs from "./ContactUs";
+import RadialGradient from "../../common/RadialGradient";
 
 const Hero = () => {
   const maindivRef = useRef(null);
-  const navigate = useNavigate();
 
   return (
     <Box
       sx={{
         position: "relative",
         width: "100%",
-        // Using minHeight with 100vh for better mobile compatibility
-        // 100dvh (dynamic viewport height) is a newer, more robust option for mobile
-        // but 100vh is widely supported.
         minHeight: "100vh",
-        maxWidth: "100%",
-        overflow: "hidden", // Prevents scrollbars if content slightly overflows
+        overflow: "hidden",
         display: "flex",
-        flexDirection: "column", // Ensure content stacks vertically
         justifyContent: "center",
         alignItems: "center",
-        textAlign: "center", // Center text within the Box itself
-        p: { xs: 2, sm: 3, md: 4 }, // Add padding around the entire hero section for mobile safety
+        textAlign: "center",
+        p: { xs: 2, sm: 3, md: 4 },
       }}
       ref={maindivRef}
     >
-      {/* Background Image with <picture> for WebP and JPEG fallback */}
+      {/* Background Image */}
       <picture>
         <source srcSet={landingPageImageWebp} type="image/webp" />
         <img
@@ -43,13 +36,13 @@ const Hero = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover", // Ensures the image covers the area without distortion
-            zIndex: 0, // Image at the lowest layer
+            objectFit: "cover",
+            zIndex: 0,
           }}
         />
       </picture>
 
-      {/* Overlay gradient for text readability */}
+      {/* Simple Overlay */}
       <Box
         sx={{
           position: "absolute",
@@ -57,94 +50,120 @@ const Hero = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7))",
-          zIndex: 1, // Gradient above image, below content
+          background: "rgba(0,0,0,0.4)",
+          zIndex: 1,
         }}
       />
 
-      {/* Radial gradient effect (assuming this component works as intended) */}
-      {/* Ensure RadialGradient's internal z-index is managed relative to other layers */}
+      {/* Radial Gradient Effect - positioned after overlay */}
       <RadialGradient outerDivRef={maindivRef} />
 
-      {/* Main content container (text and button) */}
+      {/* Hero Content */}
       <Container
         maxWidth="lg"
         sx={{
           position: "relative",
-          zIndex: 2, // Ensure content is above image and gradients
+          zIndex: 2,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          height: "100%", // Allow container to take full height for vertical centering
-          py: { xs: 4, sm: 6, md: 0 }, // Add vertical padding to container on smaller screens
+          height: "100%",
+          transform: { 
+            xs: "translateY(-35%)", 
+            sm: "translateY(-25%)", 
+            md: "translateY(-30%)" 
+          },
+          pt: { xs: 8, sm: 10, md: 12 },
+          pb: { xs: 16, sm: 18, md: 20 },
+          px: { xs: 2, sm: 3, md: 4 },
         }}
       >
-        <motion.div variants={FadeIn(0.8)} initial="initial" animate="animate">
-          <Typography
-            variant="h1"
-            sx={{
-              color: "white",
-              // Responsive font sizes for main heading
-              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" },
-              fontWeight: 700,
-              mb: { xs: 1.5, md: 2 }, // Adjusted margin bottom for mobile
-              fontFamily: "'Playfair Display', serif", // Ensure this font is loaded globally
-              textShadow: "2px 2px 4px rgba(0,0,0,0.4)", // Slightly stronger shadow
-              letterSpacing: { xs: "0.01em", md: "0.02em" }, // Adjust letter spacing for mobile
-              lineHeight: { xs: 1.2, md: 1.1 }, // Adjust line height for better readability
-            }}
-          >
-            Welcome to Gruham
-          </Typography>
-          <Typography
-            variant="h2" // Using h2 for semantic hierarchy, but styled as a subheading
-            sx={{
-              color: "white",
-              // Responsive font sizes for subheading
-              fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem", lg: "1.75rem" },
-              mb: { xs: 3, md: 4 }, // Adjusted margin bottom for mobile
-              maxWidth: "800px",
-              margin: "0 auto", // Centers the text block
-              textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
-              fontFamily: "'Montserrat', sans-serif", // Ensure this font is loaded globally
-              fontWeight: 400,
-              letterSpacing: "0.01em",
-              lineHeight: 1.5,
-              px: { xs: 2, sm: 0 }, // Add horizontal padding for very small screens
-            }}
-          >
-            Crafting Luxury Living Spaces with Excellence and Innovation
-          </Typography>
-          <motion.div variants={SlideUp(1)} initial="initial" animate="animate">
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => navigate("/contact")}
-              sx={{
-                backgroundColor: "#95805a",
-                color: "white",
-                px: { xs: 3, md: 4 }, // Responsive horizontal padding
-                py: { xs: 1.2, md: 1.5 }, // Responsive vertical padding
-                fontSize: { xs: "0.9rem", md: "1rem" }, // Responsive font size
-                fontWeight: 600,
-                borderRadius: "8px",
-                textTransform: "none", // Keeps button text as is (e.g., "Start Your Project")
-                transition: "0.3s",
-                fontFamily: "'Montserrat', sans-serif",
-                "&:hover": {
-                  backgroundColor: "#7a6a4a",
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 15px rgba(0,0,0,0.2)", // Add subtle shadow on hover
-                },
-                mt: { xs: 1, md: 0 }, // Add top margin on mobile if needed
-              }}
-            >
-              Start Your Project
-            </Button>
-          </motion.div>
-        </motion.div>
+        {/* Main heading */}
+        <Typography
+          component="h1"
+          variant="h1"
+          sx={{
+            fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.8rem", lg: "3.2rem" },
+            fontWeight: 800,
+            color: "#fff",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
+            mb: { xs: 1, sm: 1.5 },
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            textAlign: "center",
+            width: "100%",
+          }}
+        >
+          Gruham's
+          <br />
+          <span style={{ color: "#bfa974" }}>Excellence in Construction</span>
+        </Typography>
+
+        {/* Subtitle */}
+        <Typography
+          component="h2"
+          variant="h5"
+          sx={{
+            fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1.05rem" },
+            color: "rgba(255, 255, 255, 0.9)",
+            mb: { xs: 2, sm: 3, md: 8 },
+            maxWidth: { xs: "100%", sm: "90%", md: "80%" },
+            lineHeight: 1.4,
+            textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
+            textAlign: "center",
+            px: { xs: 1, sm: 0 },
+          }}
+        >
+          Transform your vision into reality with our premium construction and design services.
+        </Typography>
+
+        {/* CTA Button */}
+        <Button
+          variant="contained"
+          size="large"
+          endIcon={<ArrowForward />}
+          sx={{
+            background: "linear-gradient(135deg, #bfa974, #9c8658)",
+            color: "#000",
+            px: { xs: 3, sm: 4 },
+            py: { xs: 1.2, sm: 1.5 },
+            fontSize: { xs: "0.95rem", sm: "1.05rem" },
+            fontWeight: 700,
+            borderRadius: "50px",
+            textTransform: "none",
+            boxShadow: "0 8px 25px rgba(191, 169, 116, 0.4)",
+            transition: "all 0.3s ease",
+            width: { xs: "100%", sm: "auto" },
+            maxWidth: { xs: "280px", sm: "none" },
+            "&:hover": {
+              background: "linear-gradient(135deg, #a48d5e, #c5b07a)",
+              transform: "translateY(-3px)",
+              boxShadow: "0 12px 35px rgba(191, 169, 116, 0.6)",
+            },
+          }}
+        >
+          Start Your Construction Project
+        </Button>
       </Container>
+
+      {/* Contact Form */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: { xs: 8, sm: 20, md: 30 },
+          left: { xs: "50%", sm: "50%", md: 30 },
+          right: { xs: 8, sm: "auto", md: "auto" },
+          transform: { xs: "translateX(-50%)", sm: "translateX(-50%)", md: "none" },
+          zIndex: 90,
+          width: { xs: "240px", sm: "280px", md: "300px" },
+          maxWidth: { xs: "calc(100vw - 16px)", sm: "none" },
+          display: { xs: "block", sm: "block" },
+          overflow: "visible",
+        }}
+      >
+        <ContactUs />
+      </Box>
     </Box>
   );
 };

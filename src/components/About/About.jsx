@@ -27,10 +27,11 @@ import {
   transitions,
   borderRadius,
 } from "../../theme/designSystem";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Team from "./Team"; // Your reusable team component
+import SEOHead from "../SEO/SEOHead";
+import InternalLinks from "../SEO/InternalLinks";
 
-
-// Accent divider for hero section consistency
 const AccentDivider = styled("div")({
   width: 64,
   height: 4,
@@ -73,7 +74,7 @@ const ValueCard = styled(Card)(({ theme }) => ({
 
 const StyledHeroSection = styled(Box)({
   width: "100%",
-  minHeight: 190,
+  minHeight: 200,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -83,19 +84,18 @@ const StyledHeroSection = styled(Box)({
   borderBottom: `1.5px solid ${brandColors.border}`,
   position: "relative",
   zIndex: 1,
-  padding: "48px 0 24px",
+  padding: "56px 24px 32px",
 });
 
 const About = () => {
-  // Enhanced company values
   const values = [
     {
       icon: (
         <Architecture
           sx={{
-            fontSize: { xs: 32, md: 40 },
+            fontSize: { xs: 36, md: 44 },
             color: brandColors.primary,
-            mb: { xs: 1, md: 2 },
+            mb: { xs: 2, md: 3 },
           }}
         />
       ),
@@ -107,9 +107,9 @@ const About = () => {
       icon: (
         <Engineering
           sx={{
-            fontSize: { xs: 32, md: 40 },
+            fontSize: { xs: 36, md: 44 },
             color: brandColors.primary,
-            mb: { xs: 1, md: 2 },
+            mb: { xs: 2, md: 3 },
           }}
         />
       ),
@@ -121,9 +121,9 @@ const About = () => {
       icon: (
         <DesignServices
           sx={{
-            fontSize: { xs: 32, md: 40 },
+            fontSize: { xs: 36, md: 44 },
             color: brandColors.primary,
-            mb: { xs: 1, md: 2 },
+            mb: { xs: 2, md: 3 },
           }}
         />
       ),
@@ -135,9 +135,9 @@ const About = () => {
       icon: (
         <EmojiEvents
           sx={{
-            fontSize: { xs: 32, md: 40 },
+            fontSize: { xs: 36, md: 44 },
             color: brandColors.primary,
-            mb: { xs: 1, md: 2 },
+            mb: { xs: 2, md: 3 },
           }}
         />
       ),
@@ -149,9 +149,9 @@ const About = () => {
       icon: (
         <Groups
           sx={{
-            fontSize: { xs: 32, md: 40 },
+            fontSize: { xs: 36, md: 44 },
             color: brandColors.primary,
-            mb: { xs: 1, md: 2 },
+            mb: { xs: 2, md: 3 },
           }}
         />
       ),
@@ -163,9 +163,9 @@ const About = () => {
       icon: (
         <Business
           sx={{
-            fontSize: { xs: 32, md: 40 },
+            fontSize: { xs: 36, md: 44 },
             color: brandColors.primary,
-            mb: { xs: 1, md: 2 },
+            mb: { xs: 2, md: 3 },
           }}
         />
       ),
@@ -177,6 +177,22 @@ const About = () => {
 
   return (
     <Box>
+      <SEOHead
+        title="About Gruham's Construction - Leading Construction Company in Bangalore"
+        description="Learn about Gruham's Construction, a premier construction company in Bangalore. Discover our mission, values, and commitment to delivering exceptional construction services, luxury homes, and commercial buildings."
+        keywords="about Gruham construction, construction company Bangalore, construction mission, construction values, Bangalore construction team, construction expertise"
+        canonical="/about"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Gruham's Construction",
+            "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
+            "url": "https://gruhams.in/about"
+          }
+        }}
+      />
       {/* Hero Section */}
       <StyledHeroSection>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>
@@ -199,15 +215,10 @@ const About = () => {
             variant="subtitle1"
             sx={{
               color: brandColors.text.primary,
-              fontSize: {
-                xs: "1rem",
-                sm: "1.25rem",
-                md: "1.5rem",
-                lg: "1.75rem",
-              },
-              mb: { xs: 3, md: spacing.xl },
-              maxWidth: "800px",
-              margin: "0 auto",
+              fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem", lg: "1.75rem" },
+              mb: { xs: 4, md: spacing.xl },
+              maxWidth: 800,
+              mx: "auto",
               fontFamily: typography.fontFamily.body,
               fontWeight: typography.fontWeight.regular,
               letterSpacing: typography.letterSpacing.body,
@@ -223,11 +234,7 @@ const About = () => {
 
       {/* Story Section */}
       <Container maxWidth="lg" sx={{ py: { xs: spacing.xl, md: spacing.xxl } }}>
-        <motion.div
-          variants={FadeIn(0.5)}
-          initial="initial"
-          whileInView="animate"
-        >
+        <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
           <Typography
             variant="h3"
             sx={{
@@ -235,7 +242,7 @@ const About = () => {
               fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
               color: brandColors.secondary,
               textAlign: "center",
-              mb: { xs: 1, md: spacing.md },
+              mb: spacing.md,
               fontWeight: typography.fontWeight.bold,
               letterSpacing: typography.letterSpacing.heading,
               lineHeight: 1.2,
@@ -248,8 +255,8 @@ const About = () => {
             sx={{
               color: brandColors.text.secondary,
               textAlign: "center",
-              mb: { xs: spacing.xl, md: spacing.xxl },
-              maxWidth: "800px",
+              mb: spacing.xxl,
+              maxWidth: 800,
               mx: "auto",
               fontFamily: typography.fontFamily.body,
               fontSize: { xs: "1rem", md: "1.15rem" },
@@ -259,16 +266,15 @@ const About = () => {
               px: { xs: 2, sm: 0 },
             }}
           >
-            Gruham was founded on a simple but powerful idea: to create spaces that elevate everyday living. With unwavering passion, technical expertise, and a commitment to clients, we've become a trusted name in construction—delivering iconic projects across residential, commercial, and landmark developments.
+            Gruham was founded on a simple but powerful idea: to create spaces that elevate everyday
+            living. With unwavering passion, technical expertise, and a commitment to clients,
+            we've become a trusted name in construction—delivering iconic projects across residential,
+            commercial, and landmark developments.
           </Typography>
         </motion.div>
-        <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: spacing.xl, md: spacing.xxl } }}>
+        <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: spacing.xxl }}>
           <Grid item xs={12} md={6}>
-            <motion.div
-              variants={SlideUp(0.5)}
-              initial="initial"
-              whileInView="animate"
-            >
+            <motion.div variants={SlideUp(0.5)} initial="initial" whileInView="animate">
               <StyledCard>
                 <CardContent sx={{ p: { xs: spacing.md, md: spacing.xl } }}>
                   <Typography
@@ -276,7 +282,7 @@ const About = () => {
                     sx={{
                       color: brandColors.secondary,
                       fontWeight: typography.fontWeight.semiBold,
-                      mb: { xs: spacing.sm, md: spacing.md },
+                      mb: spacing.md,
                       fontFamily: typography.fontFamily.heading,
                       fontSize: { xs: "1.25rem", md: "1.75rem" },
                       letterSpacing: typography.letterSpacing.heading,
@@ -296,18 +302,15 @@ const About = () => {
                       textAlign: { xs: "center", md: "left" },
                     }}
                   >
-                    To deliver inspiring, sustainable, and technically excellent environments—placing each client's aspirations at the heart of our craft.
+                    To deliver inspiring, sustainable, and technically excellent environments—placing
+                    each client's aspirations at the heart of our craft.
                   </Typography>
                 </CardContent>
               </StyledCard>
             </motion.div>
           </Grid>
           <Grid item xs={12} md={6}>
-            <motion.div
-              variants={SlideUp(0.7)}
-              initial="initial"
-              whileInView="animate"
-            >
+            <motion.div variants={SlideUp(0.7)} initial="initial" whileInView="animate">
               <StyledCard>
                 <CardContent sx={{ p: { xs: spacing.md, md: spacing.xl } }}>
                   <Typography
@@ -315,7 +318,7 @@ const About = () => {
                     sx={{
                       color: brandColors.secondary,
                       fontWeight: typography.fontWeight.semiBold,
-                      mb: { xs: spacing.sm, md: spacing.md },
+                      mb: spacing.md,
                       fontFamily: typography.fontFamily.heading,
                       fontSize: { xs: "1.25rem", md: "1.75rem" },
                       letterSpacing: typography.letterSpacing.heading,
@@ -335,7 +338,8 @@ const About = () => {
                       textAlign: { xs: "center", md: "left" },
                     }}
                   >
-                    To be India's most admired and innovative construction company—setting benchmarks in design, quality, and client experience.
+                    To be India's most admired and innovative construction company—setting
+                    benchmarks in design, quality, and client experience.
                   </Typography>
                 </CardContent>
               </StyledCard>
@@ -344,11 +348,7 @@ const About = () => {
         </Grid>
 
         {/* Values Section */}
-        <motion.div
-          variants={FadeIn(0.5)}
-          initial="initial"
-          whileInView="animate"
-        >
+        <motion.div variants={FadeIn(0.5)} initial="initial" whileInView="animate">
           <Typography
             variant="h3"
             sx={{
@@ -356,7 +356,7 @@ const About = () => {
               fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
               color: brandColors.secondary,
               textAlign: "center",
-              mb: { xs: 1, md: spacing.md },
+              mb: spacing.md,
               fontWeight: typography.fontWeight.bold,
               letterSpacing: typography.letterSpacing.heading,
               lineHeight: 1.2,
@@ -369,8 +369,8 @@ const About = () => {
             sx={{
               color: brandColors.text.secondary,
               textAlign: "center",
-              mb: { xs: spacing.xl, md: spacing.xxl },
-              maxWidth: "800px",
+              mb: spacing.xxl,
+              maxWidth: 800,
               mx: "auto",
               fontFamily: typography.fontFamily.body,
               fontSize: { xs: "0.95rem", md: "1.15rem" },
@@ -386,11 +386,7 @@ const About = () => {
         <Grid container spacing={{ xs: 3, md: 4 }}>
           {values.map((value, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <motion.div
-                variants={SlideUp(0.5 + index * 0.1)}
-                initial="initial"
-                whileInView="animate"
-              >
+              <motion.div variants={SlideUp(0.5 + index * 0.1)} initial="initial" whileInView="animate">
                 <ValueCard>
                   {value.icon}
                   <Typography
@@ -398,7 +394,7 @@ const About = () => {
                     sx={{
                       color: brandColors.secondary,
                       fontWeight: typography.fontWeight.semiBold,
-                      mb: { xs: spacing.sm, md: spacing.md },
+                      mb: spacing.md,
                       fontFamily: typography.fontFamily.heading,
                       fontSize: { xs: "1.15rem", md: "1.25rem" },
                       letterSpacing: typography.letterSpacing.heading,
@@ -424,11 +420,17 @@ const About = () => {
           ))}
         </Grid>
 
+        {/* Team Section */}
+        <Team />
+
+        {/* Internal Links */}
+        <InternalLinks currentPage="about" />
+
         {/* Call to Action */}
         <Box
           sx={{
             textAlign: "center",
-            mt: { xs: spacing.xxl, md: spacing.xxxl },
+            mt: spacing.xxxl,
             p: { xs: spacing.xl, md: spacing.xxl },
             backgroundColor: brandColors.background.secondary,
             borderRadius: borderRadius.medium,
@@ -443,7 +445,7 @@ const About = () => {
                 fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
                 color: brandColors.secondary,
                 textAlign: "center",
-                mb: { xs: 1, md: spacing.md },
+                mb: spacing.md,
                 fontWeight: typography.fontWeight.bold,
                 letterSpacing: typography.letterSpacing.heading,
                 lineHeight: 1.2,
@@ -456,8 +458,8 @@ const About = () => {
               sx={{
                 color: brandColors.text.secondary,
                 textAlign: "center",
-                mb: { xs: spacing.md, md: spacing.xl },
-                maxWidth: "600px",
+                mb: spacing.xl,
+                maxWidth: 600,
                 mx: "auto",
                 fontFamily: typography.fontFamily.body,
                 fontSize: { xs: "0.9rem", md: "1rem" },
@@ -467,9 +469,11 @@ const About = () => {
                 px: { xs: 2, sm: 0 },
               }}
             >
-              Whether you're starting a new project or looking for a partner to bring your vision to reality, the Gruham team is here to help. Reach out and let's make something extraordinary together.
+              Whether you're starting a new project or looking for a partner to bring your vision to
+              reality, the Gruham team is here to help. Reach out and let's make something
+              extraordinary together.
             </Typography>
-            <Link to="/contact" style={{ textDecoration: 'none' }}>
+            <Link to="/contact" style={{ textDecoration: "none" }}>
               <Button
                 variant="contained"
                 size="large"
@@ -487,9 +491,9 @@ const About = () => {
                   borderRadius: "14px",
                   letterSpacing: "0.05em",
                   transition: "background .28s, box-shadow .28s, color .14s",
-                  '&:hover': {
+                  "&:hover": {
                     background: "#B39375",
-                    color: "#fffbe7"
+                    color: "#fffbe7",
                   },
                 }}
               >
