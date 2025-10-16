@@ -16,7 +16,7 @@ export const generateServiceStructuredData = (services) => {
     "provider": {
       "@type": "Organization",
       "name": "Gruham's Construction",
-      "url": "https://gruham.in"
+      "url": "https://gruhams.in"
     },
     "areaServed": {
       "@type": "City",
@@ -90,13 +90,13 @@ export const generateLocalBusinessStructuredData = () => {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://gruham.in/#localbusiness",
+    "@id": "https://gruhams.in/#localbusiness",
     "name": "Gruham's Construction",
-    "image": "https://gruham.in/src/assets/images/Logo.png",
+    "image": "https://gruhams.in/src/assets/images/Logo.png",
     "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
-    "url": "https://gruham.in",
+    "url": "https://gruhams.in",
     "telephone": "+91-8431000242",
-    "email": "info@gruham.in",
+    "email": "info@gruhams.in",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Survey No 88/1 Rampura, Viragonagar post",
@@ -171,7 +171,7 @@ export const generateMetaDescription = (description, maxLength = 160) => {
 };
 
 // Generate canonical URL
-export const generateCanonicalUrl = (path, baseUrl = 'https://gruham.in') => {
+export const generateCanonicalUrl = (path, baseUrl = 'https://gruhams.in') => {
   return `${baseUrl}${path}`;
 };
 

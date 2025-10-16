@@ -162,7 +162,7 @@ const Services = () => {
           "provider": {
             "@type": "Organization",
             "name": "Gruham's Construction",
-            "url": "https://gruham.in/services"
+            "url": "https://gruhams.in/services"
           },
           "areaServed": {
             "@type": "City",

@@ -188,7 +188,7 @@ const About = () => {
             "@type": "Organization",
             "name": "Gruham's Construction",
             "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
-            "url": "https://gruham.in/about"
+            "url": "https://gruhams.in/about"
           }
         }}
       />

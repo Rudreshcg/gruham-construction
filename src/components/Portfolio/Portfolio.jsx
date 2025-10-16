@@ -15,7 +15,7 @@ function Portfolio() {
           "@type": "CollectionPage",
           "name": "Construction Portfolio",
           "description": "Showcase of Gruham's construction projects including luxury homes, commercial buildings, and interior design work in Bangalore.",
-          "url": "https://gruham.in/portfolio",
+          "url": "https://gruhams.in/portfolio",
           "mainEntity": {
             "@type": "ItemList",
             "name": "Construction Projects",

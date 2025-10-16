@@ -12,8 +12,8 @@ const SEOHead = ({
   const defaultTitle = "Gruham's Construction - Leading Construction Company in Bangalore | Premium Construction Services";
   const defaultDescription = "Gruham's Construction is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services. Get expert construction solutions with Gruham's.";
   const defaultKeywords = "construction company Bangalore, Gruham construction, Gruham's, construction services, home construction, commercial construction, interior design, renovation, building contractor, Bangalore construction, luxury construction, residential construction, architectural services, construction management";
-  const defaultOgImage = "https://gruham.in/src/assets/images/Logo.png";
-  const siteUrl = "https://gruham.in";
+  const defaultOgImage = "https://gruhams.in/src/assets/images/Logo.png";
+  const siteUrl = "https://gruhams.in";
 
   const finalTitle = title ? `${title} | Gruham's Construction` : defaultTitle;
   const finalDescription = description || defaultDescription;

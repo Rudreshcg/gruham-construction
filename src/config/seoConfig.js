@@ -1,7 +1,7 @@
 // SEO Configuration for Gruham's Construction
 export const seoConfig = {
   siteName: "Gruham's Construction",
-  siteUrl: "https://gruham.in",
+  siteUrl: "https://gruhams.in",
   siteDescription: "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
   
   // Primary Keywords
@@ -88,8 +88,8 @@ export const seoConfig = {
     },
     contact: {
       phone: "+91-8431000242",
-      email: "info@gruham.in",
-      website: "https://gruham.in"
+      email: "info@gruhams.in",
+      website: "https://gruhams.in"
     },
     founded: "2020",
     description: "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services."
@@ -131,8 +131,8 @@ export const seoConfig = {
       "@type": "Organization",
       "name": "Gruham's Construction",
       "alternateName": ["Gruham Construction", "Gruhams", "Gruham's"],
-      "url": "https://gruham.in",
-      "logo": "https://gruham.in/src/assets/images/Logo.png",
+      "url": "https://gruhams.in",
+      "logo": "https://gruhams.in/src/assets/images/Logo.png",
       "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
       "foundingDate": "2020",
       "address": {
@@ -147,7 +147,7 @@ export const seoConfig = {
         "@type": "ContactPoint",
         "telephone": "+91-8431000242",
         "contactType": "customer service",
-        "email": "info@gruham.in"
+        "email": "info@gruhams.in"
       },
       "sameAs": [
         "https://www.facebook.com/gruhamconstruction",
