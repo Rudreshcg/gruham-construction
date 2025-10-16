@@ -3,10 +3,29 @@ import Hero from "./Hero";
 import ConstructionSection from "./ConstructionSection";
 import InteriorSection from "./InteriorSection";
 import WhyGruham from "./WhyGruham/WhyGruham.jsx";
+import SEOHead from "../SEO/SEOHead";
 
 const Home = () => {
   return (
     <Box>
+      <SEOHead
+        title="Gruham's Construction - Leading Construction Company in Bangalore"
+        description="Gruham's Construction is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services. Transform your vision into reality with expert construction solutions."
+        keywords="construction company Bangalore, Gruham construction, Gruham's, construction services, home construction, commercial construction, interior design, renovation, building contractor, Bangalore construction, luxury construction, residential construction"
+        canonical="/"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Gruham's Construction",
+          "url": "https://gruham.in",
+          "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://gruham.in/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }}
+      />
       <Hero />
       <WhyGruham />
       <ConstructionSection />

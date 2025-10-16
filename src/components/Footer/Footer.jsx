@@ -36,7 +36,7 @@ const Footer = () => {
               <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
                 <img
                   src={Logo}
-                  alt="Logo"
+                  alt="Gruham's Construction Logo - Bangalore Construction Company"
                   style={{
                     maxWidth: '50px',
                     height: 'auto',
@@ -45,7 +45,7 @@ const Footer = () => {
 
               </Box>
               <Typography variant="body1" textAlign="center" color="burlywood" sx={{ fontWeight: 500 }}>
-                Where design meets your dream lifestyle.
+                Where design meets your dream lifestyle. Premium construction services in Bangalore.
               </Typography>
               <Box
                 mt={3}
@@ -166,7 +166,7 @@ const Footer = () => {
                 Visit
               </Typography>
               <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                Gruham
+                Gruham's Construction
               </Typography>
               <Typography variant="body2" mt={1}>
                 Survey No 88/1 Rampura, Viragonagar post, Bangalore-49

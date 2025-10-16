@@ -18,6 +18,7 @@ import {
   borderRadius
 } from "../../theme/designSystem";
 import { Link } from 'react-router-dom';
+import SEOHead from '../SEO/SEOHead';
 
 
 // Import your image
@@ -148,6 +149,39 @@ const Services = () => {
 
   return (
     <Box sx={{ backgroundColor: brandColors.background.light, minHeight: "100vh" }}>
+      <SEOHead
+        title="Construction Services in Bangalore - Gruham's Construction"
+        description="Explore Gruham's comprehensive construction services in Bangalore. From home construction and commercial buildings to interior design and renovation services. Expert construction solutions for your project."
+        keywords="construction services Bangalore, home construction, commercial construction, interior design, renovation services, building contractor Bangalore, construction planning, architecture design"
+        canonical="/services"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Construction Services",
+          "description": "Comprehensive construction services including home construction, commercial buildings, interior design, and renovation services in Bangalore.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Gruham's Construction",
+            "url": "https://gruham.in/services"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Bangalore"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Construction Services",
+            "itemListElement": servicesData.map(service => ({
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": service.title,
+                "description": service.description
+              }
+            }))
+          }
+        }}
+      />
       <Container maxWidth="lg">
 
         <StyledHeroSection>
@@ -211,7 +245,7 @@ const Services = () => {
                 }}
               >
                 <ServiceIcon>
-                  <img src={service.image} alt={service.title} />
+                  <img src={service.image} alt={`${service.title} - Gruham's Construction Services in Bangalore`} />
                 </ServiceIcon>
                 <CardContent sx={{ flexGrow: 1, p: 0, '&:last-child': { pb: 0 }, display: 'flex', flexDirection: 'column' }}>
                   <Typography
