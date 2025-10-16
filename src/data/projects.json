@@ -1,0 +1,232 @@
+{
+  "projects": {
+    "jayachandra": {
+      "id": "jayachandra",
+      "name": "Mr. Jayachandra",
+      "title": "A Six-level Residence in Vajarahalli that Blends Modern Design with Nature-inspired Luxury",
+      "date": "August 7, 2024",
+      "category": "Residential",
+      "location": "Vajarahalli, Bangalore",
+      "area": "4500 sq ft",
+      "duration": "18 months",
+       "mainImage": "/images/residential-architects-mr-jayachandra-residence.webp",
+      "content": {
+        "description": "This magnificent residence is a testament to cutting-edge contemporary architecture. It focuses on maximizing natural light and integrating seamlessly with the urban environment.",
+        "highlights": [
+          "Six levels of modern living space",
+          "Innovative use of wood, glass, and vertical fins on the facade",
+          "Smart home integration and energy-efficient lighting",
+          "Indoor-outdoor living concepts on every floor",
+          "Rooftop terrace with panoramic city views",
+          "Eco-friendly materials and sustainable design"
+        ],
+        "features": [
+          "Modern kitchen with premium appliances",
+          "Spacious living areas with floor-to-ceiling windows",
+          "Private study and home office",
+          "Master suite with walk-in closet",
+          "Guest bedrooms with ensuite bathrooms",
+          "Landscaped garden and outdoor seating"
+        ]
+      },
+      "galleryImages": [
+        { "id": 1, "src": "/images/interior1.webp", "alt": "Modern Living Room" },
+        { "id": 2, "src": "/images/interior2.webp", "alt": "Contemporary Kitchen" },
+        { "id": 3, "src": "/images/interior3.webp", "alt": "Master Bedroom" },
+        { "id": 4, "src": "/images/interior4.webp", "alt": "Bathroom Design" },
+        { "id": 5, "src": "/images/interior5.webp", "alt": "Study Room" },
+        { "id": 6, "src": "/images/interior6.webp", "alt": "Rooftop Terrace" }
+      ]
+      
+    },
+    "aditya": {
+      "id": "aditya",
+      "name": "Mr. Aditya",
+      "title": "Luxury Villa Project - Modern Family Home",
+      "date": "July 15, 2024",
+      "category": "Residential",
+      "location": "Electronic City, Bangalore",
+      "area": "3200 sq ft",
+      "duration": "14 months",
+      "mainImage": "/images/adityaImage.jpg",
+      "content": {
+        "description": "A stunning luxury villa designed for modern family living. This project combines contemporary aesthetics with functional design to create a perfect family home.",
+        "highlights": [
+          "Open-plan living and dining areas",
+          "Premium finishes and fixtures throughout",
+          "Energy-efficient design with solar panels",
+          "Smart home automation system",
+          "Private garden and outdoor entertainment area",
+          "Three-car garage with storage"
+        ],
+        "features": [
+          "Gourmet kitchen with island counter",
+          "Family room with home theater setup",
+          "Four bedrooms with ensuite bathrooms",
+          "Home office with separate entrance",
+          "Swimming pool and deck area",
+          "Landscaped front and backyard"
+        ]
+      },
+      "galleryImages": [
+        { "id": 1, "src": "/images/interior1.webp", "alt": "Villa Exterior" },
+        { "id": 2, "src": "/images/interior2.webp", "alt": "Living Area" },
+        { "id": 3, "src": "/images/interior3.webp", "alt": "Kitchen Design" },
+        { "id": 4, "src": "/images/interior4.webp", "alt": "Master Suite" },
+        { "id": 5, "src": "/images/interior5.webp", "alt": "Pool Area" },
+        { "id": 6, "src": "/images/interior6.webp", "alt": "Garden View" }
+      ]
+    },
+    "brindavanam": {
+      "id": "brindavanam",
+      "name": "Mr Brindavanam",
+      "title": "Elegant Urban Architecture - Contemporary Design",
+      "date": "September 1, 2024",
+      "category": "Residential",
+      "location": "Whitefield, Bangalore",
+      "area": "2800 sq ft",
+      "duration": "12 months",
+      "mainImage": "/images/brindavanam.png",
+      "content": {
+        "description": "An elegant urban residence that showcases contemporary design principles. This project demonstrates how modern architecture can create beautiful, functional living spaces in urban environments.",
+        "highlights": [
+          "Minimalist design with clean lines",
+          "Maximized natural light with strategic window placement",
+          "Sustainable materials and eco-friendly construction",
+          "Flexible living spaces that adapt to family needs",
+          "Private courtyard and outdoor spaces",
+          "Modern security and safety features"
+        ],
+        "features": [
+          "Open-concept living and dining",
+          "Modern kitchen with breakfast nook",
+          "Three bedrooms with built-in storage",
+          "Home office with natural lighting",
+          "Rooftop garden and seating area",
+          "Underground parking for two vehicles"
+        ]
+      },
+      "galleryImages": [
+        { "id": 1, "src": "/images/interior1.webp", "alt": "Urban Exterior" },
+        { "id": 2, "src": "/images/interior2.webp", "alt": "Modern Living" },
+        { "id": 3, "src": "/images/interior3.webp", "alt": "Contemporary Kitchen" },
+        { "id": 4, "src": "/images/interior4.webp", "alt": "Bedroom Design" },
+        { "id": 5, "src": "/images/interior5.webp", "alt": "Bathroom Suite" },
+        { "id": 6, "src": "/images/interior6.webp", "alt": "Rooftop View" }
+      ]
+    },
+    "kumar": {
+      "id": "kumar",
+      "name": "Mr. Kumar",
+      "title": "Luxury Apartment Renovation - Premium Living",
+      "date": "October 15, 2024",
+      "category": "Renovation",
+      "location": "Koramangala, Bangalore",
+      "area": "1800 sq ft",
+      "duration": "8 months",
+      "mainImage": "/images/interior1.webp",
+      "content": {
+        "description": "A complete renovation of a luxury apartment, transforming it into a modern, sophisticated living space. This project showcases our expertise in interior design and space optimization.",
+        "highlights": [
+          "Complete interior renovation",
+          "Premium materials and finishes",
+          "Smart home integration",
+          "Custom built-in storage solutions",
+          "Modern lighting design",
+          "Eco-friendly renovation practices"
+        ],
+        "features": [
+          "Open-plan living with kitchen island",
+          "Master bedroom with walk-in closet",
+          "Guest bedroom with Murphy bed",
+          "Modern bathroom with premium fixtures",
+          "Balcony garden and outdoor seating",
+          "Home office nook with built-in desk"
+        ]
+      },
+      "galleryImages": [
+        { "id": 1, "src": "/images/interior1.webp", "alt": "Renovated Living" },
+        { "id": 2, "src": "/images/interior2.webp", "alt": "Modern Kitchen" },
+        { "id": 3, "src": "/images/interior3.webp", "alt": "Master Bedroom" },
+        { "id": 4, "src": "/images/interior4.webp", "alt": "Bathroom Design" },
+        { "id": 5, "src": "/images/interior5.webp", "alt": "Home Office" },
+        { "id": 6, "src": "/images/interior6.webp", "alt": "Balcony View" }
+      ]
+    },
+    "sharma": {
+      "id": "sharma",
+      "name": "Mr. Sharma",
+      "title": "Commercial Office Space - Corporate Design",
+      "date": "November 20, 2024",
+      "category": "Commercial",
+      "location": "MG Road, Bangalore",
+      "area": "5000 sq ft",
+      "duration": "6 months",
+      "mainImage": "/images/interior2.webp",
+      "content": {
+        "description": "A modern commercial office space designed for productivity and collaboration. This project demonstrates our capability in commercial interior design and space planning.",
+        "highlights": [
+          "Open-plan office layout",
+          "Collaborative workspaces",
+          "Private meeting rooms",
+          "Reception and client areas",
+          "Break room and kitchenette",
+          "Modern technology integration"
+        ],
+        "features": [
+          "Executive offices with glass partitions",
+          "Conference room with AV equipment",
+          "Reception area with waiting lounge",
+          "Break room with kitchen facilities",
+          "Storage and utility rooms",
+          "Modern lighting and HVAC systems"
+        ]
+      },
+      "galleryImages": [
+        { "id": 1, "src": "/images/interior1.webp", "alt": "Office Reception" },
+        { "id": 2, "src": "/images/interior2.webp", "alt": "Open Workspace" },
+        { "id": 3, "src": "/images/interior3.webp", "alt": "Conference Room" },
+        { "id": 4, "src": "/images/interior4.webp", "alt": "Executive Office" },
+        { "id": 5, "src": "/images/interior5.webp", "alt": "Break Room" },
+        { "id": 6, "src": "/images/interior6.webp", "alt": "Meeting Space" }
+      ]
+    }
+  },
+  "latestProjects": [
+    {
+      "id": "jayachandra",
+      "name": "Mr. Jayachandra",
+      "title": "A Six-level Residence in Vajarahalli that Blends Modern Design with Nature-inspired Luxury",
+      "image": "/images/residential-architects-mr-jayachandra-residence.webp",
+      "date": "August 7, 2024"
+    },
+    {
+      "id": "aditya",
+      "name": "Mr. Aditya",
+      "title": "Luxury Villa Project - Modern Family Home",
+      "image": "/images/adityaImage.jpg",
+      "date": "July 15, 2024"
+    },
+    {
+      "id": "brindavanam",
+      "name": "Mr Brindavanam",
+      "title": "Elegant Urban Architecture - Contemporary Design",
+      "image": "/images/brindavanam.png",
+      "date": "September 1, 2024"
+    },
+    {
+      "id": "kumar",
+      "name": "Mr. Kumar",
+      "title": "Luxury Apartment Renovation - Premium Living",
+      "image": "/images/interior1.webp",
+      "date": "October 15, 2024"
+    },
+    {
+      "id": "sharma",
+      "name": "Mr. Sharma",
+      "title": "Commercial Office Space - Corporate Design",
+      "image": "/images/interior2.webp",
+      "date": "November 20, 2024"
+    }
+  ]
+}

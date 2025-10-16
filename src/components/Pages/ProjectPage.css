@@ -1,0 +1,419 @@
+/* Color Variables */
+:root {
+    --primary-text: #333;
+    --secondary-text: #666;
+    --light-bg: #f5f5f5;
+    --accent-yellow: #ffc400;
+}
+
+/* --- 1. Banner Styling --- */
+.project-banner {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+
+.banner-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark band matching the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    box-sizing: border-box;
+}
+
+.project-banner h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.project-meta {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin: 3px 0 0;
+}
+
+/* --- 2. Main Layout --- */
+.project-content-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 40px;
+}
+
+.main-content {
+    flex: 3; /* Takes up more space */
+    min-width: 0;
+}
+
+/* --- Project Text Content --- */
+.project-text-content {
+    line-height: 1.7;
+    color: var(--secondary-text);
+    margin-bottom: 40px;
+}
+
+.project-text-content h3 {
+    color: var(--primary-text);
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+.project-text-content ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+/* --- Gallery Styling --- */
+.project-page h2 {
+    font-size: 1.8em;
+    color: var(--primary-text);
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.project-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* --- Related Projects Admin Bar (Screenshot 210658.png) --- */
+.related-title {
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+
+.admin-bar {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-bottom: 2px solid var(--accent-yellow);
+    margin-bottom: 40px;
+    color: var(--primary-text);
+    font-weight: 600;
+}
+
+.avatar-placeholder {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/* --- Comment Form Styling (Screenshot 210709.png / 210724.png) --- */
+.comment-section .section-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.comment-info {
+    font-style: italic;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+}
+
+.comment-form textarea,
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: var(--light-bg);
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.comment-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.captcha-and-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.recaptcha-placeholder {
+    display: flex;
+    align-items: center;
+    /* Placeholder styles matching the image */
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+.recaptcha-placeholder small {
+    margin-left: 10px;
+    font-size: 0.7em;
+    color: #999;
+}
+
+.submit-button {
+    background-color: var(--accent-yellow);
+    color: var(--primary-text);
+    padding: 15px 30px;
+    border: none;
+    font-weight: 700;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #e0ac00;
+}
+
+
+/* --- 3. Sidebar Styling --- */
+.sidebar {
+    flex: 1; /* Takes up less space */
+    padding-top: 10px;
+    min-width: 250px;
+}
+
+.sidebar-search {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.sidebar-search input {
+    flex-grow: 1;
+    padding: 12px;
+    border: none;
+    background-color: var(--light-bg);
+    font-size: 1em;
+    border-radius: 3px 0 0 3px;
+}
+
+.search-button {
+    padding: 12px 15px;
+    background-color: var(--accent-yellow);
+    border: none;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+}
+
+.latest-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--primary-text);
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.latest-projects-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.latest-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: all 0.3s ease;
+}
+
+.latest-item.clickable {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.latest-item.clickable:hover {
+    background-color: #f8f9fa;
+    border-color: var(--accent-yellow);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.latest-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.latest-item p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.latest-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.latest-project-name {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--primary-text);
+    margin: 0;
+}
+
+.latest-project-title {
+    font-size: 0.8em;
+    color: var(--secondary-text);
+    margin: 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.latest-project-date {
+    font-size: 0.75em;
+    color: var(--accent-yellow);
+    font-weight: 500;
+}
+
+/* --- Related Projects Styles --- */
+.related-projects {
+    margin: 40px 0;
+}
+
+.related-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.related-project-card {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.related-project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-color: var(--accent-yellow);
+}
+
+.related-project-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.related-project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.related-project-name {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--primary-text);
+    margin: 0;
+}
+
+.related-project-title {
+    font-size: 0.85em;
+    color: var(--secondary-text);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.related-project-date {
+    font-size: 0.8em;
+    color: var(--accent-yellow);
+    font-weight: 500;
+}
+
+/* --- Project Details Styles --- */
+.project-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.detail-item {
+    font-size: 0.9em;
+    color: var(--primary-text);
+}
+
+.detail-item strong {
+    color: var(--accent-yellow);
+    margin-right: 8px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .project-content-layout {
+        flex-direction: column;
+    }
+    .main-content, .sidebar {
+        flex: none;
+        width: 100%;
+    }
+    .project-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .project-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .captcha-and-submit {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .submit-button {
+        width: 100%;
+        margin-top: 15px;
+    }
+}

@@ -13,7 +13,7 @@ function RadialGradient({ outerDivRef }) {
 
         const left = (offsetX / width) * 100;
         const top = (offsetY / height) * 100;
-        debugger;
+        // debugger;
         divRef.current.style.background = `radial-gradient(
           circle at ${left}% ${top}%,
           transparent ,
@@ -66,7 +66,7 @@ function RadialGradient({ outerDivRef }) {
                black
             )`,
         position: "absolute",
-        zIndex: 95,
+        zIndex: 2,
         // cursor: "none",
       }}
     >
