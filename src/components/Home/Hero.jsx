@@ -11,17 +11,16 @@ const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFirstVisit, setIsFirstVisit] = useState(false);
 
-  // Check if it's the first visit
+  // Auto-popup on every page load/refresh
   useEffect(() => {
-    const hasVisited = localStorage.getItem('hasVisited');
-    if (!hasVisited) {
-      setIsFirstVisit(true);
-      // Auto-popup after 2 seconds on first visit
-      const timer = setTimeout(() => {
-        setIsModalOpen(true);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
+    console.log('Setting up auto-popup for every refresh');
+    setIsFirstVisit(true);
+    // Auto-popup after 1.5 seconds on every page load
+    const timer = setTimeout(() => {
+      console.log('Auto-opening modal on page load');
+      setIsModalOpen(true);
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleOpenModal = () => {
@@ -30,10 +29,7 @@ const Hero = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    if (isFirstVisit) {
-      localStorage.setItem('hasVisited', 'true');
-      setIsFirstVisit(false);
-    }
+    // No localStorage check - modal will show on every refresh
   };
 
   return (
@@ -47,7 +43,7 @@ const Hero = () => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        p: { xs: 2, sm: 3, md: 4 },
+        // p: { xs: 2, sm: 3, md: 4 },
       }}
       ref={maindivRef}
     >
