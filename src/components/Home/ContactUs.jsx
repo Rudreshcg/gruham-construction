@@ -52,9 +52,9 @@ const float = keyframes`
 // Enhanced Styled Input Field
 const StyledTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
-    background: "rgba(255, 255, 255, 0.1)",
+    background: "rgba(255, 255, 255, 0.9)",
     borderRadius: "12px",
-    color: "#fff",
+    color: "#2c3e50",
     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
     backdropFilter: "blur(10px)",
     "& fieldset": { 
@@ -73,18 +73,19 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       animation: `${glow} 2s ease-in-out infinite`,
     },
     "& input": { 
-      padding: { xs: "8px 12px", sm: "10px 14px" },
+      padding: { xs: "10px 14px", sm: "12px 16px" },
       fontSize: { xs: "0.85rem", sm: "0.9rem" },
+      color: "#2c3e50",
       "&::placeholder": {
-        color: "rgba(255, 255, 255, 0.6)",
+        color: "rgba(44, 62, 80, 0.6)",
         opacity: 1,
       },
     },
   },
   "& .MuiInputLabel-root": {
-    color: "rgba(255, 255, 255, 0.8)",
+    color: "#5a6c7d",
     fontWeight: 600,
-    fontSize: { xs: "0.8rem", sm: "0.85rem" },
+    fontSize: { xs: "0.8rem", sm: "0.9rem" },
     "&.Mui-focused": { 
       color: "#bfa974",
       fontWeight: 700,
@@ -99,8 +100,8 @@ const StyledButton = styled(Button)(() => ({
   borderRadius: "12px",
   fontWeight: 700,
   textTransform: "none",
-  padding: "12px 0",
-  fontSize: "1rem",
+  padding: { xs: "10px 0", sm: "12px 0" },
+  fontSize: { xs: "0.9rem", sm: "1rem" },
   transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
   boxShadow: "0 6px 20px rgba(191,169,116,0.4)",
   position: "relative",
@@ -161,57 +162,48 @@ const ContactUs = () => {
         component="form"
         onSubmit={handleSubmit}
         sx={{
-          background: "rgba(255, 255, 255, 0.08)",
-          border: "1px solid rgba(255,255,255,0.15)",
-          borderRadius: "16px",
-          backdropFilter: "blur(20px)",
-          boxShadow: "0 12px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)",
-          p: { xs: 1, sm: 1.8, md: 2.2 },
-          width: { xs: "220px", sm: "260px", md: "280px" },
-          maxWidth: { xs: "calc(100vw - 16px)", sm: "none" },
+          background: "rgba(255, 255, 255, 0.95)",
+          border: "1px solid rgba(191, 169, 116, 0.2)",
+          borderRadius: { xs: "0px", sm: "16px" },
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+          p: { xs: 2, sm: 3 },
+          maxWidth: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: { xs: 1, sm: 1.5, md: 1.8 },
+          gap: { xs: 1.5, sm: 2 },
           position: "relative",
           overflow: "hidden",
-          "&:before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(191, 169, 116, 0.5), transparent)",
-          },
         }}
       >
         {/* Header with compact styling */}
-        <Box sx={{ textAlign: "center", mb: { xs: 0.3, sm: 0.5 } }}>
+        <Box sx={{ textAlign: "center", mb: { xs: 1, sm: 1.5 } }}>
           <Typography
             variant="h6"
             sx={{
-              color: "#fff",
+              color: "#2c3e50",
               fontWeight: 700,
-              fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.1rem" },
+              fontSize: { xs: "1rem", sm: "1.2rem", md: "1.3rem" },
               letterSpacing: "0.3px",
-              textShadow: "0 2px 10px rgba(0,0,0,0.5)",
-              mb: { xs: 0.3, sm: 0.5 },
+              mb: { xs: 0.5, sm: 1 },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: { xs: 0.3, sm: 0.5 },
+              gap: { xs: 0.5, sm: 1 },
+              fontFamily: "'Montserrat', sans-serif",
             }}
           >
-            <Construction sx={{ color: "#bfa974", fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" } }} />
+            <Construction sx={{ color: "#bfa974", fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.4rem" } }} />
             Get Free Quote
           </Typography>
           
           <Typography
             variant="body2"
             sx={{
-              color: "rgba(255, 255, 255, 0.7)",
-              fontSize: { xs: "0.7rem", sm: "0.75rem" },
+              color: "#5a6c7d",
+              fontSize: { xs: "0.8rem", sm: "0.9rem" },
               fontWeight: 500,
+              fontFamily: "'Montserrat', sans-serif",
             }}
           >
             Start your dream project today
@@ -228,26 +220,6 @@ const ContactUs = () => {
           }} 
         />
 
-        {/* Success Message */}
-        <Fade in={isSubmitted} timeout={500}>
-          <Box
-            sx={{
-              background: "rgba(76, 175, 80, 0.2)",
-              border: "1px solid rgba(76, 175, 80, 0.5)",
-              borderRadius: "8px",
-              p: 1,
-              mb: 1,
-              display: "flex",
-              alignItems: "center",
-              gap: 0.5,
-            }}
-          >
-            <CheckCircle sx={{ color: "#4caf50", fontSize: "1rem" }} />
-            <Typography sx={{ color: "#4caf50", fontWeight: 600, fontSize: "0.8rem" }}>
-              Thank you! We'll contact you soon.
-            </Typography>
-          </Box>
-        </Fade>
 
         {/* Form Fields */}
         <StyledTextField
@@ -327,15 +299,42 @@ const ContactUs = () => {
           {isLoading ? "Sending..." : isSubmitted ? "Message Sent!" : "Get Free Quote"}
         </StyledButton>
 
-        {/* Compact Trust indicators */}
+        {/* Success Message - positioned after button */}
+        <Fade in={isSubmitted} timeout={500}>
+          <Box
+            sx={{
+              background: "rgba(76, 175, 80, 0.1)",
+              border: "1px solid rgba(76, 175, 80, 0.3)",
+              borderRadius: "8px",
+              p: { xs: 0.8, sm: 1 },
+              mt: { xs: 1, sm: 1.5 },
+              display: "flex",
+              alignItems: "center",
+              gap: 0.5,
+            }}
+          >
+            <CheckCircle sx={{ color: "#4caf50", fontSize: { xs: "0.9rem", sm: "1rem" } }} />
+            <Typography sx={{ 
+              color: "#4caf50", 
+              fontWeight: 600, 
+              fontSize: { xs: "0.75rem", sm: "0.8rem" },
+              fontFamily: "'Montserrat', sans-serif",
+            }}>
+              Thank you! We'll contact you soon.
+            </Typography>
+          </Box>
+        </Fade>
+
+        {/* Trust indicators */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             gap: { xs: 0.5, sm: 1 },
-            mt: { xs: 0.8, sm: 1 },
+            mt: { xs: 1.5, sm: 2 },
             flexWrap: "wrap",
             width: "100%",
+            px: 0.5,
             overflow: "hidden",
           }}
         >
@@ -344,12 +343,18 @@ const ContactUs = () => {
             label="5-Star Rated"
             size="small"
             sx={{
-              background: "rgba(191, 169, 116, 0.15)",
+              background: "rgba(191, 169, 116, 0.1)",
               color: "#bfa974",
               border: "1px solid rgba(191, 169, 116, 0.3)",
-              fontSize: { xs: "0.6rem", sm: "0.65rem" },
-              height: { xs: "18px", sm: "20px" },
-              maxWidth: "100%",
+              fontSize: "0.6rem",
+              height: "20px",
+              fontWeight: 600,
+              fontFamily: "'Montserrat', sans-serif",
+              maxWidth: "calc(50% - 4px)",
+              "& .MuiChip-label": {
+                px: 0.3,
+                fontSize: "0.6rem",
+              },
             }}
           />
           <Chip
@@ -357,12 +362,18 @@ const ContactUs = () => {
             label="Free Consultation"
             size="small"
             sx={{
-              background: "rgba(191, 169, 116, 0.15)",
+              background: "rgba(191, 169, 116, 0.1)",
               color: "#bfa974",
               border: "1px solid rgba(191, 169, 116, 0.3)",
-              fontSize: { xs: "0.6rem", sm: "0.65rem" },
-              height: { xs: "18px", sm: "20px" },
-              maxWidth: "100%",
+              fontSize: "0.6rem",
+              height: "20px",
+              fontWeight: 600,
+              fontFamily: "'Montserrat', sans-serif",
+              maxWidth: "calc(50% - 4px)",
+              "& .MuiChip-label": {
+                px: 0.3,
+                fontSize: "0.6rem",
+              },
             }}
           />
         </Box>
