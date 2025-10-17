@@ -129,7 +129,7 @@ const StyledButton = styled(Button)(() => ({
   },
 }));
 
-const ContactUs = () => {
+const ContactUs = ({ shouldScroll = false }) => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -173,7 +173,7 @@ const ContactUs = () => {
           flexDirection: "column",
           gap: { xs: 1.5, sm: 2 },
           position: "relative",
-          overflow: "hidden",
+          overflow: shouldScroll ? "auto" : "hidden",
         }}
       >
         {/* Header with compact styling */}

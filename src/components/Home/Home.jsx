@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
 import Hero from "./Hero";
-import ConstructionSection from "./ConstructionSection";
-import InteriorSection from "./InteriorSection";
 import WhyGruham from "./WhyGruham/WhyGruham.jsx";
+import AboutCompany from "./AboutCompany";
+import Testimonials from "./Testimonials";
+import PortfolioPreview from "./PortfolioPreview";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
 import FAQ from "../SEO/FAQ";
@@ -30,8 +31,9 @@ const Home = () => {
       />
       <Hero />
       <WhyGruham />
-      <ConstructionSection />
-      <InteriorSection />
+      <AboutCompany />
+      <Testimonials />
+      <PortfolioPreview />
       <FAQ />
       <InternalLinks currentPage="home" />
     </Box>

@@ -16,7 +16,12 @@ import ContactUs from './ContactUs';
 const ContactUsModal = ({ open, onClose, isFirstVisit = false }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isLowHeight = useMediaQuery('(max-height: 500px)');
+  const shouldScroll = isMobile && isLowHeight;
   const [isVisible, setIsVisible] = useState(false);
+
+  // Debug logging
+  console.log('Modal Debug:', { isMobile, isLowHeight, shouldScroll });
 
   useEffect(() => {
     if (open) {
@@ -104,7 +109,7 @@ const ContactUsModal = ({ open, onClose, isFirstVisit = false }) => {
               width: '100%',
               maxWidth: isMobile ? '100%' : '500px',
               maxHeight: isMobile ? '100vh' : '90vh',
-              overflow: 'hidden',
+              overflow: shouldScroll ? 'auto' : 'hidden',
               margin: '0 auto',
             }}
           >
@@ -116,7 +121,7 @@ const ContactUsModal = ({ open, onClose, isFirstVisit = false }) => {
                 backdropFilter: 'blur(20px)',
                 border: '1px solid rgba(255, 255, 255, 0.8)',
                 boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
-                overflow: 'hidden',
+                overflow: shouldScroll ? 'auto' : 'hidden',
                 maxHeight: isMobile ? '100vh' : '90vh',
                 display: 'flex',
                 flexDirection: 'column',
@@ -199,11 +204,11 @@ const ContactUsModal = ({ open, onClose, isFirstVisit = false }) => {
               <Box sx={{ 
                 p: { xs: 0, sm: 0 }, 
                 flex: 1, 
-                overflow: 'hidden',
+                overflow: shouldScroll ? 'auto' : 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
               }}>
-                <ContactUs />
+                <ContactUs shouldScroll={shouldScroll} />
               </Box>
 
               {/* Footer */}

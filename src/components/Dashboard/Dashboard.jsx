@@ -5,10 +5,12 @@ import { routes } from "./routes";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Breadcrumbs from "../SEO/Breadcrumbs.jsx";
+import ScrollToTop from "../SEO/ScrollToTop.jsx";
 
 const Dashboard = () =>{
     return (
         <div style={{ width: "100%", margin: "0", padding: "0", overflowX: "hidden" }}>
+            <ScrollToTop />
             <Header />
             <Breadcrumbs />
             <Routes>

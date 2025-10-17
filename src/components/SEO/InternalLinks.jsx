@@ -8,10 +8,8 @@ const InternalLinks = ({ currentPage = 'home' }) => {
       { text: 'About Our Construction Services', to: '/about' },
       { text: 'View Our Construction Portfolio', to: '/portfolio' },
       { text: 'Get Construction Quote', to: '/contact' },
-      { text: 'Construction Services in Bangalore', to: '/services' }
     ],
     about: [
-      { text: 'Our Construction Services', to: '/services' },
       { text: 'Construction Portfolio', to: '/portfolio' },
       { text: 'Contact Us for Construction', to: '/contact' },
       { text: 'Construction Careers', to: '/careers' }
@@ -23,13 +21,11 @@ const InternalLinks = ({ currentPage = 'home' }) => {
       { text: 'Construction Careers', to: '/careers' }
     ],
     portfolio: [
-      { text: 'Our Construction Services', to: '/services' },
       { text: 'About Gruham Construction', to: '/about' },
       { text: 'Contact for Construction', to: '/contact' },
       { text: 'Construction Careers', to: '/careers' }
     ],
     contact: [
-      { text: 'Our Construction Services', to: '/services' },
       { text: 'Construction Portfolio', to: '/portfolio' },
       { text: 'About Gruham Construction', to: '/about' },
       { text: 'Construction Careers', to: '/careers' }
