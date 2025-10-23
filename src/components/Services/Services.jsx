@@ -152,8 +152,8 @@ const Services = () => {
     <Box sx={{ backgroundColor: brandColors.background.light, minHeight: "100vh" }}>
       <SEOHead
         title="Construction Services in Bangalore - Gruham's Construction"
-        description="Explore Gruham's comprehensive construction services in Bangalore. From home construction and commercial buildings to interior design and renovation services. Expert construction solutions for your project."
-        keywords="construction services Bangalore, home construction, commercial construction, interior design, renovation services, building contractor Bangalore, construction planning, architecture design"
+        description="Explore Gruham's Construction (Gruhams) comprehensive construction services in Bangalore. From home construction and commercial buildings to interior design and renovation services. Expert construction solutions for your project with Gruhams construction team."
+        keywords="construction services Bangalore, Gruhams construction services, gruham construction services, home construction, commercial construction, interior design, renovation services, building contractor Bangalore, construction planning, architecture design, Gruhams construction company services"
         canonical="/services"
         structuredData={{
           "@context": "https://schema.org",

@@ -15,6 +15,8 @@ import {
   EmailOutlined,
 } from "@mui/icons-material";
 import bgImage from "../../assets/images/contact-bg.jpeg";
+import SEOHead from "../SEO/SEOHead";
+import InternalLinks from "../SEO/InternalLinks";
 
 // Accent Divider
 const AccentDivider = styled("div")({
@@ -122,6 +124,37 @@ export default function Contact() {
 
   return (
     <>
+      <SEOHead
+        title="Contact Gruham's Construction - Get Your Construction Quote Today"
+        description="Contact Gruham's Construction (Gruhams) for your construction needs in Bangalore. Get expert construction quotes, consultation, and project planning. Call +91-8431000242 or email info@gruhams.in"
+        keywords="contact Gruham construction, Gruhams construction contact, gruham construction company, construction quote Bangalore, construction consultation, Gruhams construction phone, construction inquiry Bangalore"
+        canonical="/contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Gruham's Construction",
+            "alternateName": ["Gruhams", "gruham", "gruhams construction"],
+            "url": "https://gruhams.in/contact",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-8431000242",
+              "contactType": "customer service",
+              "email": "info@gruhams.in",
+              "availableLanguage": "English"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Survey No 88/1 Rampura, Viragonagar post",
+              "addressLocality": "Bangalore",
+              "addressRegion": "Karnataka",
+              "postalCode": "560049",
+              "addressCountry": "IN"
+            }
+          }
+        }}
+      />
       {/* Hero Section */}
       <HeroWrapper component={motion.section} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
         <img
@@ -201,7 +234,7 @@ export default function Contact() {
                   <LocationOnOutlined />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Address</Typography>
-                    <Typography>123 Main Street, Bengaluru, India</Typography>
+                    <Typography>Survey No 88/1 Rampura, Viragonagar post, Bangalore-560049</Typography>
                   </Box>
                 </ContactItem>
 
@@ -209,7 +242,7 @@ export default function Contact() {
                   <PhoneOutlined />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Phone</Typography>
-                    <Typography>+91 98765 43210</Typography>
+                    <Typography>+91-8431000242</Typography>
                   </Box>
                 </ContactItem>
 
@@ -217,7 +250,7 @@ export default function Contact() {
                   <EmailOutlined />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Email</Typography>
-                    <Typography>info@example.com</Typography>
+                    <Typography>info@gruhams.in</Typography>
                   </Box>
                 </ContactItem>
               </ContactCard>
@@ -241,6 +274,9 @@ export default function Contact() {
           loading="lazy"
         />
       </Box>
+
+      {/* Internal Links */}
+      <InternalLinks currentPage="contact" />
     </>
   );
 }

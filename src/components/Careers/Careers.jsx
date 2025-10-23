@@ -11,6 +11,8 @@ import {
   borderRadius,
 } from "../../theme/designSystem";
 import styled from "@emotion/styled";
+import SEOHead from "../SEO/SEOHead";
+import InternalLinks from "../SEO/InternalLinks";
 
 // Accent divider as on Services/Contact pages
 const AccentDivider = styled("div")({
@@ -233,6 +235,43 @@ const Careers = () => {
 
   return (
     <Box>
+      <SEOHead
+        title="Careers at Gruham's Construction - Join Our Construction Team in Bangalore"
+        description="Join Gruham's Construction (Gruhams) team in Bangalore. Explore construction careers, project management jobs, interior design positions, and architectural roles. Build your career with Gruhams construction company."
+        keywords="Gruham construction careers, Gruhams construction jobs, construction jobs Bangalore, gruham construction company careers, construction careers Bangalore, project management jobs, interior design jobs, architectural jobs Bangalore"
+        canonical="/careers"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Careers at Gruham's Construction",
+          "description": "Join our construction team and build your career with Gruham's Construction in Bangalore.",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Gruham's Construction",
+            "alternateName": ["Gruhams", "gruham", "gruhams construction"],
+            "url": "https://gruhams.in/careers",
+            "hasJobPosting": careers.map(job => ({
+              "@type": "JobPosting",
+              "title": job.title,
+              "description": job.description,
+              "employmentType": job.type,
+              "hiringOrganization": {
+                "@type": "Organization",
+                "name": "Gruham's Construction"
+              },
+              "jobLocation": {
+                "@type": "Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Bangalore",
+                  "addressRegion": "Karnataka",
+                  "addressCountry": "IN"
+                }
+              }
+            }))
+          }
+        }}
+      />
       {/* Hero Section */}
       <StyledHeroSection>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>
@@ -866,6 +905,9 @@ const Careers = () => {
           </Grid>
         </Container>
       </Box>
+
+      {/* Internal Links */}
+      <InternalLinks currentPage="careers" />
     </Box>
   );
 };

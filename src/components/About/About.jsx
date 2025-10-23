@@ -179,8 +179,8 @@ const About = () => {
     <Box>
       <SEOHead
         title="About Gruham's Construction - Leading Construction Company in Bangalore"
-        description="Learn about Gruham's Construction, a premier construction company in Bangalore. Discover our mission, values, and commitment to delivering exceptional construction services, luxury homes, and commercial buildings."
-        keywords="about Gruham construction, construction company Bangalore, construction mission, construction values, Bangalore construction team, construction expertise"
+        description="Learn about Gruham's Construction (Gruhams), a premier construction company in Bangalore. Discover our mission, values, and commitment to delivering exceptional construction services, luxury homes, and commercial buildings with Gruhams construction team."
+        keywords="about Gruham construction, about Gruhams construction, gruham construction company, construction company Bangalore, construction mission, construction values, Bangalore construction team, construction expertise, Gruhams construction team, gruham construction about"
         canonical="/about"
         structuredData={{
           "@context": "https://schema.org",
