@@ -13,18 +13,18 @@ const Home = () => {
     <Box>
       <SEOHead
         title="Gruham's Construction - Leading Construction Company in Bangalore"
-        description="Gruham's Construction (Gruhams) is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services. Transform your vision into reality with expert construction solutions from Gruhams construction team."
+        description="Gruham's Construction is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services. Transform your vision into reality with expert construction solutions."
         keywords="construction company Bangalore, Gruham construction, Gruham's, Gruhams, gruham, gruhams construction, construction services, home construction, commercial construction, interior design, renovation, building contractor, Bangalore construction, luxury construction, residential construction, Gruhams construction Bangalore, gruham construction company"
         canonical="/"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": "Gruham's Construction",
-          "url": "https://gruhams.in",
+          "url": "https://www.gruhams.in",
           "description": "Premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://gruhams.in/search?q={search_term_string}",
+            "target": "https://www.gruhams.in/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         }}

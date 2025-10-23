@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://gruhams.in/sitemap.xml
+Sitemap: https://www.gruhams.in/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

@@ -9,11 +9,11 @@ const SEOHead = ({
   ogType = "website",
   structuredData
 }) => {
-  const defaultTitle = "Gruham's Construction - Leading Construction Company in Bangalore | Premium Construction Services";
-  const defaultDescription = "Gruham's Construction (Gruhams) is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services. Get expert construction solutions with Gruham's construction team.";
+  const defaultTitle = "Gruham's Construction - Leading Construction Company in Bangalore";
+  const defaultDescription = "Gruham's Construction is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.";
   const defaultKeywords = "construction company Bangalore, Gruham construction, Gruham's, Gruhams, gruham, gruhams construction, construction services, home construction, commercial construction, interior design, renovation, building contractor, Bangalore construction, luxury construction, residential construction, architectural services, construction management, Gruhams construction Bangalore, gruham construction company, gruhams construction services";
-  const defaultOgImage = "https://gruhams.in/src/assets/images/Logo.png";
-  const siteUrl = "https://gruhams.in";
+  const defaultOgImage = "https://www.gruhams.in/src/assets/images/Logo.png";
+  const siteUrl = "https://www.gruhams.in";
 
   const finalTitle = title ? `${title} | Gruham's Construction` : defaultTitle;
   const finalDescription = description || defaultDescription;
