@@ -166,10 +166,10 @@ const Footer = () => {
                 Visit
               </Typography>
               <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                Gruham's Construction
+                Gruham's
               </Typography>
               <Typography variant="body2" mt={1}>
-                Survey No 88/1 Rampura, Viragonagar post, Bangalore-49
+                3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
               </Typography>
             </motion.div>
           </Grid>

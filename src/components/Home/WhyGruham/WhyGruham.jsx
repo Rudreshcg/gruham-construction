@@ -96,6 +96,7 @@ const WhyGruham = () => {
                 variants={SlideUp(0.5 + index * 0.2)}
                 initial="initial"
                 whileInView="animate"
+                style={{ height: "100%" }}
               >
                 <Box
                   sx={{
@@ -104,34 +105,30 @@ const WhyGruham = () => {
                     alignItems: "center",
                     p: { xs: 3, md: 4 },
                     height: "100%",
-                    background: "rgba(255, 255, 255, 0.8)",
-                    borderRadius: "24px",
-                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    background: "#ffffff",
+                    borderRadius: "16px",
+                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
                     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                     position: "relative",
                     overflow: "hidden",
-                    "&::before": {
+                    "&::after": {
                       content: '""',
                       position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
+                      bottom: 0,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "0",
                       height: "3px",
                       background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                      transform: "scaleX(0)",
-                      transformOrigin: "left",
-                      transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+                      transition: "width 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                     },
                     "&:hover": {
-                      transform: "translateY(-12px)",
+                      transform: "translateY(-8px)",
                       boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-                      "&::before": {
-                        transform: "scaleX(1)",
+                      "&::after": {
+                        width: "60%",
                       },
                     },
-                    minHeight: { xs: "280px", md: "320px" }
                   }}
                 >
                   <Box

@@ -40,14 +40,7 @@ const Breadcrumbs = () => {
         path: '/contact',
         icon: <ContactMail sx={{ fontSize: 16 }} />
       });
-    } else if (pathname === '/careers') {
-      items.push({
-        label: 'Construction Careers',
-        path: '/careers',
-        icon: <Work sx={{ fontSize: 16 }} />
-      });
-    }
-
+    } 
     return items;
   };
 

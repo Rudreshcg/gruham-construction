@@ -112,7 +112,7 @@ const PortfolioPreview = () => {
           </Box>
         </motion.div>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
           {portfolioItems.map((project, index) => (
             <Grid item xs={12} sm={6} md={4} key={project.id}>
               <motion.div
@@ -120,20 +120,21 @@ const PortfolioPreview = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
+                style={{ height: "100%" }}
               >
                 <Card
                   sx={{
                     height: "100%",
-                    background: "rgba(255, 255, 255, 0.9)",
-                    borderRadius: "20px",
-                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    background: "#ffffff",
+                    borderRadius: "16px",
+                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
                     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                     position: "relative",
                     overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
                     "&:hover": {
-                      transform: "translateY(-12px)",
+                      transform: "translateY(-8px)",
                       boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
                     }
                   }}
@@ -151,7 +152,7 @@ const PortfolioPreview = () => {
                     }}
                   />
                   
-                  <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+                  <CardContent sx={{ p: { xs: 3, md: 4 }, flex: 1, display: "flex", flexDirection: "column" }}>
                     <Box sx={{ mb: 2 }}>
                       <Typography
                         variant="caption"
@@ -253,7 +254,7 @@ const PortfolioPreview = () => {
                       ))}
                     </Box>
 
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mt: "auto" }}>
                       <Typography
                         variant="caption"
                         sx={{

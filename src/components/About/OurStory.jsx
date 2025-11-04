@@ -31,6 +31,20 @@ const OurStory = () => {
         }}
       />
 
+      {/* Title Section */}
+      <div className="story-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="story-title">Our Story</h2>
+          <p className="story-subtitle">
+            Discover the journey, values, and vision that drive Gruham's Construction to excellence.
+          </p>
+        </motion.div>
+      </div>
+
       {/* Top Hero Image Section */}
       <div className="photo-section">
         <motion.div
@@ -47,20 +61,6 @@ const OurStory = () => {
               e.target.parentElement.style.backgroundColor = "#e0e0e0";
             }}
           />
-        </motion.div>
-      </div>
-
-      {/* Title Section */}
-      <div className="story-header">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="story-title">Our Story</h2>
-          <p className="story-subtitle">
-            Discover the journey, values, and vision that drive Gruham's Construction to excellence.
-          </p>
         </motion.div>
       </div>
 

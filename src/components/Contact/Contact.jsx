@@ -45,6 +45,28 @@ const HeroText = styled(Box)({
   padding: "0 20px",
 });
 
+// Hero Title with gold underline
+const HeroTitle = styled(Typography)({
+  fontSize: "3rem",
+  fontWeight: 800,
+  color: "#fff",
+  marginBottom: "20px",
+  position: "relative",
+  fontFamily: "'Montserrat', sans-serif",
+  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    bottom: "-10px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    width: "80px",
+    height: "4px",
+    background: "linear-gradient(135deg, #bfa974, #9c8658)",
+    borderRadius: "2px",
+  },
+});
+
 // Section wrapper
 const Section = styled(Box)(({ theme }) => ({
   padding: theme.spacing(10, 2),
@@ -146,10 +168,10 @@ export default function Contact() {
             },
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Survey No 88/1 Rampura, Viragonagar post",
-              "addressLocality": "Bangalore",
+              "streetAddress": "3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar",
+              "addressLocality": "Bengaluru",
               "addressRegion": "Karnataka",
-              "postalCode": "560049",
+              "postalCode": "560098",
               "addressCountry": "IN"
             }
           }
@@ -172,9 +194,9 @@ export default function Contact() {
           }}
         />
         <HeroText>
-          <Typography variant="h2" sx={{ fontWeight: 700, mb: 2 }}>
+          <HeroTitle variant="h2">
             Contact Us
-          </Typography>
+          </HeroTitle>
           <Typography variant="h6" sx={{ maxWidth: 700, mx: "auto", lineHeight: 1.6 }}>
             We'd love to hear from you. Please send us a message or reach out directly.
           </Typography>
@@ -234,7 +256,7 @@ export default function Contact() {
                   <LocationOnOutlined />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Address</Typography>
-                    <Typography>Survey No 88/1 Rampura, Viragonagar post, Bangalore-560049</Typography>
+                    <Typography>3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098</Typography>
                   </Box>
                 </ContactItem>
 
@@ -266,12 +288,13 @@ export default function Contact() {
       <Box sx={{ width: "100%", height: { xs: "300px", md: "500px" } }}>
         <iframe
           title="Google Maps"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7548691524453!2d77.69393267484278!3d13.051269187271448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11003102f8d5%3A0x9e9517053a418d75!2sTVASHTA%20INTERIOR%20SOLUTIONS%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1753849182414!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124435.81943600824!2d77.5166835!3d12.9321688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xab48133c8ac43d4f%3A0xc69e73be8b1bc0c8!2sGruhams!5e0!3m2!1sen!2sin!4v1762250751081!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         />
       </Box>
 

@@ -36,11 +36,9 @@ const Header = () => {
 
   const tabMenu = [
     { tabName: "HOME", to: "/" },
-    { tabName: "ABOUT", to: "/about" },
+    { tabName: "OUR STORY", to: "/about" },
     { tabName: "PORTFOLIO", to: "/portfolio" },
-    // { tabName: "SERVICES", to: "/services" },
-    { tabName: "CAREERS", to: "/careers" },
-    // { tabName: "BLOGS", to: "/blogs" },
+    { tabName: "TEAMS", to: "/teams" },
     { tabName: "CONTACT", to: "/contact" },
   ];
 
@@ -83,7 +81,7 @@ const Header = () => {
             {tabMenu.map((tab) => {
               return (
                 <Button
-                  key={tab.id}
+                  key={tab.to}
                   color="inherit"
                   component={RouterLink}
                   to={tab.to}
@@ -139,7 +137,7 @@ const Header = () => {
             <>
               <Divider sx={{ backgroundColor: "white" }} variant="fullWidth" />
               <MenuItem
-                key={tab.id}
+                key={tab.to}
                 button
                 component={RouterLink}
                 to={tab.to}

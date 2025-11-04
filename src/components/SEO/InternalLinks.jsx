@@ -12,23 +12,19 @@ const InternalLinks = ({ currentPage = 'home' }) => {
     about: [
       { text: 'Construction Portfolio', to: '/portfolio' },
       { text: 'Contact Us for Construction', to: '/contact' },
-      { text: 'Construction Careers', to: '/careers' }
     ],
     services: [
       { text: 'About Gruham Construction', to: '/about' },
       { text: 'Construction Portfolio', to: '/portfolio' },
       { text: 'Get Construction Quote', to: '/contact' },
-      { text: 'Construction Careers', to: '/careers' }
     ],
     portfolio: [
       { text: 'About Gruham Construction', to: '/about' },
       { text: 'Contact for Construction', to: '/contact' },
-      { text: 'Construction Careers', to: '/careers' }
     ],
     contact: [
       { text: 'Construction Portfolio', to: '/portfolio' },
       { text: 'About Gruham Construction', to: '/about' },
-      { text: 'Construction Careers', to: '/careers' }
     ]
   };
 

@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
+import { motion } from "framer-motion";
 import landingPageImageWebp from "../../assets/images/hero_new.png";
 import landingPageImageJpg from "../../assets/images/heros_image.jpg";
 import ContactUsModal from "./ContactUsModal";
-import RadialGradient from "../../common/RadialGradient";
 
 const Hero = () => {
   const maindivRef = useRef(null);
@@ -43,27 +43,37 @@ const Hero = () => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        // p: { xs: 2, sm: 3, md: 4 },
       }}
       ref={maindivRef}
     >
-      {/* Background Image */}
-      <picture>
-        <source srcSet={landingPageImageWebp} type="image/webp" />
-        <img
-          src={landingPageImageJpg}
-          alt="Luxury Living Spaces"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        />
-      </picture>
+      {/* Background Image with subtle zoom effect */}
+      <motion.div
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 10, ease: "easeOut" }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          overflow: "hidden",
+        }}
+      >
+        <picture>
+          <source srcSet={landingPageImageWebp} type="image/webp" />
+          <img
+            src={landingPageImageJpg}
+            alt="Luxury Living Spaces"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </picture>
+      </motion.div>
 
       {/* Simple Overlay */}
       <Box
@@ -79,7 +89,7 @@ const Hero = () => {
       />
 
       {/* Radial Gradient Effect - positioned after overlay */}
-      <RadialGradient outerDivRef={maindivRef} />
+      {/* <RadialGradient outerDivRef={maindivRef} /> */}
 
       {/* Hero Content */}
       <Container
