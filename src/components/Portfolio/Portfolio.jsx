@@ -8,8 +8,8 @@ function Portfolio() {
     <div>
       <SEOHead
         title="Construction Portfolio - Gruham's Construction Projects in Bangalore"
-        description="Explore Gruham's construction portfolio showcasing luxury homes, commercial buildings, and interior design projects in Bangalore. View our completed construction projects and get inspired for your next project."
-        keywords="construction portfolio Bangalore, Gruham construction projects, luxury home construction, commercial construction projects, interior design portfolio, construction gallery, Bangalore construction examples"
+        description="Explore Gruham's Construction (Gruhams) construction portfolio showcasing luxury homes, commercial buildings, and interior design projects in Bangalore. View our completed construction projects and get inspired for your next project with Gruhams construction team."
+        keywords="construction portfolio Bangalore, Gruham construction projects, Gruhams construction portfolio, gruham construction projects, luxury home construction, commercial construction projects, interior design portfolio, construction gallery, Bangalore construction examples, Gruhams construction gallery"
         canonical="/portfolio"
         structuredData={{
           "@context": "https://schema.org",

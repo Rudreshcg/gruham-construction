@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://gruhams.in/sitemap.xml
+Sitemap: https://www.gruhams.in/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
@@ -15,3 +15,13 @@ Crawl-delay: 1
 Allow: /src/assets/
 Allow: /src/components/
 Allow: /src/data/
+
+# Additional SEO directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
