@@ -91,7 +91,7 @@ const WhyGruham = () => {
 
         <Grid container spacing={4} justifyContent="center" alignItems="stretch">
           {contentWhyArr.map((content, index) => (
-            <Grid item xs={12} sm={6} md={4} key={content.id}>
+            <Grid item xs={12} sm={10} md={4} key={content.id} style={{marginBottom: "32px"}}>
               <motion.div
                 variants={SlideUp(0.5 + index * 0.2)}
                 initial="initial"

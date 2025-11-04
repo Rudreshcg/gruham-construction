@@ -100,7 +100,7 @@ const AboutCompany = () => {
         {/* Stats Section */}
         <Grid container spacing={4} sx={{ mb: { xs: 6, md: 8 } }} alignItems="stretch">
           {stats.map((stat, index) => (
-            <Grid item xs={6} md={3} key={index}>
+            <Grid item xs={6} md={3} key={index} style={{marginBottom: "32px"}}>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
