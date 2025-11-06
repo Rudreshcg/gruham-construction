@@ -1,9 +1,9 @@
-import React from 'react';
-import BlogsSection from './BlogsSection';
-import SEOHead from '../SEO/SEOHead';
-import InternalLinks from '../SEO/InternalLinks';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import BlogCard from './BlogCard';
+import './BlogsSection.css';
 
-// Blog posts data for SEO structured data
+// Construction industry blog posts with SEO-friendly content
 const blogPosts = [
   {
     id: 1,
@@ -13,6 +13,7 @@ const blogPosts = [
     date: "January 15, 2025",
     category: "Design",
     slug: "modern-luxury-villa-design-trends-2025",
+    readTime: "8 min read"
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const blogPosts = [
     date: "January 10, 2025",
     category: "Project Management",
     slug: "on-time-project-delivery-construction",
+    readTime: "10 min read"
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const blogPosts = [
     date: "January 5, 2025",
     category: "Sustainability",
     slug: "sustainable-building-materials-2025",
+    readTime: "9 min read"
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const blogPosts = [
     date: "December 28, 2024",
     category: "Advice",
     slug: "choosing-right-construction-contractor",
+    readTime: "11 min read"
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ const blogPosts = [
     date: "December 20, 2024",
     category: "Interior Design",
     slug: "interior-design-trends-indian-homes-2025",
+    readTime: "9 min read"
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ const blogPosts = [
     date: "December 15, 2024",
     category: "Planning",
     slug: "budget-planning-dream-home-construction",
+    readTime: "10 min read"
   },
   {
     id: 7,
@@ -67,6 +73,7 @@ const blogPosts = [
     date: "December 10, 2024",
     category: "Technology",
     slug: "smart-home-technology-construction",
+    readTime: "8 min read"
   },
   {
     id: 8,
@@ -76,6 +83,7 @@ const blogPosts = [
     date: "December 5, 2024",
     category: "Legal",
     slug: "building-permits-regulations-bangalore",
+    readTime: "12 min read"
   },
   {
     id: 9,
@@ -85,41 +93,72 @@ const blogPosts = [
     date: "November 28, 2024",
     category: "Quality",
     slug: "quality-control-construction-best-practices",
+    readTime: "9 min read"
   }
 ];
 
-function Blogs() {
+function BlogsSection() {
+  const navigate = useNavigate();
+  const [filter, setFilter] = useState('All');
+  const [isVisible, setIsVisible] = useState(false);
+
+  React.useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const filteredPosts = filter === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === filter);
+
+  const categories = ['All', ...Array.from(new Set(blogPosts.map(post => post.category)))];
+
   return (
-    <div>
-      <SEOHead
-        title="Construction Blog - Expert Tips & Insights | Gruham's Construction"
-        description="Read expert construction tips, design trends, and industry insights from Gruham's Construction. Learn about home building, interior design, project management, and sustainable construction practices in Bangalore."
-        keywords="construction blog, construction tips, home building advice, construction industry insights, interior design trends, construction project management, sustainable construction, building contractor blog, construction company blog Bangalore, Gruham construction blog"
-        canonical="/blogs"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          "name": "Gruham's Construction Blog",
-          "description": "Expert construction tips, design trends, and industry insights",
-          "url": "https://www.gruhams.in/blogs",
-          "publisher": {
-            "@type": "Organization",
-            "name": "Gruham's Construction",
-            "url": "https://www.gruhams.in"
-          },
-          "blogPost": blogPosts.map(post => ({
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "description": post.summary,
-            "datePublished": post.date,
-            "image": post.image
-          }))
-        }}
-      />
-      <BlogsSection />
-      <InternalLinks currentPage="blogs" />
-    </div>
+    <section className="blogs-section">
+        <div className="blogs-header">
+          <h2 className="blogs-title">Construction Blog & Insights</h2>
+          <p className="blogs-subtitle">Expert tips, design trends, and industry insights to help you plan and build your dream project</p>
+          
+          {/* Filter Buttons */}
+          <div className="blogs-filters">
+            {categories.map(category => (
+              <button
+                key={category}
+                className={`filter-btn ${filter === category ? 'active' : ''}`}
+                onClick={() => setFilter(category)}
+              >
+                {category.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={`blogs-grid ${isVisible ? 'visible' : ''}`}>
+          {filteredPosts.map((post, index) => (
+            <div 
+              key={post.id}
+              className="blogs-item"
+              style={{ 
+                animationDelay: `${index * 0.1}s`,
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)'
+              }}
+            >
+              <BlogCard
+                image={post.image}
+                title={post.title}
+                summary={post.summary}
+                category={post.category}
+                date={post.date}
+                readTime={post.readTime}
+                slug={post.slug}
+                onReadMore={() => navigate(`/blogs/${post.slug}`)}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
   );
 }
 
-export default Blogs;
+export default BlogsSection;
+

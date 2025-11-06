@@ -1,0 +1,192 @@
+.publications-section {
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+.publications-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.publications-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  font-family: 'Playfair Display', serif;
+}
+
+.publications-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #bfa974, #9c8658);
+  border-radius: 2px;
+}
+
+.publications-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.coming-soon-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.icon-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(191, 169, 116, 0.1), rgba(156, 134, 88, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(191, 169, 116, 0.2);
+  transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+  transform: scale(1.1);
+  border-color: rgba(191, 169, 116, 0.4);
+  background: linear-gradient(135deg, rgba(191, 169, 116, 0.15), rgba(156, 134, 88, 0.15));
+}
+
+.coming-soon-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.coming-soon-message {
+  font-size: 1.1rem;
+  color: #5a6c7d;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.coming-soon-subtitle {
+  font-size: 1rem;
+  color: #7f8c8d;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.decorative-line {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(135deg, #bfa974, #9c8658);
+  border-radius: 2px;
+  margin: 0 auto 40px;
+}
+
+.what-to-expect {
+  margin-top: 60px;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(191, 169, 116, 0.05), rgba(156, 134, 88, 0.05));
+  border-radius: 16px;
+  border: 1px solid rgba(191, 169, 116, 0.2);
+}
+
+.what-to-expect-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+
+.expectation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.expectation-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.expectation-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bfa974, #9c8658);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.expectation-text {
+  font-size: 1.05rem;
+  color: #5a6c7d;
+  line-height: 1.7;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .publications-section {
+    padding: 60px 20px;
+  }
+  
+  .publications-title {
+    font-size: 2.5rem;
+  }
+  
+  .coming-soon-title {
+    font-size: 2rem;
+  }
+  
+  .icon-container {
+    gap: 20px;
+  }
+  
+  .icon-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .what-to-expect {
+    padding: 30px 20px;
+  }
+  
+  .what-to-expect-title {
+    font-size: 1.4rem;
+  }
+  
+  .expectation-text {
+    font-size: 0.95rem;
+  }
+}
+

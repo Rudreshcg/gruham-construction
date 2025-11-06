@@ -39,6 +39,8 @@ const Header = () => {
     { tabName: "OUR STORY", to: "/about" },
     { tabName: "PORTFOLIO", to: "/portfolio" },
     { tabName: "TEAMS", to: "/teams" },
+    { tabName: "PUBLICATIONS", to: "/publications" },
+    { tabName: "BLOGS", to: "/blogs" },
     { tabName: "CONTACT", to: "/contact" },
   ];
 
