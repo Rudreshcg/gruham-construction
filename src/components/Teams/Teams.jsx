@@ -7,7 +7,7 @@ import "./Teams.css";
 const Teams = () => {
     const teamMembers = [
         {
-            name: "RAJESH KUMAR",
+            name: "Dhanush N Gowda",
             title: "FOUNDER & CEO",
             image: null,
         },

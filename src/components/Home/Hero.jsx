@@ -1,23 +1,34 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Box, Container, Typography, Button } from "@mui/material";
+import { Box, Container, Typography, Button, Stack, Chip } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import { motion } from "framer-motion";
-import landingPageImageWebp from "../../assets/images/hero_new.png";
+import { useNavigate } from "react-router-dom";
+import landingPageImageWebp from "../../assets/images/contact-bg.jpeg";
 import landingPageImageJpg from "../../assets/images/heros_image.jpg";
 import ContactUsModal from "./ContactUsModal";
+import { homeTheme } from "./sectionStyles";
+
+const heroHighlights = [
+  "Luxury Residences",
+  "Commercial Spaces",
+  "Turnkey Interiors",
+];
+
+const heroStats = [
+  { value: "100+", label: "Projects Delivered" },
+  { value: "5+", label: "Years Building Trust" },
+  { value: "100%", label: "Client Satisfaction" },
+];
 
 const Hero = () => {
+  const navigate = useNavigate();
   const maindivRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFirstVisit, setIsFirstVisit] = useState(false);
 
-  // Auto-popup on every page load/refresh
   useEffect(() => {
-    console.log('Setting up auto-popup for every refresh');
     setIsFirstVisit(true);
-    // Auto-popup after 1.5 seconds on every page load
     const timer = setTimeout(() => {
-      console.log('Auto-opening modal on page load');
       setIsModalOpen(true);
     }, 1500);
     return () => clearTimeout(timer);
@@ -29,28 +40,28 @@ const Hero = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    // No localStorage check - modal will show on every refresh
+  };
+
+  const handleNavigatePortfolio = () => {
+    navigate('/portfolio');
   };
 
   return (
     <Box
+      ref={maindivRef}
       sx={{
         position: "relative",
         width: "100%",
         minHeight: "100vh",
         overflow: "hidden",
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
-        textAlign: "center",
       }}
-      ref={maindivRef}
     >
-      {/* Background Image with subtle zoom effect */}
       <motion.div
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
+        transition={{ duration: 12, ease: "easeOut" }}
         style={{
           position: "absolute",
           top: 0,
@@ -66,170 +77,216 @@ const Hero = () => {
           <img
             src={landingPageImageJpg}
             alt="Luxury Living Spaces"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </picture>
       </motion.div>
 
-      {/* Simple Overlay */}
       <Box
         sx={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          background: "rgba(0,0,0,0.4)",
+          inset: 0,
+          background: "linear-gradient(120deg, rgba(8,12,20,0.78) 0%, rgba(10,18,30,0.65) 45%, rgba(8,12,20,0.35) 100%)",
           zIndex: 1,
         }}
       />
 
-      {/* Radial Gradient Effect - positioned after overlay */}
-      {/* <RadialGradient outerDivRef={maindivRef} /> */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "-40%",
+          right: "-10%",
+          width: { xs: "320px", md: "520px" },
+          height: "160%",
+          background: "radial-gradient(circle at center, rgba(191,169,116,0.35), transparent 70%)",
+          filter: "blur(0px)",
+          opacity: 0.6,
+          zIndex: 1,
+        }}
+      />
 
-      {/* Hero Content */}
       <Container
-        maxWidth="lg"
+        maxWidth="md"
         sx={{
           position: "relative",
           zIndex: 2,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          textAlign: "center",
-          pt: { xs: 8, sm: 10, md: 12 },
-          pb: { xs: 8, sm: 10, md: 12 },
-          px: { xs: 2, sm: 3, md: 4 },
+          py: { xs: 10, md: 14 },
         }}
       >
-        {/* Main heading */}
-        <Typography
-          component="h1"
-          variant="h1"
-          sx={{
-            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5.5rem" },
-            fontWeight: 900,
-            color: "#fff",
-            textShadow: "3px 3px 6px rgba(0,0,0,0.8)",
-            mb: { xs: 2, sm: 3 },
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
-            textAlign: "center",
-            width: "100%",
-            fontFamily: "'Playfair Display', serif",
-            position: "relative",
-            "&::after": {
-              content: '""',
-              position: "absolute",
-              bottom: "-10px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "80px",
-              height: "4px",
-              background: "linear-gradient(135deg, #bfa974, #9c8658)",
-              borderRadius: "2px",
-            }
-          }}
-        >
-          Gruham's
-          <br />
-          <span style={{ 
-            color: "#bfa974",
-            background: "linear-gradient(135deg, #bfa974, #f4d03f)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-          }}>Excellence in Construction</span>
-        </Typography>
+        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          <Stack spacing={{ xs: 3, md: 4 }} alignItems="center" textAlign="center">
+            <Stack direction="row" spacing={1.5} flexWrap="wrap" justifyContent="center" useFlexGap sx={{ maxWidth: "520px" }}>
+              {heroHighlights.map((highlight) => (
+                <Chip
+                  key={highlight}
+                  label={highlight}
+                  sx={{
+                    backgroundColor: "rgba(191, 169, 116, 0.18)",
+                    color: "#f7f4ec",
+                    border: "1px solid rgba(191, 169, 116, 0.4)",
+                    fontFamily: homeTheme.fonts.body,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                    fontSize: "0.7rem",
+                  }}
+                />
+              ))}
+            </Stack>
 
-        {/* Subtitle */}
-        <Typography
-          component="h2"
-          variant="h5"
-          sx={{
-            fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
-            color: "rgba(255, 255, 255, 0.95)",
-            mb: { xs: 4, sm: 5, md: 6 },
-            maxWidth: { xs: "100%", sm: "90%", md: "70%" },
-            lineHeight: 1.6,
-            textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-            textAlign: "center",
-            px: { xs: 1, sm: 0 },
-            fontFamily: "'Montserrat', sans-serif",
-            fontWeight: 400,
-            letterSpacing: "0.01em",
-          }}
-        >
-          Transform your vision into reality with our premium construction and design services. 
-          <br />
-          <span style={{ 
-            color: "#bfa974", 
-            fontWeight: 600,
-            fontSize: "0.9em"
-          }}>
-            Building dreams, one project at a time.
-          </span>
-        </Typography>
+            <Box>
+              <Typography
+                component="h1"
+                sx={{
+                  fontFamily: homeTheme.fonts.heading,
+                  fontSize: { xs: "3rem", sm: "3.6rem", md: "4.2rem" },
+                  fontWeight: 800,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.03em",
+                  background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  textShadow: "0 16px 32px rgba(0,0,0,0.32)",
+                }}
+              >
+                Gruham&apos;s
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  mt: 1.5,
+                  fontFamily: homeTheme.fonts.body,
+                  fontWeight: 600,
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
+                  color: "rgba(247, 244, 236, 0.75)",
+                }}
+              >
+                Design • Build • Inspire
+              </Typography>
+            </Box>
 
-        {/* CTA Button */}
-        <Button
-          variant="contained"
-          size="large"
-          endIcon={<ArrowForward />}
-          onClick={handleOpenModal}
-          sx={{
-            background: "linear-gradient(135deg, #bfa974, #9c8658)",
-            color: "#000",
-            px: { xs: 4, sm: 6, md: 8 },
-            py: { xs: 1.5, sm: 2, md: 2.5 },
-            fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.3rem" },
-            fontWeight: 700,
-            borderRadius: "50px",
-            textTransform: "none",
-            boxShadow: "0 12px 30px rgba(191, 169, 116, 0.5)",
-            transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-            width: { xs: "100%", sm: "auto" },
-            maxWidth: { xs: "320px", sm: "none" },
-            fontFamily: "'Montserrat', sans-serif",
-            letterSpacing: "0.5px",
-            position: "relative",
-            overflow: "hidden",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: 0,
-              left: "-100%",
-              width: "100%",
-              height: "100%",
-              background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)",
-              transition: "left 0.6s",
-            },
-            "&:hover": {
-              background: "linear-gradient(135deg, #9c8658, #bfa974)",
-              transform: "translateY(-4px) scale(1.02)",
-              boxShadow: "0 20px 40px rgba(191, 169, 116, 0.7)",
-              "&::before": {
-                left: "100%",
-              },
-            },
-          }}
-        >
-          Start Your Project
-        </Button>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "rgba(247, 244, 236, 0.9)",
+                fontFamily: homeTheme.fonts.body,
+                fontSize: { xs: "1.05rem", md: "1.18rem" },
+                lineHeight: 1.75,
+                maxWidth: "640px",
+              }}
+            >
+              Luxury homes, bespoke interiors, and commercial environments crafted with precision in Bangalore. Partner with us to bring your next project to life—
+              <Box
+                component="span"
+                sx={{
+                  background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  fontWeight: 600,
+                }}
+              >
+                seamlessly and beautifully.
+              </Box>
+            </Typography>
+
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} width="100%" justifyContent="center">
+              <Button
+                variant="contained"
+                endIcon={<ArrowForward />}
+                onClick={handleOpenModal}
+                sx={{
+                  background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+                  color: "#0f121a",
+                  px: { xs: 4, md: 5 },
+                  py: { xs: 1.4, md: 1.6 },
+                  fontSize: { xs: "1rem", md: "1.05rem" },
+                  fontWeight: 700,
+                  borderRadius: "999px",
+                  textTransform: "none",
+                  fontFamily: homeTheme.fonts.body,
+                  boxShadow: "0 18px 40px rgba(191, 169, 116, 0.45)",
+                  transition: "all 0.35s ease",
+                  "&:hover": {
+                    background: `linear-gradient(135deg, ${homeTheme.colors.accentDark}, ${homeTheme.colors.accent})`,
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 24px 48px rgba(191, 169, 116, 0.6)",
+                  },
+                }}
+              >
+                Start Your Project
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={handleNavigatePortfolio}
+                sx={{
+                  borderColor: "rgba(247, 244, 236, 0.6)",
+                  color: "#f7f4ec",
+                  px: { xs: 4, md: 5 },
+                  py: { xs: 1.4, md: 1.6 },
+                  fontSize: { xs: "1rem", md: "1.05rem" },
+                  fontWeight: 600,
+                  borderRadius: "999px",
+                  textTransform: "none",
+                  fontFamily: homeTheme.fonts.body,
+                  backdropFilter: "blur(6px)",
+                  transition: "all 0.35s ease",
+                  "&:hover": {
+                    borderColor: homeTheme.colors.accent,
+                    color: homeTheme.colors.accent,
+                    backgroundColor: "rgba(247, 244, 236, 0.12)",
+                  },
+                }}
+              >
+                View Portfolio
+              </Button>
+            </Stack>
+
+            <Stack
+              direction="row"
+              spacing={1.5}
+              flexWrap="wrap"
+              useFlexGap
+              justifyContent="center"
+              sx={{ maxWidth: "640px" }}
+            >
+              {heroStats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.12 }}
+                >
+                  <Chip
+                    label={`${stat.value} ${stat.label}`}
+                    sx={{
+                      background: "rgba(15, 18, 26, 0.55)",
+                      color: "#f7f4ec",
+                      border: "1px solid rgba(191, 169, 116, 0.45)",
+                      fontFamily: homeTheme.fonts.body,
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase",
+                      fontSize: "0.68rem",
+                      px: 1.8,
+                      py: 0.45,
+                      borderRadius: "999px",
+                      backdropFilter: "blur(8px)",
+                      "&:hover": {
+                        background: "rgba(191, 169, 116, 0.26)",
+                        color: "#0f121a",
+                      },
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </Stack>
+          </Stack>
+        </motion.div>
       </Container>
 
-      {/* Contact Us Modal */}
-      <ContactUsModal 
-        open={isModalOpen} 
-        onClose={handleCloseModal} 
-        isFirstVisit={isFirstVisit}
-      />
+      <ContactUsModal open={isModalOpen} onClose={handleCloseModal} isFirstVisit={isFirstVisit} />
     </Box>
   );
 };

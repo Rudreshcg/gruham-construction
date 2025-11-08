@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box, Container, Typography, Card, CardContent, Avatar, Grid, Rating, Button } from '@mui/material';
-import { Star, ArrowForward } from '@mui/icons-material';
+import { Box, Typography, Card, CardContent, Avatar, Grid, Rating, Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import SectionWrapper from './SectionWrapper';
+import SectionHeading from './SectionHeading';
+import { homeTheme } from './sectionStyles';
 
 const testimonials = [
   {
@@ -36,252 +39,203 @@ const testimonials = [
   }
 ];
 
-const Testimonials = () => {
-  return (
-    <Box sx={{ 
-      py: { xs: 6, md: 10 }, 
-      background: "linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)",
-      position: "relative",
-      overflow: "hidden",
-      "&::before": {
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: "1px",
-        background: "linear-gradient(90deg, transparent, rgba(191, 169, 116, 0.3), transparent)",
-      }
-    }}>
-      <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.2rem" },
-                color: "#2c3e50",
-                fontWeight: 800,
-                letterSpacing: "-0.02em",
-                mb: 2,
-                position: "relative",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  bottom: "-8px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "60px",
-                  height: "3px",
-                  background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                  borderRadius: "2px",
-                }
-              }}
-            >
-              What Our Clients Say
-            </Typography>
-            <Typography
-              variant="h3"
-              sx={{
-                color: "#7f8c8d",
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
-                fontWeight: 400,
-                letterSpacing: "0.01em",
-                maxWidth: "700px",
-                mx: "auto",
-                lineHeight: 1.6,
-              }}
-            >
-              Hear from our satisfied customers who have experienced our exceptional construction services
-            </Typography>
-          </Box>
-        </motion.div>
+const Testimonials = () => (
+  <SectionWrapper id="testimonials" variant="tint">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <SectionHeading
+        eyebrow="Client Voices"
+        title="What Our Clients Say"
+        subtitle="Hear from our delighted homeowners and partners who trust Gruham's Construction to deliver thoughtful, high-quality spaces."
+      />
+    </motion.div>
 
-        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-          {testimonials.map((testimonial, index) => (
-            <Grid item xs={12} md={4} key={testimonial.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                style={{ height: "100%" }}
+    <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center" alignItems="stretch">
+      {testimonials.map((testimonial, index) => (
+        <Grid item xs={12} md={4} key={testimonial.id} sx={{ display: 'flex' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            style={{ width: '100%' }}
+          >
+            <Card
+              sx={{
+                height: '100%',
+                background: 'rgba(255, 255, 255, 0.9)',
+                borderRadius: homeTheme.layout.radiusLg,
+                boxShadow: homeTheme.layout.shadowSoft,
+                transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                border: `1px solid ${homeTheme.colors.accentMuted}`,
+                '&::before': {
+                  content: '\"\"',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '4px',
+                  background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+                },
+                '&:hover': {
+                  transform: 'translateY(-12px)',
+                  boxShadow: '0 28px 45px rgba(15, 27, 41, 0.18)',
+                },
+              }}
+            >
+              <CardContent
+                sx={{
+                  p: { xs: 3, md: 4 },
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2.5,
+                }}
               >
-                <Card
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Avatar
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    sx={{
+                      width: 62,
+                      height: 62,
+                      border: `3px solid ${homeTheme.colors.accentMuted}`,
+                    }}
+                  />
+                  <Box>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: homeTheme.colors.textPrimary,
+                        fontWeight: 700,
+                        fontSize: '1.1rem',
+                        fontFamily: homeTheme.fonts.body,
+                      }}
+                    >
+                      {testimonial.name}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: homeTheme.colors.textSecondary,
+                        fontSize: '0.9rem',
+                        fontFamily: homeTheme.fonts.body,
+                      }}
+                    >
+                      {testimonial.role} • {testimonial.location}
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Rating
+                  value={testimonial.rating}
+                  readOnly
                   sx={{
-                    height: "100%",
-                    background: "#ffffff",
-                    borderRadius: "16px",
-                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                    position: "relative",
-                    overflow: "hidden",
-                    display: "flex",
-                    flexDirection: "column",
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: "3px",
-                      background: "linear-gradient(135deg, #bfa974, #9c8658)",
+                    '& .MuiRating-icon': {
+                      color: homeTheme.colors.accent,
                     },
-                    "&:hover": {
-                      transform: "translateY(-8px)",
-                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-                    }
+                  }}
+                />
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: homeTheme.colors.textSecondary,
+                    lineHeight: 1.8,
+                    fontFamily: homeTheme.fonts.body,
+                    fontSize: '1rem',
+                    fontStyle: 'italic',
                   }}
                 >
-                  <CardContent sx={{ p: { xs: 3, md: 4 }, flex: 1, display: "flex", flexDirection: "column" }}>
-                    <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
-                      <Avatar
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        sx={{
-                          width: 60,
-                          height: 60,
-                          mr: 2,
-                          border: "3px solid rgba(191, 169, 116, 0.2)",
-                        }}
-                      />
-                      <Box>
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            color: "#2c3e50",
-                            fontWeight: 700,
-                            fontSize: "1.1rem",
-                            fontFamily: "'Montserrat', sans-serif",
-                            mb: 0.5,
-                          }}
-                        >
-                          {testimonial.name}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: "#7f8c8d",
-                            fontSize: "0.9rem",
-                            fontFamily: "'Montserrat', sans-serif",
-                          }}
-                        >
-                          {testimonial.role} • {testimonial.location}
-                        </Typography>
-                      </Box>
-                    </Box>
+                  “{testimonial.text}”
+                </Typography>
 
-                    <Rating
-                      value={testimonial.rating}
-                      readOnly
-                      sx={{
-                        mb: 2,
-                        "& .MuiRating-icon": {
-                          color: "#bfa974",
-                        }
-                      }}
-                    />
-
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: "#5a6c7d",
-                        lineHeight: 1.7,
-                        fontFamily: "'Montserrat', sans-serif",
-                        fontSize: "1rem",
-                        fontStyle: "italic",
-                        mb: 2,
-                      }}
-                    >
-                      "{testimonial.text}"
-                    </Typography>
-
-                    <Box
-                      sx={{
-                        background: "rgba(191, 169, 116, 0.1)",
-                        borderRadius: "8px",
-                        p: 1.5,
-                        textAlign: "center",
-                        mt: "auto",
-                      }}
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          color: "#bfa974",
-                          fontWeight: 600,
-                          fontSize: "0.8rem",
-                          fontFamily: "'Montserrat', sans-serif",
-                        }}
-                      >
-                        {testimonial.project}
-                      </Typography>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
-
-        <Box display="flex" justifyContent="center" mt={6}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Button
-              variant="contained"
-              endIcon={<ArrowForward />}
-              sx={{
-                background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                color: "white",
-                px: { xs: 4, md: 6 },
-                py: { xs: 1.5, md: 2 },
-                fontSize: { xs: "1rem", md: "1.1rem" },
-                fontWeight: 700,
-                borderRadius: "50px",
-                textTransform: "none",
-                fontFamily: "'Montserrat', sans-serif",
-                boxShadow: "0 8px 25px rgba(191, 169, 116, 0.4)",
-                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                position: "relative",
-                overflow: "hidden",
-                "&::before": {
-                  content: '""',
-                  position: "absolute",
-                  top: 0,
-                  left: "-100%",
-                  width: "100%",
-                  height: "100%",
-                  background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
-                  transition: "left 0.5s",
-                },
-                "&:hover": {
-                  background: "linear-gradient(135deg, #9c8658, #bfa974)",
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 12px 35px rgba(191, 169, 116, 0.6)",
-                  "&::before": {
-                    left: "100%",
-                  },
-                },
-              }}
-            >
-              View All Testimonials
-            </Button>
+                <Box
+                  sx={{
+                    background: 'rgba(191, 169, 116, 0.1)',
+                    borderRadius: homeTheme.layout.radiusSm,
+                    p: 1.5,
+                    textAlign: 'center',
+                    mt: 'auto',
+                  }}
+                >
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: homeTheme.colors.accent,
+                      fontWeight: 600,
+                      fontSize: '0.82rem',
+                      fontFamily: homeTheme.fonts.body,
+                      letterSpacing: '0.05em',
+                    }}
+                  >
+                    {testimonial.project}
+                  </Typography>
+                </Box>
+              </CardContent>
+            </Card>
           </motion.div>
-        </Box>
-      </Container>
+        </Grid>
+      ))}
+    </Grid>
+
+    <Box display="flex" justifyContent="center" mt={6}>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <Button
+          variant="contained"
+          endIcon={<ArrowForward />}
+          sx={{
+            background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+            color: '#fff',
+            px: { xs: 4, md: 6 },
+            py: { xs: 1.5, md: 2 },
+            fontSize: { xs: '1rem', md: '1.08rem' },
+            fontWeight: 700,
+            borderRadius: '999px',
+            textTransform: 'none',
+            fontFamily: homeTheme.fonts.body,
+            boxShadow: '0 14px 35px rgba(191, 169, 116, 0.38)',
+            transition: 'all 0.35s ease',
+            position: 'relative',
+            overflow: 'hidden',
+            '&::before': {
+              content: '\"\"',
+              position: 'absolute',
+              top: 0,
+              left: '-100%',
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent)',
+              transition: 'left 0.5s ease',
+            },
+            '&:hover': {
+              background: `linear-gradient(135deg, ${homeTheme.colors.accentDark}, ${homeTheme.colors.accent})`,
+              transform: 'translateY(-4px)',
+              boxShadow: '0 18px 42px rgba(191, 169, 116, 0.5)',
+              '&::before': {
+                left: '100%',
+              },
+            },
+          }}
+        >
+          View All Testimonials
+        </Button>
+      </motion.div>
     </Box>
-  );
-};
+  </SectionWrapper>
+);
 
 export default Testimonials;

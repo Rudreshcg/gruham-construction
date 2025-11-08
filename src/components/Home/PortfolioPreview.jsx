@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Container, Typography, Card, CardContent, CardMedia, Button, Grid } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, Button, Grid, Chip } from '@mui/material';
 import { ArrowForward, Visibility } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import projectsData from '../../data/projects.json';
+import SectionWrapper from './SectionWrapper';
+import SectionHeading from './SectionHeading';
+import { homeTheme } from './sectionStyles';
 
 // Import images
 import jayachandraImage from '../../assets/images/residential-architects-mr-jayachandra-residence.webp';
@@ -46,306 +49,270 @@ const PortfolioPreview = () => {
   }, []);
 
   return (
-    <Box sx={{ 
-      py: { xs: 6, md: 10 }, 
-      background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
-      position: "relative",
-      overflow: "hidden",
-      "&::before": {
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: "1px",
-        background: "linear-gradient(90deg, transparent, rgba(191, 169, 116, 0.3), transparent)",
-      }
-    }}>
-      <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.2rem" },
-                color: "#2c3e50",
-                fontWeight: 800,
-                letterSpacing: "-0.02em",
-                mb: 2,
-                position: "relative",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  bottom: "-8px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "60px",
-                  height: "3px",
-                  background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                  borderRadius: "2px",
-                }
-              }}
-            >
-              Featured Projects
-            </Typography>
-            <Typography
-              variant="h3"
-              sx={{
-                color: "#7f8c8d",
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
-                fontWeight: 400,
-                letterSpacing: "0.01em",
-                maxWidth: "700px",
-                mx: "auto",
-                lineHeight: 1.6,
-              }}
-            >
-              Explore our latest construction and design projects that showcase our expertise and commitment to excellence
-            </Typography>
-          </Box>
-        </motion.div>
+    <SectionWrapper id="portfolio-preview" variant="white">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <SectionHeading
+          eyebrow="Signature Work"
+          title="Featured Projects"
+          subtitle="Explore a curated selection of our recent architectural, interior, and construction projects that highlight our craftsmanship and attention to detail."
+        />
+      </motion.div>
 
-        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-          {portfolioItems.map((project, index) => (
-            <Grid item xs={12} sm={6} md={4} key={project.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                style={{ height: "100%" }}
+      <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center" alignItems="stretch">
+        {portfolioItems.map((project, index) => (
+          <Grid item xs={12} sm={6} md={4} key={project.id} sx={{ display: 'flex' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              style={{ width: '100%' }}
+            >
+              <Card
+                sx={{
+                  height: '100%',
+                  background: 'rgba(255, 255, 255, 0.92)',
+                  borderRadius: homeTheme.layout.radiusLg,
+                  boxShadow: homeTheme.layout.shadowSoft,
+                  transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  border: `1px solid ${homeTheme.colors.accentMuted}`,
+                  '&:hover': {
+                    transform: 'translateY(-12px)',
+                    boxShadow: '0 32px 50px rgba(15, 27, 41, 0.18)',
+                  },
+                }}
               >
-                <Card
-                  sx={{
-                    height: "100%",
-                    background: "#ffffff",
-                    borderRadius: "16px",
-                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                    position: "relative",
-                    overflow: "hidden",
-                    display: "flex",
-                    flexDirection: "column",
-                    "&:hover": {
-                      transform: "translateY(-8px)",
-                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-                    }
-                  }}
-                >
+                <Box sx={{ position: 'relative', overflow: 'hidden' }}>
                   <CardMedia
                     component="img"
                     height="250"
                     image={project.image}
                     alt={project.title}
                     sx={{
-                      transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-                      "&:hover": {
-                        transform: "scale(1.05)",
-                      }
+                      transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                      },
                     }}
                   />
-                  
-                  <CardContent sx={{ p: { xs: 3, md: 4 }, flex: 1, display: "flex", flexDirection: "column" }}>
-                    <Box sx={{ mb: 2 }}>
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                          color: "white",
-                          px: 2,
-                          py: 0.5,
-                          borderRadius: "20px",
-                          fontSize: "0.75rem",
-                          fontWeight: 600,
-                          fontFamily: "'Montserrat', sans-serif",
-                        }}
-                      >
-                        {project.category}
-                      </Typography>
-                    </Box>
+                  <Chip
+                    label={project.category}
+                    size="small"
+                    sx={{
+                      position: 'absolute',
+                      bottom: 16,
+                      left: 16,
+                      background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+                      color: '#fff',
+                      fontWeight: 600,
+                      fontSize: '0.7rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  />
+                </Box>
 
+                <CardContent
+                  sx={{
+                    p: { xs: 3, md: 4 },
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 2,
+                  }}
+                >
+                  <Box>
                     <Typography
                       variant="h5"
                       sx={{
-                        color: "#2c3e50",
+                        color: homeTheme.colors.textPrimary,
                         fontWeight: 700,
-                        mb: 1,
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: { xs: "1.1rem", md: "1.3rem" },
+                        fontFamily: homeTheme.fonts.heading,
+                        fontSize: { xs: '1.2rem', md: '1.35rem' },
                         lineHeight: 1.2,
                       }}
                     >
                       {project.title}
                     </Typography>
-
                     <Typography
                       variant="body2"
                       sx={{
-                        color: "#5a6c7d",
-                        mb: 1,
-                        lineHeight: 1.6,
-                        fontFamily: "'Montserrat', sans-serif",
-                        fontSize: "0.8rem",
+                        color: homeTheme.colors.textSecondary,
+                        mt: 1,
+                        fontFamily: homeTheme.fonts.body,
+                        fontSize: '0.85rem',
                       }}
                     >
                       {project.location} • {project.area}
                     </Typography>
+                  </Box>
 
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: "#5a6c7d",
-                        mb: 2,
-                        lineHeight: 1.6,
-                        fontFamily: "'Montserrat', sans-serif",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      {project.description}
-                    </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: homeTheme.colors.textSecondary,
+                      lineHeight: 1.7,
+                      fontFamily: homeTheme.fonts.body,
+                      fontSize: '0.95rem',
+                    }}
+                  >
+                    {project.description}
+                  </Typography>
 
-                    <Box sx={{ mb: 3 }}>
-                      {project.features.map((feature, idx) => (
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    {project.features.map((feature, idx) => (
+                      <Box
+                        key={idx}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 1.5,
+                          p: 1.1,
+                          background: 'rgba(191, 169, 116, 0.08)',
+                          borderRadius: homeTheme.layout.radiusSm,
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            background: 'rgba(191, 169, 116, 0.16)',
+                            transform: 'translateX(6px)',
+                          },
+                        }}
+                      >
                         <Box
-                          key={idx}
                           sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            mb: 1,
-                            p: 1,
-                            background: "rgba(191, 169, 116, 0.08)",
-                            borderRadius: "8px",
-                            transition: "all 0.3s ease",
-                            "&:hover": {
-                              background: "rgba(191, 169, 116, 0.15)",
-                              transform: "translateX(4px)",
-                            }
+                            width: 6,
+                            height: 6,
+                            borderRadius: '50%',
+                            background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+                          }}
+                        />
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: homeTheme.colors.textPrimary,
+                            fontFamily: homeTheme.fonts.body,
+                            fontSize: '0.85rem',
+                            fontWeight: 500,
                           }}
                         >
-                          <Box
-                            sx={{
-                              width: 6,
-                              height: 6,
-                              borderRadius: "50%",
-                              background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                              mr: 1.5,
-                              flexShrink: 0,
-                            }}
-                          />
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: "#2c3e50",
-                              fontFamily: "'Montserrat', sans-serif",
-                              fontSize: "0.8rem",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {feature}
-                          </Typography>
-                        </Box>
-                      ))}
-                    </Box>
+                          {feature}
+                        </Typography>
+                      </Box>
+                    ))}
+                  </Box>
 
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mt: "auto" }}>
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          color: "#7f8c8d",
-                          fontFamily: "'Montserrat', sans-serif",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        Completed {project.year}
-                      </Typography>
-                      
-                      <Button
-                        variant="outlined"
-                        size="small"
-                        startIcon={<Visibility />}
-                        onClick={() => navigate(project.link)}
-                        sx={{
-                          borderColor: "#bfa974",
-                          color: "#bfa974",
-                          fontSize: "0.75rem",
-                          textTransform: "none",
-                          fontFamily: "'Montserrat', sans-serif",
-                          fontWeight: 600,
-                          "&:hover": {
-                            borderColor: "#9c8658",
-                            color: "#9c8658",
-                            background: "rgba(191, 169, 116, 0.1)",
-                          }
-                        }}
-                      >
-                        View Details
-                      </Button>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      mt: 'auto',
+                      pt: 2,
+                      borderTop: `1px dashed ${homeTheme.colors.accentMuted}`,
+                    }}
+                  >
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: homeTheme.colors.textSecondary,
+                        fontFamily: homeTheme.fonts.body,
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      Completed {project.year}
+                    </Typography>
 
-        <Box display="flex" justifyContent="center" mt={6}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      startIcon={<Visibility />}
+                      onClick={() => navigate(project.link)}
+                      sx={{
+                        borderColor: homeTheme.colors.accent,
+                        color: homeTheme.colors.accent,
+                        fontSize: '0.8rem',
+                        textTransform: 'none',
+                        fontFamily: homeTheme.fonts.body,
+                        fontWeight: 600,
+                        borderRadius: '999px',
+                        px: 2.5,
+                        '&:hover': {
+                          borderColor: homeTheme.colors.accentDark,
+                          color: homeTheme.colors.accentDark,
+                          background: 'rgba(191, 169, 116, 0.12)',
+                        },
+                      }}
+                    >
+                      View Details
+                    </Button>
+                  </Box>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+        ))}
+      </Grid>
+
+      <Box display="flex" justifyContent="center" mt={6}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <Button
+            variant="contained"
+            endIcon={<ArrowForward />}
+            onClick={() => navigate('/portfolio')}
+            sx={{
+              background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+              color: '#fff',
+              px: { xs: 4, md: 6 },
+              py: { xs: 1.5, md: 2 },
+              fontSize: { xs: '1rem', md: '1.08rem' },
+              fontWeight: 700,
+              borderRadius: '999px',
+              textTransform: 'none',
+              fontFamily: homeTheme.fonts.body,
+              boxShadow: '0 14px 35px rgba(191, 169, 116, 0.38)',
+              transition: 'all 0.35s ease',
+              position: 'relative',
+              overflow: 'hidden',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: '-100%',
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent)',
+                transition: 'left 0.5s ease',
+              },
+              '&:hover': {
+                background: `linear-gradient(135deg, ${homeTheme.colors.accentDark}, ${homeTheme.colors.accent})`,
+                transform: 'translateY(-4px)',
+                boxShadow: '0 18px 42px rgba(191, 169, 116, 0.5)',
+                '&::before': {
+                  left: '100%',
+                },
+              },
+            }}
           >
-            <Button
-              variant="contained"
-              endIcon={<ArrowForward />}
-              onClick={() => navigate('/portfolio')}
-              sx={{
-                background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                color: "white",
-                px: { xs: 4, md: 6 },
-                py: { xs: 1.5, md: 2 },
-                fontSize: { xs: "1rem", md: "1.1rem" },
-                fontWeight: 700,
-                borderRadius: "50px",
-                textTransform: "none",
-                fontFamily: "'Montserrat', sans-serif",
-                boxShadow: "0 8px 25px rgba(191, 169, 116, 0.4)",
-                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                position: "relative",
-                overflow: "hidden",
-                "&::before": {
-                  content: '""',
-                  position: "absolute",
-                  top: 0,
-                  left: "-100%",
-                  width: "100%",
-                  height: "100%",
-                  background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
-                  transition: "left 0.5s",
-                },
-                "&:hover": {
-                  background: "linear-gradient(135deg, #9c8658, #bfa974)",
-                  transform: "translateY(-3px)",
-                  boxShadow: "0 12px 35px rgba(191, 169, 116, 0.6)",
-                  "&::before": {
-                    left: "100%",
-                  },
-                },
-              }}
-            >
-              View All Projects
-            </Button>
-          </motion.div>
-        </Box>
-      </Container>
-    </Box>
+            View All Projects
+          </Button>
+        </motion.div>
+      </Box>
+    </SectionWrapper>
   );
 };
 
