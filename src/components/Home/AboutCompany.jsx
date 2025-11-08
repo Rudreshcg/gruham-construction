@@ -51,7 +51,7 @@ const AboutCompany = () => (
 
     <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: { xs: 6, md: 8 } }} alignItems="stretch">
       {stats.map((stat, index) => (
-        <Grid item xs={6} md={3} key={index} sx={{ display: 'flex' }}>
+        <Grid item xs={12} sm={6} md={3} key={index} sx={{ display: 'flex' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,9 +63,9 @@ const AboutCompany = () => (
               sx={{
                 height: '100%',
                 textAlign: 'center',
-                p: { xs: 2.5, md: 3 },
-                background: 'rgba(255, 255, 255, 0.9)',
-                borderRadius: homeTheme.layout.radiusMd,
+                p: { xs: 0 },
+                background: 'rgba(255, 255, 255, 0.88)',
+                borderRadius: homeTheme.layout.radiusLg,
                 border: `1px solid ${homeTheme.colors.accentMuted}`,
                 boxShadow: homeTheme.layout.shadowSoft,
                 transition: 'transform 0.35s ease, box-shadow 0.35s ease',
@@ -74,33 +74,53 @@ const AboutCompany = () => (
                 justifyContent: 'center',
                 position: 'relative',
                 overflow: 'hidden',
-                '&::after': {
+                backdropFilter: 'blur(6px)',
+                '&::before': {
                   content: '""',
                   position: 'absolute',
-                  inset: 'auto 25% -40px 25%',
-                  height: '140px',
-                  background: `linear-gradient(180deg, ${homeTheme.colors.accentMuted} 0%, transparent 85%)`,
-                  opacity: 0,
-                  transition: 'opacity 0.35s ease',
+                  top: 0,
+                  left: 0,
+                  width: '6px',
+                  height: '100%',
+                  background: `linear-gradient(180deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
+                  opacity: 0.9,
+                  transform: 'scaleY(0)',
+                  transformOrigin: 'top',
+                  transition: 'transform 0.35s ease',
                 },
                 '&:hover': {
-                  transform: 'translateY(-12px)',
-                  boxShadow: '0 32px 48px rgba(15, 27, 41, 0.18)',
-                  '&::after': {
-                    opacity: 1,
+                  transform: 'translateY(-14px)',
+                  boxShadow: '0 28px 45px rgba(15, 27, 41, 0.16)',
+                  '&::before': {
+                    transform: 'scaleY(1)',
                   },
                 },
               }}
             >
-              <CardContent sx={{ p: 0 }}>
+              <CardContent
+                sx={{
+                  p: { xs: 3, md: 4 },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 2,
+                  textAlign: 'center',
+                  height: '100%',
+                }}
+              >
                 <Box
                   sx={{
                     color: homeTheme.colors.accent,
-                    mb: 1.5,
-                    display: 'flex',
+                    display: 'inline-flex',
                     justifyContent: 'center',
+                    alignItems: 'center',
+                    width: 72,
+                    height: 72,
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, rgba(191,169,116,0.22), rgba(191,169,116,0.05))',
+                    boxShadow: 'inset 0 2px 12px rgba(191,169,116,0.12)',
                     '& .MuiSvgIcon-root': {
-                      fontSize: '2.4rem',
+                      fontSize: '2.2rem',
                     },
                   }}
                 >
@@ -230,7 +250,7 @@ const AboutCompany = () => (
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                '&::after': {
+                '&::before': {
                   content: '""',
                   position: 'absolute',
                   top: 0,
@@ -244,9 +264,9 @@ const AboutCompany = () => (
                   transition: 'transform 0.35s ease',
                 },
                 '&:hover': {
-                  transform: 'translateY(-12px)',
-                  boxShadow: '0 30px 45px rgba(15,27,41,0.14)',
-                  '&::after': {
+                  transform: 'translateY(-14px)',
+                  boxShadow: '0 28px 45px rgba(15, 27, 41, 0.16)',
+                  '&::before': {
                     transform: 'scaleY(1)',
                   },
                 },
