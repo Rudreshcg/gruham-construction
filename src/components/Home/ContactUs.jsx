@@ -9,6 +9,7 @@ import {
   Chip,
   Fade,
   Slide,
+  MenuItem,
 } from "@mui/material";
 import {
   PersonOutline,
@@ -20,6 +21,7 @@ import {
   Construction,
 } from "@mui/icons-material";
 import { styled, keyframes } from "@mui/material/styles";
+import { submitContactForm } from "../../utils/contactService";
 
 // Enhanced animations
 const shimmer = keyframes`
@@ -129,10 +131,24 @@ const StyledButton = styled(Button)(() => ({
   },
 }));
 
+const bestTimeOptions = [
+  "Within 15 Min.",
+  "08AM To 12PM",
+  "12PM To 04PM",
+  "04PM To 08PM",
+  "Anytime",
+];
+
 const ContactUs = ({ shouldScroll = false }) => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    bestTimeToTalk: "",
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -142,18 +158,29 @@ const ContactUs = ({ shouldScroll = false }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitted(true);
-    setIsLoading(false);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ name: "", email: "", phone: "" });
-      setIsSubmitted(false);
-    }, 3000);
+    setError("");
+
+    try {
+      await submitContactForm({
+        ...formData,
+        submittedAt: new Date().toISOString(),
+        source: "home-contact-cta",
+      });
+
+      setIsSubmitted(true);
+
+      setTimeout(() => {
+        setFormData({ name: "", email: "", phone: "", bestTimeToTalk: "" });
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      setError(
+        err?.message ||
+          "We couldn’t submit your request. Please try again in a moment."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -210,14 +237,14 @@ const ContactUs = ({ shouldScroll = false }) => {
           </Typography>
         </Box>
 
-        <Divider 
-          sx={{ 
-            borderColor: "rgba(191, 169, 116, 0.3)", 
+        <Divider
+          sx={{
+            borderColor: "rgba(191, 169, 116, 0.3)",
             mb: 0.5,
             "&:before, &:after": {
               borderColor: "rgba(191, 169, 116, 0.2)",
-            }
-          }} 
+            },
+          }}
         />
 
 
@@ -258,30 +285,57 @@ const ContactUs = ({ shouldScroll = false }) => {
           }}
         />
 
-        <StyledTextField
-          label="Phone Number"
-          name="phone"
-          type="tel"
-          fullWidth
-          value={formData.phone}
-          onChange={handleChange}
-          required
-          placeholder="+1 (555) 123-4567"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <LocalPhoneOutlined sx={{ color: "#bfa974", fontSize: "1.2rem" }} />
-              </InputAdornment>
-            ),
+        <Box
+          sx={{
+            display: { xs: "block", sm: "flex" },
+            gap: { sm: 1.5 },
           }}
-        />
+        >
+          <StyledTextField
+            label="Phone Number"
+            name="phone"
+            type="tel"
+            fullWidth
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            placeholder="+1 (555) 123-4567"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LocalPhoneOutlined sx={{ color: "#bfa974", fontSize: "1.2rem" }} />
+                </InputAdornment>
+              ),
+            }}
+            sx={{
+              flex: 1,
+              mb: { xs: 1.5, sm: 0 },
+            }}
+          />
+
+          <StyledTextField
+            select
+            label="Best Time to Call You"
+            name="bestTimeToTalk"
+            fullWidth
+            value={formData.bestTimeToTalk}
+            onChange={handleChange}
+            sx={{ flex: 1 }}
+          >
+            {bestTimeOptions.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </StyledTextField>
+        </Box>
 
         {/* Compact Submit Button */}
-        <StyledButton 
-          type="submit" 
+        <StyledButton
+          type="submit"
           endIcon={isLoading ? <Star sx={{ animation: `${float} 1s ease-in-out infinite` }} /> : <SendRounded />}
           disabled={isLoading || isSubmitted}
-          sx={{ 
+          sx={{
             mt: { xs: 0.8, sm: 1 },
             py: { xs: 0.8, sm: 1 },
             px: { xs: 1.5, sm: 2 },
@@ -324,6 +378,35 @@ const ContactUs = ({ shouldScroll = false }) => {
             </Typography>
           </Box>
         </Fade>
+
+        {!isSubmitted && error && (
+          <Fade in timeout={500}>
+            <Box
+              sx={{
+                background: "rgba(244, 67, 54, 0.08)",
+                border: "1px solid rgba(244, 67, 54, 0.3)",
+                borderRadius: "8px",
+                p: { xs: 0.8, sm: 1 },
+                mt: { xs: 1, sm: 1.5 },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#b71c1c",
+                  fontWeight: 600,
+                  fontSize: { xs: "0.75rem", sm: "0.8rem" },
+                  fontFamily: "'Montserrat', sans-serif",
+                  textAlign: "center",
+                }}
+              >
+                {error}
+              </Typography>
+            </Box>
+          </Fade>
+        )}
 
         {/* Trust indicators */}
         <Box

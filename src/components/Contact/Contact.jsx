@@ -6,6 +6,7 @@ import {
   Button,
   Grid,
   Container,
+  MenuItem,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
@@ -17,6 +18,7 @@ import {
 import bgImage from "../../assets/images/contact-bg.jpeg";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
+import { submitContactForm } from "../../utils/contactService";
 
 // Accent Divider
 const AccentDivider = styled("div")({
@@ -127,21 +129,48 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
+    bestTimeToTalk: "",
     message: "",
   });
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage("✅ Thank you! We’ll contact you soon.");
-    setTimeout(() => {
-      setForm({ name: "", email: "", phone: "", message: "" });
-      setMessage("");
-    }, 4000);
+    setMessage("");
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      await submitContactForm({
+        ...form,
+        submittedAt: new Date().toISOString(),
+        source: "contact-page",
+      });
+      setMessage("✅ Thank you! We’ll contact you soon.");
+      setTimeout(() => {
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          bestTimeToTalk: "",
+          message: "",
+        });
+        setMessage("");
+      }, 4000);
+    } catch (err) {
+      setError(
+        err?.message ||
+          "Something went wrong while submitting the form. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -224,15 +253,24 @@ export default function Contact() {
                     <Grid item xs={12} sm={6}>
                       <StyledTextField label="Email Address" name="email" value={form.email} onChange={handleChange} fullWidth required />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={6}>
                       <StyledTextField label="Phone Number" name="phone" value={form.phone} onChange={handleChange} fullWidth />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <StyledTextField select label="Best Time to Talk" name="bestTimeToTalk" value={form.bestTimeToTalk} onChange={handleChange} fullWidth>
+                        <MenuItem value="Within 15 Min.">Within 15 Min.</MenuItem>
+                        <MenuItem value="08AM To 12PM">08AM To 12PM</MenuItem>
+                        <MenuItem value="12PM To 04PM">12PM To 04PM</MenuItem>
+                        <MenuItem value="04PM To 08PM">04PM To 08PM</MenuItem>
+                        <MenuItem value="Anytime">Anytime</MenuItem>
+                      </StyledTextField>
                     </Grid>
                     <Grid item xs={12}>
                       <StyledTextField label="Your Message" name="message" value={form.message} onChange={handleChange} fullWidth required multiline rows={4} />
                     </Grid>
                     <Grid item xs={12} textAlign="center">
-                      <Button variant="contained" type="submit" sx={{ background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)", color: "#332900", fontWeight: 600, px: 5, py: 1.5, borderRadius: "10px", "&:hover": { background: "#b1936b", color: "#fff" } }}>
-                        Send Message
+                      <Button variant="contained" type="submit" disabled={isSubmitting} sx={{ background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)", color: "#332900", fontWeight: 600, px: 5, py: 1.5, borderRadius: "10px", "&:hover": { background: "#b1936b", color: "#fff" }, opacity: isSubmitting ? 0.8 : 1 }}>
+                        {isSubmitting ? "Sending..." : "Send Message"}
                       </Button>
                     </Grid>
                   </Grid>
@@ -240,6 +278,11 @@ export default function Contact() {
                 {message && (
                   <Typography align="center" sx={{ mt: 3, color: "#2e3921", fontWeight: 500 }}>
                     {message}
+                  </Typography>
+                )}
+                {error && (
+                  <Typography align="center" sx={{ mt: 2, color: "#b71c1c", fontWeight: 500 }}>
+                    {error}
                   </Typography>
                 )}
               </FormCard>

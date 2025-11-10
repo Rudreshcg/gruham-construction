@@ -20,9 +20,6 @@ const ContactUsModal = ({ open, onClose, isFirstVisit = false }) => {
   const shouldScroll = isMobile && isLowHeight;
   const [isVisible, setIsVisible] = useState(false);
 
-  // Debug logging
-  console.log('Modal Debug:', { isMobile, isLowHeight, shouldScroll });
-
   useEffect(() => {
     if (open) {
       const timer = setTimeout(() => setIsVisible(true), 100);
