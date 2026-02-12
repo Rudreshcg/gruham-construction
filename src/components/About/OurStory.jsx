@@ -2,14 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
-import teamPhoto from "../../assets/images/images.jpg";
+
 import "./OurStory.css";
 
 const OurStory = () => {
   const stats = [
-    { title: "PEOPLE", number: "30+" },
-    { title: "YEARS", number: "5+" },
-    { title: "ONGOING PROJECTS", number: "50+" },
+    { title: "PEOPLE", number: "15+" },
+    { title: "YEARS", number: "3+" },
+    { title: "ONGOING PROJECTS", number: "24+" },
   ];
 
   return (
@@ -45,24 +45,7 @@ const OurStory = () => {
         </motion.div>
       </div>
 
-      {/* Top Hero Image Section */}
-      <div className="photo-section">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <img
-            src={teamPhoto}
-            alt="Gruham's Construction - Building Excellence"
-            onError={(e) => {
-              e.target.style.display = "none";
-              e.target.parentElement.style.minHeight = "400px";
-              e.target.parentElement.style.backgroundColor = "#e0e0e0";
-            }}
-          />
-        </motion.div>
-      </div>
+
 
       {/* Stats Section */}
       <div className="stats-section">
@@ -107,25 +90,7 @@ const OurStory = () => {
         </div>
       </div>
 
-      {/* Bottom Image Section */}
-      <div className="photo-section">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <img
-            src={teamPhoto}
-            alt="Gruham's Construction - Building Excellence"
-            onError={(e) => {
-              e.target.style.display = "none";
-              e.target.parentElement.style.minHeight = "400px";
-              e.target.parentElement.style.backgroundColor = "#e0e0e0";
-            }}
-          />
-        </motion.div>
-      </div>
+
 
       {/* Internal Links */}
       <div style={{ padding: "40px 5%", backgroundColor: "#ffffff" }}>

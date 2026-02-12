@@ -12,40 +12,25 @@ const Teams = () => {
             image: null,
         },
         {
-            name: "PRIYA SHARMA",
-            title: "CHIEF ARCHITECT",
+            name: "Avinash",
+            title: "CO-FOUNDER",
             image: null,
         },
         {
-            name: "AMIT PATEL",
-            title: "SENIOR PROJECT MANAGER",
+            name: "Manasa N",
+            title: "HEAD OF OFFICE MANAGER",
             image: null,
         },
         {
-            name: "SUNITA REDDY",
-            title: "HEAD OF DESIGN",
+            name: "Rajshekar",
+            title: "SITE ENGINEER",
             image: null,
         },
         {
-            name: "VIKRAM SINGH",
-            title: "SENIOR CONSTRUCTION ENGINEER",
+            name: "Rudresh",
+            title: "SOFTWARE ENGINEER & WEB DEVELOPER",
             image: null,
-        },
-        {
-            name: "ANJALI MENON",
-            title: "INTERIOR DESIGN SPECIALIST",
-            image: null,
-        },
-        {
-            name: "ROHIT MALHOTRA",
-            title: "QUALITY ASSURANCE LEAD",
-            image: null,
-        },
-        {
-            name: "MEERA KRISHNAN",
-            title: "CLIENT RELATIONS MANAGER",
-            image: null,
-        },
+        }
     ];
 
     const [isVisible, setIsVisible] = useState(false);

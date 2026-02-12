@@ -7,10 +7,10 @@ import SectionHeading from './SectionHeading';
 import { homeTheme } from './sectionStyles';
 
 const stats = [
-  { number: '100+', label: 'Projects Completed', icon: <Construction /> },
-  { number: '5+', label: 'Years Experience', icon: <Engineering /> },
+  { number: '30+', label: 'Projects Completed', icon: <Construction /> },
+  { number: '3+', label: 'Years Experience', icon: <Engineering /> },
   { number: '100%', label: 'Client Satisfaction', icon: <Star /> },
-  { number: '50+', label: 'Expert Team', icon: <Architecture /> },
+  { number: '15+', label: 'Expert Team', icon: <Architecture /> },
 ];
 
 const values = [
