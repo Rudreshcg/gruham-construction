@@ -10,32 +10,29 @@ const testimonials = [
   {
     id: 1,
     name: "Rajesh Kumar",
-    role: "Homeowner",
+    role: "Villa Owner",
     location: "Whitefield, Bangalore",
     rating: 5,
-    text: "Gruham's Construction transformed our dream home into reality. Their attention to detail and quality craftsmanship exceeded our expectations. Highly recommended!",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-    project: "Luxury Villa Construction"
+    text: "We were worried about hidden costs, but the team was transparent from day one. Completed our G+2 villa in Whitefield on time. The finishing work and attention to detail is exactly what we wanted.",
+    project: "Residential Villa"
   },
   {
     id: 2,
     name: "Priya Sharma",
     role: "Business Owner",
-    location: "Koramangala, Bangalore",
+    location: "Indiranagar, Bangalore",
     rating: 5,
-    text: "Professional team, on-time delivery, and exceptional quality. They made our commercial project stress-free and successful.",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-    project: "Office Complex"
+    text: "The best part was their communication. I got weekly updates, so I didn't have to visit the site every day. They managed the entire office renovation seamlessly.",
+    project: "Office Interiors"
   },
   {
     id: 3,
     name: "Vikram Singh",
     role: "Property Developer",
-    location: "Electronic City, Bangalore",
+    location: "HSR Layout, Bangalore",
     rating: 5,
-    text: "Outstanding construction quality and project management. Gruham's delivered our residential project ahead of schedule with zero compromises on quality.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-    project: "Residential Complex"
+    text: "Professional team. Handled all the structural challenges smoothly. Their engineers are well-experienced. Highly recommended for complex commercial projects.",
+    project: "Commercial Complex"
   }
 ];
 
@@ -77,7 +74,7 @@ const Testimonials = () => (
                 flexDirection: 'column',
                 border: `1px solid ${homeTheme.colors.accentMuted}`,
                 '&::before': {
-                  content: '\"\"',
+                  content: '""',
                   position: 'absolute',
                   top: 0,
                   left: 0,
@@ -102,14 +99,19 @@ const Testimonials = () => (
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Avatar
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
                     sx={{
                       width: 62,
                       height: 62,
-                      border: `3px solid ${homeTheme.colors.accentMuted}`,
+                      bgcolor: homeTheme.colors.accent,
+                      color: '#fff',
+                      fontSize: '1.5rem',
+                      fontWeight: 600,
+                      fontFamily: homeTheme.fonts.heading,
+                      boxShadow: '0 4px 12px rgba(196, 164, 132, 0.3)',
                     }}
-                  />
+                  >
+                    {testimonial.name.charAt(0)}
+                  </Avatar>
                   <Box>
                     <Typography
                       variant="h6"
