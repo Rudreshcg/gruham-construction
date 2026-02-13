@@ -3,7 +3,7 @@ import { Box, Container, Typography, Button, Stack, Chip } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import landingPageImageWebp from "../../assets/images/contact-bg.jpeg";
+import landingPageImageWebp from "../../assets/images/cinematic_construction_site_1770998328263.png";
 import landingPageImageJpg from "../../assets/images/heros_image.jpg";
 import ContactUsModal from "./ContactUsModal";
 import { homeTheme } from "./sectionStyles";
@@ -86,7 +86,7 @@ const Hero = () => {
         sx={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(120deg, rgba(8,12,20,0.78) 0%, rgba(10,18,30,0.65) 45%, rgba(8,12,20,0.35) 100%)",
+          background: "linear-gradient(120deg, rgba(8,12,20,0.92) 0%, rgba(10,18,30,0.88) 45%, rgba(8,12,20,0.82) 100%)",
           zIndex: 1,
         }}
       />
@@ -100,7 +100,7 @@ const Hero = () => {
           height: "160%",
           background: "radial-gradient(circle at center, rgba(191,169,116,0.35), transparent 70%)",
           filter: "blur(0px)",
-          opacity: 0.6,
+          opacity: 0.3,
           zIndex: 1,
         }}
       />

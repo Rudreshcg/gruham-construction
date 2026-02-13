@@ -3,49 +3,9 @@ import './ProjectPage.css'; // Main page styles
 import { useParams, useNavigate } from "react-router-dom";
 import projectsData from '../../data/projects.json';
 
-// Images
-import jayachandraImage from '../../assets/images/residential-architects-mr-jayachandra-residence.webp'; 
-import adityaImage from '../../assets/images/adityaImage.jpg';
-import brindavanamImage from '../../assets/images/brindavanam.png';
-
-import interior1 from '../../assets/images/interior1.webp';
-import interior2 from '../../assets/images/interior2.webp';
-import interior3 from '../../assets/images/interior3.webp';
-import interior4 from '../../assets/images/interior4.webp';
-import interior5 from '../../assets/images/interior5.webp';
-import interior6 from '../../assets/images/interior6.webp';
-
-// --- Image mapping for JSON data ---
-const imageMap = {
-  '/images/residential-architects-mr-jayachandra-residence.webp': jayachandraImage,
-  '/images/adityaImage.jpg': adityaImage,
-  '/images/brindavanam.png': brindavanamImage,
-  '/images/interior1.webp': interior1,
-  '/images/interior2.webp': interior2,
-  '/images/interior3.webp': interior3,
-  '/images/interior4.webp': interior4,
-  '/images/interior5.webp': interior5,
-  '/images/interior6.webp': interior6,
-};
-
-// --- Project Data from JSON with image mapping ---
-const projects = Object.keys(projectsData.projects).reduce((acc, key) => {
-  const project = projectsData.projects[key];
-  acc[key] = {
-    ...project,
-    mainImage: imageMap[project.mainImage] || project.mainImage,
-    galleryImages: project.galleryImages.map(img => ({
-      ...img,
-      src: imageMap[img.src] || img.src
-    }))
-  };
-  return acc;
-}, {});
-
-const latestProjects = projectsData.latestProjects.map(project => ({
-  ...project,
-  image: imageMap[project.image] || project.image
-}));
+// --- Project Data from JSON ---
+const projects = projectsData.projects;
+const latestProjects = projectsData.latestProjects;
 
 // --- Sub-Components ---
 const Gallery = ({ images }) => (
@@ -58,10 +18,10 @@ const Gallery = ({ images }) => (
 
 const RelatedProjects = ({ currentProjectId }) => {
     const navigate = useNavigate();
-    
+
     // Get related projects (exclude current project)
     const relatedProjects = latestProjects.filter(project => project.id !== currentProjectId).slice(0, 3);
-    
+
     const handleProjectClick = (projectId) => {
         navigate(`/portfolio/${projectId}`);
     };
@@ -71,7 +31,7 @@ const RelatedProjects = ({ currentProjectId }) => {
             <h2 className="section-title">Related Projects</h2>
             <div className="related-projects-grid">
                 {relatedProjects.map((project) => (
-                    <div 
+                    <div
                         key={project.id}
                         className="related-project-card"
                         onClick={() => handleProjectClick(project.id)}
@@ -106,9 +66,9 @@ const Sidebar = () => {
             <h3 className="latest-title">Latest Portfolio</h3>
             <div className="latest-projects-list">
                 {latestProjects.map((project) => (
-                    <div 
+                    <div
                         key={project.id}
-                        className="latest-item clickable" 
+                        className="latest-item clickable"
                         onClick={() => handleProjectClick(project.id)}
                         style={{ cursor: 'pointer' }}
                     >
@@ -159,7 +119,7 @@ function ProjectPage() {
     const projectContent = (
         <>
             <p>{project.content.description}</p>
-            
+
             <h3>Project Highlights:</h3>
             <ul>
                 {project.content.highlights.map((highlight, index) => (
@@ -182,10 +142,13 @@ function ProjectPage() {
                     <strong>Location:</strong> {project.location}
                 </div>
                 <div className="detail-item">
-                    <strong>Area:</strong> {project.area}
+                    <strong>Plot Area:</strong> {project.plotArea}
                 </div>
                 <div className="detail-item">
-                    <strong>Duration:</strong> {project.duration}
+                    <strong>Construction Year:</strong> {project.constructionYear}
+                </div>
+                <div className="detail-item">
+                    <strong>Status:</strong> {project.status}
                 </div>
             </div>
         </>
@@ -194,7 +157,7 @@ function ProjectPage() {
     return (
         <div className="project-page">
             {/* Banner */}
-            <div className="project-banner" style={{ backgroundImage: `url(${project.mainImage})` }}>
+            <div className="project-banner" style={{ backgroundImage: `url('${project.mainImage}')` }}>
                 <div className="banner-overlay">
                     <h1>{project.name}</h1>
                     <p className="project-meta">admin | {project.date}</p>
