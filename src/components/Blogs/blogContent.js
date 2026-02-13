@@ -1,10 +1,20 @@
+// Import blog images
+import villaDesignImg from '../../assets/images/blogs/villa-design.png';
+import projectMgmtImg from '../../assets/images/blogs/project-management.png';
+import sustainableImg from '../../assets/images/blogs/sustainable-materials.png';
+import contractorImg from '../../assets/images/blogs/contractor-advice.png';
+import interiorDesignImg from '../../assets/images/blogs/interior-design.png';
+import budgetPlanningImg from '../../assets/images/blogs/budget-planning.png';
+import buildingPermitsImg from '../../assets/images/blogs/building-permits.png';
+import qualityControlImg from '../../assets/images/blogs/quality-control.png';
+
 // Shared blog posts data with expanded content
 export const blogPosts = [
   {
     id: 1,
     title: "10 Modern Luxury Villa Design Trends in 2025",
     summary: "Explore the top villa construction trends shaping premium residences this year, from smart automation to eco-friendly materials. Discover how modern construction techniques are transforming luxury home building in Bangalore.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+    image: villaDesignImg,
     date: "January 15, 2025",
     category: "Design",
     slug: "modern-luxury-villa-design-trends-2025",
@@ -59,7 +69,7 @@ export const blogPosts = [
     id: 2,
     title: "How to Ensure On-Time Project Delivery in Construction",
     summary: "Discover proven project management techniques to keep your construction schedule on track. Learn from industry experts about effective planning, resource management, and communication strategies for successful project completion.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+    image: projectMgmtImg,
     date: "January 10, 2025",
     category: "Project Management",
     slug: "on-time-project-delivery-construction",
@@ -108,7 +118,7 @@ export const blogPosts = [
     id: 3,
     title: "Sustainable Building Materials: What's New in 2025?",
     summary: "See how the latest green materials and techniques are making modern homes more energy-efficient and healthy. Explore eco-friendly construction options that reduce environmental impact while maintaining quality and durability.",
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
+    image: sustainableImg,
     date: "January 5, 2025",
     category: "Sustainability",
     slug: "sustainable-building-materials-2025",

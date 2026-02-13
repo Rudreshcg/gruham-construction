@@ -15,6 +15,7 @@
   color: #2c3e50;
   margin-bottom: 20px;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .blogs-title::after {
@@ -33,22 +34,23 @@
   font-size: 1.2rem;
   color: #7f8c8d;
   margin-bottom: 40px;
-  max-width: 600px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  font-family: 'Manrope', sans-serif;
 }
 
 .blogs-filters {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .filter-btn {
-  padding: 12px 24px;
+  padding: 12px 28px;
   border: 2px solid #bfa974;
   background: transparent;
   color: #bfa974;
@@ -56,9 +58,10 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .filter-btn:hover {
@@ -69,15 +72,16 @@
 }
 
 .filter-btn.active {
-  background: #bfa974;
+  background: linear-gradient(135deg, #bfa974, #9c8658);
   color: white;
   box-shadow: 0 5px 15px rgba(191, 169, 116, 0.4);
+  border-color: #bfa974;
 }
 
 .blogs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 35px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -88,33 +92,58 @@
   transform: translateY(30px);
 }
 
-.blogs-item.visible {
+.blogs-grid.visible .blogs-item {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .blogs-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .blogs-section {
     padding: 60px 20px;
   }
-  
+
   .blogs-title {
     font-size: 2.5rem;
   }
-  
+
+  .blogs-subtitle {
+    font-size: 1.1rem;
+  }
+
   .blogs-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
   }
-  
+
   .blogs-filters {
     gap: 10px;
   }
-  
+
   .filter-btn {
     padding: 10px 20px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
+@media (max-width: 480px) {
+  .blogs-title {
+    font-size: 2rem;
+  }
+
+  .blogs-subtitle {
+    font-size: 1rem;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+  }
+}
