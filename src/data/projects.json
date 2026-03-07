@@ -1,232 +1,417 @@
 {
   "projects": {
-    "jayachandra": {
-      "id": "jayachandra",
-      "name": "Mr. Jayachandra",
-      "title": "A Six-level Residence in Vajarahalli that Blends Modern Design with Nature-inspired Luxury",
-      "date": "August 7, 2024",
+    "manesh_arora": {
+      "id": "manesh_arora",
+      "name": "Mr. Manesh Arora",
+      "title": "Luxury Villa in Jigani",
+      "date": "2025",
       "category": "Residential",
-      "location": "Vajarahalli, Bangalore",
-      "area": "4500 sq ft",
-      "duration": "18 months",
-       "mainImage": "/images/residential-architects-mr-jayachandra-residence.webp",
+      "location": "Jigani",
+      "plotArea": "2400 sq ft",
+      "constructionYear": "2025",
+      "status": "Ongoing",
+      "duration": "2026",
+      "mainImage": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.51.31 PM.jpeg",
       "content": {
-        "description": "This magnificent residence is a testament to cutting-edge contemporary architecture. It focuses on maximizing natural light and integrating seamlessly with the urban environment.",
+        "description": "An expansive 2400 sq ft luxury villa currently under construction in Jigani. This project is designed to be a landmark residence with cutting-edge amenities.",
         "highlights": [
-          "Six levels of modern living space",
-          "Innovative use of wood, glass, and vertical fins on the facade",
-          "Smart home integration and energy-efficient lighting",
-          "Indoor-outdoor living concepts on every floor",
-          "Rooftop terrace with panoramic city views",
-          "Eco-friendly materials and sustainable design"
+          "Grand Villa Architecture",
+          "Smart Home Automation Ready",
+          "Expansive Landscaped Areas"
         ],
         "features": [
-          "Modern kitchen with premium appliances",
-          "Spacious living areas with floor-to-ceiling windows",
-          "Private study and home office",
-          "Master suite with walk-in closet",
-          "Guest bedrooms with ensuite bathrooms",
-          "Landscaped garden and outdoor seating"
+          "4 Bedrooms",
+          "Private Home Theater",
+          "Swimming Pool with Deck"
         ]
       },
       "galleryImages": [
-        { "id": 1, "src": "/images/interior1.webp", "alt": "Modern Living Room" },
-        { "id": 2, "src": "/images/interior2.webp", "alt": "Contemporary Kitchen" },
-        { "id": 3, "src": "/images/interior3.webp", "alt": "Master Bedroom" },
-        { "id": 4, "src": "/images/interior4.webp", "alt": "Bathroom Design" },
-        { "id": 5, "src": "/images/interior5.webp", "alt": "Study Room" },
-        { "id": 6, "src": "/images/interior6.webp", "alt": "Rooftop Terrace" }
+        {
+          "id": 1,
+          "src": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.51.31 PM.jpeg",
+          "alt": "View 1"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.52.46 PM.jpeg",
+          "alt": "View 2"
+        },
+        {
+          "id": 3,
+          "src": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.52.47 PM (1).jpeg",
+          "alt": "View 3"
+        },
+        {
+          "id": 4,
+          "src": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.52.47 PM.jpeg",
+          "alt": "View 4"
+        }
       ]
-      
     },
-    "aditya": {
-      "id": "aditya",
-      "name": "Mr. Aditya",
-      "title": "Luxury Villa Project - Modern Family Home",
-      "date": "July 15, 2024",
+    "mallikarjun": {
+      "id": "mallikarjun",
+      "name": "Mr. Mallikarjun",
+      "title": "Grand Residence in Jigani",
+      "date": "2025",
       "category": "Residential",
-      "location": "Electronic City, Bangalore",
-      "area": "3200 sq ft",
-      "duration": "14 months",
-      "mainImage": "/images/adityaImage.jpg",
+      "location": "Jigani",
+      "plotArea": "3000 sq ft",
+      "constructionYear": "2025",
+      "status": "Ongoing",
+      "duration": "2026",
+      "mainImage": "/images/projects/Mallikarjun/WhatsApp Image 2026-02-13 at 5.52.46 PM.jpeg",
       "content": {
-        "description": "A stunning luxury villa designed for modern family living. This project combines contemporary aesthetics with functional design to create a perfect family home.",
+        "description": "A grand 3000 sq ft residence in Jigani, currently under construction. This project features double-height spaces and a palatial feel suitable for modern family living.",
         "highlights": [
-          "Open-plan living and dining areas",
-          "Premium finishes and fixtures throughout",
-          "Energy-efficient design with solar panels",
-          "Smart home automation system",
-          "Private garden and outdoor entertainment area",
-          "Three-car garage with storage"
+          "Majestic Double-Height Entrance",
+          "Architectural Grandeur",
+          "Luxury Lifestyle Amenities"
         ],
         "features": [
-          "Gourmet kitchen with island counter",
-          "Family room with home theater setup",
-          "Four bedrooms with ensuite bathrooms",
-          "Home office with separate entrance",
-          "Swimming pool and deck area",
-          "Landscaped front and backyard"
+          "5 Spacious Bedrooms",
+          "Expansive Living Hall",
+          "Private Gym & Recreation Zone"
         ]
       },
       "galleryImages": [
-        { "id": 1, "src": "/images/interior1.webp", "alt": "Villa Exterior" },
-        { "id": 2, "src": "/images/interior2.webp", "alt": "Living Area" },
-        { "id": 3, "src": "/images/interior3.webp", "alt": "Kitchen Design" },
-        { "id": 4, "src": "/images/interior4.webp", "alt": "Master Suite" },
-        { "id": 5, "src": "/images/interior5.webp", "alt": "Pool Area" },
-        { "id": 6, "src": "/images/interior6.webp", "alt": "Garden View" }
+        {
+          "id": 1,
+          "src": "/images/projects/Mallikarjun/WhatsApp Image 2026-02-13 at 5.52.46 PM.jpeg",
+          "alt": "View 1"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/Mallikarjun/WhatsApp Image 2026-02-13 at 5.52.47 PM (1).jpeg",
+          "alt": "View 2"
+        },
+        {
+          "id": 3,
+          "src": "/images/projects/Mallikarjun/WhatsApp Image 2026-02-13 at 5.52.47 PM.jpeg",
+          "alt": "View 3"
+        }
       ]
     },
-    "brindavanam": {
-      "id": "brindavanam",
-      "name": "Mr Brindavanam",
-      "title": "Elegant Urban Architecture - Contemporary Design",
-      "date": "September 1, 2024",
+    "ashutosh_mishra": {
+      "id": "ashutosh_mishra",
+      "name": "Mr. Ashutosh Mishra",
+      "title": "Residence in Dollars Colony Gattahalli",
+      "date": "2025",
       "category": "Residential",
-      "location": "Whitefield, Bangalore",
-      "area": "2800 sq ft",
-      "duration": "12 months",
-      "mainImage": "/images/brindavanam.png",
+      "location": "Dollars Colony Gattahalli",
+      "plotArea": "1200 sq ft",
+      "constructionYear": "2025",
+      "status": "Ongoing",
+      "duration": "Working",
+      "mainImage": "/images/projects/Mr_Ashutosh/WhatsApp Image 2026-02-13 at 5.56.36 PM.jpeg",
       "content": {
-        "description": "An elegant urban residence that showcases contemporary design principles. This project demonstrates how modern architecture can create beautiful, functional living spaces in urban environments.",
+        "description": "A thoughtfully designed 1200 sq ft residence in DC Gattahalli. This project focuses on affordable luxury and community-centric living.",
         "highlights": [
-          "Minimalist design with clean lines",
-          "Maximized natural light with strategic window placement",
-          "Sustainable materials and eco-friendly construction",
-          "Flexible living spaces that adapt to family needs",
-          "Private courtyard and outdoor spaces",
-          "Modern security and safety features"
+          "Efficient Floor Planning",
+          "Community-Integrated Design",
+          "Sustainable Features"
         ],
         "features": [
-          "Open-concept living and dining",
-          "Modern kitchen with breakfast nook",
-          "Three bedrooms with built-in storage",
-          "Home office with natural lighting",
-          "Rooftop garden and seating area",
-          "Underground parking for two vehicles"
+          "2 Cozy Bedrooms",
+          "Secure Compound",
+          "Power Backup Provision"
         ]
       },
       "galleryImages": [
-        { "id": 1, "src": "/images/interior1.webp", "alt": "Urban Exterior" },
-        { "id": 2, "src": "/images/interior2.webp", "alt": "Modern Living" },
-        { "id": 3, "src": "/images/interior3.webp", "alt": "Contemporary Kitchen" },
-        { "id": 4, "src": "/images/interior4.webp", "alt": "Bedroom Design" },
-        { "id": 5, "src": "/images/interior5.webp", "alt": "Bathroom Suite" },
-        { "id": 6, "src": "/images/interior6.webp", "alt": "Rooftop View" }
+        {
+          "id": 1,
+          "src": "/images/projects/Mr_Ashutosh/WhatsApp Image 2026-02-13 at 5.56.36 PM.jpeg",
+          "alt": "View 1"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/Mr_Ashutosh/WhatsApp Image 2026-02-13 at 5.56.37 PM (1).jpeg",
+          "alt": "View 2"
+        },
+        {
+          "id": 3,
+          "src": "/images/projects/Mr_Ashutosh/WhatsApp Image 2026-02-13 at 5.56.37 PM.jpeg",
+          "alt": "View 3"
+        },
+        {
+          "id": 4,
+          "src": "/images/projects/Mr_Ashutosh/WhatsApp Image 2026-02-13 at 5.56.36 PM (1).jpeg",
+          "alt": "View 4"
+        }
       ]
     },
-    "kumar": {
-      "id": "kumar",
-      "name": "Mr. Kumar",
-      "title": "Luxury Apartment Renovation - Premium Living",
-      "date": "October 15, 2024",
-      "category": "Renovation",
-      "location": "Koramangala, Bangalore",
-      "area": "1800 sq ft",
-      "duration": "8 months",
-      "mainImage": "/images/interior1.webp",
+    "bhawani_singh": {
+      "id": "bhawani_singh",
+      "name": "Mr. Bhawani Singh",
+      "title": "Residence in Dollars Colony",
+      "date": "2025",
+      "category": "Residential",
+      "location": "Dollars Colony Gattahalli",
+      "plotArea": "1650 sq ft",
+      "constructionYear": "2025",
+      "status": "Ongoing",
+      "duration": "Working",
+      "mainImage": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.56 PM.jpeg",
       "content": {
-        "description": "A complete renovation of a luxury apartment, transforming it into a modern, sophisticated living space. This project showcases our expertise in interior design and space optimization.",
+        "description": "A stylish 1650 sq ft independent residence located in Dollars Colony, Gattahalli. This ongoing project emphasizes elegance and efficient space utilization.",
         "highlights": [
-          "Complete interior renovation",
-          "Premium materials and finishes",
-          "Smart home integration",
-          "Custom built-in storage solutions",
-          "Modern lighting design",
-          "Eco-friendly renovation practices"
+          "Prime Location in Dollars Colony",
+          "Elegant Contemporary Design",
+          "Vastu Compliant Layout"
         ],
         "features": [
-          "Open-plan living with kitchen island",
-          "Master bedroom with walk-in closet",
-          "Guest bedroom with Murphy bed",
-          "Modern bathroom with premium fixtures",
-          "Balcony garden and outdoor seating",
-          "Home office nook with built-in desk"
+          "3 Comfortable Bedrooms",
+          "Covered Parking",
+          "Accessible Terrace Area"
         ]
       },
       "galleryImages": [
-        { "id": 1, "src": "/images/interior1.webp", "alt": "Renovated Living" },
-        { "id": 2, "src": "/images/interior2.webp", "alt": "Modern Kitchen" },
-        { "id": 3, "src": "/images/interior3.webp", "alt": "Master Bedroom" },
-        { "id": 4, "src": "/images/interior4.webp", "alt": "Bathroom Design" },
-        { "id": 5, "src": "/images/interior5.webp", "alt": "Home Office" },
-        { "id": 6, "src": "/images/interior6.webp", "alt": "Balcony View" }
+        {
+          "id": 1,
+          "src": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.56 PM.jpeg",
+          "alt": "View 1"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.57 PM (1).jpeg",
+          "alt": "View 2"
+        },
+        {
+          "id": 3,
+          "src": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.57 PM.jpeg",
+          "alt": "View 3"
+        },
+        {
+          "id": 4,
+          "src": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.58 PM (1).jpeg",
+          "alt": "View 4"
+        },
+        {
+          "id": 5,
+          "src": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.59 PM (1).jpeg",
+          "alt": "View 5"
+        }
       ]
     },
-    "sharma": {
-      "id": "sharma",
-      "name": "Mr. Sharma",
-      "title": "Commercial Office Space - Corporate Design",
-      "date": "November 20, 2024",
-      "category": "Commercial",
-      "location": "MG Road, Bangalore",
-      "area": "5000 sq ft",
-      "duration": "6 months",
-      "mainImage": "/images/interior2.webp",
+    "inderpal_singh": {
+      "id": "inderpal_singh",
+      "name": "Mr. Inderpal Singh",
+      "title": "Contemporary Residence in Jigani",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Jigani",
+      "plotArea": "1600 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Working",
+      "mainImage": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
       "content": {
-        "description": "A modern commercial office space designed for productivity and collaboration. This project demonstrates our capability in commercial interior design and space planning.",
+        "description": "A striking 1600 sq ft contemporary residence in Jigani, scheduled for completion in 2026. This project showcases modern architectural lines and functional elegance.",
         "highlights": [
-          "Open-plan office layout",
-          "Collaborative workspaces",
-          "Private meeting rooms",
-          "Reception and client areas",
-          "Break room and kitchenette",
-          "Modern technology integration"
+          "Geometric Facade Design",
+          "Open-Concept Living Areas",
+          "Energy Efficient Planning"
         ],
         "features": [
-          "Executive offices with glass partitions",
-          "Conference room with AV equipment",
-          "Reception area with waiting lounge",
-          "Break room with kitchen facilities",
-          "Storage and utility rooms",
-          "Modern lighting and HVAC systems"
+          "3 Bedrooms",
+          "Modern Kitchen",
+          "Rooftop Terrace"
         ]
       },
       "galleryImages": [
-        { "id": 1, "src": "/images/interior1.webp", "alt": "Office Reception" },
-        { "id": 2, "src": "/images/interior2.webp", "alt": "Open Workspace" },
-        { "id": 3, "src": "/images/interior3.webp", "alt": "Conference Room" },
-        { "id": 4, "src": "/images/interior4.webp", "alt": "Executive Office" },
-        { "id": 5, "src": "/images/interior5.webp", "alt": "Break Room" },
-        { "id": 6, "src": "/images/interior6.webp", "alt": "Meeting Space" }
+        {
+          "id": 1,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
+          "alt": "Front Elevation"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-03.R1.png",
+          "alt": "Side View"
+        },
+        {
+          "id": 3,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-04.R1.png",
+          "alt": "Perspective View"
+        },
+        {
+          "id": 4,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-05.R1.png",
+          "alt": "Aerial View"
+        },
+        {
+          "id": 5,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-06.R1.png",
+          "alt": "Detailed View"
+        }
+      ]
+    },
+    "sunil_sharma": {
+      "id": "sunil_sharma",
+      "name": "Mr. Sunil Sharma",
+      "title": "Modern Residence in Jigani",
+      "date": "2024",
+      "category": "Residential",
+      "location": "Jigani",
+      "plotArea": "2400 sq ft",
+      "constructionYear": "2024",
+      "status": "Completed",
+      "duration": "2025 completed",
+      "mainImage": "/images/projects/Mr.sunilsharma/WhatsApp Image 2026-02-13 at 5.49.57 PM.jpeg",
+      "content": {
+        "description": "A sophisticated 2400 sq ft modern independent residence located in Jigani. Completed in 2025, this project stands as a testament to contemporary design and functional luxury.",
+        "highlights": [
+          "Contemporary Facade Design",
+          "Spacious Open-Plan Layout",
+          "Premium Interior Finishes"
+        ],
+        "features": [
+          "3 Bedrooms with En-suites",
+          "Modern Modular Kitchen",
+          "Private Rooftop Terrace"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/Mr.sunilsharma/WhatsApp Image 2026-02-13 at 5.49.57 PM.jpeg",
+          "alt": "Exterior View"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/Mr.sunilsharma/WhatsApp Image 2026-02-13 at 5.49.58 PM.jpeg",
+          "alt": "Interior View"
+        }
+      ]
+    },
+    "jhansi_rani": {
+      "id": "jhansi_rani",
+      "name": "Dr. Jhansi Rani and Krishna Prasad",
+      "title": "Contemporary Home in Jigani",
+      "date": "2024",
+      "category": "Residential",
+      "location": "Jigani",
+      "plotArea": "1200 sq ft",
+      "constructionYear": "2024",
+      "status": "Completed",
+      "duration": "2025 completed",
+      "mainImage": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.50.46 PM.jpeg",
+      "content": {
+        "description": "A distinctive 1200 sq ft contemporary home in Jigani, designed to maximize space and natural light. This residence perfectly blends elegance with practical living.",
+        "highlights": [
+          "Space-Optimizing Design",
+          "Modern Elevation",
+          "Abundant Natural Interior Lighting"
+        ],
+        "features": [
+          "2 Luxury Bedrooms",
+          "Dedicated Study/Home Office",
+          "Private Courtyard"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.49.57 PM.jpeg",
+          "alt": "View 1"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.49.58 PM.jpeg",
+          "alt": "View 2"
+        },
+        {
+          "id": 3,
+          "src": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.50.45 PM.jpeg",
+          "alt": "View 3"
+        },
+        {
+          "id": 4,
+          "src": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.50.46 PM (1).jpeg",
+          "alt": "View 4"
+        },
+        {
+          "id": 5,
+          "src": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.50.46 PM.jpeg",
+          "alt": "View 5"
+        }
+      ]
+    },
+    "sathya_shree_ram": {
+      "id": "sathya_shree_ram",
+      "name": "Mr. Sathya Shree Ram",
+      "title": "Modern Duplex in Jigani",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Jigani",
+      "plotArea": "2400 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Working",
+      "mainImage": "/images/projects/SathyaShreeram/WhatsApp Image 2026-02-13 at 5.53.40 PM.jpeg",
+      "content": {
+        "description": "A modern 2400 sq ft duplex residence in Jigani, currently in the planning and execution phase. The design focuses on vertical connectivity and modern aesthetics.",
+        "highlights": [
+          "Modern Duplex Configuration",
+          "Seamless Indoor-Outdoor Flow",
+          "Contemporary Elevation"
+        ],
+        "features": [
+          "3 Bedrooms",
+          "Upper-Level Family Lounge",
+          "Spacious Balconies"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/SathyaShreeram/WhatsApp Image 2026-02-13 at 5.53.40 PM.jpeg",
+          "alt": "View 1"
+        }
       ]
     }
   },
   "latestProjects": [
     {
-      "id": "jayachandra",
-      "name": "Mr. Jayachandra",
-      "title": "A Six-level Residence in Vajarahalli that Blends Modern Design with Nature-inspired Luxury",
-      "image": "/images/residential-architects-mr-jayachandra-residence.webp",
-      "date": "August 7, 2024"
+      "id": "inderpal_singh",
+      "name": "Mr. Inderpal Singh",
+      "title": "Contemporary Residence in Jigani",
+      "image": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
+      "date": "2026"
     },
     {
-      "id": "aditya",
-      "name": "Mr. Aditya",
-      "title": "Luxury Villa Project - Modern Family Home",
-      "image": "/images/adityaImage.jpg",
-      "date": "July 15, 2024"
+      "id": "sunil_sharma",
+      "name": "Mr. Sunil Sharma",
+      "title": "Modern Residence in Jigani",
+      "image": "/images/projects/Mr.sunilsharma/WhatsApp Image 2026-02-13 at 5.49.57 PM.jpeg",
+      "date": "2024"
     },
     {
-      "id": "brindavanam",
-      "name": "Mr Brindavanam",
-      "title": "Elegant Urban Architecture - Contemporary Design",
-      "image": "/images/brindavanam.png",
-      "date": "September 1, 2024"
+      "id": "jhansi_rani",
+      "name": "Dr. Jhansi Rani and Krishna Prasad",
+      "title": "Contemporary Home in Jigani",
+      "image": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.50.46 PM.jpeg",
+      "date": "2024"
     },
     {
-      "id": "kumar",
-      "name": "Mr. Kumar",
-      "title": "Luxury Apartment Renovation - Premium Living",
-      "image": "/images/interior1.webp",
-      "date": "October 15, 2024"
+      "id": "manesh_arora",
+      "name": "Mr. Manesh Arora",
+      "title": "Luxury Villa in Jigani",
+      "image": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.51.31 PM.jpeg",
+      "date": "2025"
     },
     {
-      "id": "sharma",
-      "name": "Mr. Sharma",
-      "title": "Commercial Office Space - Corporate Design",
-      "image": "/images/interior2.webp",
-      "date": "November 20, 2024"
+      "id": "mallikarjun",
+      "name": "Mr. Mallikarjun",
+      "title": "Grand Residence in Jigani",
+      "image": "/images/projects/Mallikarjun/WhatsApp Image 2026-02-13 at 5.52.46 PM.jpeg",
+      "date": "2025"
+    },
+    {
+      "id": "bhawani_singh",
+      "name": "Mr. Bhawani Singh",
+      "title": "Residence in Dollars Colony",
+      "image": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.56 PM.jpeg",
+      "date": "2025"
     }
   ]
 }

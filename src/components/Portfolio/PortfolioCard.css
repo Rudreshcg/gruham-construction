@@ -95,10 +95,10 @@
   color: #5a6c7d;
 }
 
-.detail-icon {
-  font-size: 1rem;
-  width: 16px;
-  text-align: center;
+.detail-label {
+  font-weight: 600;
+  color: #9c8658;
+  min-width: 85px;
 }
 
 .detail-text {
@@ -159,6 +159,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -174,23 +175,23 @@
   .card-image-container {
     height: 240px;
   }
-  
+
   .card-content {
     padding: 20px;
   }
-  
+
   .project-name {
     font-size: 1.2rem;
   }
-  
+
   .project-title {
     font-size: 0.9rem;
   }
-  
+
   .detail-item {
     font-size: 0.85rem;
   }
-  
+
   .explore-button {
     padding: 12px 20px;
     font-size: 0.9rem;
@@ -201,11 +202,11 @@
   .card-content {
     padding: 16px;
   }
-  
+
   .card-details {
     gap: 6px;
   }
-  
+
   .detail-item {
     font-size: 0.8rem;
   }

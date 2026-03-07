@@ -9,7 +9,8 @@
 /* --- 1. Banner Styling --- */
 .project-banner {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 600px;
+    /* Increased height as requested */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -21,7 +22,8 @@
     bottom: 0;
     width: 100%;
     height: 100px;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark band matching the image */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Dark band matching the image */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,7 +53,8 @@
 }
 
 .main-content {
-    flex: 3; /* Takes up more space */
+    flex: 3;
+    /* Takes up more space */
     min-width: 0;
 }
 
@@ -84,7 +87,8 @@
 
 .project-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
     gap: 15px;
 }
 
@@ -166,6 +170,7 @@
     border: 1px solid #ddd;
     background-color: #fff;
 }
+
 .recaptcha-placeholder small {
     margin-left: 10px;
     font-size: 0.7em;
@@ -191,7 +196,8 @@
 
 /* --- 3. Sidebar Styling --- */
 .sidebar {
-    flex: 1; /* Takes up less space */
+    flex: 1;
+    /* Takes up less space */
     padding-top: 10px;
     min-width: 250px;
 }
@@ -254,7 +260,7 @@
     background-color: #f8f9fa;
     border-color: var(--accent-yellow);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .latest-img {
@@ -327,7 +333,7 @@
 
 .related-project-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-color: var(--accent-yellow);
 }
 
@@ -396,22 +402,28 @@
     .project-content-layout {
         flex-direction: column;
     }
-    .main-content, .sidebar {
+
+    .main-content,
+    .sidebar {
         flex: none;
         width: 100%;
     }
+
     .project-gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media (max-width: 600px) {
     .project-gallery-grid {
         grid-template-columns: 1fr;
     }
+
     .captcha-and-submit {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .submit-button {
         width: 100%;
         margin-top: 15px;
