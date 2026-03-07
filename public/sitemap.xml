@@ -3,77 +3,105 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.gruhams.in/</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- About Page -->
+  <!-- Portfolio / Projects Page (High Priority Sitelink Candidate) -->
+  <url>
+    <loc>https://www.gruhams.in/portfolio</loc>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About Page (High Priority Sitelink Candidate) -->
   <url>
     <loc>https://www.gruhams.in/about</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Services Page (High Priority Sitelink Candidate) -->
+  <url>
+    <loc>https://www.gruhams.in/services</loc>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Contact Page (High Priority Sitelink Candidate) -->
+  <url>
+    <loc>https://www.gruhams.in/contact</loc>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Other Main Pages -->
+  <url>
+    <loc>https://www.gruhams.in/careers</loc>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gruhams.in/teams</loc>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gruhams.in/blogs</loc>
+    <lastmod>2024-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gruhams.in/publications</loc>
+    <lastmod>2024-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- Services Page -->
-  <url>
-    <loc>https://www.gruhams.in/services</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Portfolio Page -->
-  <url>
-    <loc>https://www.gruhams.in/portfolio</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-
-  <!-- Contact Page -->
-  <url>
-    <loc>https://www.gruhams.in/contact</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Project Pages -->
+  <!-- Project Detail Pages -->
   <url>
     <loc>https://www.gruhams.in/portfolio/jayachandra-residence</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.gruhams.in/portfolio/aditya-villa</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.gruhams.in/portfolio/brindavanam-apartment</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.gruhams.in/portfolio/kumar-residence</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.gruhams.in/portfolio/sharma-commercial</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -1,0 +1,335 @@
+/* Careers Section Styling - Matching Portfolio/About Theme */
+.careers-page-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Header Section */
+.careers-header {
+    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #111820 0%, #1e293b 100%);
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.careers-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(191, 169, 116, 0.15), transparent 50%),
+        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05), transparent 50%);
+    pointer-events: none;
+}
+
+.careers-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 24px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.careers-title span {
+    color: #bfa974;
+    text-shadow: 0 0 20px rgba(191, 169, 116, 0.4);
+}
+
+.header-divider-careers {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #bfa974, transparent);
+    margin: 32px auto;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(191, 169, 116, 0.5);
+}
+
+.careers-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 10px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 1;
+    text-align: center !important;
+    width: 100%;
+}
+
+
+/* Jobs Section */
+.jobs-section {
+    width: 100%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 40px 5% 80px;
+    box-sizing: border-box;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.job-item {
+    text-align: left;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(191, 169, 116, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.job-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 249, 250, 0.5) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.job-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(191, 169, 116, 0.15);
+    border-color: rgba(191, 169, 116, 0.4);
+}
+
+.job-item:hover::before {
+    opacity: 1;
+}
+
+.job-line {
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(135deg, #bfa974, #9c8658);
+    margin-bottom: 24px;
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.job-item:hover .job-line {
+    width: 80px;
+}
+
+.job-title-container {
+    margin-bottom: 20px;
+}
+
+.job-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.job-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.job-badge {
+    padding: 8px 16px;
+    border-radius: 8px;
+    /* Changed from pill to rounded rectangle for a more modern edge */
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.job-badge.type {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border: 1px solid rgba(44, 62, 80, 0.1);
+}
+
+.job-badge.location {
+    background-color: rgba(191, 169, 116, 0.08);
+    color: #9c8658;
+    border: 1px solid rgba(191, 169, 116, 0.2);
+}
+
+.job-badge.experience {
+    background-color: #ffffff;
+    color: #7f8c8d;
+    border: 1px solid #e9ecef;
+}
+
+.job-item:hover .job-badge {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.job-roles-section {
+    flex-grow: 1;
+    margin-bottom: 32px;
+}
+
+.job-roles-title {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.job-roles-list {
+    color: #595959;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.job-roles-list li {
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+.job-roles-list li::marker {
+    color: #7f8c8d;
+}
+
+.job-roles-list li:last-child {
+    margin-bottom: 0;
+}
+
+.job-action {
+    margin-top: auto;
+}
+
+
+/* General Application Section */
+.general-application-section {
+    width: 100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 60px 5% 100px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.general-app-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(191, 169, 116, 0.2);
+}
+
+.general-app-title {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 16px;
+}
+
+.general-app-text {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 32px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .careers-header {
+        padding: 60px 20px 30px;
+    }
+
+    .careers-title {
+        font-size: 2.5rem;
+    }
+
+    .careers-subtitle {
+        font-size: 1rem;
+    }
+
+    .jobs-section {
+        padding: 30px 20px 60px;
+    }
+
+    .general-application-section {
+        padding: 40px 20px 80px;
+    }
+
+    .jobs-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .job-item {
+        padding: 24px;
+        width: 100%;
+    }
+
+    .job-title {
+        font-size: 1.3rem;
+    }
+
+    .general-app-content {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .careers-title {
+        font-size: 2rem;
+    }
+
+    .jobs-section {
+        padding: 20px 15px 40px;
+    }
+
+    .job-item {
+        padding: 20px;
+    }
+}

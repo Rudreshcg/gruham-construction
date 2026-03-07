@@ -8,6 +8,7 @@ import Portfolio from "../Portfolio/Portfolio";
 import ProjectPage from "../Pages/ProjectPage"; // dynamic page
 import Teams from "../Teams/Teams";
 import Publications from "../Publications/Publications";
+import Careers from "../Careers/Careers";
 
 export const routes = [
   { name: "Home", component: Home, path: "" },
@@ -19,5 +20,6 @@ export const routes = [
   { name: "BlogDetail", component: BlogDetail, path: "blogs/:slug" }, // dynamic route
   { name: "Publications", component: Publications, path: "publications" },
   { name: "Teams", component: Teams, path: "teams" },
+  { name: "Careers", component: Careers, path: "careers" },
   { name: "Contact", component: Contact, path: "contact" },
 ];

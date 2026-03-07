@@ -41,6 +41,7 @@ const Header = () => {
     { tabName: "TEAMS", to: "/teams" },
     { tabName: "PUBLICATIONS", to: "/publications" },
     { tabName: "BLOGS", to: "/blogs" },
+    { tabName: "CAREERS", to: "/careers" },
     { tabName: "CONTACT", to: "/contact" },
   ];
 
@@ -90,7 +91,7 @@ const Header = () => {
                   sx={{
                     color:
                       (params["*"] === "" && tab.to === "/") ||
-                      (params["*"] !== "" && tab.to.includes(params["*"]))
+                        (params["*"] !== "" && tab.to.includes(params["*"]))
                         ? "#C2B280"
                         : "#4A4A4A",
                     p: "16px 24px",
@@ -119,7 +120,7 @@ const Header = () => {
             }}
             onClick={toggleDrawer}
           >
-            {drawerOpen ? <CloseIcon /> : <MenuIcon fontSize="large"/>}
+            {drawerOpen ? <CloseIcon /> : <MenuIcon fontSize="large" />}
           </IconButton>
         </Toolbar>
         <Divider sx={{ width: "100%" }} />
@@ -146,7 +147,7 @@ const Header = () => {
                 sx={{
                   color:
                     (params["*"] === "" && tab.to === "/") ||
-                    (params["*"] !== "" && tab.to.includes(params["*"]))
+                      (params["*"] !== "" && tab.to.includes(params["*"]))
                       ? "#C2B280"
                       : "white",
                   width: "100vw",

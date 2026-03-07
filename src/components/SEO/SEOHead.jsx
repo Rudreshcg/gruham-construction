@@ -9,13 +9,13 @@ const SEOHead = ({
   ogType = "website",
   structuredData
 }) => {
-  const defaultTitle = "Gruham's Construction - Leading Construction Company in Bangalore";
-  const defaultDescription = "Gruham's Construction is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.";
-  const defaultKeywords = "construction company Bangalore, Gruham construction, Gruham's, Gruhams, gruham, gruhams construction, construction services, home construction, commercial construction, interior design, renovation, building contractor, Bangalore construction, luxury construction, residential construction, architectural services, construction management, Gruhams construction Bangalore, gruham construction company, gruhams construction services";
+  const defaultTitle = "Gruhams - Leading Construction Company in Bangalore";
+  const defaultDescription = "Gruhams is a premier construction company in Bangalore specializing in luxury homes, commercial buildings, interior design, and renovation services.";
+  const defaultKeywords = "Gruhams, gruhams, Gruhams Construction, gruhams construction, construction company Bangalore, gruham, gruham construction, construction services, home construction, commercial construction, interior design, renovation, building contractor, Bangalore construction, luxury construction, residential construction, architectural services";
   const defaultOgImage = "https://www.gruhams.in/src/assets/images/Logo.png";
   const siteUrl = "https://www.gruhams.in";
 
-  const finalTitle = title ? `${title} | Gruham's Construction` : defaultTitle;
+  const finalTitle = title ? `${title} | Gruhams` : defaultTitle;
   const finalDescription = description || defaultDescription;
   const finalKeywords = keywords ? `${defaultKeywords}, ${keywords}` : defaultKeywords;
   const finalCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
@@ -29,7 +29,7 @@ const SEOHead = ({
     const updateMetaTag = (name, content, property = false) => {
       const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
       let metaTag = document.querySelector(selector);
-      
+
       if (!metaTag) {
         metaTag = document.createElement('meta');
         if (property) {
@@ -58,7 +58,7 @@ const SEOHead = ({
     updateMetaTag('description', finalDescription);
     updateMetaTag('keywords', finalKeywords);
     updateMetaTag('robots', 'index, follow');
-    updateMetaTag('author', "Gruham's Construction");
+    updateMetaTag('author', "Gruhams");
     updateMetaTag('language', 'English');
     updateMetaTag('revisit-after', '7 days');
 
@@ -68,7 +68,7 @@ const SEOHead = ({
     updateMetaTag('og:title', finalTitle, true);
     updateMetaTag('og:description', finalDescription, true);
     updateMetaTag('og:image', finalOgImage, true);
-    updateMetaTag('og:site_name', "Gruham's Construction", true);
+    updateMetaTag('og:site_name', "Gruhams", true);
     updateMetaTag('og:locale', 'en_IN', true);
 
     // Twitter tags

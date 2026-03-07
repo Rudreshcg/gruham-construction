@@ -123,6 +123,15 @@ const Footer = () => {
                 >
                   Terms & Conditions
                 </MuiLink>
+                <MuiLink
+                  component={RouterLink}
+                  to="/careers"
+                  color="inherit"
+                  underline="hover"
+                  sx={{ fontWeight: 500, cursor: 'pointer' }}
+                >
+                  Careers
+                </MuiLink>
               </Box>
             </motion.div>
           </Grid>
