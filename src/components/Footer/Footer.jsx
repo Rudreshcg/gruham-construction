@@ -132,6 +132,15 @@ const Footer = () => {
                 >
                   Careers
                 </MuiLink>
+                <MuiLink
+                  href="https://gruhams.construct.sevenr.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  underline="hover"
+                  sx={{ fontWeight: 700, cursor: 'pointer', color: '#bfa974' }}
+                >
+                  Client & Employee Login
+                </MuiLink>
               </Box>
             </motion.div>
           </Grid>

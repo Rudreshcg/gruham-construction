@@ -105,6 +105,28 @@ const Header = () => {
                 </Button>
               );
             })}
+            <Button
+              color="inherit"
+              component="a"
+              href="https://gruhams.construct.sevenr.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                ml: 2,
+                color: "#bfa974",
+                border: "1px solid #bfa974",
+                borderRadius: "4px",
+                p: "8px 16px",
+                fontWeight: 600,
+                alignSelf: "center",
+                "&:hover": {
+                  color: "#fff",
+                  backgroundColor: "#bfa974",
+                },
+              }}
+            >
+              CRM LOGIN
+            </Button>
           </DesktopMenu>
           <IconButton
             edge="start"
@@ -137,7 +159,7 @@ const Header = () => {
           }}
         >
           {tabMenu.map((tab, index) => (
-            <>
+            <React.Fragment key={tab.to}>
               <Divider sx={{ backgroundColor: "white" }} variant="fullWidth" />
               <MenuItem
                 key={tab.to}
@@ -165,12 +187,39 @@ const Header = () => {
                 {tab.tabName}
               </MenuItem>
               {index === tabMenu.length - 1 && (
-                <Divider
-                  sx={{ backgroundColor: "white" }}
-                  variant="fullWidth"
-                />
+                <>
+                  <Divider
+                    sx={{ backgroundColor: "white" }}
+                    variant="fullWidth"
+                  />
+                  <MenuItem
+                    button
+                    component="a"
+                    href="https://gruhams.construct.sevenr.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: "#bfa974",
+                      width: "100vw",
+                      display: "flex",
+                      alignItems: "center",
+                      fontWeight: 600,
+                      "&:hover": {
+                        color: "#fff",
+                        backgroundColor: "#bfa974",
+                      },
+                    }}
+                    onClick={toggleDrawer}
+                  >
+                    CRM LOGIN
+                  </MenuItem>
+                  <Divider
+                    sx={{ backgroundColor: "white" }}
+                    variant="fullWidth"
+                  />
+                </>
               )}
-            </>
+            </React.Fragment>
           ))}
         </Box>
       )}
