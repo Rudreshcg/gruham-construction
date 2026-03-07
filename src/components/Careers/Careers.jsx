@@ -94,16 +94,71 @@ const Careers = () => {
             />
 
             {/* Header Section */}
-            <Box className="careers-header">
+            <Box
+                className="careers-header"
+                sx={{
+                    py: { xs: 6, md: 10 },
+                    background: "linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)",
+                    position: "relative",
+                    overflow: "hidden",
+                    "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "1px",
+                        background: "linear-gradient(90deg, transparent, rgba(191, 169, 116, 0.3), transparent)",
+                    }
+                }}
+            >
                 <Container maxWidth="lg">
                     <motion.div variants={FadeIn} initial="hidden" animate="visible">
-                        <Typography variant="h2" className="careers-title">
-                            Join Our <span>Team</span>
-                        </Typography>
-                        <div className="header-divider-careers"></div>
-                        <Typography variant="body1" className="careers-subtitle" align="center" sx={{ mt: 3, mx: "auto", display: "block" }}>
-                            Build your path with Bangalore's leading construction firm. Discover opportunities, shape skyline's, and construct a legacy with Gruhams.
-                        </Typography>
+                        <Box sx={{ textAlign: "center" }}>
+                            <Typography
+                                variant="h2"
+                                className="careers-title"
+                                sx={{
+                                    fontFamily: "'Playfair Display', serif",
+                                    fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.2rem" },
+                                    color: "#2c3e50",
+                                    fontWeight: 800,
+                                    letterSpacing: "-0.02em",
+                                    mb: 2,
+                                    position: "relative",
+                                    "&::after": {
+                                        content: '""',
+                                        position: "absolute",
+                                        bottom: "-8px",
+                                        left: "50%",
+                                        transform: "translateX(-50%)",
+                                        width: "60px",
+                                        height: "3px",
+                                        background: "linear-gradient(135deg, #bfa974, #9c8658)",
+                                        borderRadius: "2px",
+                                    }
+                                }}
+                            >
+                                Join Our Team
+                            </Typography>
+                            <Typography
+                                variant="h3"
+                                className="careers-subtitle"
+                                align="center"
+                                sx={{
+                                    color: "#7f8c8d",
+                                    fontFamily: "'Montserrat', sans-serif",
+                                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                                    fontWeight: 400,
+                                    letterSpacing: "0.01em",
+                                    maxWidth: "700px",
+                                    mx: "auto",
+                                    lineHeight: 1.6,
+                                }}
+                            >
+                                Build your path with Bangalore's leading construction firm. Discover opportunities, shape skyline's, and construct a legacy with Gruhams.
+                            </Typography>
+                        </Box>
                     </motion.div>
                 </Container>
             </Box>

@@ -7,69 +7,7 @@
     box-sizing: border-box;
 }
 
-/* Header Section */
-.careers-header {
-    padding: 100px 0 80px;
-    background: linear-gradient(135deg, #111820 0%, #1e293b 100%);
-    color: #ffffff;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.careers-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(191, 169, 116, 0.15), transparent 50%),
-        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05), transparent 50%);
-    pointer-events: none;
-}
-
-.careers-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 24px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-}
-
-.careers-title span {
-    color: #bfa974;
-    text-shadow: 0 0 20px rgba(191, 169, 116, 0.4);
-}
-
-.header-divider-careers {
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #bfa974, transparent);
-    margin: 32px auto;
-    border-radius: 2px;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 15px rgba(191, 169, 116, 0.5);
-}
-
-.careers-subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 10px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    z-index: 1;
-    text-align: center !important;
-    width: 100%;
-}
-
+/* Header Section removed - now handled via MUI sx props to match Publications exactly */
 
 /* Jobs Section */
 .jobs-section {
@@ -280,18 +218,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .careers-header {
-        padding: 60px 20px 30px;
-    }
-
-    .careers-title {
-        font-size: 2.5rem;
-    }
-
-    .careers-subtitle {
-        font-size: 1rem;
-    }
-
     .jobs-section {
         padding: 30px 20px 60px;
     }
@@ -321,10 +247,6 @@
 }
 
 @media (max-width: 480px) {
-    .careers-title {
-        font-size: 2rem;
-    }
-
     .jobs-section {
         padding: 20px 15px 40px;
     }
