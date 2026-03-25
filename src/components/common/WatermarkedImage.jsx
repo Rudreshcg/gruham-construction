@@ -8,10 +8,10 @@ const WatermarkedImage = ({ src, watermarkSrc, alt, className, style, onClick })
     if (!src || !watermarkSrc) return;
 
     const img = new Image();
-    img.crossOrigin = "anonymous";
+    img.onerror = () => setDataUrl(src);
     img.onload = () => {
       const watermark = new Image();
-      watermark.crossOrigin = "anonymous";
+      watermark.onerror = () => setDataUrl(src);
       watermark.onload = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -22,10 +22,10 @@ const WatermarkedImage = ({ src, watermarkSrc, alt, className, style, onClick })
         
         ctx.drawImage(img, 0, 0);
         
-        // Calculate watermark size: 25% of image width by default, scaled proportionally
-        let watermarkWidth = canvas.width * 0.25;
-        if (watermarkWidth > 500) watermarkWidth = 500;
-        if (watermarkWidth < 120) watermarkWidth = 120;
+        // Calculate watermark size: 15% of image width by default, scaled proportionally
+        let watermarkWidth = canvas.width * 0.15;
+        if (watermarkWidth > 300) watermarkWidth = 300;
+        if (watermarkWidth < 80) watermarkWidth = 80;
         
         const watermarkHeight = (watermark.naturalHeight / watermark.naturalWidth) * watermarkWidth;
         

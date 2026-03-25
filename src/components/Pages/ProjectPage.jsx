@@ -12,13 +12,23 @@ const latestProjects = projectsData.latestProjects;
 
 // --- Sub-Components ---
 const Gallery = ({ images }) => {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedIndex, setSelectedIndex] = useState(null);
+
+    const handleNext = (e) => {
+        e.stopPropagation();
+        setSelectedIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+
+    const handlePrev = (e) => {
+        e.stopPropagation();
+        setSelectedIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
 
     return (
         <>
             <div className="project-gallery-grid">
-                {images.map(img => (
-                    <div key={img.id} onClick={() => setSelectedImage(img.src)} style={{ cursor: 'pointer', display: 'block' }}>
+                {images.map((img, index) => (
+                    <div key={img.id} onClick={() => setSelectedIndex(index)} style={{ cursor: 'pointer', display: 'block' }}>
                         <WatermarkedImage 
                             src={img.src} 
                             alt={img.alt} 
@@ -29,11 +39,24 @@ const Gallery = ({ images }) => {
                 ))}
             </div>
 
-            {selectedImage && (
-                <div className="viewer-backdrop" onClick={() => setSelectedImage(null)}>
+            {selectedIndex !== null && (
+                <div className="viewer-backdrop" onClick={() => setSelectedIndex(null)}>
                   <div className="viewer-content" onClick={(e) => e.stopPropagation()}>
-                    <button className="viewer-close" onClick={() => setSelectedImage(null)}>&times;</button>
-                    <WatermarkedImage src={selectedImage} alt="Full Size" className="viewer-image" watermarkSrc={Logo} />
+                    <button className="viewer-close" onClick={() => setSelectedIndex(null)}>&times;</button>
+                    
+                    <button className="viewer-nav viewer-prev" onClick={handlePrev}>&#10094;</button>
+                    <button className="viewer-nav viewer-next" onClick={handleNext}>&#10095;</button>
+
+                    <WatermarkedImage 
+                      src={images[selectedIndex].src} 
+                      alt={images[selectedIndex].alt || "Gallery Image"} 
+                      className="viewer-image" 
+                      watermarkSrc={Logo} 
+                    />
+                    
+                    <div className="viewer-counter">
+                        {selectedIndex + 1} / {images.length}
+                    </div>
                   </div>
                 </div>
             )}
