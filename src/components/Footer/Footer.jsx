@@ -187,7 +187,7 @@ const Footer = () => {
                 Gruham's
               </Typography>
               <Typography variant="body2" mt={1}>
-                3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
+                Sree Sai heights , 3rd floor ideal home town ship Rajarajeshwari Nagar Bangalore - 560098
               </Typography>
             </motion.div>
           </Grid>

@@ -166,7 +166,7 @@ export default function Contact() {
     } catch (err) {
       setError(
         err?.message ||
-          "Something went wrong while submitting the form. Please try again."
+        "Something went wrong while submitting the form. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -197,7 +197,7 @@ export default function Contact() {
             },
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar",
+              "streetAddress": "Sree Sai heights , 3rd floor ideal home town ship Rajarajeshwari Nagar",
               "addressLocality": "Bengaluru",
               "addressRegion": "Karnataka",
               "postalCode": "560098",
@@ -299,7 +299,7 @@ export default function Contact() {
                   <LocationOnOutlined />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Address</Typography>
-                    <Typography>3rd floor, Corporation Bank, Sri sai heights, 456 C, 1st Main Rd, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098</Typography>
+                    <Typography>Sree Sai heights , 3rd floor ideal home town ship Rajarajeshwari Nagar Bangalore - 560098</Typography>
                   </Box>
                 </ContactItem>
 
