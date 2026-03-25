@@ -205,8 +205,14 @@ function ProjectPage() {
     return (
         <div className="project-page">
             {/* Banner */}
-            <div className="project-banner" style={{ backgroundImage: `url('${project.mainImage}')` }}>
-                <div className="banner-overlay">
+            <div className="project-banner" style={{ position: 'relative' }}>
+                <WatermarkedImage 
+                    src={project.mainImage} 
+                    alt={project.name} 
+                    watermarkSrc={Logo}
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }} 
+                />
+                <div className="banner-overlay" style={{ zIndex: 1 }}>
                     <h1>{project.name}</h1>
                     <p className="project-meta">admin | {project.date}</p>
                 </div>
