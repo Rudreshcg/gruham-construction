@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import PortfolioCard from './PortfolioCard';
 import './PortfolioSection.css';
 import projectsData from '../../data/projects.json';
+import Logo from '../../assets/images/Logo.png';
+import WatermarkedImage from '../common/WatermarkedImage';
 
 function PortfolioSection() {
   const [projects, setProjects] = useState([]);
   const [filter, setFilter] = useState('all');
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     // Transform JSON data - images are now direct paths in the JSON
@@ -79,10 +82,21 @@ function PortfolioSection() {
               status={project.status} // Pass status prop
               date={project.date}
               link={project.link}
+              onImageClick={(img) => setSelectedImage(img)}
             />
           </div>
         ))}
       </div>
+
+      {/* Image Viewer Modal */}
+      {selectedImage && (
+        <div className="viewer-backdrop" onClick={() => setSelectedImage(null)}>
+          <div className="viewer-content" onClick={(e) => e.stopPropagation()}>
+            <button className="viewer-close" onClick={() => setSelectedImage(null)}>&times;</button>
+            <WatermarkedImage src={selectedImage} alt="Full Size" className="viewer-image" watermarkSrc={Logo} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -137,7 +137,7 @@ const Header = () => {
                 },
               }}
             >
-              CRM LOGIN
+              LOGIN
             </Button>
           </DesktopMenu>
 
@@ -245,7 +245,7 @@ const Header = () => {
               },
             }}
           >
-            CRM LOGIN
+            LOGIN
           </MenuItem>
           <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
         </Box>

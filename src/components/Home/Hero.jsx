@@ -3,8 +3,7 @@ import { Box, Container, Typography, Button, Stack, Chip } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import landingPageImageWebp from "../../assets/images/cinematic_construction_site_1770998328263.png";
-import landingPageImageJpg from "../../assets/images/heros_image.jpg";
+import heroImage from "../../assets/images/luxury_villa_hero.png";
 import ContactUsModal from "./ContactUsModal";
 import { homeTheme } from "./sectionStyles";
 
@@ -72,38 +71,23 @@ const Hero = () => {
           overflow: "hidden",
         }}
       >
-        <picture>
-          <source srcSet={landingPageImageWebp} type="image/webp" />
-          <img
-            src={landingPageImageJpg}
-            alt="Luxury Living Spaces"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </picture>
+        <img
+          src={heroImage}
+          alt="Luxury Living Spaces"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
       </motion.div>
 
       <Box
         sx={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(120deg, rgba(8,12,20,0.92) 0%, rgba(10,18,30,0.88) 45%, rgba(8,12,20,0.82) 100%)",
+          background: "linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.75) 50%, rgba(10, 10, 10, 0.9) 100%)",
           zIndex: 1,
         }}
       />
 
-      <Box
-        sx={{
-          position: "absolute",
-          top: "-40%",
-          right: "-10%",
-          width: { xs: "320px", md: "520px" },
-          height: "160%",
-          background: "radial-gradient(circle at center, rgba(191,169,116,0.35), transparent 70%)",
-          filter: "blur(0px)",
-          opacity: 0.3,
-          zIndex: 1,
-        }}
-      />
+      {/* Radial glow removed for better text contrast */}
 
       <Container
         maxWidth="md"
@@ -137,16 +121,13 @@ const Hero = () => {
               <Typography
                 component="h1"
                 sx={{
-                  fontFamily: homeTheme.fonts.heading,
-                  fontSize: { xs: "3rem", sm: "3.6rem", md: "4.2rem" },
-                  fontWeight: 800,
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: { xs: "4rem", sm: "4.8rem", md: "5.5rem" },
+                  fontWeight: 700,
                   lineHeight: 1.05,
-                  letterSpacing: "-0.03em",
-                  background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  textShadow: "0 16px 32px rgba(0,0,0,0.32)",
+                  letterSpacing: "0.02em",
+                  color: "#bca061",
+                  textShadow: "0 4px 20px rgba(0,0,0,1)",
                 }}
               >
                 Gruham&apos;s
@@ -156,10 +137,11 @@ const Hero = () => {
                 sx={{
                   mt: 1.5,
                   fontFamily: homeTheme.fonts.body,
-                  fontWeight: 600,
-                  letterSpacing: "0.04em",
+                  fontWeight: 500,
+                  letterSpacing: "0.25em",
                   textTransform: "uppercase",
-                  color: "rgba(247, 244, 236, 0.75)",
+                  color: "rgba(255, 255, 255, 1)",
+                  textShadow: "0 2px 8px rgba(0,0,0,0.8)",
                 }}
               >
                 Design • Build • Inspire
@@ -169,10 +151,11 @@ const Hero = () => {
             <Typography
               variant="body1"
               sx={{
-                color: "rgba(247, 244, 236, 0.9)",
+                color: "rgba(255, 255, 255, 1)",
                 fontFamily: homeTheme.fonts.body,
                 fontSize: { xs: "1.05rem", md: "1.18rem" },
                 lineHeight: 1.75,
+                textShadow: "0 2px 8px rgba(0,0,0,0.8)",
                 maxWidth: "640px",
               }}
             >
@@ -180,11 +163,9 @@ const Hero = () => {
               <Box
                 component="span"
                 sx={{
-                  background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
+                  color: "#bca061",
                   fontWeight: 600,
+                  textShadow: "0 2px 8px rgba(0,0,0,0.8)",
                 }}
               >
                 seamlessly and beautifully.

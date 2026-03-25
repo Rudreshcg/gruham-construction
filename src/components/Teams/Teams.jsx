@@ -27,10 +27,15 @@ const Teams = () => {
             image: null,
         },
         {
+            name: "Darshan KG",
+            title: "DESIGNING HEAD",
+            image: null,
+        },
+        {
             name: "Rudresh",
             title: "SOFTWARE ENGINEER & WEB DEVELOPER",
             image: null,
-        }
+        },
     ];
 
     const [isVisible, setIsVisible] = useState(false);

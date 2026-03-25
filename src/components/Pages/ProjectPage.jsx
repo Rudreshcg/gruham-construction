@@ -1,20 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProjectPage.css'; // Main page styles
+import '../Portfolio/PortfolioSection.css'; // Import viewer modal styles
 import { useParams, useNavigate } from "react-router-dom";
 import projectsData from '../../data/projects.json';
+import WatermarkedImage from '../common/WatermarkedImage';
+import Logo from '../../assets/images/Logo.png';
 
 // --- Project Data from JSON ---
 const projects = projectsData.projects;
 const latestProjects = projectsData.latestProjects;
 
 // --- Sub-Components ---
-const Gallery = ({ images }) => (
-    <div className="project-gallery-grid">
-        {images.map(img => (
-            <img key={img.id} src={img.src} alt={img.alt} className="gallery-img" />
-        ))}
-    </div>
-);
+const Gallery = ({ images }) => {
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    return (
+        <>
+            <div className="project-gallery-grid">
+                {images.map(img => (
+                    <div key={img.id} onClick={() => setSelectedImage(img.src)} style={{ cursor: 'pointer', display: 'block' }}>
+                        <WatermarkedImage 
+                            src={img.src} 
+                            alt={img.alt} 
+                            className="gallery-img" 
+                            watermarkSrc={Logo} 
+                        />
+                    </div>
+                ))}
+            </div>
+
+            {selectedImage && (
+                <div className="viewer-backdrop" onClick={() => setSelectedImage(null)}>
+                  <div className="viewer-content" onClick={(e) => e.stopPropagation()}>
+                    <button className="viewer-close" onClick={() => setSelectedImage(null)}>&times;</button>
+                    <WatermarkedImage src={selectedImage} alt="Full Size" className="viewer-image" watermarkSrc={Logo} />
+                  </div>
+                </div>
+            )}
+        </>
+    );
+};
 
 const RelatedProjects = ({ currentProjectId }) => {
     const navigate = useNavigate();

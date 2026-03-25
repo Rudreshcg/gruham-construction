@@ -21,6 +21,62 @@
   position: relative;
   height: 280px;
   overflow: hidden;
+  cursor: pointer;
+}
+
+/* Hover overlay and icon */
+.card-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.portfolio-card:hover .card-image-container::after {
+  opacity: 1;
+}
+
+.hover-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  background: rgba(156, 134, 88, 0.9);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.portfolio-card:hover .hover-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hover-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.watermark-logo-img {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.8;
+  width: 90px;
+  height: auto;
+  filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.6));
 }
 
 .card-image {
@@ -38,15 +94,16 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  background: linear-gradient(135deg, #bfa974, #9c8658);
-  color: white;
-  padding: 6px 12px;
+  background: #ffffff;
+  color: #9c8658;
+  padding: 8px 18px;
   border-radius: 20px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(191, 169, 116, 0.3);
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 4;
 }
 
 .card-content {
@@ -76,6 +133,7 @@
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
