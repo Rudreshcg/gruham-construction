@@ -9,14 +9,15 @@ import {
   useMediaQuery,
   useTheme,
   MenuItem,
+  Menu,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link as RouterLink, useParams } from "react-router-dom";
 import { styled } from "@mui/system";
 import Logo from "../../assets/images/Logo.png";
 
-// Desktop nav only shows at lg (1200px+) to avoid overflow on tablets
 const DesktopMenu = styled("div")(({ theme }) => ({
   display: "none",
   alignItems: "center",
@@ -29,32 +30,68 @@ const Header = () => {
   const theme = useTheme();
   const params = useParams();
 
-  // Show hamburger for everything below lg (1200px)
   const isTabletOrMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setDrawerOpen((prev) => !prev);
+  // Dropdown states
+  const [aboutAnchorEl, setAboutAnchorEl] = useState(null);
+  const [mediaAnchorEl, setMediaAnchorEl] = useState(null);
+
+  const toggleDrawer = () => setDrawerOpen((prev) => !prev);
+  const closeDrawer = () => setDrawerOpen(false);
+
+  // Dropdown handlers
+  const handleAboutClick = (event) => setAboutAnchorEl(event.currentTarget);
+  const handleAboutClose = () => setAboutAnchorEl(null);
+
+  const handleMediaClick = (event) => setMediaAnchorEl(event.currentTarget);
+  const handleMediaClose = () => setMediaAnchorEl(null);
+
+  const isActive = (pathArray) => {
+    const currentPath = "/" + (params["*"] || "");
+    return pathArray.some(p => {
+      if (p === "/") return currentPath === "/";
+      return currentPath.startsWith(p);
+    });
   };
 
-  const closeDrawer = () => {
-    setDrawerOpen(false);
-  };
+  const navButtonStyles = (activeFlag) => ({
+    color: activeFlag ? "#C2B280" : "#4A4A4A",
+    px: "16px",
+    py: "8px",
+    fontSize: "0.85rem",
+    fontWeight: 600,
+    letterSpacing: "0.05em",
+    whiteSpace: "nowrap",
+    minWidth: "auto",
+    "&:hover": {
+      color: "#C2B280",
+      backgroundColor: "transparent",
+    },
+  });
 
-  const tabMenu = [
-    { tabName: "HOME", to: "/" },
-    { tabName: "OUR STORY", to: "/about" },
-    { tabName: "PORTFOLIO", to: "/portfolio" },
-    { tabName: "TEAMS", to: "/teams" },
-    { tabName: "PUBLICATIONS", to: "/publications" },
-    { tabName: "BLOGS", to: "/blogs" },
-    { tabName: "CAREERS", to: "/careers" },
-    { tabName: "CONTACT", to: "/contact" },
-  ];
-
-  const isActive = (to) =>
-    (params["*"] === "" && to === "/") ||
-    (params["*"] !== "" && to.includes(params["*"]));
+  const generateMobileLink = (name, to) => (
+    <MenuItem
+      key={to}
+      component={RouterLink}
+      to={to}
+      onClick={closeDrawer}
+      sx={{
+        color: isActive([to]) ? "#C2B280" : "white",
+        py: 2,
+        px: 4,
+        fontSize: "1rem",
+        fontWeight: 500,
+        letterSpacing: "0.08em",
+        "&:hover": {
+          color: "#C2B280",
+          backgroundColor: "rgba(255,255,255,0.04)",
+        },
+      }}
+    >
+      {name}
+    </MenuItem>
+  );
 
   return (
     <>
@@ -83,54 +120,83 @@ const Header = () => {
             <RouterLink to="/" style={{ textDecoration: "none" }}>
               <img
                 src={Logo}
-                alt="Gruham's Construction - Leading Construction Company in Bangalore"
+                alt="Gruham's Construction"
                 style={{ height: "56px", width: "auto", display: "block" }}
               />
             </RouterLink>
           </Box>
 
-          {/* Desktop / large screen nav */}
+          {/* Desktop Nav */}
           <DesktopMenu>
-            {tabMenu.map((tab) => (
-              <Button
-                key={tab.to}
-                color="inherit"
-                component={RouterLink}
-                to={tab.to}
-                sx={{
-                  color: isActive(tab.to) ? "#C2B280" : "#4A4A4A",
-                  px: "14px",
-                  py: "8px",
-                  fontSize: "0.78rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.05em",
-                  whiteSpace: "nowrap",
-                  minWidth: "auto",
-                  "&:hover": {
-                    color: "#C2B280",
-                    backgroundColor: "transparent",
-                  },
-                }}
-              >
-                {tab.tabName}
-              </Button>
-            ))}
+            <Button component={RouterLink} to="/" sx={navButtonStyles(isActive(["/"]))}>
+              HOME
+            </Button>
+
+            {/* About Dropdown */}
             <Button
-              color="inherit"
+              onClick={handleAboutClick}
+              endIcon={<KeyboardArrowDownIcon />}
+              sx={navButtonStyles(isActive(["/about", "/teams", "/careers"]))}
+            >
+              ABOUT US
+            </Button>
+            <Menu
+              anchorEl={aboutAnchorEl}
+              open={Boolean(aboutAnchorEl)}
+              onClose={handleAboutClose}
+              MenuListProps={{ onMouseLeave: handleAboutClose }}
+              elevation={2}
+            >
+              <MenuItem component={RouterLink} to="/about" onClick={handleAboutClose}>Our Story</MenuItem>
+              <MenuItem component={RouterLink} to="/teams" onClick={handleAboutClose}>Teams</MenuItem>
+              <MenuItem component={RouterLink} to="/careers" onClick={handleAboutClose}>Careers</MenuItem>
+            </Menu>
+
+            <Button component={RouterLink} to="/portfolio" sx={navButtonStyles(isActive(["/portfolio"]))}>
+              PORTFOLIO
+            </Button>
+
+            <Button component={RouterLink} to="/packages" sx={navButtonStyles(isActive(["/packages"]))}>
+              PACKAGES
+            </Button>
+
+            {/* Media Dropdown */}
+            <Button
+              onClick={handleMediaClick}
+              endIcon={<KeyboardArrowDownIcon />}
+              sx={navButtonStyles(isActive(["/publications", "/blogs"]))}
+            >
+              MEDIA
+            </Button>
+            <Menu
+              anchorEl={mediaAnchorEl}
+              open={Boolean(mediaAnchorEl)}
+              onClose={handleMediaClose}
+              MenuListProps={{ onMouseLeave: handleMediaClose }}
+              elevation={2}
+            >
+              <MenuItem component={RouterLink} to="/publications" onClick={handleMediaClose}>Publications</MenuItem>
+              <MenuItem component={RouterLink} to="/blogs" onClick={handleMediaClose}>Blogs</MenuItem>
+            </Menu>
+
+            <Button component={RouterLink} to="/contact" sx={navButtonStyles(isActive(["/contact"]))}>
+              CONTACT
+            </Button>
+
+            <Button
               component="a"
               href="https://gruhams.construct.sevenr.in"
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                ml: 1.5,
+                ml: 2,
                 color: "#bfa974",
                 border: "1px solid #bfa974",
                 borderRadius: "4px",
-                px: "14px",
-                py: "7px",
-                fontSize: "0.78rem",
+                px: "18px",
+                py: "8px",
+                fontSize: "0.85rem",
                 fontWeight: 600,
-                whiteSpace: "nowrap",
                 "&:hover": {
                   color: "#fff",
                   backgroundColor: "#bfa974",
@@ -141,7 +207,7 @@ const Header = () => {
             </Button>
           </DesktopMenu>
 
-          {/* Hamburger — visible on everything below lg */}
+          {/* Hamburger (Mobile) */}
           <IconButton
             edge="end"
             aria-label="menu"
@@ -158,7 +224,7 @@ const Header = () => {
         <Divider sx={{ width: "100%" }} />
       </AppBar>
 
-      {/* Mobile / tablet full-screen drawer */}
+      {/* Mobile / Tablet Drawer */}
       {drawerOpen && (
         <Box
           sx={{
@@ -170,10 +236,9 @@ const Header = () => {
             top: 0,
             left: 0,
             overflowY: "auto",
-            pt: "80px", // offset for the AppBar height
+            pt: "80px",
           }}
         >
-          {/* Close button inside drawer */}
           <Box
             sx={{
               position: "absolute",
@@ -201,31 +266,26 @@ const Header = () => {
             </IconButton>
           </Box>
 
-          {tabMenu.map((tab) => (
-            <React.Fragment key={tab.to}>
-              <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
-              <MenuItem
-                component={RouterLink}
-                to={tab.to}
-                onClick={closeDrawer}
-                sx={{
-                  color: isActive(tab.to) ? "#C2B280" : "white",
-                  py: 2,
-                  px: 4,
-                  fontSize: "1rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.08em",
-                  "&:hover": {
-                    color: "#C2B280",
-                    backgroundColor: "rgba(255,255,255,0.04)",
-                  },
-                }}
-              >
-                {tab.tabName}
-              </MenuItem>
-            </React.Fragment>
-          ))}
           <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("HOME", "/")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("OUR STORY", "/about")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("TEAMS", "/teams")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("PORTFOLIO", "/portfolio")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("PACKAGES", "/packages")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("PUBLICATIONS", "/publications")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("BLOGS", "/blogs")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("CAREERS", "/careers")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          {generateMobileLink("CONTACT", "/contact")}
+          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          
           <MenuItem
             component="a"
             href="https://gruhams.construct.sevenr.in"

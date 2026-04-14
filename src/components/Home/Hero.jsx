@@ -29,7 +29,7 @@ const Hero = () => {
     setIsFirstVisit(true);
     const timer = setTimeout(() => {
       setIsModalOpen(true);
-    }, 1500);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 

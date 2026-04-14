@@ -50,7 +50,7 @@
 .filter-btn {
   padding: 10px 24px;
   border: 1px solid transparent;
-  background: #3e4a40;
+  background: #bfa974;
   color: white;
   border-radius: 25px;
   font-weight: 600;
@@ -63,14 +63,14 @@
 }
 
 .filter-btn:hover {
-  background: #2a3026;
+  background: #9c8658;
   transform: translateY(-2px);
 }
 
 .filter-btn.active {
-  background: #3e4a40;
-  border: 1px solid #cca450;
-  box-shadow: 0 0 15px rgba(204, 164, 80, 0.6);
+  background: #9c8658;
+  border: 1px solid #bfa974;
+  box-shadow: 0 0 15px rgba(191, 169, 116, 0.6);
 }
 
 .portfolio-grid {

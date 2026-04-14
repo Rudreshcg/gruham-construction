@@ -1,0 +1,520 @@
+{
+  "packages": [
+    {
+      "id": "package-1",
+      "name": "Package - 1",
+      "price": "₹ 1,410/-",
+      "popular": false,
+      "features": {
+        "1. DESIGN": [
+          {"label": "Govt. License Assistance", "value": "Included"},
+          {"label": "Architectural Layout - 2D", "value": "Included"},
+          {"label": "Basic Elevation", "value": "Included"},
+          {"label": "3D Elevation", "value": "Included"},
+          {"label": "Luxury 3D Elevation (All Views)", "value": "Included"},
+          {"label": "Technical Floor Plan Presentation", "value": "Included"},
+          {"label": "Structural Design", "value": "Included"},
+          {"label": "Electrical Drawing", "value": "Included"},
+          {"label": "Plumbing Drawing", "value": "Included"},
+          {"label": "Furniture Plan", "value": "Included"}
+        ],
+        "2. CIVIL STRUCTURE": [
+          {"label": "Steel", "value": "TATA Tiscon 550SD"},
+          {"label": "Blocks", "value": "Solid Concrete 1800 kg/m³ | 4.5 N/mm²"},
+          {"label": "Cement - Block Work", "value": "Birla Super 53 OPC"},
+          {"label": "Cement - Plastering", "value": "Ultratech PPC"},
+          {"label": "Block Thickness", "value": "4\" & 6\""},
+          {"label": "RMC Concrete Mix", "value": "M25"},
+          {"label": "Clear Ceiling Height", "value": "11 ft"},
+          {"label": "Plinth Height from RL", "value": "2 ft"},
+          {"label": "Architectural Elements", "value": "Included"},
+          {"label": "UG Sump Capacity", "value": "10,000 L"},
+          {"label": "UG Sump Construction", "value": "RCC Wall"}
+        ],
+        "3. DOORS & WINDOWS": [
+          {"label": "Main Door Budget", "value": "—"},
+          {"label": "Puja Door Budget", "value": "—"},
+          {"label": "Room Door Budget", "value": "—"},
+          {"label": "Bathroom Door Budget", "value": "—"},
+          {"label": "Windows + Grills", "value": "—"},
+          {"label": "Window Opening %", "value": "—"}
+        ],
+        "4. TILES": [
+          {"label": "Living Room", "value": "—"},
+          {"label": "Bedroom & Kitchen", "value": "—"},
+          {"label": "Bathroom Wall", "value": "—"},
+          {"label": "Bathroom Floor", "value": "—"},
+          {"label": "Balcony", "value": "—"},
+          {"label": "Terrace", "value": "—"}
+        ],
+        "5. ELECTRICAL": [
+          {"label": "Points per 1,000 sq.ft.", "value": "—"},
+          {"label": "Wiring", "value": "—"},
+          {"label": "Conduits", "value": "—"},
+          {"label": "Switches & Plates", "value": "—"},
+          {"label": "DB & MCB", "value": "—"},
+          {"label": "Home Automation", "value": "—"}
+        ],
+        "6. KITCHEN": [
+          {"label": "Tile Dadoing (per sq.ft.)", "value": "—"},
+          {"label": "Kitchen Sink (budget)", "value": "—"},
+          {"label": "Kitchen Tap (budget)", "value": "—"},
+          {"label": "Utility Sink & Tap", "value": "—"},
+          {"label": "Kitchen Counter Top", "value": "—"},
+          {"label": "Hot Water Supply", "value": "—"}
+        ],
+        "7. PLUMBING": [
+          {"label": "Internal Plumbing", "value": "—"},
+          {"label": "External Plumbing", "value": "—"},
+          {"label": "Overhead Tank", "value": "—"},
+          {"label": "Provision for Heat Pump", "value": "—"},
+          {"label": "Rainwater Harvesting", "value": "—"},
+          {"label": "Separate Pipe - Rainwater", "value": "—"},
+          {"label": "Sanitary Fitting Budget", "value": "—"},
+          {"label": "Bidet & Jacuzzi Provision", "value": "—"}
+        ],
+        "8. PAINTING": [
+          {"label": "Interior", "value": "—"},
+          {"label": "Exterior", "value": "—"},
+          {"label": "Doors", "value": "—"},
+          {"label": "MS Work", "value": "—"},
+          {"label": "Exterior Texture", "value": "—"}
+        ],
+        "9. WARRANTY & CARE": [
+          {"label": "Structural Warranty", "value": "10 Years"},
+          {"label": "AMC", "value": "1 Year"}
+        ]
+      }
+    },
+    {
+      "id": "package-2",
+      "name": "Package - 2",
+      "price": "₹ 1,950/-",
+      "popular": false,
+      "features": {
+        "1. DESIGN": [
+          {"label": "Govt. License Assistance", "value": "Included"},
+          {"label": "Architectural Layout - 2D", "value": "Included"},
+          {"label": "Basic Elevation", "value": "Included"},
+          {"label": "3D Elevation", "value": "Included"},
+          {"label": "Luxury 3D Elevation (All Views)", "value": "—"},
+          {"label": "Technical Floor Plan Presentation", "value": "Included"},
+          {"label": "Structural Design", "value": "Included"},
+          {"label": "Electrical Drawing", "value": "Included"},
+          {"label": "Plumbing Drawing", "value": "Included"},
+          {"label": "Furniture Plan", "value": "Included"}
+        ],
+        "2. CIVIL STRUCTURE": [
+          {"label": "Steel", "value": "TATA Tiscon 550SD"},
+          {"label": "Blocks", "value": "Solid Concrete 1800 kg/m³ | 4.5 N/mm²"},
+          {"label": "Cement - Block Work", "value": "Birla Super 53 OPC"},
+          {"label": "Cement - Plastering", "value": "Ultratech PPC"},
+          {"label": "Block Thickness", "value": "4\" & 6\""},
+          {"label": "RMC Concrete Mix", "value": "M25"},
+          {"label": "Clear Ceiling Height", "value": "10 ft"},
+          {"label": "Plinth Height from RL", "value": "1'6\""},
+          {"label": "Architectural Elements", "value": "—"},
+          {"label": "UG Sump Capacity", "value": "10,000 L"},
+          {"label": "UG Sump Construction", "value": "8\" Blocks"}
+        ],
+        "3. DOORS & WINDOWS": [
+          {"label": "Main Door Budget", "value": "₹ 40,000"},
+          {"label": "Puja Door Budget", "value": "₹ 30,000"},
+          {"label": "Room Door Budget", "value": "₹ 8,000"},
+          {"label": "Bathroom Door Budget", "value": "₹ 5,500"},
+          {"label": "Windows + Grills", "value": "₹ 500"},
+          {"label": "Window Opening %", "value": "18%"}
+        ],
+        "4. TILES": [
+          {"label": "Living Room", "value": "₹ 80"},
+          {"label": "Bedroom & Kitchen", "value": "₹ 60"},
+          {"label": "Bathroom Wall", "value": "₹ 50"},
+          {"label": "Bathroom Floor", "value": "₹ 50"},
+          {"label": "Balcony", "value": "₹ 60"},
+          {"label": "Terrace", "value": "—"}
+        ],
+        "5. ELECTRICAL": [
+          {"label": "Points per 1,000 sq.ft.", "value": "35"},
+          {"label": "Wiring", "value": "Finolex"},
+          {"label": "Conduits", "value": "VIP"},
+          {"label": "Switches & Plates", "value": "Anchor Roma"},
+          {"label": "DB & MCB", "value": "Indo Asian / Schneider"},
+          {"label": "Home Automation", "value": "—"}
+        ],
+        "6. KITCHEN": [
+          {"label": "Tile Dadoing (per sq.ft.)", "value": "₹ 40"},
+          {"label": "Kitchen Sink (budget)", "value": "₹ 6,000"},
+          {"label": "Kitchen Tap (budget)", "value": "₹ 2,000"},
+          {"label": "Utility Sink & Tap", "value": "₹ 6,000"},
+          {"label": "Kitchen Counter Top", "value": "₹ 90"},
+          {"label": "Hot Water Supply", "value": "—"}
+        ],
+        "7. PLUMBING": [
+          {"label": "Internal Plumbing", "value": "Supreme / Ashirwad"},
+          {"label": "External Plumbing", "value": "PVC"},
+          {"label": "Overhead Tank", "value": "Ashirwad"},
+          {"label": "Provision for Heat Pump", "value": "Yes"},
+          {"label": "Rainwater Harvesting", "value": "Yes"},
+          {"label": "Separate Pipe - Rainwater", "value": "—"},
+          {"label": "Sanitary Fitting Budget", "value": "₹ 25,000"},
+          {"label": "Bidet & Jacuzzi Provision", "value": "—"}
+        ],
+        "8. PAINTING": [
+          {"label": "Interior", "value": "Tractor Emulsion"},
+          {"label": "Exterior", "value": "Ace Weatherproof"},
+          {"label": "Doors", "value": "Synthetic Enamel"},
+          {"label": "MS Work", "value": "Synthetic Enamel"},
+          {"label": "Exterior Texture", "value": "—"}
+        ],
+        "9. WARRANTY & CARE": [
+          {"label": "Structural Warranty", "value": "15 Years"},
+          {"label": "AMC", "value": "1 Year"}
+        ]
+      }
+    },
+    {
+      "id": "package-3",
+      "name": "Package - 3",
+      "price": "₹ 2,310/-",
+      "popular": true,
+      "features": {
+        "1. DESIGN": [
+          {"label": "Govt. License Assistance", "value": "Included"},
+          {"label": "Architectural Layout - 2D", "value": "Included"},
+          {"label": "Basic Elevation", "value": "Included"},
+          {"label": "3D Elevation", "value": "Included"},
+          {"label": "Luxury 3D Elevation (All Views)", "value": "Included"},
+          {"label": "Technical Floor Plan Presentation", "value": "Included"},
+          {"label": "Structural Design", "value": "Included"},
+          {"label": "Electrical Drawing", "value": "Included"},
+          {"label": "Plumbing Drawing", "value": "Included"},
+          {"label": "Furniture Plan", "value": "Included"}
+        ],
+        "2. CIVIL STRUCTURE": [
+          {"label": "Steel", "value": "TATA Tiscon 550SD"},
+          {"label": "Blocks", "value": "Solid Concrete 1800 kg/m³ | 4.5 N/mm²"},
+          {"label": "Cement - Block Work", "value": "Birla Super 53 OPC"},
+          {"label": "Cement - Plastering", "value": "Ultratech PPC"},
+          {"label": "Block Thickness", "value": "6\" Only"},
+          {"label": "RMC Concrete Mix", "value": "M25"},
+          {"label": "Clear Ceiling Height", "value": "11 ft"},
+          {"label": "Plinth Height from RL", "value": "2 ft"},
+          {"label": "Architectural Elements", "value": "Included"},
+          {"label": "UG Sump Capacity", "value": "15,000 L"},
+          {"label": "UG Sump Construction", "value": "8\" Blocks"}
+        ],
+        "3. DOORS & WINDOWS": [
+          {"label": "Main Door Budget", "value": "₹ 80,000"},
+          {"label": "Puja Door Budget", "value": "₹ 60,000"},
+          {"label": "Room Door Budget", "value": "₹ 15,000"},
+          {"label": "Bathroom Door Budget", "value": "₹ 8,000"},
+          {"label": "Windows + Grills", "value": "₹ 650"},
+          {"label": "Window Opening %", "value": "21%"}
+        ],
+        "4. TILES": [
+          {"label": "Living Room", "value": "₹ 140"},
+          {"label": "Bedroom & Kitchen", "value": "₹ 100"},
+          {"label": "Bathroom Wall", "value": "₹ 70"},
+          {"label": "Bathroom Floor", "value": "₹ 70"},
+          {"label": "Balcony", "value": "₹ 90"},
+          {"label": "Terrace", "value": "—"}
+        ],
+        "5. ELECTRICAL": [
+          {"label": "Points per 1,000 sq.ft.", "value": "40"},
+          {"label": "Wiring", "value": "Finolex"},
+          {"label": "Conduits", "value": "VIP"},
+          {"label": "Switches & Plates", "value": "Anchor Roma"},
+          {"label": "DB & MCB", "value": "Siemens / Schneider"},
+          {"label": "Home Automation", "value": "—"}
+        ],
+        "6. KITCHEN": [
+          {"label": "Tile Dadoing (per sq.ft.)", "value": "₹ 65"},
+          {"label": "Kitchen Sink (budget)", "value": "₹ 9,000"},
+          {"label": "Kitchen Tap (budget)", "value": "₹ 4,000"},
+          {"label": "Utility Sink & Tap", "value": "₹ 8,000"},
+          {"label": "Kitchen Counter Top", "value": "₹ 120"},
+          {"label": "Hot Water Supply", "value": "—"}
+        ],
+        "7. PLUMBING": [
+          {"label": "Internal Plumbing", "value": "Supreme / Ashirwad"},
+          {"label": "External Plumbing", "value": "PVC"},
+          {"label": "Overhead Tank", "value": "Sintex Pure"},
+          {"label": "Provision for Heat Pump", "value": "Yes"},
+          {"label": "Rainwater Harvesting", "value": "Yes"},
+          {"label": "Separate Pipe - Rainwater", "value": "Included"},
+          {"label": "Sanitary Fitting Budget", "value": "₹ 40,000"},
+          {"label": "Bidet & Jacuzzi Provision", "value": "Included"}
+        ],
+        "8. PAINTING": [
+          {"label": "Interior", "value": "Tractor Shine Emulsion"},
+          {"label": "Exterior", "value": "Apex Weatherproof"},
+          {"label": "Doors", "value": "Synthetic Enamel"},
+          {"label": "MS Work", "value": "Synthetic Enamel"},
+          {"label": "Exterior Texture", "value": "Included"}
+        ],
+        "9. WARRANTY & CARE": [
+          {"label": "Structural Warranty", "value": "15 Years"},
+          {"label": "AMC", "value": "1 Year"}
+        ]
+      }
+    },
+    {
+      "id": "package-4",
+      "name": "Package - 4",
+      "price": "₹ 2,880/-",
+      "popular": false,
+      "features": {
+        "1. DESIGN": [
+          {"label": "Govt. License Assistance", "value": "Included"},
+          {"label": "Architectural Layout - 2D", "value": "Included"},
+          {"label": "Basic Elevation", "value": "Included"},
+          {"label": "3D Elevation", "value": "Included"},
+          {"label": "Luxury 3D Elevation (All Views)", "value": "Included"},
+          {"label": "Technical Floor Plan Presentation", "value": "Included"},
+          {"label": "Structural Design", "value": "Included"},
+          {"label": "Electrical Drawing", "value": "Included"},
+          {"label": "Plumbing Drawing", "value": "Included"},
+          {"label": "Furniture Plan", "value": "Included"}
+        ],
+        "2. CIVIL STRUCTURE": [
+          {"label": "Steel", "value": "TATA Tiscon 550SD"},
+          {"label": "Blocks", "value": "Solid Concrete 1800 kg/m³ | 10 N/mm²"},
+          {"label": "Cement - Block Work", "value": "Birla Super 53 OPC"},
+          {"label": "Cement - Plastering", "value": "Ultratech PPC"},
+          {"label": "Block Thickness", "value": "6\" & 8\""},
+          {"label": "RMC Concrete Mix", "value": "M30"},
+          {"label": "Clear Ceiling Height", "value": "11-12 ft"},
+          {"label": "Plinth Height from RL", "value": "2-4 ft"},
+          {"label": "Architectural Elements", "value": "Included"},
+          {"label": "UG Sump Capacity", "value": "18,000 L + 19,000 L"},
+          {"label": "UG Sump Construction", "value": "RCC Wall"}
+        ],
+        "3. DOORS & WINDOWS": [
+          {"label": "Main Door Budget", "value": "₹ 120,000"},
+          {"label": "Puja Door Budget", "value": "₹ 80,000"},
+          {"label": "Room Door Budget", "value": "₹ 22,000"},
+          {"label": "Bathroom Door Budget", "value": "₹ 16,000"},
+          {"label": "Windows + Grills", "value": "₹ 850"},
+          {"label": "Window Opening %", "value": "23%"}
+        ],
+        "4. TILES": [
+          {"label": "Living Room", "value": "₹ 250"},
+          {"label": "Bedroom & Kitchen", "value": "₹ 140"},
+          {"label": "Bathroom Wall", "value": "₹ 90"},
+          {"label": "Bathroom Floor", "value": "₹ 90"},
+          {"label": "Balcony", "value": "₹ 120"},
+          {"label": "Terrace", "value": "₹ 50"}
+        ],
+        "5. ELECTRICAL": [
+          {"label": "Points per 1,000 sq.ft.", "value": "60"},
+          {"label": "Wiring", "value": "Finolex Gold FR"},
+          {"label": "Conduits", "value": "VIP"},
+          {"label": "Switches & Plates", "value": "Legrand Britzy"},
+          {"label": "DB & MCB", "value": "ABB"},
+          {"label": "Home Automation", "value": "₹ 35,000"}
+        ],
+        "6. KITCHEN": [
+          {"label": "Tile Dadoing (per sq.ft.)", "value": "₹ 90"},
+          {"label": "Kitchen Sink (budget)", "value": "₹ 14,000"},
+          {"label": "Kitchen Tap (budget)", "value": "₹ 8,000"},
+          {"label": "Utility Sink & Tap", "value": "₹ 12,000"},
+          {"label": "Kitchen Counter Top", "value": "₹ 200"},
+          {"label": "Hot Water Supply", "value": "Included"}
+        ],
+        "7. PLUMBING": [
+          {"label": "Internal Plumbing", "value": "Supreme / Ashirwad"},
+          {"label": "External Plumbing", "value": "PVC"},
+          {"label": "Overhead Tank", "value": "SS Tanks"},
+          {"label": "Provision for Heat Pump", "value": "Yes"},
+          {"label": "Rainwater Harvesting", "value": "Yes"},
+          {"label": "Separate Pipe - Rainwater", "value": "Included"},
+          {"label": "Sanitary Fitting Budget", "value": "₹ 70,000"},
+          {"label": "Bidet & Jacuzzi Provision", "value": "Included"}
+        ],
+        "8. PAINTING": [
+          {"label": "Interior", "value": "Premium Emulsion"},
+          {"label": "Exterior", "value": "Apex Weatherproof"},
+          {"label": "Doors", "value": "Premium Enamel"},
+          {"label": "MS Work", "value": "Premium Enamel"},
+          {"label": "Exterior Texture", "value": "Included"}
+        ],
+        "9. WARRANTY & CARE": [
+          {"label": "Structural Warranty", "value": "15 Years"},
+          {"label": "AMC", "value": "1.5 Years"}
+        ]
+      }
+    },
+    {
+      "id": "package-5",
+      "name": "Package - 5",
+      "price": "₹ 3,250/-",
+      "popular": false,
+      "features": {
+        "1. DESIGN": [
+          {"label": "Govt. License Assistance", "value": "Included"},
+          {"label": "Architectural Layout - 2D", "value": "Included"},
+          {"label": "Basic Elevation", "value": "Included"},
+          {"label": "3D Elevation", "value": "Included"},
+          {"label": "Luxury 3D Elevation (All Views)", "value": "Included"},
+          {"label": "Technical Floor Plan Presentation", "value": "Included"},
+          {"label": "Structural Design", "value": "Included"},
+          {"label": "Electrical Drawing", "value": "Included"},
+          {"label": "Plumbing Drawing", "value": "Included"},
+          {"label": "Furniture Plan", "value": "Included"}
+        ],
+        "2. CIVIL STRUCTURE": [
+          {"label": "Steel", "value": "TATA Tiscon 550SD"},
+          {"label": "Blocks", "value": "Solid Concrete 1800 kg/m³ | 10 N/mm²"},
+          {"label": "Cement - Block Work", "value": "Birla Super 53 OPC"},
+          {"label": "Cement - Plastering", "value": "Ultratech PPC"},
+          {"label": "Block Thickness", "value": "6\" & 8\""},
+          {"label": "RMC Concrete Mix", "value": "M30"},
+          {"label": "Clear Ceiling Height", "value": "12-15 ft"},
+          {"label": "Plinth Height from RL", "value": "2-4 ft"},
+          {"label": "Architectural Elements", "value": "Included"},
+          {"label": "UG Sump Capacity", "value": "18,000 L + 19,000 L"},
+          {"label": "UG Sump Construction", "value": "RCC Wall"}
+        ],
+        "3. DOORS & WINDOWS": [
+          {"label": "Main Door Budget", "value": "₹ 160,000"},
+          {"label": "Puja Door Budget", "value": "₹ 120,000"},
+          {"label": "Room Door Budget", "value": "₹ 35,000"},
+          {"label": "Bathroom Door Budget", "value": "₹ 20,000"},
+          {"label": "Windows + Grills", "value": "₹ 1,100"},
+          {"label": "Window Opening %", "value": "28%"}
+        ],
+        "4. TILES": [
+          {"label": "Living Room", "value": "₹ 650"},
+          {"label": "Bedroom & Kitchen", "value": "₹ 250"},
+          {"label": "Bathroom Wall", "value": "₹ 130"},
+          {"label": "Bathroom Floor", "value": "₹ 130"},
+          {"label": "Balcony", "value": "₹ 140"},
+          {"label": "Terrace", "value": "₹ 80"}
+        ],
+        "5. ELECTRICAL": [
+          {"label": "Points per 1,000 sq.ft.", "value": "Unlimited"},
+          {"label": "Wiring", "value": "Finolex Gold FR LESS"},
+          {"label": "Conduits", "value": "VIP"},
+          {"label": "Switches & Plates", "value": "Legrand Britzy"},
+          {"label": "DB & MCB", "value": "ABB"},
+          {"label": "Home Automation", "value": "₹ 70,000"}
+        ],
+        "6. KITCHEN": [
+          {"label": "Tile Dadoing (per sq.ft.)", "value": "₹ 120"},
+          {"label": "Kitchen Sink (budget)", "value": "₹ 25,000"},
+          {"label": "Kitchen Tap (budget)", "value": "₹ 12,000"},
+          {"label": "Utility Sink & Tap", "value": "₹ 15,000"},
+          {"label": "Kitchen Counter Top", "value": "₹ 320"},
+          {"label": "Hot Water Supply", "value": "Included"}
+        ],
+        "7. PLUMBING": [
+          {"label": "Internal Plumbing", "value": "PPR Pipes"},
+          {"label": "External Plumbing", "value": "PVC"},
+          {"label": "Overhead Tank", "value": "SS Tanks"},
+          {"label": "Provision for Heat Pump", "value": "Yes"},
+          {"label": "Rainwater Harvesting", "value": "Yes"},
+          {"label": "Separate Pipe - Rainwater", "value": "Included"},
+          {"label": "Sanitary Fitting Budget", "value": "₹ 100,000"},
+          {"label": "Bidet & Jacuzzi Provision", "value": "Included"}
+        ],
+        "8. PAINTING": [
+          {"label": "Interior", "value": "Royal Shine"},
+          {"label": "Exterior", "value": "Apex Ultima Weatherproof"},
+          {"label": "Doors", "value": "High-End PU Enamel"},
+          {"label": "MS Work", "value": "High-End PU Enamel"},
+          {"label": "Exterior Texture", "value": "Included"}
+        ],
+        "9. WARRANTY & CARE": [
+          {"label": "Structural Warranty", "value": "15 Years"},
+          {"label": "AMC", "value": "2 Years"}
+        ]
+      }
+    },
+    {
+      "id": "package-6",
+      "name": "Package - 6",
+      "price": "Custom",
+      "popular": false,
+      "features": {
+        "1. DESIGN": [
+          {"label": "Govt. License Assistance", "value": "Included"},
+          {"label": "Architectural Layout - 2D", "value": "Included"},
+          {"label": "Basic Elevation", "value": "Included"},
+          {"label": "3D Elevation", "value": "Included"},
+          {"label": "Luxury 3D Elevation (All Views)", "value": "Included"},
+          {"label": "Technical Floor Plan Presentation", "value": "—"},
+          {"label": "Structural Design", "value": "Included"},
+          {"label": "Electrical Drawing", "value": "Included"},
+          {"label": "Plumbing Drawing", "value": "Included"},
+          {"label": "Furniture Plan", "value": "Included"}
+        ],
+        "2. CIVIL STRUCTURE": [
+          {"label": "Steel", "value": "TATA Tiscon 550SD"},
+          {"label": "Blocks", "value": "Solid Concrete 1800 kg/m³ | 10 N/mm²"},
+          {"label": "Cement - Block Work", "value": "Birla Super 53 OPC"},
+          {"label": "Cement - Plastering", "value": "Ultratech PPC"},
+          {"label": "Block Thickness", "value": "Custom"},
+          {"label": "RMC Concrete Mix", "value": "M25"},
+          {"label": "Clear Ceiling Height", "value": "Custom"},
+          {"label": "Plinth Height from RL", "value": "Custom"},
+          {"label": "Architectural Elements", "value": "Custom"},
+          {"label": "UG Sump Capacity", "value": "Custom"},
+          {"label": "UG Sump Construction", "value": "Custom"}
+        ],
+        "3. DOORS & WINDOWS": [
+          {"label": "Main Door Budget", "value": "Custom"},
+          {"label": "Puja Door Budget", "value": "Custom"},
+          {"label": "Room Door Budget", "value": "Custom"},
+          {"label": "Bathroom Door Budget", "value": "Custom"},
+          {"label": "Windows + Grills", "value": "Custom"},
+          {"label": "Window Opening %", "value": "Custom"}
+        ],
+        "4. TILES": [
+          {"label": "Living Room", "value": "Custom"},
+          {"label": "Bedroom & Kitchen", "value": "Custom"},
+          {"label": "Bathroom Wall", "value": "Custom"},
+          {"label": "Bathroom Floor", "value": "Custom"},
+          {"label": "Balcony", "value": "Custom"},
+          {"label": "Terrace", "value": "Custom"}
+        ],
+        "5. ELECTRICAL": [
+          {"label": "Points per 1,000 sq.ft.", "value": "Custom"},
+          {"label": "Wiring", "value": "Custom"},
+          {"label": "Conduits", "value": "Custom"},
+          {"label": "Switches & Plates", "value": "Custom"},
+          {"label": "DB & MCB", "value": "Custom"},
+          {"label": "Home Automation", "value": "Custom"}
+        ],
+        "6. KITCHEN": [
+          {"label": "Tile Dadoing (per sq.ft.)", "value": "Custom"},
+          {"label": "Kitchen Sink (budget)", "value": "Custom"},
+          {"label": "Kitchen Tap (budget)", "value": "Custom"},
+          {"label": "Utility Sink & Tap", "value": "Custom"},
+          {"label": "Kitchen Counter Top", "value": "Custom"},
+          {"label": "Hot Water Supply", "value": "Custom"}
+        ],
+        "7. PLUMBING": [
+          {"label": "Internal Plumbing", "value": "Custom"},
+          {"label": "External Plumbing", "value": "Custom"},
+          {"label": "Overhead Tank", "value": "Custom"},
+          {"label": "Provision for Heat Pump", "value": "Custom"},
+          {"label": "Rainwater Harvesting", "value": "Custom"},
+          {"label": "Separate Pipe - Rainwater", "value": "Included"},
+          {"label": "Sanitary Fitting Budget", "value": "Custom"},
+          {"label": "Bidet & Jacuzzi Provision", "value": "Custom"}
+        ],
+        "8. PAINTING": [
+          {"label": "Interior", "value": "Custom"},
+          {"label": "Exterior", "value": "Custom"},
+          {"label": "Doors", "value": "Custom"},
+          {"label": "MS Work", "value": "Custom"},
+          {"label": "Exterior Texture", "value": "Custom"}
+        ],
+        "9. WARRANTY & CARE": [
+          {"label": "Structural Warranty", "value": "As per selection"},
+          {"label": "AMC", "value": "Based on materials"}
+        ]
+      }
+    }
+  ]
+}

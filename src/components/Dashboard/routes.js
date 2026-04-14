@@ -9,6 +9,7 @@ import ProjectPage from "../Pages/ProjectPage"; // dynamic page
 import Teams from "../Teams/Teams";
 import Publications from "../Publications/Publications";
 import Careers from "../Careers/Careers";
+import Packages from "../Packages/Packages";
 
 export const routes = [
   { name: "Home", component: Home, path: "" },
@@ -16,6 +17,7 @@ export const routes = [
   { name: "Services", component: Services, path: "services" },
   { name: "Portfolio", component: Portfolio, path: "portfolio" },
   { name: "ProjectPage", component: ProjectPage, path: "portfolio/:projectId" }, // dynamic route
+  { name: "Packages", component: Packages, path: "packages" },
   { name: "Blogs", component: Blogs, path: "blogs" },
   { name: "BlogDetail", component: BlogDetail, path: "blogs/:slug" }, // dynamic route
   { name: "Publications", component: Publications, path: "publications" },
