@@ -93,6 +93,45 @@ const Header = () => {
     </MenuItem>
   );
 
+  const dropdownItemStyles = {
+    fontFamily: "'Montserrat', sans-serif",
+    fontSize: "0.9rem",
+    fontWeight: 500,
+    color: "#4A4A4A",
+    py: 1.5,
+    px: 3,
+    "&:hover": {
+      backgroundColor: "rgba(191, 169, 116, 0.08)",
+      color: "#bfa974",
+    }
+  };
+
+  const menuPaperProps = {
+    elevation: 0,
+    sx: {
+      mt: 1.5,
+      minWidth: 220,
+      boxShadow: "0px 15px 40px rgba(0,0,0,0.08)",
+      borderRadius: "12px",
+      border: "1px solid rgba(191, 169, 116, 0.15)",
+      overflow: 'visible',
+      '&::before': {
+        content: '""',
+        display: 'block',
+        position: 'absolute',
+        top: 0,
+        left: 20,
+        width: 10,
+        height: 10,
+        bgcolor: 'background.paper',
+        transform: 'translateY(-50%) rotate(45deg)',
+        zIndex: 0,
+        borderLeft: "1px solid rgba(191, 169, 116, 0.15)",
+        borderTop: "1px solid rgba(191, 169, 116, 0.15)",
+      },
+    }
+  };
+
   return (
     <>
       <AppBar
@@ -145,11 +184,13 @@ const Header = () => {
               open={Boolean(aboutAnchorEl)}
               onClose={handleAboutClose}
               MenuListProps={{ onMouseLeave: handleAboutClose }}
-              elevation={2}
+              PaperProps={menuPaperProps}
             >
-              <MenuItem component={RouterLink} to="/about" onClick={handleAboutClose}>Our Story</MenuItem>
-              <MenuItem component={RouterLink} to="/teams" onClick={handleAboutClose}>Teams</MenuItem>
-              <MenuItem component={RouterLink} to="/careers" onClick={handleAboutClose}>Careers</MenuItem>
+              <MenuItem component={RouterLink} to="/about" onClick={handleAboutClose} sx={dropdownItemStyles}>Our Story</MenuItem>
+              <Divider sx={{ my: 0, mx: 2, borderColor: "rgba(191, 169, 116, 0.2)" }} />
+              <MenuItem component={RouterLink} to="/teams" onClick={handleAboutClose} sx={dropdownItemStyles}>Teams</MenuItem>
+              <Divider sx={{ my: 0, mx: 2, borderColor: "rgba(191, 169, 116, 0.2)" }} />
+              <MenuItem component={RouterLink} to="/careers" onClick={handleAboutClose} sx={dropdownItemStyles}>Careers</MenuItem>
             </Menu>
 
             <Button component={RouterLink} to="/portfolio" sx={navButtonStyles(isActive(["/portfolio"]))}>
@@ -173,10 +214,11 @@ const Header = () => {
               open={Boolean(mediaAnchorEl)}
               onClose={handleMediaClose}
               MenuListProps={{ onMouseLeave: handleMediaClose }}
-              elevation={2}
+              PaperProps={menuPaperProps}
             >
-              <MenuItem component={RouterLink} to="/publications" onClick={handleMediaClose}>Publications</MenuItem>
-              <MenuItem component={RouterLink} to="/blogs" onClick={handleMediaClose}>Blogs</MenuItem>
+              <MenuItem component={RouterLink} to="/publications" onClick={handleMediaClose} sx={dropdownItemStyles}>Publications</MenuItem>
+              <Divider sx={{ my: 0, mx: 2, borderColor: "rgba(191, 169, 116, 0.2)" }} />
+              <MenuItem component={RouterLink} to="/blogs" onClick={handleMediaClose} sx={dropdownItemStyles}>Blogs</MenuItem>
             </Menu>
 
             <Button component={RouterLink} to="/contact" sx={navButtonStyles(isActive(["/contact"]))}>
