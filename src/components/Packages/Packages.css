@@ -888,15 +888,15 @@
 /* Vertical Sticky for Section Heads (The gold-colored headings) */
 .section-head-row td {
   position: sticky !important;
-  top: 68px; /* High enough to stay below pkg headers */
+  top: 115px; /* Matches Desktop thead height */
   z-index: 18 !important;
   background: #ffffff !important;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 @media (max-width: 1024px) {
   .section-head-row td {
-    top: 68px; /* Tighter on small screens */
+    top: 108px; /* Matches Mobile/Tablet thead height */
   }
 }
 
@@ -1118,9 +1118,11 @@
 
   .feature-col-header,
   .feat-label-cell {
-    width: 105px;
-    min-width: 105px;
-    max-width: 105px;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
   }
 
   .pkg-col-header {
