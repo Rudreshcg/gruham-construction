@@ -762,9 +762,11 @@
 .table-scroll-shell {
   position: relative;
   border-radius: 20px;
-  overflow: hidden;
+  overflow-x: auto; /* ENABLE HORIZONTAL SCROLL */
+  overflow-y: visible;
   box-shadow: 0 18px 45px rgba(15,27,41,0.09);
   border: 1px solid rgba(191,169,116,0.2);
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Fade-out right edge to hint at scrollable content — show only on mobile/tablet */
@@ -791,12 +793,7 @@
 .table-wrapper {
   background: white;
   width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch; /* smooth momentum on iOS */
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(191,169,116,0.5) rgba(191,169,116,0.1);
+  overflow: visible; /* Let the shell handle scrolling */
 }
 
 /* Custom scrollbar (Chrome/Edge/Safari) */
@@ -817,9 +814,10 @@
 
 .master-comparison-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Required for robust sticky behavior */
+  border-spacing: 0;
   text-align: left;
-  table-layout: fixed; /* Fixed on desktop to fit container */
+  table-layout: fixed;
 }
 
 @media (max-width: 1024px) {
@@ -889,10 +887,11 @@
 
 /* Vertical Sticky for Section Heads (The gold-colored headings) */
 .section-head-row td {
-  position: sticky;
-  top: 72px; /* Sticky below the package names head row */
-  z-index: 15;
-  background: #ffffff;
+  position: sticky !important;
+  top: 68px; /* High enough to stay below pkg headers */
+  z-index: 18 !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 @media (max-width: 1024px) {

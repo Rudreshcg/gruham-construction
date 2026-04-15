@@ -43,7 +43,7 @@ const OurStory = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="brand-tagline">Graham’s</span>
+          <span className="brand-tagline">Our Story</span>
           <h1>Building Homes with Purpose</h1>
         </motion.div>
       </section>

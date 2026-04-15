@@ -1,17 +1,18 @@
-/* Unified Our Story & Team Page Styling */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+/* Unified Our Story & Team Page Styling — Matches Packages & Home Design System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap');
 
 .our-story-page {
   background: #ffffff;
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* --- HERO SECTION --- */
 .story-hero {
-  height: 60vh;
-  min-height: 400px;
+  height: 45vh;
+  min-height: 350px;
   background: linear-gradient(135deg, #f9f7f2 0%, #fff 100%);
   display: flex;
   align-items: center;
@@ -30,27 +31,28 @@
 
 .brand-tagline {
   display: block;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-weight: 700;
   color: #bfa974;
-  margin-bottom: 20px;
-  font-size: 0.9rem;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
 }
 
 .story-hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem); /* Matches Packages H1 scale */
   color: #2c3e50;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.2;
   font-weight: 800;
+  max-width: 800px;
 }
 
 /* --- NARRATIVE SECTIONS --- */
 .narrative-section {
-  padding: 120px 5%;
+  padding: 80px 5%; /* Reduced from 120px to match site rhythm */
   display: flex;
   justify-content: center;
 }
@@ -65,23 +67,24 @@
 
 .narrative-text-block {
   text-align: center;
-  max-width: 850px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .narrative-text-block p {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.15rem;
-  line-height: 1.9;
-  color: #4a5568;
-  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem; /* Standard site body size */
+  line-height: 1.8;
+  color: #5a6c7d;
+  margin-bottom: 24px;
 }
 
 .large-lead {
-  font-size: 1.5rem !important;
+  font-size: 1.25rem !important; /* Smaller, matches hero lead better */
   color: #2c3e50 !important;
   font-weight: 500;
   line-height: 1.6 !important;
+  margin-bottom: 36px !important;
 }
 
 .narrative-text-block strong {
@@ -92,17 +95,17 @@
 /* Titles */
 .section-title-gold {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-size: 2rem; /* Reduced from 2.5rem */
   color: #bfa974;
-  margin-bottom: 40px;
-  line-height: 1.2;
+  margin-bottom: 30px;
+  line-height: 1.3;
 }
 
 .section-title-white {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-size: 2.2rem; /* Reduced from 2.8rem */
   color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .white-text p {
@@ -113,40 +116,40 @@
 .story-quote {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 1.8rem !important;
+  font-size: 1.5rem !important;
   color: #2c3e50 !important;
-  margin-bottom: 50px !important;
+  margin-bottom: 40px !important;
 }
 
 /* Expertise Grid */
 .triple-expertise-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin: 60px 0;
+  gap: 24px;
+  margin: 40px 0;
 }
 
 .expertise-item {
-  padding: 30px 20px;
+  padding: 24px 16px;
   background: white;
   border: 1px solid rgba(191,169,116,0.15);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.03);
 }
 
 .expertise-role {
   display: block;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   color: #2c3e50;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .expertise-item p {
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
   margin: 0 !important;
   color: #7f8c8d !important;
 }
@@ -154,58 +157,58 @@
 /* Vision Highlight */
 .vision-highlight {
   background: rgba(191,169,116,0.1);
-  padding: 40px;
+  padding: 30px;
   border-left: 4px solid #bfa974;
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #bfa974;
   font-weight: 700;
-  margin: 50px 0;
-  line-height: 1.3;
+  margin: 40px 0;
+  line-height: 1.4;
 }
 
 /* Pillars Grid */
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin: 60px 0;
+  gap: 24px;
+  margin: 40px 0;
 }
 
 .pillar-card {
   text-align: left;
-  padding: 40px 30px;
+  padding: 32px 24px;
   background: #fdfaf5;
-  border-radius: 12px;
+  border-radius: 8px;
   border-bottom: 3px solid #bfa974;
 }
 
 .pillar-card h4 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .pillar-card p {
-  font-size: 0.95rem !important;
-  line-height: 1.6 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
   color: #666 !important;
 }
 
 .manifesto-box {
   background: #2c3e50;
   color: white;
-  padding: 60px 40px;
-  border-radius: 20px;
-  margin-top: 80px;
+  padding: 48px 32px;
+  border-radius: 12px;
+  margin-top: 60px;
 }
 
 .manifesto-box p {
   font-family: 'Playfair Display', serif;
-  font-size: 1.6rem !important;
+  font-size: 1.4rem !important;
   color: white !important;
-  margin-bottom: 15px !important;
+  margin-bottom: 12px !important;
   font-weight: 600;
 }
 
@@ -213,7 +216,7 @@
 
 /* --- INTEGRATED TEAM SECTION (Modern Square Design) --- */
 .teams-section {
-  padding: 100px 5%;
+  padding: 80px 5%;
   background: #ffffff;
   width: 100%;
   display: flex;
@@ -223,16 +226,16 @@
 
 .teams-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   max-width: 800px;
 }
 
 .teams-title {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   position: relative;
   display: inline-block;
 }
@@ -243,41 +246,54 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 48px;
   height: 3px;
   background: #bfa974;
 }
 
 .teams-subtitle {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
   color: #7f8c8d;
   line-height: 1.7;
 }
 
 .teams-grid-square {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr); /* Force 3 columns for desktop/tablet */
+  gap: 24px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+@media (max-width: 1024px) {
+  .teams-grid-square {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .teams-grid-square {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+    max-width: 320px;
+  }
+}
+
 .team-card-square {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
   border: 1px solid rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
 }
 
 .team-card-square:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
 .team-card-top {
@@ -291,44 +307,36 @@
   overflow: hidden;
 }
 
-.team-card-top::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05) 0%, transparent 70%);
-}
-
 .team-initial {
   font-family: 'Playfair Display', serif;
-  font-size: 4.5rem;
+  font-size: 4rem;
   color: #bfa974;
   font-weight: 700;
   z-index: 1;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .team-card-bottom {
-  padding: 30px 20px;
+  padding: 24px 16px;
   text-align: center;
   background: #ffffff;
 }
 
 .team-name {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #2c3e50;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
 .team-title {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
   color: #7f8c8d;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   font-weight: 700;
 }
 
@@ -336,16 +344,16 @@
 @media (max-width: 1024px) {
   .triple-expertise-grid, .pillars-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 }
 
 @media (max-width: 768px) {
-  .narrative-section { padding: 80px 5%; }
-  .story-hero { height: 40vh; }
-  .section-title-gold, .section-title-white { font-size: 2rem; }
-  .vision-highlight { font-size: 1.5rem; padding: 30px; }
-  .large-lead { font-size: 1.25rem !important; }
-  .teams-title { font-size: 2.2rem; }
-  .teams-grid-square { grid-template-columns: 1fr; max-width: 400px; }
+  .narrative-section { padding: 60px 5%; }
+  .story-hero { height: 35vh; min-height: 280px; }
+  .section-title-gold, .section-title-white { font-size: 1.6rem; }
+  .vision-highlight { font-size: 1.3rem; padding: 24px; }
+  .large-lead { font-size: 1.15rem !important; }
+  .teams-title { font-size: 1.8rem; }
+  .teams-grid-square { grid-template-columns: 1fr; max-width: 320px; }
 }
