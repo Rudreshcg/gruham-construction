@@ -2,7 +2,9 @@
   "packages": [
     {
       "id": "package-1",
-      "name": "Package - 1",
+      "name": "Core",
+      "subtitle": "Ideal for commercial & basic residential builds",
+      "tag": "Suited for Commercial",
       "price": "₹ 1,410/-",
       "popular": false,
       "features": {
@@ -88,7 +90,8 @@
     },
     {
       "id": "package-2",
-      "name": "Package - 2",
+      "name": "Essential",
+      "subtitle": "A solid foundation for quality living",
       "price": "₹ 1,950/-",
       "popular": false,
       "features": {
@@ -174,7 +177,8 @@
     },
     {
       "id": "package-3",
-      "name": "Package - 3",
+      "name": "Premium",
+      "subtitle": "Our most popular — the sweet spot of quality & value",
       "price": "₹ 2,310/-",
       "popular": true,
       "features": {
@@ -260,7 +264,8 @@
     },
     {
       "id": "package-4",
-      "name": "Package - 4",
+      "name": "Luxury",
+      "subtitle": "Elevated specs for a refined lifestyle",
       "price": "₹ 2,880/-",
       "popular": false,
       "features": {
@@ -346,7 +351,8 @@
     },
     {
       "id": "package-5",
-      "name": "Package - 5",
+      "name": "Elite",
+      "subtitle": "Ultra-premium finishes for discerning homeowners",
       "price": "₹ 3,250/-",
       "popular": false,
       "features": {
@@ -432,7 +438,8 @@
     },
     {
       "id": "package-6",
-      "name": "Package - 6",
+      "name": "Green Matrix",
+      "subtitle": "Fully custom — designed around your vision & budget",
       "price": "Custom",
       "popular": false,
       "features": {
