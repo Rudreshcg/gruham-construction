@@ -5,12 +5,12 @@ import SEOHead from '../SEO/SEOHead';
 
 function Packages() {
   const [showComparison, setShowComparison] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
   const [activeMobilePkg, setActiveMobilePkg] = useState(0);
   const [openSections, setOpenSections] = useState({});
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 1200);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

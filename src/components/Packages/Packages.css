@@ -1,8 +1,11 @@
 .packages-page {
   background: #fdfdfd;
   min-height: 100vh;
-  padding: 50px 5% 60px;
+  padding: 50px 4% 60px;
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .packages-header {
@@ -139,9 +142,11 @@
 
 /* Master Comparison Table View */
 .comparison-view {
-  max-width: 1400px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   animation: fadeIn 0.5s ease;
+  overflow: hidden;
 }
 
 @keyframes fadeIn {
@@ -157,9 +162,9 @@
 }
 
 .swipe-hint {
-  display: none;
+  display: block;
   color: #bfa974;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-style: italic;
 }
 
@@ -180,27 +185,33 @@
 }
 
 .table-wrapper {
-  overflow-x: auto;
   background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
   border: 1px solid rgba(191, 169, 116, 0.2);
-  margin-top: 20px;
+  margin-top: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
 }
 
 .master-comparison-table {
   width: 100%;
-  min-width: 1200px;
   border-collapse: collapse;
   text-align: left;
+  table-layout: fixed;
 }
 
 .master-comparison-table th,
 .master-comparison-table td {
-  padding: 16px 20px;
+  padding: 11px 10px;
   border-right: 1px solid #f1f3f5;
   border-bottom: 1px solid #f1f3f5;
   transition: background 0.3s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .master-comparison-table th:last-child,
@@ -208,50 +219,55 @@
   border-right: none;
 }
 
-/* Make first column sticky */
 .feature-col-header,
 .feat-label-cell {
   position: sticky;
   left: 0;
   background: #ffffff;
   z-index: 2;
-  box-shadow: 4px 0 10px rgba(0,0,0,0.03);
+  box-shadow: 4px 0 8px rgba(0,0,0,0.02);
   border-right: 2px solid #e9ecef !important;
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
 }
 
 .feature-col-header {
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   font-weight: 800;
   color: #2c3e50;
   background: #f8f9fa;
   vertical-align: bottom;
-  padding-bottom: 25px !important;
+  padding-bottom: 16px !important;
 }
 
 .pkg-col-header {
   text-align: center;
   background: #f8f9fa;
   border-bottom: 3px solid #bfa974 !important;
-  padding-top: 30px !important;
+  padding: 16px 8px 12px !important;
 }
 
 .pkg-col-header h3 {
-  font-size: 1.15rem;
+  font-size: 0.85rem;
   color: #2c3e50;
-  margin: 0 0 15px;
+  margin: 0 0 8px;
   font-weight: 800;
   font-family: 'Playfair Display', serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pkg-price-badge {
   display: inline-block;
   background: linear-gradient(135deg, #2c3e50, #1a252f);
   color: #bfa974;
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-weight: 800;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .section-head-row td {
@@ -292,13 +308,14 @@
 .feat-label-cell {
   font-weight: 600;
   color: #34495e;
-  width: 250px;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .feat-val-cell {
   color: #556068;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   text-align: center;
   font-weight: 500;
 }
