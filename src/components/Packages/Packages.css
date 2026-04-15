@@ -1,20 +1,20 @@
 .packages-page {
   background: #fdfdfd;
   min-height: 100vh;
-  padding: 80px 5%;
+  padding: 50px 5% 60px;
   font-family: 'Montserrat', sans-serif;
 }
 
 .packages-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 36px;
 }
 
 .packages-header h1 {
-  font-size: 2.5rem;
+  font-size: 1.9rem;
   font-weight: 800;
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   position: relative;
   font-family: 'Playfair Display', serif;
 }
@@ -22,37 +22,37 @@
 .packages-header h1::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
+  width: 50px;
+  height: 3px;
   background: linear-gradient(135deg, #bfa974, #9c8658);
   border-radius: 2px;
 }
 
 .packages-header p {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   color: #7f8c8d;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 560px;
+  margin: 12px auto 0;
 }
 
 /* Hero Grid View */
 .packages-hero-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  max-width: 1400px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 .package-hero-card {
   background: #ffffff;
-  border-radius: 20px;
-  padding: 40px 30px;
+  border-radius: 16px;
+  padding: 28px 22px;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   border: 1px solid #f0f0f0;
   cursor: pointer;
   position: relative;
@@ -89,46 +89,47 @@
 }
 
 .card-hexagon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 14px;
   color: #bfa974;
 }
 
 .package-hero-card h2 {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 700;
   font-family: 'Playfair Display', serif;
 }
 
 .price-block {
-  margin-bottom: 30px;
+  margin-bottom: 18px;
 }
 
 .price-block .price-val {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #2c3e50;
 }
 
 .price-block .price-unit {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: #7f8c8d;
 }
 
 .view-details-btn {
   background: transparent;
   color: #bfa974;
-  border: 2px solid #bfa974;
-  padding: 12px 24px;
+  border: 1.5px solid #bfa974;
+  padding: 9px 18px;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .package-hero-card:hover .view-details-btn {
