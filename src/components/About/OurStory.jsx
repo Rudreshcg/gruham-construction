@@ -12,13 +12,49 @@ const OurStory = () => {
   }, []);
 
   const teamMembers = [
-    { name: "Dhanush N Gowda", title: "FOUNDER & CEO", image: null },
-    { name: "Avinash", title: "CO-FOUNDER", image: null },
-    { name: "Manasa N", title: "HEAD OF OFFICE MANAGER", image: null },
-    { name: "Rajshekar", title: "SITE ENGINEER", image: null },
-    { name: "Darshan KG", title: "DESIGNING HEAD", image: null },
-    { name: "Rudresh", title: "SOFTWARE ENGINEER & WEB DEVELOPER", image: null },
+    { 
+      name: "Dhanush N Gowda", 
+      title: "FOUNDER & CEO", 
+      image: null,
+      bio: "Visionary leader dedicated to redefining construction excellence. Dhanush ensures every project aligns with the core philosophy of 'Building Homes with Purpose', bringing transparency and innovation to the forefront."
+    },
+    { 
+      name: "Avinash", 
+      title: "CO-FOUNDER", 
+      image: null,
+      bio: "Expert project strategist focused on operational efficiency and sustainable growth. Avinash bridges the gap between complex engineering requirements and client dreams with precision and care."
+    },
+    { 
+      name: "Manasa N", 
+      title: "HEAD OF OFFICE MANAGER", 
+      image: null,
+      bio: "The organizational heartbeat of Graham’s. Manasa ensures seamless coordination between our design teams and site operations, maintaining the high standards of communication our clients expect."
+    },
+    { 
+      name: "Rajshekar", 
+      title: "SITE ENGINEER", 
+      image: null,
+      bio: "Dedicated and results-oriented Site Execute Engineer with hands-on experience in managing construction activities across residential, commercial, and infrastructure projects. Skilled in coordinating with architects and subcontractors to ensure timely delivery."
+    },
+    { 
+      name: "Darshan KG", 
+      title: "DESIGNING HEAD", 
+      image: null,
+      bio: "Architectural visionary specializing in sustainable integration and material consciousness. Darshan shapes spaces that breathe, focusing on light, air, and the emotional resonance of every room."
+    },
+    { 
+      name: "Rudresh", 
+      title: "SOFTWARE ENGINEER & WEB DEVELOPER", 
+      image: null,
+      bio: "Architect of the digital ecosystem. Rudresh builds the transparent tracking systems and interactive platforms that keep our clients connected to their project's progress in real-time."
+    },
   ];
+
+  const [activeBio, setActiveBio] = useState(null);
+
+  const toggleBio = (index) => {
+    setActiveBio(activeBio === index ? null : index);
+  };
 
   const fadeUp = {
     initial: { opacity: 0, y: 30 },
@@ -164,7 +200,8 @@ const OurStory = () => {
             {teamMembers.map((member, index) => (
               <div 
                 key={index} 
-                className="team-card-square"
+                className={`team-card-square ${activeBio === index ? 'active' : ''}`}
+                onClick={() => toggleBio(index)}
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   opacity: isVisible ? 1 : 0,
@@ -174,6 +211,13 @@ const OurStory = () => {
                 <div className="team-card-top">
                   <div className="team-initial">
                     {member.name.charAt(0)}
+                  </div>
+                  <div className="team-bio-overlay">
+                    <p>{member.bio}</p>
+                    <span className="close-bio-hint">Close Bio ×</span>
+                  </div>
+                  <div className="view-bio-hint">
+                    <span>Read Bio</span>
                   </div>
                 </div>
                 <div className="team-card-bottom">
