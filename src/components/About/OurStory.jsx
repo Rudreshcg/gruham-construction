@@ -1,135 +1,194 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
 import "./OurStory.css";
 
-
-
 const OurStory = () => {
-  const stats = [
-    { title: "People", number: "15+" },
-    { title: "Years", number: "3+" },
-    { title: "Ongoing Experiences", number: "24+" },
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const teamMembers = [
+    { name: "Dhanush N Gowda", title: "FOUNDER & CEO", image: null },
+    { name: "Avinash", title: "CO-FOUNDER", image: null },
+    { name: "Manasa N", title: "HEAD OF OFFICE MANAGER", image: null },
+    { name: "Rajshekar", title: "SITE ENGINEER", image: null },
+    { name: "Darshan KG", title: "DESIGNING HEAD", image: null },
+    { name: "Rudresh", title: "SOFTWARE ENGINEER & WEB DEVELOPER", image: null },
   ];
 
-  const values = [
-    { title: "Integrity", desc: "Honesty in every brick we lay and every promise we make." },
-    { title: "Quality", desc: "Uncompromising standards in materials and craftsmanship." },
-    { title: "Innovation", desc: "Embracing modern techniques for sustainable & smart living." },
-    { title: "Customer Centric", desc: "Your vision is our blueprint. We build around your dreams." },
-  ];
+  const fadeUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.8 },
+    viewport: { once: true }
+  };
 
   return (
-    <div className="our-story-section">
+    <div className="our-story-page">
       <SEOHead
-        title="Our Story - Gruham's Construction"
-        description="Discover the journey of Gruham's Construction, delivering excellence in luxury homes and commercial spaces in Bangalore."
+        title="Our Story & Team - Graham’s | Building Homes with Purpose"
+        description="Learn about the journey of Graham's construction. Three professionals, one vision: to make home building simpler, sustainable, and truly human."
         canonical="/about"
       />
 
-      <div className="story-header-minimal">
-        <motion.div
+      {/* --- HERO SECTION --- */}
+      <section className="story-hero">
+        <motion.div 
+          className="story-hero-content"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="story-title">Our Story</h2>
-          <p className="story-subtitle">
-            From humble beginnings to shaping Bangalore&apos;s skyline, our journey is defined by passion and precision.
-          </p>
+          <span className="brand-tagline">Graham’s</span>
+          <h1>Building Homes with Purpose</h1>
         </motion.div>
-      </div>
+      </section>
 
-      <div className="story-container">
-        <motion.div
-          className="story-content-wrapper full-width"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="story-text-block">
-            <p>
-              Founded with a vision to redefine construction, <strong>Gruham&apos;s</strong> began as a promise—to build not just structures, but sanctuaries. What started as a modest team of visionaries has evolved into one of the city&apos;s most trusted names in luxury development. We recognized early on that a home is more than bricks and mortar; it is a canvas for life&apos;s most cherished moments.
+      {/* --- NARRATIVE SECTION 1: THE MEANING --- */}
+      <section className="narrative-section bg-cream">
+        <div className="narrative-container">
+          <motion.div className="narrative-text-block" {...fadeUp}>
+            <p className="large-lead">
+              The name Graham’s is rooted in meaning, culture, and emotion. It is inspired by the word <strong>“Gruham” (గృహం)</strong>, which translates to home—a place of belonging, comfort, and life.
             </p>
             <p>
-              We believe every project tells a story. Ours is one of <strong>unwavering quality</strong>, where traditional craftsmanship meets modern innovation. We don&apos;t just build; we collaborate, listening intently to your dreams before laying a single brick. Our process is deeply personal, ensuring that every corner of your space reflects your unique identity and aspirations.
+              We evolved this idea into “Grahams” to represent not just one home, but many—each uniquely designed, thoughtfully built, and deeply personal.
             </p>
             <p>
-              In an era of rapid urbanization, we remain steadfast in our commitment to <strong>sustainable luxury</strong>. We integrate eco-friendly practices with high-end design, proving that responsibility and opulence can coexist. From energy-efficient architectural planning to the sourcing of premium, ethically harvested materials, every decision is made with the future in mind.
+              At its core, Graham’s stands for more than construction. It represents an ecosystem of living—where design, structure, and environment come together in harmony. A home, to us, is not just a physical space; it is an experience shaped by light, air, materials, and the emotions it holds within.
             </p>
-            <p>
-              Today, Gruham&apos;s stands as a beacon of <strong>trust and transparency</strong> in the Bangalore construction landscape. Our legacy is built on the relationships we nurture—with our clients, our partners, and our community. We invite you to join us on this journey of creation, where your vision becomes our blueprint for excellence.
-            </p>
-          </div>
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="stats-row-integrated">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-item-integrated">
-                <span className="stat-number-integrated">{stat.number}</span>
-                <span className="stat-label-integrated">{stat.title}</span>
+      {/* --- NARRATIVE SECTION 2: THE JOURNEY --- */}
+      <section className="narrative-section">
+        <div className="narrative-container">
+          <motion.div className="narrative-text-block" {...fadeUp}>
+            <h2 className="section-title-gold">Our journey began with a shared realization.</h2>
+            <p className="story-quote">Under one roof, the three of us discovered a common purpose:</p>
+            
+            <div className="triple-expertise-grid">
+              <div className="expertise-item">
+                <span className="expertise-role">The Architect</span>
+                <p>Driven to create meaningful spaces</p>
+              </div>
+              <div className="expertise-item">
+                <span className="expertise-role">The Interior Designer</span>
+                <p>Focused on the beauty of detail</p>
+              </div>
+              <div className="expertise-item">
+                <span className="expertise-role">The Civil Engineer</span>
+                <p>Committed to strength, precision, and longevity</p>
+              </div>
+            </div>
+
+            <p>
+              While working on multiple projects, we observed a pattern. The process of building a home—something deeply personal—was often unnecessarily complicated. Miscommunication, fragmented execution, and lack of clarity left clients feeling disconnected from their own projects.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- NARRATIVE SECTION 3: THE VISION --- */}
+      <section className="narrative-section active-bg">
+        <div className="narrative-container">
+          <motion.div className="narrative-text-block white-text" {...fadeUp}>
+            <h2 className="section-title-white">We knew this could be different.</h2>
+            <p>
+              What began as conversations—during coffee breaks, on active sites, and after long working days—soon turned into a clear vision:
+            </p>
+            <div className="vision-highlight">
+              To create a system where building a home is simple, transparent, and truly enjoyable.
+            </div>
+            <p>
+              That vision became Graham’s. We stepped forward, bringing together our individual expertise into one unified approach. Today, architecture, interiors, and construction work seamlessly under a single system—eliminating confusion and ensuring clarity at every stage.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- NARRATIVE SECTION 4: THE VALUES --- */}
+      <section className="narrative-section">
+        <div className="narrative-container">
+          <motion.div className="narrative-text-block" {...fadeUp}>
+             <h2 className="section-title-gold">Responsibility and Intention</h2>
+             <p>Every space we create is shaped by three core pillars:</p>
+             
+             <div className="pillars-grid">
+                <div className="pillar-card">
+                  <h4>Sustainability</h4>
+                  <p>Ensuring minimal impact on the environment</p>
+                </div>
+                <div className="pillar-card">
+                  <h4>Natural Integration</h4>
+                  <p>Maximizing light, ventilation, and spatial comfort</p>
+                </div>
+                <div className="pillar-card">
+                  <h4>Material Consciousness</h4>
+                  <p>Balancing durability, aesthetics, and eco-awareness</p>
+                </div>
+             </div>
+
+             <p className="closing-statement">
+              We believe a home should breathe with its surroundings, not work against them. Our commitment goes beyond delivering projects. We focus on creating environments that support life, enhance well-being, and stand strong for generations.
+             </p>
+             
+             <div className="manifesto-box">
+                <p>We don’t just build structures.</p>
+                <p>We create homes that feel alive.</p>
+                <p>We build trust through transparency.</p>
+                <p>We shape spaces that reflect people, purpose, and planet.</p>
+             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- TEAM SECTION --- */}
+      <section className="teams-section" id="team">
+        <div className="narrative-container">
+          <motion.div className="teams-header" {...fadeUp}>
+            <h2 className="teams-title">Our Team</h2>
+            <p className="teams-subtitle">
+              At Gruham&apos;s Construction, our success is built on the foundation of our exceptional team. 
+              Each member brings unique expertise, dedication, and passion to every project. Together, 
+              we transform visions into reality, creating spaces that stand the test of time.
+            </p>
+          </motion.div>
+
+          <div className={`teams-grid-square ${isVisible ? 'visible' : ''}`}>
+            {teamMembers.map((member, index) => (
+              <div 
+                key={index} 
+                className="team-card-square"
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)'
+                }}
+              >
+                <div className="team-card-top">
+                  <div className="team-initial">
+                    {member.name.charAt(0)}
+                  </div>
+                </div>
+                <div className="team-card-bottom">
+                  <h3 className="team-name">{member.name}</h3>
+                  <p className="team-title">{member.title}</p>
+                </div>
               </div>
             ))}
           </div>
-        </motion.div>
-      </div>
-
-      {/* 3. Mission & Vision */}
-      <div className="mission-vision-section">
-        <div className="mv-grid">
-          <motion.div
-            className="mv-card"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="mv-title">Our Mission</h3>
-            <p className="mv-text">
-              To deliver exceptional construction solutions that exceed client expectations through innovation, quality, and integrity. We strive to create spaces that inspire and endure, ensuring every project is a testament to our commitment to excellence.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="mv-card"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="mv-title">Our Vision</h3>
-            <p className="mv-text">
-              To be the leading construction company in Bangalore, known for transforming skylines and creating sustainable, luxurious living spaces. We envision a future where Gruham&apos;s is synonymous with trust, design innovation, and superior craftsmanship.
-            </p>
-          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* 4. Core Values */}
-      <div className="core-values-section">
-        <h2 className="values-title">Our Core Values</h2>
-        <div className="values-grid">
-          {values.map((val, index) => (
-            <motion.div
-              key={index}
-              className="value-item"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="value-heading">{val.title}</h4>
-              <p className="value-desc">{val.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-
-
+      {/* --- FOOTER LINKS --- */}
       <div className="internal-links-wrapper">
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 5%' }}>
           <InternalLinks currentPage="our-story" />
         </div>
       </div>

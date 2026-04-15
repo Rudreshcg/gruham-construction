@@ -188,8 +188,6 @@ const Header = () => {
             >
               <MenuItem component={RouterLink} to="/about" onClick={handleAboutClose} sx={dropdownItemStyles}>Our Story</MenuItem>
               <Divider sx={{ my: 0, mx: 2, borderColor: "rgba(191, 169, 116, 0.2)" }} />
-              <MenuItem component={RouterLink} to="/teams" onClick={handleAboutClose} sx={dropdownItemStyles}>Teams</MenuItem>
-              <Divider sx={{ my: 0, mx: 2, borderColor: "rgba(191, 169, 116, 0.2)" }} />
               <MenuItem component={RouterLink} to="/careers" onClick={handleAboutClose} sx={dropdownItemStyles}>Careers</MenuItem>
             </Menu>
 
@@ -312,8 +310,6 @@ const Header = () => {
           {generateMobileLink("HOME", "/")}
           <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
           {generateMobileLink("OUR STORY", "/about")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
-          {generateMobileLink("TEAMS", "/teams")}
           <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
           {generateMobileLink("PORTFOLIO", "/portfolio")}
           <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
