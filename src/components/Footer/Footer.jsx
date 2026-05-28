@@ -22,6 +22,24 @@ import {
 } from "@mui/icons-material";
 
 const Footer = () => {
+  const socialLinks = {
+    Facebook: "https://www.facebook.com/gruhamconstruction",
+    Twitter: "#",
+    Instagram: "https://www.instagram.com/gruhams.official?igsh=Z21xenQ5anNzdHAx",
+    YouTube: "https://youtube.com/@gruhamsxtvashta?si=fWzjDuDBW6NBBYc2",
+    Pinterest: "https://pin.it/BlFuBJJJp",
+    LinkedIn: "https://www.linkedin.com/company/gruhamconstruction"
+  };
+
+  const socialIcons = [
+    { Icon: Facebook, name: "Facebook" },
+    { Icon: Twitter, name: "Twitter" },
+    { Icon: Instagram, name: "Instagram" },
+    { Icon: YouTube, name: "YouTube" },
+    { Icon: Pinterest, name: "Pinterest" },
+    { Icon: LinkedIn, name: "LinkedIn" }
+  ];
+
   return (
     <Box component={motion.footer} bgcolor="#1C1C1E" color="white" py={10}>
       <Container maxWidth="lg">
@@ -54,12 +72,14 @@ const Footer = () => {
                 flexWrap="wrap"
                 gap={{ xs: 1, sm: 1.5, md: 2 }} // responsive spacing
               >
-                {[Facebook, Twitter, Instagram, YouTube, Pinterest, LinkedIn].map((Icon, idx) => (
+                {socialIcons.map(({ Icon, name }, idx) => (
                   <IconButton
                     key={idx}
                     color="inherit"
-                    href="#"
-                    aria-label={Icon.displayName || "social link"}
+                    href={socialLinks[name]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={name}
                     sx={{
                       fontSize: { xs: 20, sm: 24, md: 28 }, // responsive icon size
                       '& svg': { fontSize: 'inherit' },

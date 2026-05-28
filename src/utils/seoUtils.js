@@ -116,7 +116,9 @@ export const generateLocalBusinessStructuredData = () => {
     "currenciesAccepted": "INR",
     "sameAs": [
       "https://www.facebook.com/gruhamconstruction",
-      "https://www.instagram.com/gruhamconstruction",
+      "https://www.instagram.com/gruhams.official?igsh=Z21xenQ5anNzdHAx",
+      "https://youtube.com/@gruhamsxtvashta?si=fWzjDuDBW6NBBYc2",
+      "https://pin.it/BlFuBJJJp",
       "https://www.linkedin.com/company/gruhamconstruction"
     ]
   };
