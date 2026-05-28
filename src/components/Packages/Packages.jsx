@@ -13,7 +13,6 @@ function Packages() {
 
   const packageTemplate = packagesData.packages[0];
   const featureSections = Object.keys(packageTemplate.features);
-  const featuredPackages = packagesData.packages.slice(0, 3);
 
   const toggleSection = (section) => {
     setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
@@ -192,17 +191,15 @@ function Packages() {
   return (
     <div className="packages-page">
       <SEOHead
-        title="Construction Packages - Gruham's Construction"
-        description="Explore our transparent and detailed construction packages ranging from Essential to Luxury and Custom options. Find the right fit for your dream home."
-        keywords="construction packages, custom home packages, bangalore home construction, gruham construction packages"
+        title="Construction package Bangalore | Gruham's Construction"
+        description="Affordable home construction packages in Bangalore for 2BHK, 3BHK, villas, and luxury homes with premium materials. Expert construction solutions by Gruham's Construction."
+        keywords="construction packages bangalore, 2bhk construction package, 3bhk construction package, villa construction package, affordable home construction, luxury home packages, gruham construction"
         canonical="/packages"
       />
 
       <div className="packages-header">
         <h2 className="packages-title">Construction package Bangalore | Gruham's Construction</h2>
-        <p className="packages-subtitle">Affordable Home Construction
-packages in Bangalore for 2bhk , 3bhk,villas
-and Luxury homes with premium Materials</p>
+        <p className="packages-subtitle">Affordable home construction packages in Bangalore for 2BHK, 3BHK, villas and luxury homes with premium materials</p>
       </div>
 
       {view === 'grid' && (
@@ -215,7 +212,7 @@ and Luxury homes with premium Materials</p>
           </div>
 
           <div className="packages-hero-grid">
-            {featuredPackages.map((p, idx) => (
+            {packagesData.packages.map((p, idx) => (
               <div
                 key={p.id}
                 className={`package-hero-card ${p.popular ? 'popular' : ''}`}

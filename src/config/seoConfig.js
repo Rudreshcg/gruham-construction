@@ -121,6 +121,26 @@ export const seoConfig = {
       title: "Contact Gruham's Construction - Get Construction Quote in Bangalore",
       description: "Contact Gruham's Construction for your construction project in Bangalore. Get expert consultation, quotes, and project planning for home construction, commercial buildings, and renovation services.",
       keywords: "contact Gruham construction, construction quote Bangalore, construction consultation, construction planning, building contractor contact"
+    },
+    packages: {
+      title: "Construction Packages in Bangalore - Gruham's Construction",
+      description: "Explore affordable home construction packages in Bangalore by Gruham's Construction. Choose from transparent packages for 2BHK, 3BHK, villas, and luxury homes with premium materials.",
+      keywords: "construction packages Bangalore, 2bhk construction package, 3bhk construction package, villa construction package, affordable home construction, luxury home packages"
+    },
+    blogs: {
+      title: "Construction Blog - Expert Tips & Insights | Gruham's Construction",
+      description: "Read expert construction tips, design trends, and industry insights from Gruham's Construction. Learn about home building, interior design, and sustainable construction practices.",
+      keywords: "construction blog, construction tips, home building advice, interior design trends, construction industry insights"
+    },
+    publications: {
+      title: "Publications & Resources - Gruham's Construction",
+      description: "Explore publications, articles, and resources from Gruham's Construction. Learn about construction industry insights, project case studies, and expert knowledge.",
+      keywords: "construction publications, construction articles, Gruham publications, construction resources, construction case studies"
+    },
+    careers: {
+      title: "Careers - Gruham's Construction - Join Our Team in Bangalore",
+      description: "Looking for a career in construction? Gruham's Construction is hiring Site Engineers, Project Managers, and Architects in Bangalore. Join our growing team.",
+      keywords: "Gruham construction careers, construction jobs Bangalore, site engineer jobs, project manager jobs, architect jobs"
     }
   },
 

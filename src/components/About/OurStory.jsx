@@ -66,9 +66,22 @@ const OurStory = () => {
   return (
     <div className="our-story-page">
       <SEOHead
-        title="Our Story & Team - Graham’s | Building Homes with Purpose"
-        description="Learn about the journey of Graham's construction. Three professionals, one vision: to make home building simpler, sustainable, and truly human."
+        title="Our Story & Team - Gruham's Construction | Building Homes with Purpose in Bangalore"
+        description="Learn about Gruham's Construction journey in Bangalore. Three professionals, one vision: sustainable, transparent home building with premium quality materials and expert team."
+        keywords="Gruham construction story, Gruham team Bangalore, construction company Bangalore, home building company, sustainable construction, premium home construction, Gruham's construction team, Gruham founder, construction professionals Bangalore, transparent construction"
         canonical="/about"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Gruham's Construction",
+          "alternateName": ["Gruhams", "Gruham Construction", "Gruham's"],
+          "url": "https://www.gruhams.in/about",
+          "description": "Building homes with purpose - sustainable, transparent construction services in Bangalore",
+          "sameAs": [
+            "https://www.facebook.com/gruhams",
+            "https://www.instagram.com/gruhams"
+          ]
+        }}
       />
 
       {/* --- HERO SECTION --- */}

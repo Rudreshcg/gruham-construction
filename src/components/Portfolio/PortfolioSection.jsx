@@ -45,7 +45,7 @@ function PortfolioSection() {
     <section className="portfolio-section">
       <div className="portfolio-header">
         <h2 className="portfolio-title">Our Latest Projects</h2>
-        <p className="portfolio-subtitle">Explore Completed Construction Project by Gruham's Construction including Villa,2bkh,3bhk home , office , modular kitchen & Luxury interiors</p>
+        <p className="portfolio-subtitle">Explore completed construction projects by Gruham's Construction including villas, 2BHK, 3BHK homes, offices, modular kitchens & luxury interiors</p>
 
         {/* Filter Buttons */}
         <div className="portfolio-filters">

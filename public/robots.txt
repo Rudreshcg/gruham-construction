@@ -1,27 +1,47 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap for search engines
 Sitemap: https://www.gruhams.in/sitemap.xml
 
-# Crawl-delay
+# Crawl-delay to prevent server overload
 Crawl-delay: 1
 
-# Disallow certain paths (if any)
-# Disallow: /admin/
-# Disallow: /private/
+# Allow all search engines to crawl static assets
+Allow: /images/
+Allow: /assets/
+Allow: /robots.txt
+Allow: /sitemap.xml
 
-# Allow all search engines to crawl everything
-Allow: /src/assets/
-Allow: /src/components/
-Allow: /src/data/
+# Key pages to prioritize for crawling
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /portfolio
+Allow: /packages
+Allow: /blogs
+Allow: /contact
+Allow: /careers
 
-# Additional SEO directives
+# Block paths that should not be indexed
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cache/
+
+# Specific crawl rules for major search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Mobile-friendly directive
+User-agent: *
 Allow: /
