@@ -12,39 +12,39 @@ const OurStory = () => {
   }, []);
 
   const teamMembers = [
-    { 
-      name: "Dhanush N Gowda", 
-      title: "FOUNDER & CEO", 
+    {
+      name: "Dhanush N Gowda",
+      title: "FOUNDER & CEO",
       image: null,
       bio: "Visionary leader dedicated to redefining construction excellence. Dhanush ensures every project aligns with the core philosophy of 'Building Homes with Purpose', bringing transparency and innovation to the forefront."
     },
-    { 
-      name: "Avinash", 
-      title: "CO-FOUNDER", 
+    {
+      name: "Avinash",
+      title: "CO-FOUNDER",
       image: null,
       bio: "Expert project strategist focused on operational efficiency and sustainable growth. Avinash bridges the gap between complex engineering requirements and client dreams with precision and care."
     },
-    { 
-      name: "Manasa N", 
-      title: "HEAD OF OFFICE MANAGER", 
+    {
+      name: "Manasa N",
+      title: "HEAD OF OFFICE MANAGER",
       image: null,
       bio: "The organizational heartbeat of Graham’s. Manasa ensures seamless coordination between our design teams and site operations, maintaining the high standards of communication our clients expect."
     },
-    { 
-      name: "Rajshekar", 
-      title: "SITE ENGINEER", 
+    {
+      name: "Rajshekar",
+      title: "SITE ENGINEER",
       image: null,
       bio: "Dedicated and results-oriented Site Execute Engineer with hands-on experience in managing construction activities across residential, commercial, and infrastructure projects. Skilled in coordinating with architects and subcontractors to ensure timely delivery."
     },
-    { 
-      name: "Darshan KG", 
-      title: "DESIGNING HEAD", 
+    {
+      name: "Darshan KG",
+      title: "DESIGNING HEAD",
       image: null,
       bio: "Architectural visionary specializing in sustainable integration and material consciousness. Darshan shapes spaces that breathe, focusing on light, air, and the emotional resonance of every room."
     },
-    { 
-      name: "Rudresh", 
-      title: "SOFTWARE ENGINEER & WEB DEVELOPER", 
+    {
+      name: "Rudresh",
+      title: "SOFTWARE ENGINEER & WEB DEVELOPER",
       image: null,
       bio: "Architect of the digital ecosystem. Rudresh builds the transparent tracking systems and interactive platforms that keep our clients connected to their project's progress in real-time."
     },
@@ -73,14 +73,19 @@ const OurStory = () => {
 
       {/* --- HERO SECTION --- */}
       <section className="story-hero">
-        <motion.div 
+        <motion.div
           className="story-hero-content"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <span className="brand-tagline">Our Story</span>
-          <h1>Building Homes with Purpose</h1>
+          <h1>
+            Trusted Builders in Bangalore
+          </h1>
+          <p className="story-hero-subtitle">
+            Know more about Gruham’s Construction, Bangalore’s trusted Construction
+          </p>
         </motion.div>
       </section>
 
@@ -107,7 +112,7 @@ const OurStory = () => {
           <motion.div className="narrative-text-block" {...fadeUp}>
             <h2 className="section-title-gold">Our journey began with a shared realization.</h2>
             <p className="story-quote">Under one roof, the three of us discovered a common purpose:</p>
-            
+
             <div className="triple-expertise-grid">
               <div className="expertise-item">
                 <span className="expertise-role">The Architect</span>
@@ -152,34 +157,34 @@ const OurStory = () => {
       <section className="narrative-section">
         <div className="narrative-container">
           <motion.div className="narrative-text-block" {...fadeUp}>
-             <h2 className="section-title-gold">Responsibility and Intention</h2>
-             <p>Every space we create is shaped by three core pillars:</p>
-             
-             <div className="pillars-grid">
-                <div className="pillar-card">
-                  <h4>Sustainability</h4>
-                  <p>Ensuring minimal impact on the environment</p>
-                </div>
-                <div className="pillar-card">
-                  <h4>Natural Integration</h4>
-                  <p>Maximizing light, ventilation, and spatial comfort</p>
-                </div>
-                <div className="pillar-card">
-                  <h4>Material Consciousness</h4>
-                  <p>Balancing durability, aesthetics, and eco-awareness</p>
-                </div>
-             </div>
+            <h2 className="section-title-gold">Responsibility and Intention</h2>
+            <p>Every space we create is shaped by three core pillars:</p>
 
-             <p className="closing-statement">
+            <div className="pillars-grid">
+              <div className="pillar-card">
+                <h4>Sustainability</h4>
+                <p>Ensuring minimal impact on the environment</p>
+              </div>
+              <div className="pillar-card">
+                <h4>Natural Integration</h4>
+                <p>Maximizing light, ventilation, and spatial comfort</p>
+              </div>
+              <div className="pillar-card">
+                <h4>Material Consciousness</h4>
+                <p>Balancing durability, aesthetics, and eco-awareness</p>
+              </div>
+            </div>
+
+            <p className="closing-statement">
               We believe a home should breathe with its surroundings, not work against them. Our commitment goes beyond delivering projects. We focus on creating environments that support life, enhance well-being, and stand strong for generations.
-             </p>
-             
-             <div className="manifesto-box">
-                <p>We don’t just build structures.</p>
-                <p>We create homes that feel alive.</p>
-                <p>We build trust through transparency.</p>
-                <p>We shape spaces that reflect people, purpose, and planet.</p>
-             </div>
+            </p>
+
+            <div className="manifesto-box">
+              <p>We don’t just build structures.</p>
+              <p>We create homes that feel alive.</p>
+              <p>We build trust through transparency.</p>
+              <p>We shape spaces that reflect people, purpose, and planet.</p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -190,16 +195,16 @@ const OurStory = () => {
           <motion.div className="teams-header" {...fadeUp}>
             <h2 className="teams-title">Our Team</h2>
             <p className="teams-subtitle">
-              At Gruham&apos;s Construction, our success is built on the foundation of our exceptional team. 
-              Each member brings unique expertise, dedication, and passion to every project. Together, 
+              At Gruham&apos;s Construction, our success is built on the foundation of our exceptional team.
+              Each member brings unique expertise, dedication, and passion to every project. Together,
               we transform visions into reality, creating spaces that stand the test of time.
             </p>
           </motion.div>
 
           <div className={`teams-grid-square ${isVisible ? 'visible' : ''}`}>
             {teamMembers.map((member, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`team-card-square ${activeBio === index ? 'active' : ''}`}
                 onClick={() => toggleBio(index)}
                 style={{

@@ -133,6 +133,22 @@ const Hero = () => {
                 Gruham&apos;s
               </Typography>
               <Typography
+                component="h2"
+                sx={{
+                  color: "rgba(255, 255, 255, 1)",
+                  fontFamily: homeTheme.fonts.body,
+                  fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.6rem" },
+                  fontWeight: 600,
+                  lineHeight: 1.2,
+                  textShadow: "0 2px 10px rgba(0,0,0,0.85)",
+                  letterSpacing: "0.01em",
+                  maxWidth: "720px",
+                  textTransform: "none",
+                }}
+              >
+                Construction Company in Bangalore
+              </Typography>
+              <Typography
                 variant="h6"
                 sx={{
                   mt: 1.5,
@@ -159,7 +175,12 @@ const Hero = () => {
                 maxWidth: "640px",
               }}
             >
-              Luxury homes, bespoke interiors, and commercial environments crafted with precision in Bangalore. Partner with us to bring your next project to life—
+              Build your Dream Home with Gruhams
+              Bangalore's trusted Construction Company for
+              Luxury homes, Villa construction, Turnkey
+              Projects, Interior Design, and Commercial Spaces.
+              Quality, transparency, {" "}
+
               <Box
                 component="span"
                 sx={{
@@ -168,7 +189,8 @@ const Hero = () => {
                   textShadow: "0 2px 8px rgba(0,0,0,0.8)",
                 }}
               >
-                seamlessly and beautifully.
+                and on-time Delivery
+                Guaranteed
               </Box>
             </Typography>
 

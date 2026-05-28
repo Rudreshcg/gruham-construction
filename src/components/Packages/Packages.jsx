@@ -13,6 +13,7 @@ function Packages() {
 
   const packageTemplate = packagesData.packages[0];
   const featureSections = Object.keys(packageTemplate.features);
+  const featuredPackages = packagesData.packages.slice(0, 3);
 
   const toggleSection = (section) => {
     setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
@@ -198,8 +199,10 @@ function Packages() {
       />
 
       <div className="packages-header">
-        <h1>Construction Packages</h1>
-        <p>Choose the perfect tier to build your dream home.</p>
+        <h2 className="packages-title">Construction package Bangalore | Gruham's Construction</h2>
+        <p className="packages-subtitle">Affordable Home Construction
+packages in Bangalore for 2bhk , 3bhk,villas
+and Luxury homes with premium Materials</p>
       </div>
 
       {view === 'grid' && (
@@ -212,7 +215,7 @@ function Packages() {
           </div>
 
           <div className="packages-hero-grid">
-            {packagesData.packages.map((p, idx) => (
+            {featuredPackages.map((p, idx) => (
               <div
                 key={p.id}
                 className={`package-hero-card ${p.popular ? 'popular' : ''}`}
