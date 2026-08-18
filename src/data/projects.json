@@ -368,6 +368,138 @@
           "alt": "View 1"
         }
       ]
+    },
+    "debendra_debadutta_das": {
+      "id": "debendra_debadutta_das",
+      "name": "Debendra Debadutta Das",
+      "title": "Residence in Varthur",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Varthur",
+      "plotArea": "1900 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/Debendra_Debadutta_Das/Debendar Construction Company  In channapatna.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in Varthur.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/Debendra_Debadutta_Das/Debendar Construction Company  In channapatna.png",
+          "alt": "Main View"
+        }
+      ]
+    },
+    "venkatachalpathi": {
+      "id": "venkatachalpathi",
+      "name": "VenkataChalpathi",
+      "title": "Residence in HSR Layout",
+      "date": "2026",
+      "category": "Residential",
+      "location": "HSR layout",
+      "plotArea": "1300 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/VenkataChalpathi/VenkataChalapathi Construction Company  In HSR Layout.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in HSR Layout.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/VenkataChalpathi/VenkataChalapathi Construction Company  In HSR Layout.png",
+          "alt": "Main View"
+        }
+      ]
+    },
+    "nazeer_hussen": {
+      "id": "nazeer_hussen",
+      "name": "Nazeer Hussen",
+      "title": "Residence in Sarjapur",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Sarjapur",
+      "plotArea": "1900 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/Nazeer_Hussen/Nazeer Construction Company  In Mysore.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in Sarjapur.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/Nazeer_Hussen/Nazeer Construction Company  In Mysore.png",
+          "alt": "Main View"
+        }
+      ]
+    },
+    "asha_manjunath": {
+      "id": "asha_manjunath",
+      "name": "Asha Manjunath",
+      "title": "Residence in Dasanpura",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Dasanpura",
+      "plotArea": "1200 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in Dasanpura.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
+          "alt": "Main View"
+        }
+      ]
     }
   },
   "latestProjects": [
@@ -412,6 +544,34 @@
       "title": "Residence in Dollars Colony",
       "image": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.56 PM.jpeg",
       "date": "2025"
+    },
+    {
+      "id": "debendra_debadutta_das",
+      "name": "Debendra Debadutta Das",
+      "title": "Residence in Varthur",
+      "image": "/images/projects/Debendra_Debadutta_Das/Debendar Construction Company  In channapatna.png",
+      "date": "2026"
+    },
+    {
+      "id": "venkatachalpathi",
+      "name": "VenkataChalpathi",
+      "title": "Residence in HSR Layout",
+      "image": "/images/projects/VenkataChalpathi/VenkataChalapathi Construction Company  In HSR Layout.png",
+      "date": "2026"
+    },
+    {
+      "id": "nazeer_hussen",
+      "name": "Nazeer Hussen",
+      "title": "Residence in Sarjapur",
+      "image": "/images/projects/Nazeer_Hussen/Nazeer Construction Company  In Mysore.png",
+      "date": "2026"
+    },
+    {
+      "id": "asha_manjunath",
+      "name": "Asha Manjunath",
+      "title": "Residence in Dasanpura",
+      "image": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
+      "date": "2026"
     }
   ]
 }
