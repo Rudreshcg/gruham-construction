@@ -1,5 +1,223 @@
 {
   "projects": {
+    "inderpal_singh": {
+      "id": "inderpal_singh",
+      "name": "Mr. Inderpal Singh",
+      "title": "Contemporary Residence in Jigani",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Jigani",
+      "plotArea": "1600 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Working",
+      "mainImage": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
+      "content": {
+        "description": "A striking 1600 sq ft contemporary residence in Jigani, scheduled for completion in 2026. This project showcases modern architectural lines and functional elegance.",
+        "highlights": [
+          "Geometric Facade Design",
+          "Open-Concept Living Areas",
+          "Energy Efficient Planning"
+        ],
+        "features": [
+          "3 Bedrooms",
+          "Modern Kitchen",
+          "Rooftop Terrace"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
+          "alt": "Front Elevation"
+        },
+        {
+          "id": 2,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-03.R1.png",
+          "alt": "Side View"
+        },
+        {
+          "id": 3,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-04.R1.png",
+          "alt": "Perspective View"
+        },
+        {
+          "id": 4,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-05.R1.png",
+          "alt": "Aerial View"
+        },
+        {
+          "id": 5,
+          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-06.R1.png",
+          "alt": "Detailed View"
+        }
+      ]
+    },
+    "sathya_shree_ram": {
+      "id": "sathya_shree_ram",
+      "name": "Mr. Sathya Shree Ram",
+      "title": "Modern Duplex in Jigani",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Jigani",
+      "plotArea": "2400 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Working",
+      "mainImage": "/images/projects/SathyaShreeram/WhatsApp Image 2026-02-13 at 5.53.40 PM.jpeg",
+      "content": {
+        "description": "A modern 2400 sq ft duplex residence in Jigani, currently in the planning and execution phase. The design focuses on vertical connectivity and modern aesthetics.",
+        "highlights": [
+          "Modern Duplex Configuration",
+          "Seamless Indoor-Outdoor Flow",
+          "Contemporary Elevation"
+        ],
+        "features": [
+          "3 Bedrooms",
+          "Upper-Level Family Lounge",
+          "Spacious Balconies"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/SathyaShreeram/WhatsApp Image 2026-02-13 at 5.53.40 PM.jpeg",
+          "alt": "View 1"
+        }
+      ]
+    },
+    "debendra_debadutta_das": {
+      "id": "debendra_debadutta_das",
+      "name": "Debendra Debadutta Das",
+      "title": "Residence in Varthur",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Varthur",
+      "plotArea": "1900 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/Debendra_Debadutta_Das/Debendar Construction Company  In channapatna.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in Varthur.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/Debendra_Debadutta_Das/Debendar Construction Company  In channapatna.png",
+          "alt": "Main View"
+        }
+      ]
+    },
+    "venkatachalpathi": {
+      "id": "venkatachalpathi",
+      "name": "VenkataChalpathi",
+      "title": "Residence in HSR Layout",
+      "date": "2026",
+      "category": "Residential",
+      "location": "HSR layout",
+      "plotArea": "1300 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/VenkataChalpathi/VenkataChalapathi Construction Company  In HSR Layout.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in HSR Layout.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/VenkataChalpathi/VenkataChalapathi Construction Company  In HSR Layout.png",
+          "alt": "Main View"
+        }
+      ]
+    },
+    "nazeer_hussen": {
+      "id": "nazeer_hussen",
+      "name": "Nazeer Hussen",
+      "title": "Residence in Sarjapur",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Sarjapur",
+      "plotArea": "1900 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/Nazeer_Hussen/Nazeer Construction Company  In Mysore.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in Sarjapur.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/Nazeer_Hussen/Nazeer Construction Company  In Mysore.png",
+          "alt": "Main View"
+        }
+      ]
+    },
+    "asha_manjunath": {
+      "id": "asha_manjunath",
+      "name": "Asha Manjunath",
+      "title": "Residence in Dasanpura",
+      "date": "2026",
+      "category": "Residential",
+      "location": "Dasanpura",
+      "plotArea": "1200 sq ft",
+      "constructionYear": "2026",
+      "status": "Ongoing",
+      "duration": "Ongoing",
+      "mainImage": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
+      "content": {
+        "description": "A beautiful ongoing residential project in Dasanpura.",
+        "highlights": [
+          "Modern Design",
+          "Spacious Layout",
+          "Premium Finishes"
+        ],
+        "features": [
+          "Well-planned interiors",
+          "High-quality materials",
+          "Excellent location"
+        ]
+      },
+      "galleryImages": [
+        {
+          "id": 1,
+          "src": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
+          "alt": "Main View"
+        }
+      ]
+    },
     "manesh_arora": {
       "id": "manesh_arora",
       "name": "Mr. Manesh Arora",
@@ -192,59 +410,6 @@
         }
       ]
     },
-    "inderpal_singh": {
-      "id": "inderpal_singh",
-      "name": "Mr. Inderpal Singh",
-      "title": "Contemporary Residence in Jigani",
-      "date": "2026",
-      "category": "Residential",
-      "location": "Jigani",
-      "plotArea": "1600 sq ft",
-      "constructionYear": "2026",
-      "status": "Ongoing",
-      "duration": "Working",
-      "mainImage": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
-      "content": {
-        "description": "A striking 1600 sq ft contemporary residence in Jigani, scheduled for completion in 2026. This project showcases modern architectural lines and functional elegance.",
-        "highlights": [
-          "Geometric Facade Design",
-          "Open-Concept Living Areas",
-          "Energy Efficient Planning"
-        ],
-        "features": [
-          "3 Bedrooms",
-          "Modern Kitchen",
-          "Rooftop Terrace"
-        ]
-      },
-      "galleryImages": [
-        {
-          "id": 1,
-          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
-          "alt": "Front Elevation"
-        },
-        {
-          "id": 2,
-          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-03.R1.png",
-          "alt": "Side View"
-        },
-        {
-          "id": 3,
-          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-04.R1.png",
-          "alt": "Perspective View"
-        },
-        {
-          "id": 4,
-          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-05.R1.png",
-          "alt": "Aerial View"
-        },
-        {
-          "id": 5,
-          "src": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-06.R1.png",
-          "alt": "Detailed View"
-        }
-      ]
-    },
     "sunil_sharma": {
       "id": "sunil_sharma",
       "name": "Mr. Sunil Sharma",
@@ -335,171 +500,6 @@
           "alt": "View 5"
         }
       ]
-    },
-    "sathya_shree_ram": {
-      "id": "sathya_shree_ram",
-      "name": "Mr. Sathya Shree Ram",
-      "title": "Modern Duplex in Jigani",
-      "date": "2026",
-      "category": "Residential",
-      "location": "Jigani",
-      "plotArea": "2400 sq ft",
-      "constructionYear": "2026",
-      "status": "Ongoing",
-      "duration": "Working",
-      "mainImage": "/images/projects/SathyaShreeram/WhatsApp Image 2026-02-13 at 5.53.40 PM.jpeg",
-      "content": {
-        "description": "A modern 2400 sq ft duplex residence in Jigani, currently in the planning and execution phase. The design focuses on vertical connectivity and modern aesthetics.",
-        "highlights": [
-          "Modern Duplex Configuration",
-          "Seamless Indoor-Outdoor Flow",
-          "Contemporary Elevation"
-        ],
-        "features": [
-          "3 Bedrooms",
-          "Upper-Level Family Lounge",
-          "Spacious Balconies"
-        ]
-      },
-      "galleryImages": [
-        {
-          "id": 1,
-          "src": "/images/projects/SathyaShreeram/WhatsApp Image 2026-02-13 at 5.53.40 PM.jpeg",
-          "alt": "View 1"
-        }
-      ]
-    },
-    "debendra_debadutta_das": {
-      "id": "debendra_debadutta_das",
-      "name": "Debendra Debadutta Das",
-      "title": "Residence in Varthur",
-      "date": "2026",
-      "category": "Residential",
-      "location": "Varthur",
-      "plotArea": "1900 sq ft",
-      "constructionYear": "2026",
-      "status": "Ongoing",
-      "duration": "Ongoing",
-      "mainImage": "/images/projects/Debendra_Debadutta_Das/Debendar Construction Company  In channapatna.png",
-      "content": {
-        "description": "A beautiful ongoing residential project in Varthur.",
-        "highlights": [
-          "Modern Design",
-          "Spacious Layout",
-          "Premium Finishes"
-        ],
-        "features": [
-          "Well-planned interiors",
-          "High-quality materials",
-          "Excellent location"
-        ]
-      },
-      "galleryImages": [
-        {
-          "id": 1,
-          "src": "/images/projects/Debendra_Debadutta_Das/Debendar Construction Company  In channapatna.png",
-          "alt": "Main View"
-        }
-      ]
-    },
-    "venkatachalpathi": {
-      "id": "venkatachalpathi",
-      "name": "VenkataChalpathi",
-      "title": "Residence in HSR Layout",
-      "date": "2026",
-      "category": "Residential",
-      "location": "HSR layout",
-      "plotArea": "1300 sq ft",
-      "constructionYear": "2026",
-      "status": "Ongoing",
-      "duration": "Ongoing",
-      "mainImage": "/images/projects/VenkataChalpathi/VenkataChalapathi Construction Company  In HSR Layout.png",
-      "content": {
-        "description": "A beautiful ongoing residential project in HSR Layout.",
-        "highlights": [
-          "Modern Design",
-          "Spacious Layout",
-          "Premium Finishes"
-        ],
-        "features": [
-          "Well-planned interiors",
-          "High-quality materials",
-          "Excellent location"
-        ]
-      },
-      "galleryImages": [
-        {
-          "id": 1,
-          "src": "/images/projects/VenkataChalpathi/VenkataChalapathi Construction Company  In HSR Layout.png",
-          "alt": "Main View"
-        }
-      ]
-    },
-    "nazeer_hussen": {
-      "id": "nazeer_hussen",
-      "name": "Nazeer Hussen",
-      "title": "Residence in Sarjapur",
-      "date": "2026",
-      "category": "Residential",
-      "location": "Sarjapur",
-      "plotArea": "1900 sq ft",
-      "constructionYear": "2026",
-      "status": "Ongoing",
-      "duration": "Ongoing",
-      "mainImage": "/images/projects/Nazeer_Hussen/Nazeer Construction Company  In Mysore.png",
-      "content": {
-        "description": "A beautiful ongoing residential project in Sarjapur.",
-        "highlights": [
-          "Modern Design",
-          "Spacious Layout",
-          "Premium Finishes"
-        ],
-        "features": [
-          "Well-planned interiors",
-          "High-quality materials",
-          "Excellent location"
-        ]
-      },
-      "galleryImages": [
-        {
-          "id": 1,
-          "src": "/images/projects/Nazeer_Hussen/Nazeer Construction Company  In Mysore.png",
-          "alt": "Main View"
-        }
-      ]
-    },
-    "asha_manjunath": {
-      "id": "asha_manjunath",
-      "name": "Asha Manjunath",
-      "title": "Residence in Dasanpura",
-      "date": "2026",
-      "category": "Residential",
-      "location": "Dasanpura",
-      "plotArea": "1200 sq ft",
-      "constructionYear": "2026",
-      "status": "Ongoing",
-      "duration": "Ongoing",
-      "mainImage": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
-      "content": {
-        "description": "A beautiful ongoing residential project in Dasanpura.",
-        "highlights": [
-          "Modern Design",
-          "Spacious Layout",
-          "Premium Finishes"
-        ],
-        "features": [
-          "Well-planned interiors",
-          "High-quality materials",
-          "Excellent location"
-        ]
-      },
-      "galleryImages": [
-        {
-          "id": 1,
-          "src": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
-          "alt": "Main View"
-        }
-      ]
     }
   },
   "latestProjects": [
@@ -509,41 +509,6 @@
       "title": "Contemporary Residence in Jigani",
       "image": "/images/projects/MR.inderpalsingh/3D RENDERED VIEW-INDERPAL-01.R0.png",
       "date": "2026"
-    },
-    {
-      "id": "sunil_sharma",
-      "name": "Mr. Sunil Sharma",
-      "title": "Modern Residence in Jigani",
-      "image": "/images/projects/Mr.sunilsharma/WhatsApp Image 2026-02-13 at 5.49.57 PM.jpeg",
-      "date": "2024"
-    },
-    {
-      "id": "jhansi_rani",
-      "name": "Dr. Jhansi Rani and Krishna Prasad",
-      "title": "Contemporary Home in Jigani",
-      "image": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.50.46 PM.jpeg",
-      "date": "2024"
-    },
-    {
-      "id": "manesh_arora",
-      "name": "Mr. Manesh Arora",
-      "title": "Luxury Villa in Jigani",
-      "image": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.51.31 PM.jpeg",
-      "date": "2025"
-    },
-    {
-      "id": "mallikarjun",
-      "name": "Mr. Mallikarjun",
-      "title": "Grand Residence in Jigani",
-      "image": "/images/projects/Mallikarjun/WhatsApp Image 2026-02-13 at 5.52.46 PM.jpeg",
-      "date": "2025"
-    },
-    {
-      "id": "bhawani_singh",
-      "name": "Mr. Bhawani Singh",
-      "title": "Residence in Dollars Colony",
-      "image": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.56 PM.jpeg",
-      "date": "2025"
     },
     {
       "id": "debendra_debadutta_das",
@@ -572,6 +537,41 @@
       "title": "Residence in Dasanpura",
       "image": "/images/projects/Asha_Manjunath/Asha Manjuth Construction Company  In Bangalore.png",
       "date": "2026"
+    },
+    {
+      "id": "manesh_arora",
+      "name": "Mr. Manesh Arora",
+      "title": "Luxury Villa in Jigani",
+      "image": "/images/projects/MR. MANESH ARORA/WhatsApp Image 2026-02-13 at 5.51.31 PM.jpeg",
+      "date": "2025"
+    },
+    {
+      "id": "mallikarjun",
+      "name": "Mr. Mallikarjun",
+      "title": "Grand Residence in Jigani",
+      "image": "/images/projects/Mallikarjun/WhatsApp Image 2026-02-13 at 5.52.46 PM.jpeg",
+      "date": "2025"
+    },
+    {
+      "id": "bhawani_singh",
+      "name": "Mr. Bhawani Singh",
+      "title": "Residence in Dollars Colony",
+      "image": "/images/projects/Bhawanisingh/WhatsApp Image 2026-02-13 at 5.55.56 PM.jpeg",
+      "date": "2025"
+    },
+    {
+      "id": "sunil_sharma",
+      "name": "Mr. Sunil Sharma",
+      "title": "Modern Residence in Jigani",
+      "image": "/images/projects/Mr.sunilsharma/WhatsApp Image 2026-02-13 at 5.49.57 PM.jpeg",
+      "date": "2024"
+    },
+    {
+      "id": "jhansi_rani",
+      "name": "Dr. Jhansi Rani and Krishna Prasad",
+      "title": "Contemporary Home in Jigani",
+      "image": "/images/projects/JHANSIRANI/WhatsApp Image 2026-02-13 at 5.50.46 PM.jpeg",
+      "date": "2024"
     }
   ]
 }
