@@ -4,6 +4,7 @@ import WhyGruham from "./WhyGruham/WhyGruham.jsx";
 import AboutCompany from "./AboutCompany";
 import Testimonials from "./Testimonials";
 import PortfolioPreview from "./PortfolioPreview";
+import VideoShowcase from "../VideoShowcase/VideoShowcase";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
 import FAQ from "../SEO/FAQ";
@@ -75,6 +76,7 @@ const Home = () => {
       <AboutCompany />
       <Testimonials />
       <PortfolioPreview />
+      <VideoShowcase />
       <FAQ />
       <InternalLinks currentPage="home" />
     </Box>

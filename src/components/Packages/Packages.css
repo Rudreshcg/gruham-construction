@@ -212,10 +212,10 @@
 }
 
 .package-hero-card h2 {
-  font-size: 1.3rem;
-  color: #2c3e50;
-  margin-bottom: 6px;
-  font-weight: 700;
+  font-size: 1.45rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-weight: 800;
   font-family: 'Playfair Display', serif;
 }
 
@@ -224,56 +224,58 @@
   display: inline-block;
   background: linear-gradient(135deg, #0f4c6b, #0d6589);
   color: #fff;
-  padding: 4px 13px;
+  padding: 5px 14px;
   border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
   text-transform: uppercase;
 }
 
-/* Subtitle */
+/* Subtitle - Bold and High Contrast */
 .card-subtitle {
-  font-size: 0.78rem;
-  color: #8a9aab;
-  margin: 0 0 16px;
-  line-height: 1.5;
-  font-style: italic;
+  font-size: 0.92rem;
+  color: #334155;
+  font-weight: 600;
+  margin: 0 0 18px;
+  line-height: 1.55;
+  font-style: normal;
 }
 
 /* Price */
 .price-block {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .price-block .price-val {
-  font-size: 1.55rem;
-  font-weight: 800;
-  color: #2c3e50;
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #1e293b;
   font-family: 'Playfair Display', serif;
 }
 
 .price-block .price-unit {
-  font-size: 0.82rem;
-  color: #8a9aab;
-  margin-left: 3px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #475569;
+  margin-left: 4px;
 }
 
 /* Card CTA Button */
 .view-details-btn {
   background: transparent;
-  color: #bfa974;
-  border: 1.5px solid rgba(191,169,116,0.7);
-  padding: 10px 22px;
+  color: #8f7741;
+  border: 1.5px solid rgba(191,169,116,0.85);
+  padding: 11px 24px;
   border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
   font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
 }
 
 .package-hero-card:hover .view-details-btn {

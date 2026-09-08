@@ -1,8 +1,12 @@
 // src/animation/animate.js
 
-export const SlideUp = (delay) => {
+export const SlideUp = (delay = 0) => {
   return {
     initial: {
+      y: 50,
+      opacity: 0,
+    },
+    hidden: {
       y: 50,
       opacity: 0,
     },
@@ -12,10 +16,19 @@ export const SlideUp = (delay) => {
       transition: {
         duration: 0.5,
         delay,
-        ease: "easeOut", // Good to add an ease for smoother animation
+        ease: "easeOut",
       },
     },
-    exit: { // Optional: for when the component unmounts
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay,
+        ease: "easeOut",
+      },
+    },
+    exit: {
       y: 50,
       opacity: 0,
       transition: {
