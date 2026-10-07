@@ -19,6 +19,7 @@ import {
   YouTube,
   Pinterest,
   LinkedIn,
+  KeyboardArrowUp,
 } from "@mui/icons-material";
 
 const Footer = () => {
@@ -221,16 +222,37 @@ const Footer = () => {
         <Divider sx={{ mt: 6, borderColor: 'rgba(56, 56, 56, 0.18)' }} />
 
         {/* bottom section */}
-        <Typography
-          textAlign="center"
-          variant="body2"
-          fontWeight="bold"
-          pt={4}
-          color="#666666"
-          sx={{ userSelect: "none" }}
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          flexWrap="wrap"
+          gap={2}
+          pt={3}
         >
-          &copy; {new Date().getFullYear()} Gruham. All rights reserved.
-        </Typography>
+          <Typography
+            textAlign={{ xs: "center", sm: "left" }}
+            variant="body2"
+            fontWeight="bold"
+            color="#666666"
+            sx={{ userSelect: "none", flex: 1 }}
+          >
+            &copy; {new Date().getFullYear()} Gruham. All rights reserved.
+          </Typography>
+          <IconButton
+            aria-label="Back to top"
+            title="Back to top"
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+            sx={{
+              color: "#fff",
+              bgcolor: "#b8924a",
+              border: "1px solid rgba(138, 114, 67, 0.35)",
+              "&:hover": { bgcolor: "#8a7243" },
+            }}
+          >
+            <KeyboardArrowUp />
+          </IconButton>
+        </Box>
       </Container>
     </Box>
   );
