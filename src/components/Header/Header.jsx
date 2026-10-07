@@ -189,7 +189,7 @@ const Header = () => {
             <Button
               onClick={handleAboutClick}
               endIcon={<KeyboardArrowDownIcon />}
-              sx={navButtonStyles(isActive(["/about", "/teams", "/careers"]))}
+              sx={navButtonStyles(isActive(["/about", "/careers"]))}
             >
               ABOUT US
             </Button>

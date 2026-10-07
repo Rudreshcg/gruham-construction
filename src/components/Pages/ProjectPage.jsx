@@ -225,6 +225,13 @@ function ProjectPage() {
                     <Gallery images={project.galleryImages} />
                 </div>
 
+                {project.constructionImages && project.constructionImages.length > 0 && (
+                    <div className="project-gallery-section construction-gallery-section" style={{ marginTop: '3rem' }}>
+                        <h2>Behind the Build (Work in Progress)</h2>
+                        <Gallery images={project.constructionImages} />
+                    </div>
+                )}
+
                 <RelatedProjects currentProjectId={projectId} />
             </div>
         </div>

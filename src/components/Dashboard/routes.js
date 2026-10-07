@@ -1,5 +1,4 @@
 import OurStory from "../About/OurStory";
-import Services from "../Services/Services";
 import Blogs from "../Blogs/Blogs";
 import BlogDetail from "../Blogs/BlogDetail";
 import Contact from "../Contact/Contact";
@@ -14,8 +13,6 @@ import TestimonialsPage from "../Testimonials/TestimonialsPage";
 export const routes = [
   { name: "Home", component: Home, path: "" },
   { name: "Our Story", component: OurStory, path: "about" },
-  { name: "Teams", component: OurStory, path: "teams" },
-  { name: "Services", component: Services, path: "services" },
   { name: "Portfolio", component: Portfolio, path: "portfolio" },
   { name: "ProjectPage", component: ProjectPage, path: "portfolio/:projectId" }, // dynamic route
   { name: "Packages", component: Packages, path: "packages" },
