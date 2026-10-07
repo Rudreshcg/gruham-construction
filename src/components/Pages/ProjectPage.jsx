@@ -163,80 +163,69 @@ function ProjectPage() {
 
     if (!project) return <p>Project not found!</p>;
 
-    // Create content from JSON data
-    const projectContent = (
-        <>
-            <p>{project.content.description}</p>
+    const clientName = project.clientName || project.name;
+    const projectDescription = project.content?.description ||
+        `A ${project.category.toLowerCase()} construction project for ${clientName} in ${project.location}, planned for a ${project.plotArea} plot. Construction year: ${project.constructionYear}; current status: ${project.status.toLowerCase()}.`;
 
-            <h3>Project Highlights:</h3>
-            <ul>
-                {project.content.highlights.map((highlight, index) => (
-                    <li key={index}>{highlight}</li>
-                ))}
-            </ul>
-
-            <h3>Key Features:</h3>
-            <ul>
-                {project.content.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                ))}
-            </ul>
-
-            <div className="project-details">
-                <div className="detail-item">
-                    <strong>Category:</strong> {project.category}
-                </div>
-                <div className="detail-item">
-                    <strong>Location:</strong> {project.location}
-                </div>
-                <div className="detail-item">
-                    <strong>Plot Area:</strong> {project.plotArea}
-                </div>
-                <div className="detail-item">
-                    <strong>Construction Year:</strong> {project.constructionYear}
-                </div>
-                <div className="detail-item">
-                    <strong>Status:</strong> {project.status}
-                </div>
-            </div>
-        </>
-    );
+    const highlightItems = project.content?.highlights || [];
+    const featureItems = project.content?.features || [];
 
     return (
-        <div className="project-page">
-            {/* Banner */}
-            <div className="project-banner" style={{ position: 'relative' }}>
-                <WatermarkedImage 
-                    src={project.mainImage} 
-                    alt={project.name} 
+        <div className="project-page editorial-project">
+            <div className="project-banner">
+                <WatermarkedImage
+                    src={project.mainImage}
+                    alt={project.name}
                     watermarkSrc={Logo}
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }} 
+                    className="project-banner-image"
                 />
-                <div className="banner-overlay" style={{ zIndex: 1 }}>
-                    <h1>{project.name}</h1>
-                    <p className="project-meta">admin | {project.date}</p>
+
+                <div className="banner-overlay">
+                    <div className="project-labels">
+                        <span><strong>Category:</strong> {project.category}</span>
+                        <span><strong>Location:</strong> {project.location}</span>
+                        <span><strong>Plot Area:</strong> {project.plotArea}</span>
+                        <span><strong>Construction Year:</strong> {project.constructionYear}</span>
+                        <span><strong>Status:</strong> {project.status}</span>
+                    </div>
+
+                    <h1 className="project-hero-title">{project.title}</h1>
                 </div>
             </div>
 
-            {/* Content and Sidebar */}
-            <div className="project-content-layout">
-                <div className="main-content">
-                    <div className="project-text-content">
-                        {projectContent}
+            <div className="project-page-shell">
+                <p className="project-subtitle">Modern living spaces with premium finishes</p>
+
+                <div className="project-story">
+                    <p>{projectDescription}</p>
+                </div>
+
+                <div className="project-details-grid">
+                    <div className="detail-group">
+                        <h3>Project Highlights</h3>
+                        <ul>
+                            {highlightItems.map((highlight, index) => (
+                                <li key={index}>{highlight}</li>
+                            ))}
+                        </ul>
                     </div>
 
+                    <div className="detail-group">
+                        <h3>Key Features</h3>
+                        <ul>
+                            {featureItems.map((feature, index) => (
+                                <li key={index}>{feature}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="project-gallery-section">
                     <h2>Project Gallery</h2>
                     <Gallery images={project.galleryImages} />
-
-                    <RelatedProjects currentProjectId={projectId} />
-
-                    <div className="admin-bar">
-                        <div className="avatar-placeholder"></div>
-                        admin
-                    </div>
-                    <CommentSection />
                 </div>
-                <Sidebar />
+
+                <RelatedProjects currentProjectId={projectId} />
             </div>
         </div>
     );

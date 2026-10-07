@@ -9,6 +9,7 @@ import ProjectPage from "../Pages/ProjectPage"; // dynamic page
 import Publications from "../Publications/Publications";
 import Careers from "../Careers/Careers";
 import Packages from "../Packages/Packages";
+import TestimonialsPage from "../Testimonials/TestimonialsPage";
 
 export const routes = [
   { name: "Home", component: Home, path: "" },
@@ -23,4 +24,5 @@ export const routes = [
   { name: "Publications", component: Publications, path: "publications" },
   { name: "Careers", component: Careers, path: "careers" },
   { name: "Contact", component: Contact, path: "contact" },
+  { name: "Testimonials", component: TestimonialsPage, path: "testimonials" },
 ];

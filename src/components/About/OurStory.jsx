@@ -92,7 +92,7 @@ const OurStory = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="brand-tagline">Our Story</span>
+          <span className="eyebrow-pill brand-tagline">Our Story</span>
           <h1>
             Trusted Builders in Bangalore
           </h1>

@@ -7,122 +7,18 @@ import {
   Grid,
   Container,
   MenuItem,
+  Card,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import {
   LocationOnOutlined,
   PhoneOutlined,
   EmailOutlined,
 } from "@mui/icons-material";
-import bgImage from "../../assets/images/contact-bg.jpeg";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
 import { submitContactForm } from "../../utils/contactService";
-
-// Accent Divider
-const AccentDivider = styled("div")({
-  width: "100%",
-  height: "6px",
-  background: "linear-gradient(to right, #bfa974, #f6e8b8, #bfa974)",
-});
-
-// Hero Section wrapper
-const HeroWrapper = styled(Box)({
-  position: "relative",
-  height: "90vh",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  textAlign: "center",
-  overflow: "hidden",
-});
-
-// Hero Text overlay
-const HeroText = styled(Box)({
-  position: "absolute",
-  zIndex: 2,
-  color: "#fff",
-  textAlign: "center",
-  padding: "0 20px",
-});
-
-// Hero Title with gold underline
-const HeroTitle = styled(Typography)({
-  fontSize: "3rem",
-  fontWeight: 800,
-  color: "#fff",
-  marginBottom: "20px",
-  position: "relative",
-  fontFamily: "'Montserrat', sans-serif",
-  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    bottom: "-10px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    width: "80px",
-    height: "4px",
-    background: "linear-gradient(135deg, #bfa974, #9c8658)",
-    borderRadius: "2px",
-  },
-});
-
-// Section wrapper
-const Section = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(10, 2),
-  backgroundColor: "#fff",
-}));
-
-// Styled input fields
-const StyledTextField = styled(TextField)(() => ({
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": { borderColor: "#d4cbb6" },
-    "&:hover fieldset": { borderColor: "#bfa974" },
-    "&.Mui-focused fieldset": { borderColor: "#bfa974" },
-    borderRadius: "10px",
-    background: "#fff",
-  },
-  "& .MuiInputLabel-root": { color: "#7a7361" },
-}));
-
-// Contact Card wrapper
-const ContactCard = styled(Box)(({ theme }) => ({
-  background: "#fff",
-  borderRadius: "16px",
-  padding: theme.spacing(4),
-  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-  display: "flex",
-  flexDirection: "column",
-  gap: theme.spacing(3),
-  height: "100%",
-}));
-
-// Single contact item
-const ContactItem = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  gap: theme.spacing(2),
-  background: "#fdf9f2",
-  padding: theme.spacing(2),
-  borderRadius: "12px",
-  "& svg": {
-    color: "#bfa974",
-    fontSize: "28px",
-  },
-}));
-
-// Styled form card
-const FormCard = styled(Box)(({ theme }) => ({
-  background: "#fff",
-  borderRadius: "16px",
-  padding: theme.spacing(4),
-  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-  display: "flex",
-  flexDirection: "column",
-  gap: theme.spacing(3),
-}));
+import { homeTheme } from "../Home/sectionStyles";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -173,162 +69,231 @@ export default function Contact() {
     }
   };
 
+  const textFieldSx = {
+    "& .MuiOutlinedInput-root": {
+      background: 'rgba(255, 255, 255, 0.65)',
+      borderRadius: '8px',
+      "& fieldset": { borderColor: "rgba(31, 45, 61, 0.15)" },
+      "&:hover fieldset": { borderColor: homeTheme.colors.accent },
+      "&.Mui-focused fieldset": { borderColor: homeTheme.colors.accent, borderWidth: '1px' },
+    },
+    "& .MuiInputLabel-root": { color: homeTheme.colors.textSecondary, fontFamily: homeTheme.fonts.body },
+    "& .MuiInputBase-input": { fontFamily: homeTheme.fonts.body, color: homeTheme.colors.textPrimary },
+  };
+
   return (
-    <>
+    <Box
+      sx={{
+        background: `radial-gradient(circle at top left, rgba(191, 169, 116, 0.16), transparent 28%), linear-gradient(180deg, #f6f2ec 0%, #f8f8f7 100%)`,
+        minHeight: '100vh',
+        pt: { xs: 9, md: 11 },
+        pb: 10,
+        overflowX: 'hidden',
+      }}
+    >
       <SEOHead
         title="Contact Gruham's Construction - Get Your Construction Quote Today"
         description="Contact Gruham's Construction (Gruhams) for your construction needs in Bangalore. Get expert construction quotes, consultation, and project planning. Call +91-8431000242 or email info@gruhams.in"
-        keywords="contact Gruham construction, Gruhams construction contact, gruham construction company, construction quote Bangalore, construction consultation, Gruhams construction phone, construction inquiry Bangalore"
-        canonical="/contact"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "mainEntity": {
-            "@type": "Organization",
-            "name": "Gruham's Construction",
-            "alternateName": ["Gruhams", "gruham", "gruhams construction"],
-            "url": "https://gruhams.in/contact",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-8431000242",
-              "contactType": "customer service",
-              "email": "info@gruhams.in",
-              "availableLanguage": "English"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Sree Sai heights , 3rd floor ideal home town ship Rajarajeshwari Nagar",
-              "addressLocality": "Bengaluru",
-              "addressRegion": "Karnataka",
-              "postalCode": "560098",
-              "addressCountry": "IN"
-            }
-          }
-        }}
       />
-      {/* Hero Section */}
-      <HeroWrapper component={motion.section} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <img
-          src={bgImage}
-          alt="Contact Background"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 1,
-            filter: "brightness(0.6)",
-          }}
-        />
-        <HeroText>
-          <HeroTitle variant="h2">
-            Contact Us
-          </HeroTitle>
-          <Typography variant="h6" sx={{ maxWidth: 700, mx: "auto", lineHeight: 1.6 }}>
-            We'd love to hear from you. Please send us a message or reach out directly.
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+        <Box textAlign="center" mb={{ xs: 6, md: 7 }}>
+          <Typography
+            component="p"
+            className="eyebrow-pill"
+            sx={{ mb: '18px' }}
+          >
+            Get In Touch
           </Typography>
-        </HeroText>
-      </HeroWrapper>
+          <Typography
+            variant="h1"
+            className="page-title"
+            sx={{
+              fontFamily: homeTheme.fonts.heading,
+              fontSize: 'var(--page-title-size)',
+              fontWeight: 400,
+              color: 'var(--text-primary)',
+              lineHeight: 'var(--page-title-line-height)',
+              mb: 2.5,
+              letterSpacing: 'var(--page-title-letter-spacing)',
+            }}
+          >
+            Let's Build Together
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: homeTheme.colors.textSecondary,
+              fontFamily: homeTheme.fonts.body,
+              maxWidth: 720,
+              mx: 'auto',
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              lineHeight: 1.7
+            }}
+          >
+            Whether you have a question about our services, pricing, or want to start a new project, our team is ready to answer all your questions.
+          </Typography>
+        </Box>
 
-      {/* Divider */}
-      <AccentDivider />
-
-      {/* Contact Form & Info */}
-      <Section>
-        <Container maxWidth="lg">
-          <Grid container spacing={6}>
-            {/* Contact Form */}
-            <Grid item xs={12} md={7}>
-              <FormCard component={motion.div} initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                <Typography variant="h4" sx={{ mb: 3, fontWeight: 600, color: "#2e3921", textAlign: "center" }}>
+        <Grid container spacing={{ xs: 3, md: 4 }} alignItems="stretch">
+          {/* Contact Form */}
+          <Grid item xs={12} md={7}>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <Card
+                sx={{
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: homeTheme.layout.radiusLg,
+                  p: { xs: 3, md: 5 },
+                  boxShadow: homeTheme.layout.shadowCard,
+                  border: '1px solid rgba(31,45,61,0.08)',
+                }}
+              >
+                <Typography variant="h4" sx={{ mb: 4, fontFamily: homeTheme.fonts.heading, color: homeTheme.colors.textPrimary }}>
                   Send Us a Message
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit}>
                   <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
-                      <StyledTextField label="Your Name" name="name" value={form.name} onChange={handleChange} fullWidth required />
+                      <TextField sx={textFieldSx} label="Your Name" name="name" value={form.name} onChange={handleChange} fullWidth required />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <StyledTextField label="Email Address" name="email" value={form.email} onChange={handleChange} fullWidth required />
+                      <TextField sx={textFieldSx} label="Email Address" name="email" value={form.email} onChange={handleChange} fullWidth required />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <StyledTextField label="Phone Number" name="phone" value={form.phone} onChange={handleChange} fullWidth />
+                      <TextField sx={textFieldSx} label="Phone Number" name="phone" value={form.phone} onChange={handleChange} fullWidth />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <StyledTextField select label="Best Time to Talk" name="bestTimeToTalk" value={form.bestTimeToTalk} onChange={handleChange} fullWidth>
+                      <TextField sx={textFieldSx} select label="Best Time to Talk" name="bestTimeToTalk" value={form.bestTimeToTalk} onChange={handleChange} fullWidth>
                         <MenuItem value="Within 15 Min.">Within 15 Min.</MenuItem>
                         <MenuItem value="08AM To 12PM">08AM To 12PM</MenuItem>
                         <MenuItem value="12PM To 04PM">12PM To 04PM</MenuItem>
                         <MenuItem value="04PM To 08PM">04PM To 08PM</MenuItem>
                         <MenuItem value="Anytime">Anytime</MenuItem>
-                      </StyledTextField>
+                      </TextField>
                     </Grid>
                     <Grid item xs={12}>
-                      <StyledTextField label="Your Message" name="message" value={form.message} onChange={handleChange} fullWidth required multiline rows={4} />
+                      <TextField sx={textFieldSx} label="Your Message" name="message" value={form.message} onChange={handleChange} fullWidth required multiline rows={4} />
                     </Grid>
-                    <Grid item xs={12} textAlign="center">
-                      <Button variant="contained" type="submit" disabled={isSubmitting} sx={{ background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)", color: "#332900", fontWeight: 600, px: 5, py: 1.5, borderRadius: "10px", "&:hover": { background: "#b1936b", color: "#fff" }, opacity: isSubmitting ? 0.8 : 1 }}>
+                    <Grid item xs={12}>
+                      <Button
+                        variant="contained"
+                        type="submit"
+                        disabled={isSubmitting}
+                        sx={{
+                          width: '100%',
+                          background: `linear-gradient(135deg, ${homeTheme.colors.accentDark} 0%, ${homeTheme.colors.accent} 100%)`,
+                          color: '#fff',
+                          fontFamily: homeTheme.fonts.body,
+                          fontWeight: 700,
+                          py: 1.8,
+                          borderRadius: '999px',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.05em',
+                          boxShadow: '0 8px 20px rgba(184, 146, 74, 0.25)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            transform: 'translateY(-2px)',
+                            boxShadow: '0 12px 28px rgba(184, 146, 74, 0.35)',
+                          },
+                          opacity: isSubmitting ? 0.8 : 1
+                        }}
+                      >
                         {isSubmitting ? "Sending..." : "Send Message"}
                       </Button>
                     </Grid>
                   </Grid>
                 </Box>
                 {message && (
-                  <Typography align="center" sx={{ mt: 3, color: "#2e3921", fontWeight: 500 }}>
+                  <Typography align="center" sx={{ mt: 3, color: '#2e8b57', fontWeight: 600, fontFamily: homeTheme.fonts.body }}>
                     {message}
                   </Typography>
                 )}
                 {error && (
-                  <Typography align="center" sx={{ mt: 2, color: "#b71c1c", fontWeight: 500 }}>
+                  <Typography align="center" sx={{ mt: 2, color: '#d32f2f', fontWeight: 600, fontFamily: homeTheme.fonts.body }}>
                     {error}
                   </Typography>
                 )}
-              </FormCard>
-            </Grid>
+              </Card>
+            </motion.div>
+          </Grid>
 
-            {/* Contact Details */}
-            <Grid item xs={12} md={5}>
-              <ContactCard component={motion.div} initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-                <Typography variant="h4" sx={{ mb: 3, color: "#2e3921", fontWeight: 600, textAlign: "center" }}>
+          {/* Contact Details */}
+          <Grid item xs={12} md={5} sx={{ display: 'flex' }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} style={{ width: '100%' }}>
+              <Card
+                sx={{
+                  background: 'linear-gradient(160deg, rgba(255,255,255,0.9) 0%, rgba(251,248,241,0.95) 100%)',
+                  borderRadius: homeTheme.layout.radiusLg,
+                  p: { xs: 3, md: 5 },
+                  boxShadow: homeTheme.layout.shadowCard,
+                  border: '1px solid rgba(184,146,74,0.15)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 4
+                }}
+              >
+                <Typography variant="h4" sx={{ fontFamily: homeTheme.fonts.heading, color: homeTheme.colors.textPrimary }}>
                   Contact Details
                 </Typography>
 
-                <ContactItem>
-                  <LocationOnOutlined />
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Address</Typography>
-                    <Typography>Sree Sai heights , 3rd floor ideal home town ship Rajarajeshwari Nagar Bangalore - 560098</Typography>
+                {[
+                  { icon: <LocationOnOutlined sx={{ fontSize: '1.5rem' }} />, title: "Address", desc: "Sree Sai heights, 3rd floor ideal home town ship Rajarajeshwari Nagar Bangalore - 560098" },
+                  { icon: <PhoneOutlined sx={{ fontSize: '1.5rem' }} />, title: "Phone", desc: "+91-8431000242" },
+                  { icon: <EmailOutlined sx={{ fontSize: '1.5rem' }} />, title: "Email", desc: "info@gruhams.in" }
+                ].map((item, i) => (
+                  <Box 
+                    key={i} 
+                    sx={{ 
+                      display: 'flex', 
+                      gap: 2, 
+                      alignItems: 'flex-start',
+                      '&:hover .spin-icon': {
+                        transform: 'rotate(360deg)',
+                      }
+                    }}
+                  >
+                    <Box 
+                      className="spin-icon"
+                      sx={{
+                        width: 48, height: 48, borderRadius: '50%', background: 'rgba(184, 146, 74, 0.1)',
+                        color: homeTheme.colors.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                        transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+                      }}
+                    >
+                      {item.icon}
+                    </Box>
+                    <Box>
+                      <Typography variant="h6" sx={{ fontFamily: homeTheme.fonts.body, fontWeight: 700, fontSize: '1rem', color: homeTheme.colors.textPrimary, mb: 0.5 }}>
+                        {item.title}
+                      </Typography>
+                      <Typography variant="body2" sx={{ fontFamily: homeTheme.fonts.body, color: homeTheme.colors.textSecondary, lineHeight: 1.6 }}>
+                        {item.desc}
+                      </Typography>
+                    </Box>
                   </Box>
-                </ContactItem>
-
-                <ContactItem>
-                  <PhoneOutlined />
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Phone</Typography>
-                    <Typography>+91-8431000242</Typography>
-                  </Box>
-                </ContactItem>
-
-                <ContactItem>
-                  <EmailOutlined />
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Email</Typography>
-                    <Typography>info@gruhams.in</Typography>
-                  </Box>
-                </ContactItem>
-              </ContactCard>
-            </Grid>
+                ))}
+              </Card>
+            </motion.div>
           </Grid>
-        </Container>
-      </Section>
+        </Grid>
+      </Container>
 
-      {/* Divider */}
-      <AccentDivider />
-
-      {/* Google Map */}
-      <Box sx={{ width: "100%", height: { xs: "300px", md: "500px" } }}>
+      {/* Google Map Full Width */}
+      <Box
+        sx={{
+          width: '90%',
+          maxWidth: 1320,
+          height: { xs: 340, md: 460 },
+          mt: { xs: 6, md: 8 },
+          mx: 'auto',
+          overflow: 'hidden',
+          borderRadius: homeTheme.layout.radiusLg,
+          border: '1px solid rgba(31,45,61,0.1)',
+          boxShadow: homeTheme.layout.shadowSoft,
+        }}
+      >
         <iframe
           title="Google Maps"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124435.81943600824!2d77.5166835!3d12.9321688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xab48133c8ac43d4f%3A0xc69e73be8b1bc0c8!2sGruhams!5e0!3m2!1sen!2sin!4v1762250751081!5m2!1sen!2sin"
@@ -341,8 +306,7 @@ export default function Contact() {
         />
       </Box>
 
-      {/* Internal Links */}
       <InternalLinks currentPage="contact" />
-    </>
+    </Box>
   );
 }

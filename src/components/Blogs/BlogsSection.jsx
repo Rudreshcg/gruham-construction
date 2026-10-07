@@ -125,6 +125,7 @@ function BlogsSection() {
   return (
     <section className="blogs-section">
       <div className="blogs-header">
+        <span className="eyebrow-pill blogs-kicker">Insights</span>
         <h2 className="blogs-title">Construction Blog & Insights</h2>
         <p className="blogs-subtitle">Expert tips, design trends, and industry insights to help you plan and build your dream project</p>
 

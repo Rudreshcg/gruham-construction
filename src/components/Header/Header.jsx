@@ -56,7 +56,7 @@ const Header = () => {
   };
 
   const navButtonStyles = (activeFlag) => ({
-    color: activeFlag ? "#C2B280" : "#4A4A4A",
+    color: activeFlag ? "#927944" : "#454545",
     px: "16px",
     py: "8px",
     fontSize: "0.85rem",
@@ -65,7 +65,7 @@ const Header = () => {
     whiteSpace: "nowrap",
     minWidth: "auto",
     "&:hover": {
-      color: "#C2B280",
+      color: "#927944",
       backgroundColor: "transparent",
     },
   });
@@ -77,15 +77,19 @@ const Header = () => {
       to={to}
       onClick={closeDrawer}
       sx={{
-        color: isActive([to]) ? "#C2B280" : "white",
-        py: 2,
+        color: isActive([to]) ? "var(--gold-deep)" : "var(--text-primary)",
+        minHeight: 68,
+        py: 1.75,
         px: 4,
         fontSize: "1rem",
-        fontWeight: 500,
+        fontWeight: isActive([to]) ? 700 : 600,
         letterSpacing: "0.08em",
+        borderLeft: isActive([to]) ? "3px solid var(--gold)" : "3px solid transparent",
+        backgroundColor: isActive([to]) ? "rgba(184,146,74,0.1)" : "transparent",
+        transition: "background-color 0.2s ease, color 0.2s ease",
         "&:hover": {
-          color: "#C2B280",
-          backgroundColor: "rgba(255,255,255,0.04)",
+          color: "var(--gold-deep)",
+          backgroundColor: "rgba(184,146,74,0.1)",
         },
       }}
     >
@@ -94,26 +98,36 @@ const Header = () => {
   );
 
   const dropdownItemStyles = {
-    fontFamily: "'Montserrat', sans-serif",
+    fontFamily: "var(--font-body)",
     fontSize: "0.9rem",
     fontWeight: 500,
-    color: "#4A4A4A",
-    py: 1.5,
+    color: "var(--text-primary)",
+    minHeight: 48,
+    py: 1.25,
     px: 3,
+    borderRadius: "4px",
     "&:hover": {
-      backgroundColor: "rgba(191, 169, 116, 0.08)",
-      color: "#bfa974",
-    }
+      backgroundColor: "rgba(184,146,74,0.1)",
+      color: "var(--gold-deep)",
+    },
+    "&.Mui-selected": {
+      backgroundColor: "rgba(184,146,74,0.1)",
+      color: "var(--gold-deep)",
+      fontWeight: 700,
+      "&:hover": { backgroundColor: "rgba(184,146,74,0.16)" },
+    },
   };
 
   const menuPaperProps = {
     elevation: 0,
     sx: {
       mt: 1.5,
-      minWidth: 220,
-      boxShadow: "0px 15px 40px rgba(0,0,0,0.08)",
-      borderRadius: "12px",
-      border: "1px solid rgba(191, 169, 116, 0.15)",
+      minWidth: 240,
+      p: 1,
+      boxShadow: "0 18px 40px rgba(27,24,19,0.12)",
+      borderRadius: "8px",
+      border: "1px solid rgba(31,45,61,0.1)",
+      backgroundColor: "var(--bg-card)",
       overflow: 'visible',
       '&::before': {
         content: '""',
@@ -123,11 +137,11 @@ const Header = () => {
         left: 20,
         width: 10,
         height: 10,
-        bgcolor: 'background.paper',
+        bgcolor: 'var(--bg-card)',
         transform: 'translateY(-50%) rotate(45deg)',
         zIndex: 0,
-        borderLeft: "1px solid rgba(191, 169, 116, 0.15)",
-        borderTop: "1px solid rgba(191, 169, 116, 0.15)",
+        borderLeft: "1px solid rgba(31,45,61,0.1)",
+        borderTop: "1px solid rgba(31,45,61,0.1)",
       },
     }
   };
@@ -137,7 +151,7 @@ const Header = () => {
       <AppBar
         position="static"
         sx={{
-          backgroundColor: isTabletOrMobile && drawerOpen ? "black" : "white",
+          backgroundColor: "white",
           color: "#595959",
           width: "100%",
           overflowX: "hidden",
@@ -149,7 +163,7 @@ const Header = () => {
             maxWidth: "1280px",
             margin: "0 auto",
             width: "100%",
-            minHeight: "80px !important",
+            minHeight: "72px !important",
             px: { xs: 2, sm: 3, md: 4 },
             boxSizing: "border-box",
           }}
@@ -160,7 +174,7 @@ const Header = () => {
               <img
                 src={Logo}
                 alt="Gruham's Construction"
-                style={{ height: "56px", width: "auto", display: "block" }}
+                style={{ height: "50px", width: "auto", display: "block" }}
               />
             </RouterLink>
           </Box>
@@ -183,12 +197,12 @@ const Header = () => {
               anchorEl={aboutAnchorEl}
               open={Boolean(aboutAnchorEl)}
               onClose={handleAboutClose}
-              MenuListProps={{ onMouseLeave: handleAboutClose }}
+              MenuListProps={{ onMouseLeave: handleAboutClose, sx: { py: 0 } }}
               PaperProps={menuPaperProps}
             >
-              <MenuItem component={RouterLink} to="/about" onClick={handleAboutClose} sx={dropdownItemStyles}>Our Story</MenuItem>
-              <Divider sx={{ my: 0, mx: 2, borderColor: "rgba(191, 169, 116, 0.2)" }} />
-              <MenuItem component={RouterLink} to="/careers" onClick={handleAboutClose} sx={dropdownItemStyles}>Careers</MenuItem>
+              <MenuItem component={RouterLink} to="/about" onClick={handleAboutClose} selected={isActive(["/about"])} sx={dropdownItemStyles}>Our Story</MenuItem>
+              <Divider sx={{ my: 0.5, mx: 2, borderColor: "rgba(184,146,74,0.18)" }} />
+              <MenuItem component={RouterLink} to="/careers" onClick={handleAboutClose} selected={isActive(["/careers"])} sx={dropdownItemStyles}>Careers</MenuItem>
             </Menu>
 
             <Button component={RouterLink} to="/portfolio" sx={navButtonStyles(isActive(["/portfolio"]))}>
@@ -211,12 +225,12 @@ const Header = () => {
               anchorEl={mediaAnchorEl}
               open={Boolean(mediaAnchorEl)}
               onClose={handleMediaClose}
-              MenuListProps={{ onMouseLeave: handleMediaClose }}
+              MenuListProps={{ onMouseLeave: handleMediaClose, sx: { py: 0 } }}
               PaperProps={menuPaperProps}
             >
-              <MenuItem component={RouterLink} to="/publications" onClick={handleMediaClose} sx={dropdownItemStyles}>Publications</MenuItem>
-              <Divider sx={{ my: 0, mx: 2, borderColor: "rgba(191, 169, 116, 0.2)" }} />
-              <MenuItem component={RouterLink} to="/blogs" onClick={handleMediaClose} sx={dropdownItemStyles}>Blogs</MenuItem>
+              <MenuItem component={RouterLink} to="/publications" onClick={handleMediaClose} selected={isActive(["/publications"])} sx={dropdownItemStyles}>Publications</MenuItem>
+              <Divider sx={{ my: 0.5, mx: 2, borderColor: "rgba(184,146,74,0.18)" }} />
+              <MenuItem component={RouterLink} to="/blogs" onClick={handleMediaClose} selected={isActive(["/blogs"])} sx={dropdownItemStyles}>Blogs</MenuItem>
             </Menu>
 
             <Button component={RouterLink} to="/contact" sx={navButtonStyles(isActive(["/contact"]))}>
@@ -230,8 +244,8 @@ const Header = () => {
               rel="noopener noreferrer"
               sx={{
                 ml: 2,
-                color: "#bfa974",
-                border: "1px solid #bfa974",
+                color: "#927944",
+                border: "1px solid #c9ad70",
                 borderRadius: "4px",
                 px: "18px",
                 py: "8px",
@@ -239,7 +253,7 @@ const Header = () => {
                 fontWeight: 600,
                 "&:hover": {
                   color: "#fff",
-                  backgroundColor: "#bfa974",
+                  backgroundColor: "#c9ad70",
                 },
               }}
             >
@@ -254,7 +268,7 @@ const Header = () => {
             onClick={toggleDrawer}
             sx={{
               display: { xs: "flex", lg: "none" },
-              color: drawerOpen ? "white" : "#2c2c2c",
+              color: "#383838",
               pr: 0,
             }}
           >
@@ -268,9 +282,9 @@ const Header = () => {
       {drawerOpen && (
         <Box
           sx={{
-            backgroundColor: "#111",
+            backgroundColor: "var(--bg-soft)",
             width: "100%",
-            height: "100vh",
+            height: "100dvh",
             zIndex: 1200,
             position: "fixed",
             top: 0,
@@ -290,39 +304,51 @@ const Header = () => {
               alignItems: "center",
               justifyContent: "space-between",
               px: 3,
-              borderBottom: "1px solid rgba(255,255,255,0.15)",
-              backgroundColor: "#111",
+              borderBottom: "1px solid var(--border-soft)",
+              backgroundColor: "var(--bg-card)",
             }}
           >
             <RouterLink to="/" onClick={closeDrawer} style={{ textDecoration: "none" }}>
               <img
                 src={Logo}
                 alt="Gruham's Logo"
-                style={{ height: "50px", width: "auto", filter: "brightness(10)" }}
+                style={{ height: "50px", width: "auto" }}
               />
             </RouterLink>
-            <IconButton onClick={closeDrawer} sx={{ color: "white" }}>
+            <IconButton
+              onClick={closeDrawer}
+              aria-label="Close menu"
+              sx={{
+                color: "var(--text-primary)",
+                border: "1px solid var(--border-soft)",
+                borderRadius: "4px",
+                "&:hover": {
+                  color: "var(--gold-deep)",
+                  backgroundColor: "rgba(184,146,74,0.1)",
+                },
+              }}
+            >
               <CloseIcon fontSize="large" />
             </IconButton>
           </Box>
 
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("HOME", "/")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("OUR STORY", "/about")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("PORTFOLIO", "/portfolio")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("PACKAGES", "/packages")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("PUBLICATIONS", "/publications")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("BLOGS", "/blogs")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("CAREERS", "/careers")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           {generateMobileLink("CONTACT", "/contact")}
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <Divider sx={{ borderColor: "var(--border-soft)" }} />
           
           <MenuItem
             component="a"
@@ -331,21 +357,27 @@ const Header = () => {
             rel="noopener noreferrer"
             onClick={closeDrawer}
             sx={{
-              color: "#bfa974",
-              py: 2,
-              px: 4,
-              fontSize: "1rem",
-              fontWeight: 600,
-              letterSpacing: "0.08em",
+              justifyContent: "center",
+              color: "#fff",
+              backgroundColor: "var(--gold)",
+              minHeight: 52,
+              mx: 3,
+              my: 2.5,
+              borderRadius: "4px",
+              fontSize: "0.9rem",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              boxShadow: "0 8px 22px rgba(146,121,68,0.2)",
+              transition: "all 0.25s ease",
               "&:hover": {
                 color: "#fff",
-                backgroundColor: "rgba(191,169,116,0.15)",
+                backgroundColor: "var(--gold-deep)",
+                transform: "translateY(-1px)",
               },
             }}
           >
             LOGIN
           </MenuItem>
-          <Divider sx={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
         </Box>
       )}
     </>

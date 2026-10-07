@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Box, Container, Typography, Button, Stack, Chip } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Container, Typography, Button, Stack, Divider } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -7,31 +7,15 @@ import heroImage from "../../assets/images/luxury_villa_hero.png";
 import ContactUsModal from "./ContactUsModal";
 import { homeTheme } from "./sectionStyles";
 
-const heroHighlights = [
-  "Luxury Residences",
-  "Commercial Spaces",
-  "Turnkey Interiors",
-];
-
 const heroStats = [
-  { value: "100+", label: "Projects Delivered" },
+  { value: "35+", label: "Projects Delivered" },
   { value: "5+", label: "Years Building Trust" },
   { value: "100%", label: "Client Satisfaction" },
 ];
 
 const Hero = () => {
   const navigate = useNavigate();
-  const maindivRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isFirstVisit, setIsFirstVisit] = useState(false);
-
-  useEffect(() => {
-    setIsFirstVisit(true);
-    const timer = setTimeout(() => {
-      setIsModalOpen(true);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -47,174 +31,144 @@ const Hero = () => {
 
   return (
     <Box
-      ref={maindivRef}
       sx={{
         position: "relative",
         width: "100%",
-        minHeight: "100vh",
         overflow: "hidden",
+        minHeight: { xs: 760, md: "min(780px, calc(100svh - 72px))" },
         display: "flex",
-        alignItems: "center",
+        alignItems: "stretch",
       }}
     >
       <motion.div
-        initial={{ scale: 1.1 }}
+        initial={{ scale: 1.04 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 12, ease: "easeOut" }}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 0,
-          overflow: "hidden",
-        }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        style={{ position: "absolute", inset: 0 }}
       >
-        <img
+        <Box
+          component="img"
           src={heroImage}
-          alt="Luxury Living Spaces"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          alt=""
+          aria-hidden="true"
+          sx={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: { xs: "62% center", md: "center 57%" },
+          }}
         />
       </motion.div>
-
       <Box
+        aria-hidden="true"
         sx={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.75) 50%, rgba(10, 10, 10, 0.9) 100%)",
-          zIndex: 1,
+          background: {
+            xs: "linear-gradient(90deg, rgba(247,246,242,0.98) 0%, rgba(247,246,242,0.91) 48%, rgba(247,246,242,0.3) 100%), linear-gradient(0deg, #f7f6f2 0%, rgba(247,246,242,0.35) 36%, transparent 72%)",
+            md: "linear-gradient(90deg, #f7f6f2 0%, rgba(247,246,242,0.98) 28%, rgba(247,246,242,0.84) 43%, rgba(247,246,242,0.12) 72%, transparent 100%), linear-gradient(0deg, rgba(26,26,26,0.34), transparent 26%)",
+          },
         }}
       />
-
-      {/* Radial glow removed for better text contrast */}
-
       <Container
-        maxWidth="md"
+        maxWidth="xl"
         sx={{
           position: "relative",
-          zIndex: 2,
-          py: { xs: 10, md: 14 },
+          zIndex: 1,
+          display: "flex",
+          alignItems: "center",
+          py: { xs: 7, md: 8 },
+          minHeight: { xs: 760, md: "min(780px, calc(100svh - 72px))" },
         }}
       >
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <Stack spacing={{ xs: 3, md: 4 }} alignItems="center" textAlign="center">
-            <Stack direction="row" spacing={1.5} flexWrap="wrap" justifyContent="center" useFlexGap sx={{ maxWidth: "520px" }}>
-              {heroHighlights.map((highlight) => (
-                <Chip
-                  key={highlight}
-                  label={highlight}
-                  sx={{
-                    backgroundColor: "rgba(191, 169, 116, 0.18)",
-                    color: "#f7f4ec",
-                    border: "1px solid rgba(191, 169, 116, 0.4)",
-                    fontFamily: homeTheme.fonts.body,
-                    letterSpacing: "0.04em",
-                    textTransform: "uppercase",
-                    fontSize: "0.7rem",
-                  }}
-                />
-              ))}
-            </Stack>
+        <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          <Stack spacing={{ xs: 2.5, md: 3 }} alignItems="flex-start" textAlign="left" sx={{ maxWidth: 620, py: { xs: 2, md: 4 } }}>
+            <Box component="span" className="eyebrow-pill">
+              Gruham&apos;s · Bengaluru
+            </Box>
 
             <Box>
               <Typography
                 component="h1"
                 sx={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: { xs: "4rem", sm: "4.8rem", md: "5.5rem" },
-                  fontWeight: 700,
-                  lineHeight: 1.05,
-                  letterSpacing: "0.02em",
-                  color: "#bca061",
-                  textShadow: "0 4px 20px rgba(0,0,0,1)",
+                  fontFamily: homeTheme.fonts.heading,
+                  fontSize: { xs: "3.45rem", sm: "4.4rem", md: "5rem" },
+                  fontWeight: 400,
+                  lineHeight: 1.02,
+                  letterSpacing: 0,
+                  color: homeTheme.colors.textPrimary,
+                  maxWidth: 620,
                 }}
               >
-                Gruham&apos;s
+                Homes, made for living.
               </Typography>
               <Typography
-                component="h2"
+                component="p"
                 sx={{
-                  color: "rgba(255, 255, 255, 1)",
+                  mt: 2,
+                  color: homeTheme.colors.textSecondary,
                   fontFamily: homeTheme.fonts.body,
-                  fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.6rem" },
+                  fontSize: { xs: "1rem", md: "1.12rem" },
                   fontWeight: 600,
-                  lineHeight: 1.2,
-                  textShadow: "0 2px 10px rgba(0,0,0,0.85)",
-                  letterSpacing: "0.01em",
-                  maxWidth: "720px",
-                  textTransform: "none",
+                  lineHeight: 1.6,
+                  letterSpacing: 0,
+                  maxWidth: 480,
                 }}
               >
-                Construction Company in Bangalore
+                Thoughtful construction and interiors, delivered with clarity from first sketch to final handover.
               </Typography>
               <Typography
-                variant="h6"
+                component="p"
                 sx={{
-                  mt: 1.5,
+                  mt: 2,
                   fontFamily: homeTheme.fonts.body,
-                  fontWeight: 500,
-                  letterSpacing: "0.25em",
+                  fontSize: "0.72rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "rgba(255, 255, 255, 1)",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.8)",
+                  color: homeTheme.colors.textPrimary,
                 }}
               >
-                Design • Build • Inspire
+                Design <Box component="span" sx={{ color: homeTheme.colors.accent }}>·</Box> Build <Box component="span" sx={{ color: homeTheme.colors.accent }}>·</Box> Inspire
               </Typography>
             </Box>
 
             <Typography
               variant="body1"
               sx={{
-                color: "rgba(255, 255, 255, 1)",
+                color: homeTheme.colors.textSecondary,
                 fontFamily: homeTheme.fonts.body,
-                fontSize: { xs: "1.05rem", md: "1.18rem" },
-                lineHeight: 1.75,
-                textShadow: "0 2px 8px rgba(0,0,0,0.8)",
-                maxWidth: "640px",
+                fontSize: { xs: "0.95rem", md: "1rem" },
+                lineHeight: 1.8,
+                maxWidth: 530,
               }}
             >
-              Build your Dream Home with Gruhams
-              Bangalore's trusted Construction Company for
-              Luxury homes, Villa construction, Turnkey
-              Projects, Interior Design, and Commercial Spaces.
-              Quality, transparency, {" "}
-
-              <Box
-                component="span"
-                sx={{
-                  color: "#bca061",
-                  fontWeight: 600,
-                  textShadow: "0 2px 8px rgba(0,0,0,0.8)",
-                }}
-              >
-                and on-time Delivery
-                Guaranteed
-              </Box>
+              One considered team for your home, from architecture and construction through interiors and finishing.
             </Typography>
 
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} width="100%" justifyContent="center">
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} width="100%" justifyContent="flex-start" sx={{ pt: 0.5 }}>
               <Button
                 variant="contained"
                 endIcon={<ArrowForward />}
                 onClick={handleOpenModal}
                 sx={{
-                  background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
-                  color: "#0f121a",
+                  background: homeTheme.colors.accent,
+                  color: homeTheme.colors.textPrimary,
                   px: { xs: 4, md: 5 },
                   py: { xs: 1.4, md: 1.6 },
                   fontSize: { xs: "1rem", md: "1.05rem" },
                   fontWeight: 700,
-                  borderRadius: "999px",
+                  borderRadius: "4px",
                   textTransform: "none",
                   fontFamily: homeTheme.fonts.body,
-                  boxShadow: "0 18px 40px rgba(191, 169, 116, 0.45)",
+                  boxShadow: "0 8px 22px rgba(146, 121, 68, 0.2)",
                   transition: "all 0.35s ease",
                   "&:hover": {
-                    background: `linear-gradient(135deg, ${homeTheme.colors.accentDark}, ${homeTheme.colors.accent})`,
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 24px 48px rgba(191, 169, 116, 0.6)",
+                    background: "#d6bd83",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 12px 26px rgba(146, 121, 68, 0.26)",
                   },
                 }}
               >
@@ -224,21 +178,20 @@ const Hero = () => {
                 variant="outlined"
                 onClick={handleNavigatePortfolio}
                 sx={{
-                  borderColor: "rgba(247, 244, 236, 0.6)",
-                  color: "#f7f4ec",
+                  borderColor: "rgba(56, 56, 56, 0.38)",
+                  color: homeTheme.colors.textPrimary,
                   px: { xs: 4, md: 5 },
                   py: { xs: 1.4, md: 1.6 },
                   fontSize: { xs: "1rem", md: "1.05rem" },
                   fontWeight: 600,
-                  borderRadius: "999px",
+                  borderRadius: "4px",
                   textTransform: "none",
                   fontFamily: homeTheme.fonts.body,
-                  backdropFilter: "blur(6px)",
                   transition: "all 0.35s ease",
                   "&:hover": {
-                    borderColor: homeTheme.colors.accent,
-                    color: homeTheme.colors.accent,
-                    backgroundColor: "rgba(247, 244, 236, 0.12)",
+                    color: homeTheme.colors.accentDark,
+                    borderColor: homeTheme.colors.accentDark,
+                    backgroundColor: homeTheme.colors.accentMuted,
                   },
                 }}
               >
@@ -248,11 +201,9 @@ const Hero = () => {
 
             <Stack
               direction="row"
-              spacing={1.5}
-              flexWrap="wrap"
-              useFlexGap
-              justifyContent="center"
-              sx={{ maxWidth: "640px" }}
+              spacing={{ xs: 1.5, md: 3 }}
+              divider={<Divider orientation="vertical" flexItem sx={{ borderColor: "rgba(56, 56, 56, 0.2)" }} />}
+              sx={{ width: "100%", maxWidth: 560, pt: { xs: 1, md: 2 } }}
             >
               {heroStats.map((stat, index) => (
                 <motion.div
@@ -262,26 +213,10 @@ const Hero = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.12 }}
                 >
-                  <Chip
-                    label={`${stat.value} ${stat.label}`}
-                    sx={{
-                      background: "rgba(15, 18, 26, 0.55)",
-                      color: "#f7f4ec",
-                      border: "1px solid rgba(191, 169, 116, 0.45)",
-                      fontFamily: homeTheme.fonts.body,
-                      letterSpacing: "0.05em",
-                      textTransform: "uppercase",
-                      fontSize: "0.68rem",
-                      px: 1.8,
-                      py: 0.45,
-                      borderRadius: "999px",
-                      backdropFilter: "blur(8px)",
-                      "&:hover": {
-                        background: "rgba(191, 169, 116, 0.26)",
-                        color: "#0f121a",
-                      },
-                    }}
-                  />
+                  <Box sx={{ minWidth: 0 }}>
+                    <Typography sx={{ color: homeTheme.colors.textPrimary, fontFamily: homeTheme.fonts.heading, fontSize: { xs: "1.45rem", md: "1.8rem" }, lineHeight: 1.1 }}>{stat.value}</Typography>
+                    <Typography sx={{ mt: 0.7, color: homeTheme.colors.textSecondary, fontFamily: homeTheme.fonts.body, fontSize: "0.65rem", fontWeight: 700, lineHeight: 1.4, letterSpacing: "0.08em", textTransform: "uppercase" }}>{stat.label}</Typography>
+                  </Box>
                 </motion.div>
               ))}
             </Stack>
@@ -289,7 +224,26 @@ const Hero = () => {
         </motion.div>
       </Container>
 
-      <ContactUsModal open={isModalOpen} onClose={handleCloseModal} isFirstVisit={isFirstVisit} />
+      <Box
+        sx={{
+          display: { xs: "none", md: "block" },
+          position: "absolute",
+          right: { md: 40, lg: 72 },
+          bottom: 34,
+          zIndex: 1,
+          color: "#fff",
+          textAlign: "right",
+          textShadow: "0 2px 14px rgba(0,0,0,0.42)",
+        }}
+      >
+        <Typography sx={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+          Gruham&apos;s · Bengaluru
+        </Typography>
+        <Typography sx={{ mt: 0.6, fontFamily: homeTheme.fonts.heading, fontSize: "1.45rem" }}>
+          Built to belong.
+        </Typography>
+      </Box>
+      <ContactUsModal open={isModalOpen} onClose={handleCloseModal} />
     </Box>
   );
 };
