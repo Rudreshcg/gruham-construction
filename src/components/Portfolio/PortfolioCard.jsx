@@ -34,6 +34,11 @@ function PortfolioCard({
                     </Link>
                     <span className="project-year-minimal">{date}</span>
                 </div>
+                {name && title && name !== title && (
+                    <div className="client-name-minimal" style={{ fontSize: '0.9rem', color: '#927944', fontWeight: 600, marginBottom: '8px' }}>
+                        {name}
+                    </div>
+                )}
                 <div className="card-info-sub">
                     <span className="project-category-minimal">{category}</span>
                     {location && <span className="project-location-minimal">• {location}</span>}
