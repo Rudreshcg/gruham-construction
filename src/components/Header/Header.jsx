@@ -60,7 +60,7 @@ const Header = () => {
     px: "16px",
     py: "8px",
     fontSize: "0.85rem",
-    fontWeight: 600,
+    fontWeight: 700,
     letterSpacing: "0.05em",
     whiteSpace: "nowrap",
     minWidth: "auto",
@@ -250,7 +250,7 @@ const Header = () => {
                 px: "18px",
                 py: "8px",
                 fontSize: "0.85rem",
-                fontWeight: 600,
+                fontWeight: 700,
                 "&:hover": {
                   color: "#fff",
                   backgroundColor: "#c9ad70",

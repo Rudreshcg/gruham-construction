@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import heroImage from "../../assets/images/luxury_villa_hero.png";
 import ContactUsModal from "./ContactUsModal";
+import "./Hero.css";
 import { homeTheme } from "./sectionStyles";
 
 const heroStats = [
@@ -40,12 +41,7 @@ const Hero = () => {
         alignItems: "stretch",
       }}
     >
-      <motion.div
-        initial={{ scale: 1.04 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        style={{ position: "absolute", inset: 0 }}
-      >
+      <div className="hero-image-motion" style={{ position: "absolute", inset: 0 }}>
         <Box
           component="img"
           src={heroImage}
@@ -60,7 +56,7 @@ const Hero = () => {
             objectPosition: { xs: "62% center", md: "center 57%" },
           }}
         />
-      </motion.div>
+      </div>
       <Box
         aria-hidden="true"
         sx={{
