@@ -19,6 +19,7 @@ import {
   YouTube,
   Pinterest,
   LinkedIn,
+  KeyboardArrowUp,
 } from "@mui/icons-material";
 
 const Footer = () => {
@@ -41,8 +42,13 @@ const Footer = () => {
   ];
 
   return (
-    <Box component={motion.footer} bgcolor="#1C1C1E" color="white" py={10}>
-      <Container maxWidth="lg">
+    <Box component={motion.footer} bgcolor="#efede6" color="#383838" py={{ xs: 7, md: 9 }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          "& .MuiLink-root:hover": { color: "#927944" },
+        }}
+      >
         <Grid container spacing={{ xs: 4, md: 8 }}>
           {/* Company info section */}
           <Grid item xs={12} md={3}>
@@ -51,24 +57,24 @@ const Footer = () => {
               initial="initial"
               whileInView="animate"
             >
-              <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
+              <Box display="flex" alignItems="center" justifyContent={{ xs: "center", md: "flex-start" }} mb={2}>
                 <img
                   src={Logo}
                   alt="Gruham's Construction Logo - Bangalore Construction Company"
                   style={{
-                    maxWidth: '50px',
+                    maxWidth: '110px',
                     height: 'auto',
                   }}
                 />
 
               </Box>
-              <Typography variant="body1" textAlign="center" color="burlywood" sx={{ fontWeight: 500 }}>
+              <Typography variant="body1" textAlign={{ xs: "center", md: "left" }} color="#666666" sx={{ fontWeight: 500, lineHeight: 1.7 }}>
                 Where design meets your dream lifestyle. Premium construction services in Bangalore.
               </Typography>
               <Box
                 mt={3}
                 display="flex"
-                justifyContent="center"
+                justifyContent={{ xs: "center", md: "flex-start" }}
                 flexWrap="wrap"
                 gap={{ xs: 1, sm: 1.5, md: 2 }} // responsive spacing
               >
@@ -84,7 +90,7 @@ const Footer = () => {
                       fontSize: { xs: 20, sm: 24, md: 28 }, // responsive icon size
                       '& svg': { fontSize: 'inherit' },
                       transition: 'color 0.3s ease',
-                      '&:hover': { color: '#bfa974' },
+                      '&:hover': { color: '#d6bd83' },
                       padding: { xs: 0.75, sm: 1 } // smaller padding on mobile
                     }}
                   >
@@ -157,7 +163,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   underline="hover"
-                  sx={{ fontWeight: 700, cursor: 'pointer', color: '#bfa974' }}
+                  sx={{ fontWeight: 700, cursor: 'pointer', color: '#d6bd83' }}
                 >
                   Client & Employee Login
                 </MuiLink>
@@ -213,19 +219,40 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Divider sx={{ mt: 6, borderColor: '#444' }} />
+        <Divider sx={{ mt: 6, borderColor: 'rgba(56, 56, 56, 0.18)' }} />
 
         {/* bottom section */}
-        <Typography
-          textAlign="center"
-          variant="body2"
-          fontWeight="bold"
-          pt={4}
-          color="gray"
-          sx={{ userSelect: "none" }}
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          flexWrap="wrap"
+          gap={2}
+          pt={3}
         >
-          &copy; {new Date().getFullYear()} Gruham. All rights reserved.
-        </Typography>
+          <Typography
+            textAlign={{ xs: "center", sm: "left" }}
+            variant="body2"
+            fontWeight="bold"
+            color="#666666"
+            sx={{ userSelect: "none", flex: 1 }}
+          >
+            &copy; {new Date().getFullYear()} Gruham. All rights reserved.
+          </Typography>
+          <IconButton
+            aria-label="Back to top"
+            title="Back to top"
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+            sx={{
+              color: "#fff",
+              bgcolor: "#b8924a",
+              border: "1px solid rgba(138, 114, 67, 0.35)",
+              "&:hover": { bgcolor: "#8a7243" },
+            }}
+          >
+            <KeyboardArrowUp />
+          </IconButton>
+        </Box>
       </Container>
     </Box>
   );

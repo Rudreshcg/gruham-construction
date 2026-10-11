@@ -1,15 +1,87 @@
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  overflow-x: hidden;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+  --bg-soft: #f6f2eb;
+  --bg-card: #fffdf9;
+  --gold: #b8924a;
+  --gold-deep: #8a7243;
+  --text-primary: #1f2d3d;
+  --text-secondary: rgba(31, 45, 61, 0.72);
+  --border-soft: rgba(31, 45, 61, 0.1);
+  --page-title-size: clamp(3rem, 5vw, 4.5rem);
+  --page-title-line-height: 1;
+  --page-title-letter-spacing: -0.04em;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
   width: 100%;
   min-height: 100vh;
 }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  background: var(--bg-soft);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html, body, p, span, a, li, button, input, textarea, select, label, div {
+  font-family: var(--font-body) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-heading) !important;
+  font-weight: 400 !important;
+  letter-spacing: var(--page-title-letter-spacing) !important;
+  color: var(--text-primary);
+}
+
+.page-title span {
+  font-family: var(--font-heading) !important;
+}
+
+.eyebrow-pill {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1px solid rgba(191, 169, 116, 0.25);
+  border-radius: 999px;
+  background: rgba(191, 169, 116, 0.12);
+  color: #8a7243 !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 110px;
+  height: 4px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #caa56a 0%, #b38f52 100%);
+}
+
+button,
+a {
+  transition: all 0.25s ease;
+}
+

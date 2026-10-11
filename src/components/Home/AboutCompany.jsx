@@ -8,7 +8,7 @@ import { homeTheme } from './sectionStyles';
 
 const stats = [
   { number: '30+', label: 'Projects Completed', icon: <Construction /> },
-  { number: '3+', label: 'Years Experience', icon: <Engineering /> },
+  { number: '5+', label: 'Years Experience', icon: <Engineering /> },
   { number: '100%', label: 'Client Satisfaction', icon: <Star /> },
   { number: '15+', label: 'Expert Team', icon: <Architecture /> },
 ];
@@ -18,19 +18,19 @@ const values = [
     title: 'Quality Excellence',
     description:
       'We maintain the highest standards in every construction project, using premium materials and proven construction techniques.',
-    icon: <CheckCircle sx={{ color: '#bfa974', fontSize: '2rem' }} />,
+    icon: <CheckCircle sx={{ color: homeTheme.colors.accentDark, fontSize: '1.6rem' }} />,
   },
   {
     title: 'Construction Expertise',
     description:
       'With over 15 years of experience, we bring deep knowledge of construction methods, building codes, and project management.',
-    icon: <Construction sx={{ color: '#bfa974', fontSize: '2rem' }} />,
+    icon: <Construction sx={{ color: homeTheme.colors.accentDark, fontSize: '1.6rem' }} />,
   },
   {
     title: 'Client Partnership',
     description:
       'Your vision is our priority. We work closely with you throughout the construction process to bring your dream home to life.',
-    icon: <Star sx={{ color: '#bfa974', fontSize: '2rem' }} />,
+    icon: <Star sx={{ color: homeTheme.colors.accentDark, fontSize: '1.6rem' }} />,
   },
 ];
 
@@ -49,7 +49,7 @@ const AboutCompany = () => (
       />
     </motion.div>
 
-    <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: { xs: 6, md: 8 } }} alignItems="stretch">
+    <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }} sx={{ mb: { xs: 6, md: 8 } }} alignItems="stretch">
       {stats.map((stat, index) => (
         <Grid item xs={12} sm={6} md={3} key={index} sx={{ display: 'flex' }}>
           <motion.div
@@ -64,63 +64,50 @@ const AboutCompany = () => (
                 height: '100%',
                 textAlign: 'center',
                 p: { xs: 0 },
-                background: 'rgba(255, 255, 255, 0.88)',
-                borderRadius: homeTheme.layout.radiusLg,
-                border: `1px solid ${homeTheme.colors.accentMuted}`,
-                boxShadow: homeTheme.layout.shadowSoft,
-                transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.78), rgba(240,236,228,0.72))',
+                borderRadius: homeTheme.layout.radiusMd,
+                border: `1px solid ${homeTheme.colors.divider}`,
+                boxShadow: homeTheme.layout.shadowCard,
+                transition: 'all 0.25s ease',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 position: 'relative',
                 overflow: 'hidden',
-                backdropFilter: 'blur(6px)',
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '6px',
-                  height: '100%',
-                  background: `linear-gradient(180deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
-                  opacity: 0.9,
-                  transform: 'scaleY(0)',
-                  transformOrigin: 'top',
-                  transition: 'transform 0.35s ease',
-                },
                 '&:hover': {
-                  transform: 'translateY(-14px)',
-                  boxShadow: '0 28px 45px rgba(15, 27, 41, 0.16)',
-                  '&::before': {
-                    transform: 'scaleY(1)',
-                  },
+                  transform: 'translateY(-3px)',
+                  borderColor: 'rgba(184,146,74,0.7)',
+                  '& .spin-icon': {
+                    transform: 'rotate(360deg)',
+                  }
                 },
               }}
             >
               <CardContent
                 sx={{
-                  p: { xs: 3, md: 4 },
+                  p: { xs: 2, md: 2.2 },
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: 2,
+                  gap: 1,
                   textAlign: 'center',
                   height: '100%',
                 }}
               >
                 <Box
+                  className="spin-icon"
                   sx={{
                     color: homeTheme.colors.accent,
                     display: 'inline-flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: 72,
-                    height: 72,
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, rgba(191,169,116,0.22), rgba(191,169,116,0.05))',
-                    boxShadow: 'inset 0 2px 12px rgba(191,169,116,0.12)',
+                    width: 42,
+                    height: 42,
+                    borderRadius: '8px',
+                    background: homeTheme.colors.accentMuted,
+                    transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                     '& .MuiSvgIcon-root': {
-                      fontSize: '2.2rem',
+                      fontSize: '1.4rem',
                     },
                   }}
                 >
@@ -130,10 +117,10 @@ const AboutCompany = () => (
                   variant="h3"
                   sx={{
                     color: homeTheme.colors.textPrimary,
-                    fontWeight: 800,
-                    fontSize: { xs: '1.9rem', md: '2.35rem' },
+                    fontWeight: 600,
+                    fontSize: { xs: '1.65rem', md: '1.9rem' },
                     fontFamily: homeTheme.fonts.heading,
-                    mb: 0.8,
+                    mb: 0.5,
                   }}
                 >
                   {stat.number}
@@ -143,7 +130,7 @@ const AboutCompany = () => (
                   sx={{
                     color: homeTheme.colors.textSecondary,
                     fontFamily: homeTheme.fonts.body,
-                    fontSize: '0.95rem',
+                    fontSize: '0.9rem',
                     fontWeight: 600,
                     letterSpacing: '0.02em',
                   }}
@@ -164,63 +151,85 @@ const AboutCompany = () => (
       viewport={{ once: true }}
     >
       <Stack
-        spacing={{ xs: 3, md: 4 }}
+        spacing={{ xs: 2.5, md: 2.8 }}
         sx={{
+          position: 'relative',
+          overflow: 'hidden',
           mb: { xs: 6, md: 8 },
-          background: 'rgba(255, 255, 255, 0.86)',
-          borderRadius: homeTheme.layout.radiusLg,
-          border: `1px solid ${homeTheme.colors.accentMuted}`,
-          boxShadow: '0 20px 45px rgba(15,27,41,0.10)',
-          px: { xs: 3, md: 6 },
-          py: { xs: 4, md: 5 },
-          textAlign: 'center',
+          background: 'linear-gradient(180deg, rgba(246,242,235,0.95), rgba(255,255,255,0.82))',
+          borderRadius: '28px',
+          border: `1px solid rgba(184,146,74,0.18)`,
+          boxShadow: '0 26px 50px rgba(27, 24, 19, 0.06)',
+          px: { xs: 2.4, md: 4 },
+          py: { xs: 3, md: 4.5 },
+          textAlign: 'left',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(circle at top left, rgba(184,146,74,0.09), transparent 38%)',
+            pointerEvents: 'none',
+          },
         }}
       >
         <Typography
           variant="h4"
           sx={{
+            position: 'relative',
+            zIndex: 1,
             color: homeTheme.colors.textPrimary,
-            fontWeight: 700,
+            fontWeight: 400,
             fontFamily: homeTheme.fonts.heading,
-            fontSize: { xs: '1.75rem', md: '2.1rem' },
+            fontSize: { xs: '2.3rem', md: '4.2rem' },
+            lineHeight: 0.95,
+            letterSpacing: '-0.05em',
+            maxWidth: '760px',
           }}
         >
-          Our Story & Mission
+          Our Story &amp; Mission
         </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            color: homeTheme.colors.textSecondary,
-            lineHeight: 1.9,
-            fontFamily: homeTheme.fonts.body,
-            fontSize: { xs: '1rem', md: '1.08rem' },
-            maxWidth: '880px',
-            mx: 'auto',
-          }}
-        >
-          Founded with a vision to build exceptional homes and structures in Bangalore, Gruham's Construction has grown from a small family business to one of the most trusted construction companies in the city. Our journey began with a simple belief: every client deserves exceptional quality construction, innovative building solutions, and personalised project management.
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            color: homeTheme.colors.textSecondary,
-            lineHeight: 1.9,
-            fontFamily: homeTheme.fonts.body,
-            fontSize: { xs: '1rem', md: '1.08rem' },
-            maxWidth: '880px',
-            mx: 'auto',
-          }}
-        >
-          Today, we continue to uphold these values while embracing modern construction technology and sustainable building practices. Our team of skilled construction professionals, architects, and engineers work together to deliver projects that exceed expectations and stand the test of time.
-        </Typography>
-        <Divider flexItem sx={{ borderColor: homeTheme.colors.divider, my: { xs: 1, md: 2 } }} />
+        <Box sx={{ position: 'relative', zIndex: 1, maxWidth: '820px' }}>
+          <Typography
+            variant="body1"
+            sx={{
+              color: homeTheme.colors.textSecondary,
+              lineHeight: 1.8,
+              fontFamily: homeTheme.fonts.body,
+              fontSize: { xs: '1rem', md: '1.12rem' },
+              maxWidth: '820px',
+              mb: 2,
+            }}
+          >
+            Founded with a vision to build exceptional homes and structures in Bangalore, Gruham&apos;s Construction has grown from a small family business to one of the most trusted construction companies in the city. Our journey began with a simple belief: every client deserves exceptional quality construction, innovative building solutions, and personalised project management.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: homeTheme.colors.textSecondary,
+              lineHeight: 1.8,
+              fontFamily: homeTheme.fonts.body,
+              fontSize: { xs: '1rem', md: '1.12rem' },
+              maxWidth: '820px',
+              mb: 0,
+            }}
+          >
+            Today, we continue to uphold these values while embracing modern construction technology and sustainable building practices. Our team of skilled construction professionals, architects, and engineers work together to deliver projects that exceed expectations and stand the test of time.
+          </Typography>
+        </Box>
+        <Divider flexItem sx={{ position: 'relative', zIndex: 1, borderColor: 'rgba(31,45,61,0.12)', my: 0.4 }} />
         <Typography
           variant="body2"
           sx={{
-            color: homeTheme.colors.textSecondary,
+            position: 'relative',
+            zIndex: 1,
+            color: homeTheme.colors.accentDark,
             fontFamily: homeTheme.fonts.body,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
+            fontWeight: 700,
+            fontSize: { xs: '0.76rem', md: '0.8rem' },
+            lineHeight: 1.7,
+            fontStyle: 'italic',
           }}
         >
           "Crafting enduring spaces with precision, integrity, and heart."
@@ -228,7 +237,7 @@ const AboutCompany = () => (
       </Stack>
     </motion.div>
 
-    <Grid container spacing={{ xs: 3, md: 4 }} alignItems="stretch">
+    <Grid container spacing={{ xs: 3, md: 4 }} alignItems="stretch" sx={{ mt: { xs: 5, md: 7 } }}>
       {values.map((value, index) => (
         <Grid item xs={12} md={4} key={index} sx={{ display: 'flex' }}>
           <motion.div
@@ -241,56 +250,45 @@ const AboutCompany = () => (
             <Card
               sx={{
                 height: '100%',
-                background: 'rgba(255, 255, 255, 0.88)',
-                borderRadius: homeTheme.layout.radiusLg,
-                border: `1px solid ${homeTheme.colors.accentMuted}`,
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.72), rgba(239,237,230,0.7))',
+                borderRadius: '18px',
+                border: `1px solid ${homeTheme.colors.divider}`,
                 boxShadow: homeTheme.layout.shadowSoft,
-                transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+                transition: 'all 0.25s ease',
                 position: 'relative',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '6px',
-                  height: '100%',
-                  background: `linear-gradient(180deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
-                  opacity: 0.9,
-                  transform: 'scaleY(0)',
-                  transformOrigin: 'top',
-                  transition: 'transform 0.35s ease',
-                },
                 '&:hover': {
-                  transform: 'translateY(-14px)',
-                  boxShadow: '0 28px 45px rgba(15, 27, 41, 0.16)',
-                  '&::before': {
-                    transform: 'scaleY(1)',
-                  },
+                  borderColor: 'rgba(201, 173, 112, 0.7)',
+                  transform: 'translateY(-3px)',
+                  '& .spin-icon': {
+                    transform: 'rotate(360deg)',
+                  }
                 },
               }}
             >
               <CardContent
                 sx={{
-                  p: { xs: 3, md: 4 },
+                  p: { xs: 2.5, md: 3 },
                   textAlign: 'center',
+                  alignItems: 'center',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: 2,
                 }}
               >
                 <Box
+                  className="spin-icon"
                   sx={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: 72,
-                    height: 72,
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, rgba(191,169,116,0.22), rgba(191,169,116,0.05))',
-                    mx: 'auto',
+                    width: 48,
+                    height: 48,
+                    borderRadius: '4px',
+                    background: homeTheme.colors.accentMuted,
+                    transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
                 >
                   {value.icon}

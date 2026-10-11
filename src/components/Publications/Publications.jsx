@@ -26,7 +26,7 @@ const Publications = () => {
       {/* Hero Section */}
       <Box sx={{ 
         py: { xs: 6, md: 10 }, 
-        background: "linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)",
+        background: "linear-gradient(180deg, #f6f2eb 0%, #fffdf9 100%)",
         position: "relative",
         overflow: "hidden",
         "&::before": {
@@ -36,7 +36,7 @@ const Publications = () => {
           left: 0,
           right: 0,
           height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(191, 169, 116, 0.3), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(184, 146, 74, 0.28), transparent)",
         }
       }}>
         <Container maxWidth="lg">
@@ -47,39 +47,44 @@ const Publications = () => {
             viewport={{ once: true }}
           >
             <Box sx={{ textAlign: "center" }}>
+              <Typography component="p" className="eyebrow-pill" sx={{ mx: "auto", mb: 2 }}>
+                Resources
+              </Typography>
               <Typography
                 variant="h2"
                 sx={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.2rem" },
-                  color: "#2c3e50",
-                  fontWeight: 800,
-                  letterSpacing: "-0.02em",
+                  fontFamily: "var(--font-heading)",
+                  fontSize: "var(--page-title-size)",
+                  color: "var(--text-primary)",
+                  fontWeight: 400,
+                  letterSpacing: 0,
+                  lineHeight: "var(--page-title-line-height)",
                   mb: 2,
                   position: "relative",
                   "&::after": {
                     content: '""',
                     position: "absolute",
-                    bottom: "-8px",
+                    bottom: "-18px",
                     left: "50%",
                     transform: "translateX(-50%)",
-                    width: "60px",
-                    height: "3px",
-                    background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                    borderRadius: "2px",
+                    width: "110px",
+                    height: "4px",
+                    background: "linear-gradient(90deg, #caa56a 0%, #b38f52 100%)",
+                    borderRadius: "999px",
                   }
                 }}
               >
                 Publications
               </Typography>
               <Typography
-                variant="h3"
+                variant="body1"
+                component="p"
                 sx={{
-                  color: "#7f8c8d",
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                  color: "var(--text-secondary)",
+                  fontFamily: "var(--font-body)",
+                  fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
                   fontWeight: 400,
-                  letterSpacing: "0.01em",
+                  letterSpacing: 0,
                   maxWidth: "700px",
                   mx: "auto",
                   lineHeight: 1.6,
@@ -129,14 +134,14 @@ const Publications = () => {
                     width: 100,
                     height: 100,
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, rgba(191, 169, 116, 0.1), rgba(156, 134, 88, 0.1))",
+                    background: "linear-gradient(135deg, rgba(184, 146, 74, 0.12), rgba(202, 165, 106, 0.04))",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: "3px solid rgba(191, 169, 116, 0.2)",
+                    border: "1px solid rgba(184, 146, 74, 0.22)",
                   }}
                 >
-                  <Article sx={{ fontSize: 50, color: "#bfa974" }} />
+                  <Article sx={{ fontSize: 50, color: "#b8924a" }} />
                 </Box>
               </motion.div>
               <motion.div
@@ -150,14 +155,14 @@ const Publications = () => {
                     width: 100,
                     height: 100,
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, rgba(191, 169, 116, 0.1), rgba(156, 134, 88, 0.1))",
+                    background: "linear-gradient(135deg, rgba(184, 146, 74, 0.12), rgba(202, 165, 106, 0.04))",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: "3px solid rgba(191, 169, 116, 0.2)",
+                    border: "1px solid rgba(184, 146, 74, 0.22)",
                   }}
                 >
-                  <Book sx={{ fontSize: 50, color: "#bfa974" }} />
+                  <Book sx={{ fontSize: 50, color: "#b8924a" }} />
                 </Box>
               </motion.div>
               <motion.div
@@ -171,14 +176,14 @@ const Publications = () => {
                     width: 100,
                     height: 100,
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, rgba(191, 169, 116, 0.1), rgba(156, 134, 88, 0.1))",
+                    background: "linear-gradient(135deg, rgba(184, 146, 74, 0.12), rgba(202, 165, 106, 0.04))",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: "3px solid rgba(191, 169, 116, 0.2)",
+                    border: "1px solid rgba(184, 146, 74, 0.22)",
                   }}
                 >
-                  <Construction sx={{ fontSize: 50, color: "#bfa974" }} />
+                  <Construction sx={{ fontSize: 50, color: "#b8924a" }} />
                 </Box>
               </motion.div>
             </Box>
@@ -187,10 +192,10 @@ const Publications = () => {
             <Typography
               variant="h3"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "var(--font-heading)",
                 fontSize: { xs: "2rem", md: "2.5rem" },
-                color: "#2c3e50",
-                fontWeight: 700,
+                color: "var(--text-primary)",
+                fontWeight: 400,
                 mb: 3,
               }}
             >
@@ -200,9 +205,9 @@ const Publications = () => {
             <Typography
               variant="body1"
               sx={{
-                fontFamily: "'Montserrat', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontSize: { xs: "1rem", md: "1.1rem" },
-                color: "#5a6c7d",
+                color: "var(--text-secondary)",
                 lineHeight: 1.8,
                 mb: 4,
                 maxWidth: "600px",
@@ -218,7 +223,7 @@ const Publications = () => {
               sx={{
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: { xs: "0.9rem", md: "1rem" },
-                color: "#7f8c8d",
+                color: "var(--text-secondary)",
                 lineHeight: 1.7,
                 fontStyle: "italic",
                 mb: 4,
@@ -232,8 +237,8 @@ const Publications = () => {
               sx={{
                 width: "100px",
                 height: "3px",
-                background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                borderRadius: "2px",
+                background: "linear-gradient(90deg, #caa56a 0%, #b38f52 100%)",
+                borderRadius: "999px",
                 mx: "auto",
                 mb: 4,
               }}
@@ -244,18 +249,19 @@ const Publications = () => {
               sx={{
                 mt: 6,
                 p: { xs: 3, md: 4 },
-                background: "linear-gradient(135deg, rgba(191, 169, 116, 0.05), rgba(156, 134, 88, 0.05))",
-                borderRadius: "16px",
-                border: "1px solid rgba(191, 169, 116, 0.2)",
+                background: "linear-gradient(180deg, #fffdf9 0%, #f5f0e6 100%)",
+                borderRadius: "8px",
+                border: "1px solid rgba(184, 146, 74, 0.18)",
+                boxShadow: "0 18px 38px rgba(28, 34, 42, 0.05)",
               }}
             >
               <Typography
                 variant="h5"
                 sx={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "var(--font-heading)",
                   fontSize: { xs: "1.4rem", md: "1.6rem" },
-                  color: "#2c3e50",
-                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  fontWeight: 400,
                   mb: 3,
                 }}
               >
@@ -277,16 +283,16 @@ const Publications = () => {
                       width: "8px",
                       height: "8px",
                       borderRadius: "50%",
-                      background: "linear-gradient(135deg, #bfa974, #9c8658)",
+                      background: "linear-gradient(135deg, #caa56a, #b38f52)",
                       mt: 1,
                       flexShrink: 0,
                     }}
                   />
                   <Typography
                     sx={{
-                      fontFamily: "'Montserrat', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontSize: { xs: "0.95rem", md: "1.05rem" },
-                      color: "#5a6c7d",
+                      color: "var(--text-secondary)",
                       lineHeight: 1.7,
                     }}
                   >
@@ -299,16 +305,16 @@ const Publications = () => {
                       width: "8px",
                       height: "8px",
                       borderRadius: "50%",
-                      background: "linear-gradient(135deg, #bfa974, #9c8658)",
+                      background: "linear-gradient(135deg, #caa56a, #b38f52)",
                       mt: 1,
                       flexShrink: 0,
                     }}
                   />
                   <Typography
                     sx={{
-                      fontFamily: "'Montserrat', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontSize: { xs: "0.95rem", md: "1.05rem" },
-                      color: "#5a6c7d",
+                      color: "var(--text-secondary)",
                       lineHeight: 1.7,
                     }}
                   >
@@ -321,16 +327,16 @@ const Publications = () => {
                       width: "8px",
                       height: "8px",
                       borderRadius: "50%",
-                      background: "linear-gradient(135deg, #bfa974, #9c8658)",
+                      background: "linear-gradient(135deg, #caa56a, #b38f52)",
                       mt: 1,
                       flexShrink: 0,
                     }}
                   />
                   <Typography
                     sx={{
-                      fontFamily: "'Montserrat', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontSize: { xs: "0.95rem", md: "1.05rem" },
-                      color: "#5a6c7d",
+                      color: "var(--text-secondary)",
                       lineHeight: 1.7,
                     }}
                   >
@@ -343,16 +349,16 @@ const Publications = () => {
                       width: "8px",
                       height: "8px",
                       borderRadius: "50%",
-                      background: "linear-gradient(135deg, #bfa974, #9c8658)",
+                      background: "linear-gradient(135deg, #caa56a, #b38f52)",
                       mt: 1,
                       flexShrink: 0,
                     }}
                   />
                   <Typography
                     sx={{
-                      fontFamily: "'Montserrat', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontSize: { xs: "0.95rem", md: "1.05rem" },
-                      color: "#5a6c7d",
+                      color: "var(--text-secondary)",
                       lineHeight: 1.7,
                     }}
                   >

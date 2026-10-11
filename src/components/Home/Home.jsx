@@ -60,12 +60,6 @@ const Home = () => {
                 "position": 3,
                 "name": "Contact Us",
                 "url": "https://www.gruhams.in/contact"
-              },
-              {
-                "@type": "SiteNavigationElement",
-                "position": 4,
-                "name": "Our Team",
-                "url": "https://www.gruhams.in/teams"
               }
             ]
           }

@@ -1,0 +1,16 @@
+.hero-image-motion {
+  animation: hero-image-drift 16s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes hero-image-drift {
+  0%,
+  100% {
+    transform: scale(1.02) translateX(0);
+  }
+
+  50% {
+    transform: scale(1.08) translateX(-10px);
+  }
+}

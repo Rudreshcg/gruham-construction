@@ -8,7 +8,7 @@ const SectionHeading = ({
   subtitle,
   align = "center",
   maxWidth = 760,
-  gutterBottom = { xs: 4, md: 6 },
+  gutterBottom = { xs: 4, md: 7 },
   eyebrowProps = {},
   titleProps = {},
   subtitleProps = {},
@@ -28,26 +28,12 @@ const SectionHeading = ({
         maxWidth: align === "center" ? maxWidth : "100%",
       }}
     >
-      <Stack spacing={subtitle ? 3 : 2} alignItems={alignment} textAlign={align}>
+      <Stack spacing={subtitle ? 1.75 : 1.25} alignItems={alignment} textAlign={align}>
         {eyebrow && (
           <Typography
             component="p"
-            sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              px: 2,
-              py: 0.5,
-              borderRadius: "999px",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              backgroundColor: homeTheme.colors.accentMuted,
-              color: homeTheme.colors.accentDark,
-              fontFamily: homeTheme.fonts.body,
-              ...eyebrowSx,
-            }}
+            className="eyebrow-pill"
+            sx={eyebrowSx}
             {...restEyebrowProps}
           >
             {eyebrow}
@@ -60,24 +46,14 @@ const SectionHeading = ({
             component="h2"
             sx={{
               fontFamily: homeTheme.fonts.heading,
-              fontWeight: 800,
-              fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.1rem" },
-              letterSpacing: "-0.02em",
+              fontWeight: 400,
+              fontSize: { xs: "2.2rem", sm: "2.7rem", md: "3.05rem" },
+              lineHeight: 1.08,
+              letterSpacing: 0,
               color: homeTheme.colors.textPrimary,
-              mb: subtitle ? 1 : 0,
+              mb: subtitle ? 0.5 : 0,
               position: "relative",
               display: "inline-block",
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                bottom: "-10px",
-                left: align === "center" ? "50%" : 0,
-                transform: align === "center" ? "translateX(-50%)" : "none",
-                width: "72px",
-                height: "4px",
-                borderRadius: "999px",
-                background: `linear-gradient(135deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
-              },
               ...titleSx,
             }}
             {...restTitleProps}
@@ -92,9 +68,9 @@ const SectionHeading = ({
             sx={{
               color: homeTheme.colors.textSecondary,
               fontFamily: homeTheme.fonts.body,
-              fontSize: { xs: "1rem", md: "1.15rem" },
-              lineHeight: 1.7,
-              letterSpacing: "0.01em",
+              fontSize: { xs: "0.98rem", md: "1.04rem" },
+              lineHeight: 1.75,
+              letterSpacing: 0,
               mx: align === "center" ? "auto" : 0,
               maxWidth: align === "center" ? maxWidth : "620px",
               ...subtitleSx,

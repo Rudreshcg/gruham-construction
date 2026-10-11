@@ -198,7 +198,8 @@ function Packages() {
       />
 
       <div className="packages-header">
-        <h2 className="packages-title">Construction package Bangalore | Gruham's Construction</h2>
+        <div className="eyebrow-pill packages-kicker">Our Packages</div>
+        <h2 className="packages-title page-title">Construction Packages</h2>
         <p className="packages-subtitle">Affordable home construction packages in Bangalore for 2BHK, 3BHK, villas and luxury homes with premium materials</p>
       </div>
 
@@ -220,7 +221,7 @@ function Packages() {
                 {p.popular && <div className="popular-ribbon">Most Popular</div>}
 
                 <div className="card-hexagon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="spin-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                   </svg>
                 </div>

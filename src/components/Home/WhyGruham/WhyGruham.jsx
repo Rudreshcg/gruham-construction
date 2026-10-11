@@ -36,10 +36,11 @@ const WhyGruham = () => (
         eyebrow="Our Signature Advantages"
         title="Why Choose Gruham?"
         subtitle="Experience the difference with our commitment to thoughtful design, transparent execution, and personalised project care from concept to completion."
+        align="center"
       />
     </motion.div>
 
-    <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center" alignItems="stretch">
+    <Grid container spacing={{ xs: 2.5, md: 3 }} justifyContent="center" alignItems="stretch" sx={{ maxWidth: 1100, mx: "auto" }}>
       {contentWhyArr.map((content, index) => (
         <Grid item xs={12} sm={6} md={4} key={content.id} sx={{ display: "flex" }}>
           <motion.div
@@ -53,66 +54,54 @@ const WhyGruham = () => (
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                p: { xs: 2.5, md: 3 },
-                gap: { xs: 2, md: 2.5 },
-                background: "rgba(255, 255, 255, 0.88)",
+                boxSizing: "border-box",
+                width: "100%",
+                minHeight: { xs: 208, md: 216 },
+                pt: { xs: 2.5, md: 3 },
+                px: { xs: 2.2, md: 2.6 },
+                pb: { xs: 2.1, md: 2.5 },
                 borderRadius: homeTheme.layout.radiusMd,
-                boxShadow: homeTheme.layout.shadowSoft,
-                position: "relative",
-                overflow: "hidden",
-                backdropFilter: "blur(6px)",
-                transition: "transform 0.35s ease, box-shadow 0.35s ease",
-                border: `1px solid ${homeTheme.colors.accentMuted}`,
-                minHeight: { xs: "auto", md: 260 },
-                "&::before": {
-                  content: '""',
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "6px",
-                  height: "100%",
-                  background: `linear-gradient(180deg, ${homeTheme.colors.accent}, ${homeTheme.colors.accentDark})`,
-                  opacity: 0.9,
-                  transform: "scaleY(0)",
-                  transformOrigin: "top",
-                  transition: "transform 0.35s ease",
+                background: "linear-gradient(180deg, rgba(255,255,255,0.9), rgba(240,236,228,0.76))",
+                border: `1px solid ${homeTheme.colors.divider}`,
+                boxShadow: homeTheme.layout.shadowCard,
+                transition: "all 0.25s ease",
+                "& .spin-icon": {
+                  transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
                 },
                 "&:hover": {
-                  transform: "translateY(-14px)",
-                  boxShadow: "0 28px 45px rgba(15, 27, 41, 0.16)",
-                  "&::before": {
-                    transform: "scaleY(1)",
-                  },
+                  transform: "translateY(-4px)",
+                  borderColor: "rgba(184, 146, 74, 0.7)",
+                  boxShadow: "0 18px 32px rgba(27, 24, 19, 0.08)",
+                  "& .spin-icon": {
+                    transform: "rotate(360deg)",
+                  }
                 },
               }}
             >
               <Box
                 sx={{
-                  position: "relative",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: 88,
-                  height: 88,
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg, rgba(191,169,116,0.25), rgba(191,169,116,0.05))",
-                  boxShadow: "inset 0 2px 12px rgba(191,169,116,0.15)",
+                  width: 52,
+                  height: 52,
+                  flexShrink: 0,
+                  mb: 1.75,
+                  borderRadius: "10px",
+                  background: "linear-gradient(135deg, rgba(184,146,74,0.18), rgba(184,146,74,0.08))",
                 }}
               >
                 <Box
                   component="img"
                   src={content.icon}
                   alt={content.header}
+                  className="spin-icon"
                   sx={{
-                    width: "60px",
-                    height: "60px",
+                    width: "40px",
+                    height: "40px",
                     position: "relative",
                     zIndex: 1,
-                    filter: "drop-shadow(0 10px 18px rgba(191, 169, 116, 0.35))",
-                    transition: "transform 0.4s ease",
-                    "&:hover": {
-                      transform: "scale(1.05)",
-                    },
+                    filter: "none",
                   }}
                 />
               </Box>
@@ -122,11 +111,12 @@ const WhyGruham = () => (
                   textAlign: "center",
                   mb: 0.5,
                   color: homeTheme.colors.textPrimary,
-                  fontSize: { xs: "1.35rem", md: "1.55rem" },
+                  fontSize: { xs: "1.14rem", md: "1.22rem" },
                   fontWeight: 700,
                   lineHeight: 1.2,
                   fontFamily: homeTheme.fonts.heading,
-                  letterSpacing: "-0.01em",
+                  letterSpacing: 0,
+                  maxWidth: 300,
                 }}
               >
                 {content.header}
@@ -136,12 +126,12 @@ const WhyGruham = () => (
                 sx={{
                   textAlign: "center",
                   color: homeTheme.colors.textSecondary,
-                  fontSize: { xs: "0.95rem", md: "1.02rem" },
+                  fontSize: { xs: "0.86rem", md: "0.9rem" },
                   fontWeight: 500,
                   lineHeight: 1.6,
                   fontFamily: homeTheme.fonts.body,
                   letterSpacing: "0.01em",
-                  maxWidth: 240,
+                  maxWidth: 290,
                 }}
               >
                 {content.description}

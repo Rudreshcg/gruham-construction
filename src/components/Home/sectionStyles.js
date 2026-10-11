@@ -1,24 +1,26 @@
 export const homeTheme = {
   colors: {
-    backgroundLight: "linear-gradient(135deg, #ffffff 0%, #f9f7f2 100%)",
-    backgroundTint: "linear-gradient(135deg, #fbf8f1 0%, #f2ede0 100%)",
-    backgroundNeutral: "#ffffff",
-    accent: "#bfa974",
-    accentMuted: "rgba(191, 169, 116, 0.22)",
-    accentDark: "#8f7741",
-    textPrimary: "#2c3e50",
-    textSecondary: "#5a6c7d",
-    divider: "rgba(191, 169, 116, 0.28)",
+    backgroundLight: "#f6f2eb",
+    backgroundTint: "#f0ece4",
+    backgroundNeutral: "#fffdf9",
+    accent: "#b8924a",
+    accentMuted: "rgba(184, 146, 74, 0.12)",
+    accentDark: "#7a623a",
+    textPrimary: "#1d1d1b",
+    textSecondary: "#5d5a56",
+    divider: "rgba(29, 29, 27, 0.1)",
+    forest: "#2e2d2b",
   },
   fonts: {
-    heading: "'Playfair Display', serif",
-    body: "'Montserrat', sans-serif",
+    heading: "'DM Serif Display', Georgia, serif",
+    body: "'Manrope', 'Segoe UI', sans-serif",
   },
   layout: {
-    radiusLg: "20px",
-    radiusMd: "16px",
-    radiusSm: "12px",
-    shadowSoft: "0 12px 35px rgba(15, 27, 41, 0.08)",
+    radiusLg: "18px",
+    radiusMd: "14px",
+    radiusSm: "10px",
+    shadowSoft: "0 18px 40px rgba(27, 24, 19, 0.06)",
+    shadowCard: "0 12px 28px rgba(27, 24, 19, 0.04)",
   },
 };
 
@@ -35,32 +37,9 @@ export const getSectionBackground = (variant = "light") => {
 
 export const sectionWrapperSx = (variant = "light") => ({
   position: "relative",
-  py: { xs: 6, md: 10 },
+  py: { xs: 7, md: 12 },
   background: getSectionBackground(variant),
   overflow: "hidden",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    inset: 0,
-    background:
-      "radial-gradient(circle at 20% 20%, rgba(191,169,116,0.22) 0%, transparent 45%)," +
-      "radial-gradient(circle at 80% 0%, rgba(191,169,116,0.16) 0%, transparent 55%)",
-    opacity: 0.4,
-    pointerEvents: "none",
-  },
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    top: "-20%",
-    right: { xs: "-40%", md: "-18%" },
-    width: { xs: "320px", md: "420px" },
-    height: "140%",
-    background: "linear-gradient(180deg, rgba(191,169,116,0.25) 0%, transparent 75%)",
-    filter: "blur(10px)",
-    opacity: 0.45,
-    pointerEvents: "none",
-    transform: "rotate(-8deg)",
-  },
 });
 
 export const containerSx = {

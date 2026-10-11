@@ -97,8 +97,8 @@ const Careers = () => {
             <Box
                 className="careers-header"
                 sx={{
-                    py: { xs: 6, md: 10 },
-                    background: "linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)",
+                    py: { xs: 6, md: 9 },
+                    background: "linear-gradient(180deg, #f6f2eb 0%, #fffdf9 100%)",
                     position: "relative",
                     overflow: "hidden",
                     "&::before": {
@@ -108,7 +108,7 @@ const Careers = () => {
                         left: 0,
                         right: 0,
                         height: "1px",
-                        background: "linear-gradient(90deg, transparent, rgba(191, 169, 116, 0.3), transparent)",
+                        background: "linear-gradient(90deg, transparent, rgba(184, 146, 74, 0.28), transparent)",
                     }
                 }}
             >
@@ -120,10 +120,11 @@ const Careers = () => {
                                 className="careers-title"
                                 sx={{
                                     fontFamily: "'Playfair Display', serif",
-                                    fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.2rem" },
-                                    color: "#2c3e50",
-                                    fontWeight: 800,
-                                    letterSpacing: "-0.02em",
+                                    fontSize: "var(--page-title-size)",
+                                    color: "var(--text-primary)",
+                                    fontWeight: 400,
+                                    letterSpacing: 0,
+                                    lineHeight: "var(--page-title-line-height)",
                                     mb: 2,
                                     position: "relative",
                                     "&::after": {
@@ -132,25 +133,26 @@ const Careers = () => {
                                         bottom: "-8px",
                                         left: "50%",
                                         transform: "translateX(-50%)",
-                                        width: "60px",
-                                        height: "3px",
-                                        background: "linear-gradient(135deg, #bfa974, #9c8658)",
-                                        borderRadius: "2px",
+                                        width: "110px",
+                                        height: "4px",
+                                        background: "linear-gradient(90deg, #caa56a 0%, #b38f52 100%)",
+                                        borderRadius: "999px",
                                     }
                                 }}
                             >
                                 Join Our Team
                             </Typography>
                             <Typography
-                                variant="h3"
+                                variant="body1"
+                                component="p"
                                 className="careers-subtitle"
                                 align="center"
                                 sx={{
-                                    color: "#7f8c8d",
-                                    fontFamily: "'Montserrat', sans-serif",
+                                    color: "var(--text-secondary)",
+                                    fontFamily: "var(--font-body)",
                                     fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                                     fontWeight: 400,
-                                    letterSpacing: "0.01em",
+                                    letterSpacing: 0,
                                     maxWidth: "700px",
                                     mx: "auto",
                                     lineHeight: 1.6,
@@ -202,13 +204,13 @@ const Careers = () => {
                                         variant="contained"
                                         className="apply-btn"
                                         sx={{
-                                            background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
-                                            color: "#332900 !important",
+                                            background: "linear-gradient(135deg, #d4b679 0%, #b8924a 100%)",
+                                            color: "#fff",
                                             fontWeight: 600,
                                             px: 5,
                                             py: 1.5,
-                                            borderRadius: "10px",
-                                            "&:hover": { background: "#b1936b", color: "#fff !important" }
+                                            borderRadius: "999px",
+                                            "&:hover": { background: "linear-gradient(135deg, #b8924a 0%, #8a7243 100%)", color: "#fff" }
                                         }}
                                     >
                                         Apply Now
@@ -239,14 +241,14 @@ const Careers = () => {
                         variant="contained"
                         className="general-apply-btn"
                         sx={{
-                            background: "linear-gradient(90deg, #bfa974 0%, #f6e8b8 100%)",
-                            color: "#332900 !important",
+                            background: "linear-gradient(135deg, #d4b679 0%, #b8924a 100%)",
+                            color: "#fff",
                             fontWeight: 600,
                             px: 5,
                             py: 1.5,
-                            borderRadius: "10px",
+                            borderRadius: "999px",
                             border: "none !important",
-                            "&:hover": { background: "#b1936b", color: "#fff !important", border: "none !important" }
+                            "&:hover": { background: "linear-gradient(135deg, #b8924a 0%, #8a7243 100%)", color: "#fff", border: "none !important" }
                         }}
                     >
                         Submit Resume

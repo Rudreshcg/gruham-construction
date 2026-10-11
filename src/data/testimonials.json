@@ -1,0 +1,112 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Mr. Sunil Sharma",
+      "role": "Homeowner",
+      "location": "Jigani, Bangalore",
+      "rating": 5,
+      "text": "Gruham's Construction perfectly executed our 2400 sq ft modern home. The attention to the geometric facade and premium interior finishes was outstanding. They completed the project beautifully, and the result completely exceeded our expectations.",
+      "project": "Modern Residence"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Jhansi Rani",
+      "role": "Homeowner",
+      "location": "Jigani, Bangalore",
+      "rating": 5,
+      "text": "We had a compact plot, but the team designed a beautiful contemporary home that feels incredibly spacious. The natural lighting and space optimization they achieved is brilliant. Highly recommend their architectural expertise.",
+      "project": "Contemporary Home"
+    },
+    {
+      "id": 3,
+      "name": "Venkata Chalpathi",
+      "role": "Property Owner",
+      "location": "HSR Layout, Bangalore",
+      "rating": 5,
+      "text": "Our ongoing project in HSR Layout is progressing smoothly. The Gruhams team has been extremely transparent and professional. Their focus on Vastu compliance and optimal space utilization is exactly what we were looking for.",
+      "project": "Urban Residence"
+    },
+    {
+      "id": 4,
+      "name": "Mr. Inderpal Singh",
+      "role": "Homeowner",
+      "location": "Jigani, Bangalore",
+      "rating": 5,
+      "text": "Working with Gruham's on our contemporary residence has been a wonderful experience. Their commitment to blending indoor and outdoor living spaces seamlessly is impressive. We are very excited for the final handover.",
+      "project": "Contemporary Residence"
+    },
+    {
+      "id": 5,
+      "name": "Mr. Sathya Shree Ram",
+      "role": "Homeowner",
+      "location": "Jigani, Bangalore",
+      "rating": 5,
+      "text": "The design phase for our modern duplex was handled brilliantly. They understood our need for vertical connectivity and expansive glass windows. The material palettes they suggested were exactly in line with our vision.",
+      "project": "Modern Duplex"
+    },
+    {
+      "id": 6,
+      "name": "Debendra Debadutta Das",
+      "role": "Property Owner",
+      "location": "Varthur, Bangalore",
+      "rating": 5,
+      "text": "The level of premium detailing on our Varthur residence is outstanding. They have managed to perfectly balance grand entertainment areas for guests while keeping the family living spaces private and comfortable.",
+      "project": "Elegant Residence"
+    },
+    {
+      "id": 7,
+      "name": "Nazeer Hussen",
+      "role": "Homeowner",
+      "location": "Sarjapur, Bangalore",
+      "rating": 5,
+      "text": "We wanted an eco-friendly and sustainable home, and Gruham's Construction delivered exactly that. The integration of passive cooling techniques and smart home features in our Sarjapur residence has been phenomenal.",
+      "project": "Sustainable Home"
+    },
+    {
+      "id": 8,
+      "name": "Asha Manjunath",
+      "role": "Homeowner",
+      "location": "Dasanpura, Bangalore",
+      "rating": 5,
+      "text": "Our new home in Dasanpura is everything we hoped for. The minimalist elevation and clean lines look incredibly sophisticated. The craftsmanship and attention to detail during the construction phase have been top-notch.",
+      "project": "Minimalist Residence"
+    },
+    {
+      "id": 9,
+      "name": "Mr. Manesh Arora",
+      "role": "Villa Owner",
+      "location": "Jigani, Bangalore",
+      "rating": 5,
+      "text": "Building a luxury villa is a huge investment, but Gruhams Construction has made the process seamless. Their handling of the grand architectural elements, swimming pool, and premium material selection has been exceptional so far.",
+      "project": "Luxury Villa"
+    },
+    {
+      "id": 10,
+      "name": "Mr. Mallikarjun",
+      "role": "Homeowner",
+      "location": "Jigani, Bangalore",
+      "rating": 5,
+      "text": "The double-height entrance and intricately designed staircases they designed for our residence are truly majestic. Gruham's Construction knows how to build spaces that feel palatial and grand. Truly a luxury builder.",
+      "project": "Grand Residence"
+    },
+    {
+      "id": 11,
+      "name": "Mr. Ashutosh Mishra",
+      "role": "Homeowner",
+      "location": "Dollars Colony Gattahalli",
+      "rating": 5,
+      "text": "Affordable luxury was our main goal, and the team achieved it perfectly. Through intelligent spatial planning, they comfortably accommodated all our modern requirements without compromising on the aesthetic appeal of our home.",
+      "project": "Community Residence"
+    },
+    {
+      "id": 12,
+      "name": "Mr. Bhawani Singh",
+      "role": "Homeowner",
+      "location": "Dollars Colony Gattahalli",
+      "rating": 5,
+      "text": "The elegant contemporary design of our home in Dollars Colony is constantly praised by visitors. The semi-open terraces and well-ventilated corridors ensure a constant connection with the outdoors, making the home feel incredibly fresh.",
+      "project": "Contemporary Residence"
+    }
+  ]
+}
