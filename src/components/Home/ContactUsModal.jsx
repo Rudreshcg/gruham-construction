@@ -1,245 +1,152 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Box,
-  Modal,
-  Fade,
-  Backdrop,
-  IconButton,
+  Dialog,
   Typography,
-  useTheme,
-  useMediaQuery,
 } from '@mui/material';
-import { Close, Construction, PersonOutline, MailOutline, LocalPhoneOutlined, SendRounded, Star, CheckCircle } from '@mui/icons-material';
-import { motion, AnimatePresence } from 'framer-motion';
+import houseImage from '../../assets/images/luxury_villa_hero.png';
 import ContactUs from './ContactUs';
+import { homeTheme } from './sectionStyles';
 
-const ContactUsModal = ({ open, onClose, isFirstVisit = false }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isLowHeight = useMediaQuery('(max-height: 500px)');
-  const shouldScroll = isMobile && isLowHeight;
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    if (open) {
-      const timer = setTimeout(() => setIsVisible(true), 100);
-      return () => clearTimeout(timer);
-    } else {
-      setIsVisible(false);
-    }
-  }, [open]);
-
-  const modalVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8,
-      y: 50,
-    },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 25,
-        stiffness: 300,
-        duration: 0.6
-      }
-    },
-    exit: { 
-      opacity: 0, 
-      scale: 0.8,
-      y: 50,
-      transition: {
-        duration: 0.3
-      }
-    }
-  };
-
-  const backdropVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { duration: 0.3 }
-    },
-    exit: { 
-      opacity: 0,
-      transition: { duration: 0.3 }
-    }
-  };
-
+const ContactUsModal = ({ open, onClose }) => {
   return (
-    <Modal
+    <Dialog
       open={open}
       onClose={onClose}
-      closeAfterTransition
-      BackdropComponent={Backdrop}
+      fullWidth
+      maxWidth="md"
+      scroll="paper"
+      aria-labelledby="contact-modal-title"
       BackdropProps={{
-        timeout: 500,
         sx: {
-          background: 'rgba(0, 0, 0, 0.7)',
-          backdropFilter: 'blur(8px)',
+          background: 'rgba(20, 20, 18, 0.78)',
+          backdropFilter: 'blur(5px)',
         }
       }}
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        p: 0,
-        width: '100vw',
-        height: '100vh',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+      PaperProps={{
+        sx: {
+          width: 'calc(100% - 24px)',
+          height: { xs: 'calc(100dvh - 24px)', md: 'min(82dvh, 700px)' },
+          maxWidth: { md: '900px' },
+          maxHeight: 'calc(100% - 24px)',
+          m: { xs: 1.5, sm: 2 },
+          overflow: 'hidden',
+          background: homeTheme.colors.backgroundNeutral,
+          border: `1px solid ${homeTheme.colors.divider}`,
+          borderRadius: { xs: '10px', sm: '16px' },
+          boxShadow: '0 28px 90px rgba(0, 0, 0, 0.34)',
+        },
       }}
     >
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            variants={modalVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            style={{
+      <Box
+        sx={{
+          display: 'grid',
+          width: '100%',
+          height: '100%',
+          minHeight: 0,
+          gridTemplateRows: 'minmax(0, 1fr)',
+          gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: '0.8fr 1.2fr' },
+        }}
+      >
+        <Box
+          sx={{
+            display: { xs: 'none', md: 'block' },
+            position: 'relative',
+            minHeight: 0,
+            overflow: 'hidden',
+            color: homeTheme.colors.backgroundNeutral,
+            gridColumn: { xs: '1', md: '1' },
+            gridRow: '1',
+            background: homeTheme.colors.forest,
+          }}
+        >
+          <Box
+            component="img"
+            src={houseImage}
+            alt="Modern home built by Gruham's Construction"
+            sx={{
+              position: 'absolute',
+              inset: 0,
               width: '100%',
-              maxWidth: isMobile ? '100%' : '500px',
-              maxHeight: isMobile ? '100vh' : '90vh',
-              overflow: shouldScroll ? 'auto' : 'hidden',
-              margin: '0 auto',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+          />
+          <Box
+            aria-hidden="true"
+            sx={{
+              position: 'absolute',
+              inset: 0,
+              background: {
+                xs: 'linear-gradient(0deg, rgba(20, 20, 18, 0.78), rgba(20, 20, 18, 0.06) 85%)',
+                md: 'linear-gradient(0deg, rgba(20, 20, 18, 0.78), rgba(20, 20, 18, 0.02) 80%)',
+              },
+            }}
+          />
+          <Box
+            sx={{
+              position: 'absolute',
+              right: { xs: 18, md: 32 },
+              bottom: { xs: 16, md: 32 },
+              left: { xs: 18, md: 32 },
+              zIndex: 1,
             }}
           >
-            <Box
+            <Typography
               sx={{
-                position: 'relative',
-                background: 'rgba(255, 255, 255, 0.98)',
-                borderRadius: { xs: '0px', sm: '20px' },
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.8)',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
-                overflow: shouldScroll ? 'auto' : 'hidden',
-                maxHeight: isMobile ? '100vh' : '90vh',
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
+                color: '#e7c77d',
+                fontSize: '0.68rem',
+                fontWeight: 800,
+                letterSpacing: '0.12em',
+                lineHeight: 1.4,
+                textTransform: 'uppercase',
               }}
             >
-              {/* Header with close button */}
-              <Box
-                sx={{
-                  position: 'relative',
-                  p: { xs: 1.5, sm: 2, md: 3 },
-                  background: 'linear-gradient(135deg, #bfa974, #9c8658)',
-                  color: 'white',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  flexShrink: 0,
-                  borderRadius: { xs: '0px', sm: '20px 20px 0 0' },
-                }}
-              >
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Construction sx={{ fontSize: { xs: '1.2rem', sm: '1.5rem' } }} />
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 700,
-                      fontSize: { xs: '1rem', sm: '1.2rem', md: '1.3rem' },
-                      fontFamily: "'Montserrat', sans-serif",
-                    }}
-                  >
-                    Get Your Free Quote
-                  </Typography>
-                </Box>
-                
-                <IconButton
-                  onClick={onClose}
-                  sx={{
-                    color: 'white',
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    width: { xs: '32px', sm: '36px' },
-                    height: { xs: '32px', sm: '36px' },
-                    '&:hover': {
-                      background: 'rgba(255, 255, 255, 0.3)',
-                      transform: 'scale(1.1)',
-                    },
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  <Close sx={{ fontSize: { xs: '1.2rem', sm: '1.4rem' } }} />
-                </IconButton>
-              </Box>
+              Gruham&apos;s Construction · Bengaluru
+            </Typography>
+            <Typography
+              component="p"
+              sx={{
+                mt: 0.8,
+                maxWidth: 440,
+                color: '#fffdf9',
+                fontFamily: homeTheme.fonts.heading,
+                fontSize: { xs: '1.45rem', md: '2.4rem' },
+                lineHeight: 1.08,
+              }}
+            >
+              Build a home that feels like yours.
+            </Typography>
+            <Typography
+              sx={{
+                display: { xs: 'none', md: 'block' },
+                mt: 1.2,
+                maxWidth: 380,
+                color: 'rgba(255, 253, 249, 0.86)',
+                fontSize: '0.95rem',
+                lineHeight: 1.65,
+              }}
+            >
+              Thoughtful design and dependable construction, from the first plan to the final handover.
+            </Typography>
+          </Box>
+        </Box>
 
-              {/* Welcome message for first visit */}
-              {isFirstVisit && (
-                <Box
-                  sx={{
-                    p: { xs: 1, sm: 1.5 },
-                    background: 'linear-gradient(135deg, rgba(191, 169, 116, 0.1), rgba(156, 134, 88, 0.1))',
-                    borderBottom: '1px solid rgba(191, 169, 116, 0.2)',
-                    flexShrink: 0,
-                  }}
-                >
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: '#5a6c7d',
-                      textAlign: 'center',
-                      fontStyle: 'italic',
-                      fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                    }}
-                  >
-                    Welcome! Get started with your dream project today.
-                  </Typography>
-                </Box>
-              )}
-
-              {/* Contact Form */}
-              <Box sx={{ 
-                p: { xs: 0, sm: 0 }, 
-                flex: 1, 
-                overflow: shouldScroll ? 'auto' : 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-              }}>
-                <ContactUs shouldScroll={shouldScroll} />
-              </Box>
-
-              {/* Footer */}
-              <Box
-                sx={{
-                  p: { xs: 1, sm: 1.5 },
-                  background: 'rgba(191, 169, 116, 0.05)',
-                  borderTop: '1px solid rgba(191, 169, 116, 0.1)',
-                  textAlign: 'center',
-                  flexShrink: 0,
-                  borderRadius: { xs: '0px', sm: '0 0 20px 20px' },
-                }}
-              >
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: '#7f8c8d',
-                    fontSize: { xs: '0.7rem', sm: '0.8rem' },
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: 0.5,
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  <Star sx={{ fontSize: { xs: '0.6rem', sm: '0.7rem' }, color: '#bfa974' }} />
-                  Trusted by 500+ satisfied customers
-                </Typography>
-              </Box>
-            </Box>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </Modal>
+        <Box
+          sx={{
+            minWidth: 0,
+            minHeight: 0,
+            overflowY: 'auto',
+            overscrollBehavior: 'contain',
+            gridColumn: { xs: '1', md: '2' },
+            gridRow: '1',
+          }}
+        >
+          <ContactUs onClose={onClose} />
+        </Box>
+      </Box>
+    </Dialog>
   );
 };
 
