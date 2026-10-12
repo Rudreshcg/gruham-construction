@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, Container, Typography, Button, Stack, Divider } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import { motion } from "framer-motion";
@@ -14,15 +14,44 @@ const heroStats = [
   { value: "100%", label: "Client Satisfaction" },
 ];
 
+const CONTACT_POPUP_DELAY = 4000;
+const CONTACT_POPUP_SESSION_KEY = "gruhams-contact-popup-dismissed-v3";
+
 const Hero = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const autoPopupTimer = useRef(null);
+
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem(CONTACT_POPUP_SESSION_KEY)) return undefined;
+    } catch {
+      // Keep the popup available when session storage is blocked.
+    }
+
+    autoPopupTimer.current = window.setTimeout(() => {
+      setIsModalOpen(true);
+    }, CONTACT_POPUP_DELAY);
+
+    return () => window.clearTimeout(autoPopupTimer.current);
+  }, []);
 
   const handleOpenModal = () => {
+    window.clearTimeout(autoPopupTimer.current);
+    try {
+      sessionStorage.setItem(CONTACT_POPUP_SESSION_KEY, "true");
+    } catch {
+      // Manual opening should work when session storage is blocked.
+    }
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
+    try {
+      sessionStorage.setItem(CONTACT_POPUP_SESSION_KEY, "true");
+    } catch {
+      // Closing the popup still works when session storage is blocked.
+    }
     setIsModalOpen(false);
   };
 

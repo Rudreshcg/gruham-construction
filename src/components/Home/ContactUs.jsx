@@ -5,42 +5,24 @@ import {
   Button,
   TextField,
   InputAdornment,
-  Divider,
-  Chip,
   Fade,
-  Slide,
-  MenuItem,
+  IconButton,
+  ToggleButton,
+  ToggleButtonGroup,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 import {
   PersonOutline,
-  MailOutline,
   LocalPhoneOutlined,
   SendRounded,
   CheckCircle,
   Star,
-  Construction,
+  Close,
 } from "@mui/icons-material";
 import { styled, keyframes } from "@mui/material/styles";
 import { submitContactForm } from "../../utils/contactService";
-
-// Enhanced animations
-const shimmer = keyframes`
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-`;
-
-const glow = keyframes`
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(191, 169, 116, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(191, 169, 116, 0.8), 0 0 30px rgba(191, 169, 116, 0.6);
-  }
-`;
+import { homeTheme } from "./sectionStyles";
 
 const float = keyframes`
   0%, 100% {
@@ -51,100 +33,72 @@ const float = keyframes`
   }
 `;
 
-// Enhanced Styled Input Field
-const StyledTextField = styled(TextField)(({ theme }) => ({
+const StyledTextField = styled(TextField)(() => ({
   "& .MuiOutlinedInput-root": {
-    background: "rgba(255, 255, 255, 0.9)",
-    borderRadius: "12px",
-    color: "#2c3e50",
-    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-    backdropFilter: "blur(10px)",
+    background: homeTheme.colors.backgroundNeutral,
+    borderRadius: "6px",
+    color: homeTheme.colors.textPrimary,
+    minHeight: "54px",
+    transition: "border-color 0.2s ease",
     "& fieldset": { 
-      borderColor: "rgba(191, 169, 116, 0.3)",
-      borderWidth: "1px",
+      borderColor: homeTheme.colors.divider,
     },
     "&:hover fieldset": {
-      borderColor: "#bfa974",
-      boxShadow: "0 0 15px rgba(191, 169, 116, 0.3)",
-      transform: "translateY(-1px)",
+      borderColor: homeTheme.colors.accent,
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#bfa974",
-      borderWidth: "2px",
-      boxShadow: "0 0 20px rgba(191, 169, 116, 0.5)",
-      animation: `${glow} 2s ease-in-out infinite`,
+      borderColor: homeTheme.colors.accent,
+      borderWidth: "1px",
     },
-    "& input": { 
-      padding: { xs: "10px 14px", sm: "12px 16px" },
-      fontSize: { xs: "0.85rem", sm: "0.9rem" },
-      color: "#2c3e50",
+    "& .MuiInputBase-input": {
+      padding: "14px 12px",
+      fontSize: "0.9rem",
+      color: homeTheme.colors.textPrimary,
       "&::placeholder": {
-        color: "rgba(44, 62, 80, 0.6)",
+        color: homeTheme.colors.textSecondary,
         opacity: 1,
       },
     },
   },
-  "& .MuiInputLabel-root": {
-    color: "#5a6c7d",
-    fontWeight: 600,
-    fontSize: { xs: "0.8rem", sm: "0.9rem" },
-    "&.Mui-focused": { 
-      color: "#bfa974",
-      fontWeight: 700,
-    },
-  },
 }));
 
-// Enhanced Styled Button
+const fieldLabelSx = {
+  display: "block",
+  mb: 0.75,
+  color: homeTheme.colors.textPrimary,
+  fontSize: "0.82rem",
+  fontWeight: 700,
+  lineHeight: 1.4,
+};
+
 const StyledButton = styled(Button)(() => ({
-  background: "linear-gradient(135deg, #bfa974, #9c8658)",
-  color: "#000",
-  borderRadius: "12px",
+  background: homeTheme.colors.accent,
+  color: homeTheme.colors.textPrimary,
+  borderRadius: "4px",
   fontWeight: 700,
   textTransform: "none",
   padding: { xs: "10px 0", sm: "12px 0" },
   fontSize: { xs: "0.9rem", sm: "1rem" },
-  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-  boxShadow: "0 6px 20px rgba(191,169,116,0.4)",
-  position: "relative",
-  overflow: "hidden",
-  "&:before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: "-100%",
-    width: "100%",
-    height: "100%",
-    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-    transition: "left 0.5s",
-  },
+  transition: "background-color 0.2s ease",
+  boxShadow: "0 8px 22px rgba(146, 121, 68, 0.2)",
   "&:hover": {
-    background: "linear-gradient(135deg, #a48d5e, #c5b07a)",
-    transform: "translateY(-3px)",
-    boxShadow: "0 10px 30px rgba(191,169,116,0.6)",
-    "&:before": {
-      left: "100%",
-    },
+    background: "#d6bd83",
   },
   "&:active": {
-    transform: "translateY(-1px)",
+    background: homeTheme.colors.accentDark,
+    color: homeTheme.colors.backgroundNeutral,
   },
 }));
 
-const bestTimeOptions = [
-  "Within 15 Min.",
-  "08AM To 12PM",
-  "12PM To 04PM",
-  "04PM To 08PM",
-  "Anytime",
-];
+const propertyTypes = ["1 BHK", "2 BHK", "3 BHK", "4+ / Duplex"];
 
-const ContactUs = ({ shouldScroll = false }) => {
+const ContactUs = ({ onClose }) => {
   const [formData, setFormData] = useState({
+    propertyType: "",
+    location: "",
     name: "",
-    email: "",
     phone: "",
-    bestTimeToTalk: "",
+    whatsappOptIn: true,
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -155,22 +109,46 @@ const ContactUs = ({ shouldScroll = false }) => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handlePropertyTypeChange = (_, propertyType) => {
+    if (propertyType) setFormData((current) => ({ ...current, propertyType }));
+  };
+
+  const handleWhatsappChange = (e) => {
+    setFormData((current) => ({ ...current, whatsappOptIn: e.target.checked }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.propertyType) {
+      setError("Choose a property type to continue.");
+      return;
+    }
+
     setIsLoading(true);
     setError("");
 
     try {
       await submitContactForm({
         ...formData,
+        message: [
+          `Property type: ${formData.propertyType}`,
+          `Property location: ${formData.location || "Not provided"}`,
+          `WhatsApp updates: ${formData.whatsappOptIn ? "Yes" : "No"}`,
+        ].join("\n"),
         submittedAt: new Date().toISOString(),
-        source: "home-contact-cta",
+        source: "home-construction-quote-modal",
       });
 
       setIsSubmitted(true);
 
       setTimeout(() => {
-        setFormData({ name: "", email: "", phone: "", bestTimeToTalk: "" });
+        setFormData({
+          propertyType: "",
+          location: "",
+          name: "",
+          phone: "",
+          whatsappOptIn: true,
+        });
         setIsSubmitted(false);
       }, 3000);
     } catch (err) {
@@ -184,176 +162,265 @@ const ContactUs = ({ shouldScroll = false }) => {
   };
 
   return (
-    <Slide direction="up" in={true} timeout={800}>
       <Box
         component="form"
         onSubmit={handleSubmit}
         sx={{
-          background: "rgba(255, 255, 255, 0.95)",
-          border: "1px solid rgba(191, 169, 116, 0.2)",
-          borderRadius: { xs: "0px", sm: "16px" },
-          backdropFilter: "blur(10px)",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
-          p: { xs: 2, sm: 3 },
+          background: "transparent",
+          minHeight: "100%",
+          overflow: "visible",
+          p: { xs: 1.75, sm: 2.5, md: 3.5 },
           maxWidth: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: { xs: 1.5, sm: 2 },
-          position: "relative",
-          overflow: shouldScroll ? "auto" : "hidden",
+          gap: { xs: 1.25, sm: 1.5 },
         }}
       >
-        {/* Header with compact styling */}
-        <Box sx={{ textAlign: "center", mb: { xs: 1, sm: 1.5 } }}>
-          <Typography
-            variant="h6"
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            gap: 1.5,
+            pb: 1.25,
+            borderBottom: `1px solid ${homeTheme.colors.divider}`,
+            position: "sticky",
+            top: 0,
+            zIndex: 2,
+            background: homeTheme.colors.backgroundNeutral,
+          }}
+        >
+          <Box sx={{ minWidth: 0 }}>
+            <Typography
+              sx={{
+                color: homeTheme.colors.accentDark,
+                fontSize: "0.65rem",
+                fontWeight: 800,
+                lineHeight: 1.4,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+              }}
+            >
+              Free consultation
+            </Typography>
+            <Typography
+              id="contact-modal-title"
+              component="h2"
+              sx={{
+                mt: 0.25,
+                color: homeTheme.colors.textPrimary,
+                fontFamily: homeTheme.fonts.heading,
+                fontSize: { xs: "1.3rem", sm: "1.55rem", md: "1.8rem" },
+                lineHeight: 1.2,
+              }}
+            >
+              Get Free Quote
+            </Typography>
+            <Typography
+              sx={{
+                mt: 0.5,
+                color: homeTheme.colors.textSecondary,
+                fontSize: { xs: "0.76rem", sm: "0.82rem" },
+                lineHeight: 1.5,
+              }}
+            >
+              Tell us about your project and we’ll be in touch.
+            </Typography>
+          </Box>
+          <IconButton
+            onClick={onClose}
+            aria-label="Close contact form"
             sx={{
-              color: "#2c3e50",
-              fontWeight: 700,
-              fontSize: { xs: "1rem", sm: "1.2rem", md: "1.3rem" },
-              letterSpacing: "0.3px",
-              mb: { xs: 0.5, sm: 1 },
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: { xs: 0.5, sm: 1 },
-              fontFamily: "'Montserrat', sans-serif",
+              flex: "0 0 auto",
+              color: homeTheme.colors.textPrimary,
+              border: `1px solid ${homeTheme.colors.divider}`,
+              borderRadius: "6px",
+              width: 36,
+              height: 36,
+              mt: 0.25,
+              "&:hover": { background: homeTheme.colors.accentMuted },
             }}
           >
-            <Construction sx={{ color: "#bfa974", fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.4rem" } }} />
-            Get Free Quote
-          </Typography>
-          
-          <Typography
-            variant="body2"
-            sx={{
-              color: "#5a6c7d",
-              fontSize: { xs: "0.8rem", sm: "0.9rem" },
-              fontWeight: 500,
-              fontFamily: "'Montserrat', sans-serif",
-            }}
-          >
-            Start your dream project today
-          </Typography>
+            <Close fontSize="small" />
+          </IconButton>
         </Box>
 
-        <Divider
-          sx={{
-            borderColor: "rgba(191, 169, 116, 0.3)",
-            mb: 0.5,
-            "&:before, &:after": {
-              borderColor: "rgba(191, 169, 116, 0.2)",
-            },
-          }}
-        />
+        <Box>
+          <Typography component="label" sx={fieldLabelSx} id="property-type-label">
+            Property type <Box component="span" sx={{ color: "#a33d32" }}>*</Box>
+          </Typography>
+          <ToggleButtonGroup
+            exclusive
+            fullWidth
+            value={formData.propertyType}
+            onChange={handlePropertyTypeChange}
+            aria-labelledby="property-type-label"
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+              gap: { xs: 0.5, sm: 0.75 },
+              "& .MuiToggleButtonGroup-grouped": {
+                m: 0,
+                border: `1px solid ${homeTheme.colors.divider} !important`,
+                borderRadius: "5px !important",
+              },
+            }}
+          >
+            {propertyTypes.map((type) => (
+              <ToggleButton
+                key={type}
+                value={type}
+                sx={{
+                  minWidth: 0,
+                  minHeight: { xs: 40, sm: 44 },
+                  px: { xs: 0.3, sm: 0.75 },
+                  color: homeTheme.colors.textSecondary,
+                  fontSize: { xs: "0.64rem", sm: "0.76rem" },
+                  fontWeight: 700,
+                  lineHeight: 1.15,
+                  textTransform: "none",
+                  whiteSpace: "normal",
+                  "&.Mui-selected": {
+                    color: homeTheme.colors.textPrimary,
+                    background: homeTheme.colors.accentMuted,
+                    borderColor: homeTheme.colors.accent,
+                  },
+                  "&.Mui-selected:hover": { background: homeTheme.colors.accentMuted },
+                }}
+              >
+                {type}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+        </Box>
 
-
-        {/* Form Fields */}
-        <StyledTextField
-          label="Full Name"
-          name="name"
-          type="text"
-          fullWidth
-          value={formData.name}
-          onChange={handleChange}
-          required
-          placeholder="Enter your full name"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <PersonOutline sx={{ color: "#bfa974", fontSize: "1.2rem" }} />
-              </InputAdornment>
-            ),
-          }}
-        />
-
-        <StyledTextField
-          label="Email Address"
-          name="email"
-          type="email"
-          fullWidth
-          value={formData.email}
-          onChange={handleChange}
-          required
-          placeholder="your.email@example.com"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <MailOutline sx={{ color: "#bfa974", fontSize: "1.2rem" }} />
-              </InputAdornment>
-            ),
-          }}
-        />
+        <Box>
+          <Typography component="label" htmlFor="contact-location" sx={fieldLabelSx}>
+            Property location
+          </Typography>
+          <StyledTextField
+            id="contact-location"
+            name="location"
+            type="text"
+            aria-label="Property location"
+            placeholder="City or area"
+            fullWidth
+            value={formData.location}
+            onChange={handleChange}
+          />
+        </Box>
 
         <Box
           sx={{
-            display: { xs: "block", sm: "flex" },
-            gap: { sm: 1.5 },
+            display: { xs: "grid", sm: "grid" },
+            gridTemplateColumns: { xs: "minmax(0, 1fr)", sm: "minmax(0, 1fr) minmax(0, 1fr)" },
+            gap: { xs: 1.25, sm: 1.5 },
           }}
         >
-          <StyledTextField
-            label="Phone Number"
-            name="phone"
-            type="tel"
-            fullWidth
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            placeholder="+1 (555) 123-4567"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <LocalPhoneOutlined sx={{ color: "#bfa974", fontSize: "1.2rem" }} />
-                </InputAdornment>
-              ),
-            }}
-            sx={{
-              flex: 1,
-              mb: { xs: 1.5, sm: 0 },
-            }}
-          />
+          <Box sx={{ minWidth: 0 }}>
+            <Typography component="label" htmlFor="contact-name" sx={fieldLabelSx}>
+              Your name <Box component="span" sx={{ color: "#a33d32" }}>*</Box>
+            </Typography>
+            <StyledTextField
+              id="contact-name"
+              name="name"
+              type="text"
+              aria-label="Your name"
+              placeholder="Full name"
+              fullWidth
+              value={formData.name}
+              onChange={handleChange}
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonOutline sx={{ color: homeTheme.colors.accent, fontSize: "1.15rem" }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
 
-          <StyledTextField
-            select
-            label="Best Time to Call You"
-            name="bestTimeToTalk"
-            fullWidth
-            value={formData.bestTimeToTalk}
-            onChange={handleChange}
-            sx={{ flex: 1 }}
-          >
-            {bestTimeOptions.map((option) => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </StyledTextField>
+          <Box sx={{ minWidth: 0 }}>
+            <Typography component="label" htmlFor="contact-phone" sx={fieldLabelSx}>
+              Mobile number <Box component="span" sx={{ color: "#a33d32" }}>*</Box>
+            </Typography>
+            <StyledTextField
+              id="contact-phone"
+              name="phone"
+              type="tel"
+              aria-label="Mobile number"
+              placeholder="10-digit mobile number"
+              fullWidth
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              inputProps={{ inputMode: "tel", maxLength: 15 }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LocalPhoneOutlined sx={{ color: homeTheme.colors.accent, fontSize: "1.15rem" }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
         </Box>
 
-        {/* Compact Submit Button */}
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={formData.whatsappOptIn}
+              onChange={handleWhatsappChange}
+              size="small"
+              sx={{
+                color: homeTheme.colors.accentDark,
+                "&.Mui-checked": { color: homeTheme.colors.accentDark },
+              }}
+            />
+          }
+          label="Send me project updates on WhatsApp"
+          sx={{
+            my: -0.5,
+            ml: -0.75,
+            color: homeTheme.colors.textSecondary,
+            "& .MuiFormControlLabel-label": { fontSize: "0.8rem" },
+          }}
+        />
+
         <StyledButton
           type="submit"
           endIcon={isLoading ? <Star sx={{ animation: `${float} 1s ease-in-out infinite` }} /> : <SendRounded />}
           disabled={isLoading || isSubmitted}
           sx={{
-            mt: { xs: 0.8, sm: 1 },
-            py: { xs: 0.8, sm: 1 },
+            mt: 0.25,
+            py: { xs: 1, sm: 1.2 },
             px: { xs: 1.5, sm: 2 },
             fontSize: { xs: "0.8rem", sm: "0.9rem" },
             width: "100%",
             maxWidth: "100%",
-            minHeight: { xs: "36px", sm: "40px" },
+            minHeight: { xs: "48px", sm: "52px" },
             opacity: isSubmitted ? 0.7 : 1,
             "&:disabled": {
-              background: "rgba(191, 169, 116, 0.3)",
-              color: "rgba(0, 0, 0, 0.5)",
+              background: homeTheme.colors.accentMuted,
+              color: homeTheme.colors.textSecondary,
             }
           }}
         >
-          {isLoading ? "Sending..." : isSubmitted ? "Message Sent!" : "Get Free Quote"}
+          {isLoading ? "Sending..." : isSubmitted ? "Request Sent" : "Book a Free Consultation"}
         </StyledButton>
 
-        {/* Success Message - positioned after button */}
+        <Typography
+          sx={{
+            color: homeTheme.colors.textSecondary,
+            fontSize: "0.68rem",
+            lineHeight: 1.5,
+            textAlign: "center",
+          }}
+        >
+          By submitting, you agree that Gruham&apos;s team may contact you about your project.
+        </Typography>
+
         <Fade in={isSubmitted} timeout={500}>
           <Box
             sx={{
@@ -372,7 +439,7 @@ const ContactUs = ({ shouldScroll = false }) => {
               color: "#4caf50", 
               fontWeight: 600, 
               fontSize: { xs: "0.75rem", sm: "0.8rem" },
-              fontFamily: "'Montserrat', sans-serif",
+              fontFamily: homeTheme.fonts.body,
             }}>
               Thank you! We'll contact you soon.
             </Typography>
@@ -398,7 +465,7 @@ const ContactUs = ({ shouldScroll = false }) => {
                   color: "#b71c1c",
                   fontWeight: 600,
                   fontSize: { xs: "0.75rem", sm: "0.8rem" },
-                  fontFamily: "'Montserrat', sans-serif",
+                  fontFamily: homeTheme.fonts.body,
                   textAlign: "center",
                 }}
               >
@@ -408,60 +475,7 @@ const ContactUs = ({ shouldScroll = false }) => {
           </Fade>
         )}
 
-        {/* Trust indicators */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: { xs: 0.5, sm: 1 },
-            mt: { xs: 1.5, sm: 2 },
-            flexWrap: "wrap",
-            width: "100%",
-            px: 0.5,
-            overflow: "hidden",
-          }}
-        >
-          <Chip
-            icon={<Star sx={{ fontSize: "0.6rem" }} />}
-            label="5-Star Rated"
-            size="small"
-            sx={{
-              background: "rgba(191, 169, 116, 0.1)",
-              color: "#bfa974",
-              border: "1px solid rgba(191, 169, 116, 0.3)",
-              fontSize: "0.6rem",
-              height: "20px",
-              fontWeight: 600,
-              fontFamily: "'Montserrat', sans-serif",
-              maxWidth: "calc(50% - 4px)",
-              "& .MuiChip-label": {
-                px: 0.3,
-                fontSize: "0.6rem",
-              },
-            }}
-          />
-          <Chip
-            icon={<CheckCircle sx={{ fontSize: "0.6rem" }} />}
-            label="Free Consultation"
-            size="small"
-            sx={{
-              background: "rgba(191, 169, 116, 0.1)",
-              color: "#bfa974",
-              border: "1px solid rgba(191, 169, 116, 0.3)",
-              fontSize: "0.6rem",
-              height: "20px",
-              fontWeight: 600,
-              fontFamily: "'Montserrat', sans-serif",
-              maxWidth: "calc(50% - 4px)",
-              "& .MuiChip-label": {
-                px: 0.3,
-                fontSize: "0.6rem",
-              },
-            }}
-          />
-        </Box>
       </Box>
-    </Slide>
   );
 };
 
