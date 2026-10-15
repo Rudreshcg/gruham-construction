@@ -28,7 +28,7 @@ const OurStory = () => {
       name: "Manasa N",
       title: "HEAD OF OFFICE MANAGER",
       image: null,
-      bio: "The organizational heartbeat of Graham’s. Manasa ensures seamless coordination between our design teams and site operations, maintaining the high standards of communication our clients expect."
+      bio: "The organizational heartbeat of Gruham’s. Manasa ensures seamless coordination between our design teams and site operations, maintaining the high standards of communication our clients expect."
     },
     {
       name: "Rajshekar",
@@ -107,13 +107,13 @@ const OurStory = () => {
         <div className="narrative-container">
           <motion.div className="narrative-text-block" {...fadeUp}>
             <p className="large-lead">
-              The name Graham’s is rooted in meaning, culture, and emotion. It is inspired by the word <strong>“Gruham” (గృహం)</strong>, which translates to home—a place of belonging, comfort, and life.
+              The name Gruham’s is rooted in meaning, culture, and emotion. It is inspired by the word <strong>“Gruham” (గృహం)</strong>, which translates to home—a place of belonging, comfort, and life.
             </p>
             <p>
-              We evolved this idea into “Grahams” to represent not just one home, but many—each uniquely designed, thoughtfully built, and deeply personal.
+              We evolved this idea into “Gruhams” to represent not just one home, but many—each uniquely designed, thoughtfully built, and deeply personal.
             </p>
             <p>
-              At its core, Graham’s stands for more than construction. It represents an ecosystem of living—where design, structure, and environment come together in harmony. A home, to us, is not just a physical space; it is an experience shaped by light, air, materials, and the emotions it holds within.
+              At its core, Gruham’s stands for more than construction. It represents an ecosystem of living—where design, structure, and environment come together in harmony. A home, to us, is not just a physical space; it is an experience shaped by light, air, materials, and the emotions it holds within.
             </p>
           </motion.div>
         </div>
@@ -160,7 +160,7 @@ const OurStory = () => {
               To create a system where building a home is simple, transparent, and truly enjoyable.
             </div>
             <p>
-              That vision became Graham’s. We stepped forward, bringing together our individual expertise into one unified approach. Today, architecture, interiors, and construction work seamlessly under a single system—eliminating confusion and ensuring clarity at every stage.
+              That vision became Gruham’s. We stepped forward, bringing together our individual expertise into one unified approach. Today, architecture, interiors, and construction work seamlessly under a single system—eliminating confusion and ensuring clarity at every stage.
             </p>
           </motion.div>
         </div>

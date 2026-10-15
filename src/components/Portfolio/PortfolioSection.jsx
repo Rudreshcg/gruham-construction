@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PortfolioCard from './PortfolioCard';
 import './PortfolioSection.css';
-import projectsData from '../../data/projects.json';
+import projectsData from '../../data/projects.json'; // updated with realistic images
 import Logo from '../../assets/images/Logo.png';
 import WatermarkedImage from '../common/WatermarkedImage';
 
