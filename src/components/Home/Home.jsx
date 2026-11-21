@@ -5,6 +5,7 @@ import AboutCompany from "./AboutCompany";
 import Testimonials from "./Testimonials";
 import PortfolioPreview from "./PortfolioPreview";
 import VideoShowcase from "../VideoShowcase/VideoShowcase";
+import LivingEcosystem from "./LivingEcosystem";
 import SEOHead from "../SEO/SEOHead";
 import InternalLinks from "../SEO/InternalLinks";
 import FAQ from "../SEO/FAQ";
@@ -68,6 +69,7 @@ const Home = () => {
       <Hero />
       <WhyGruham />
       <AboutCompany />
+      <LivingEcosystem />
       <Testimonials />
       <PortfolioPreview />
       <VideoShowcase />

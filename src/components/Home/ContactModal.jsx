@@ -45,6 +45,8 @@ const ContactModal = ({ open, setOpen }) => {
     bestTimeToTalk: "",
     message: "",
     whatsappOptIn: true,
+    interestedInXR: false,
+    interestedInInteriors: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -252,8 +254,40 @@ const ContactModal = ({ open, setOpen }) => {
               />
             }
             label="Send me updates on WhatsApp"
-            sx={{ fontSize: { xs: "0.75rem", sm: "1rem" } }}
+            sx={{ fontSize: { xs: "0.75rem", sm: "1rem" }, mb: 1, display: "block" }}
           />
+          {/* Living Group Cross-Services Opt-in */}
+          <Box sx={{ p: 1.5, mb: 2, bgcolor: "#fdfbf7", borderRadius: "8px", border: "1px dashed rgba(184, 146, 74, 0.4)" }}>
+            <Typography sx={{ fontSize: "0.72rem", fontWeight: 700, color: "#1f2d3d", textTransform: "uppercase", letterSpacing: "0.06em", mb: 0.5 }}>
+              Living Group Cross-Services (Optional)
+            </Typography>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="interestedInXR"
+                  checked={formData.interestedInXR}
+                  onChange={handleChange}
+                  size="small"
+                  sx={{ color: "#b8924a", '&.Mui-checked': { color: "#1f2d3d" }, p: 0.5 }}
+                />
+              }
+              label={<Typography sx={{ fontSize: { xs: "0.75rem", sm: "0.8rem" }, color: "#555" }}>Experience layout at 1:1 scale (Gruhams XR Studio)</Typography>}
+              sx={{ m: 0, display: "flex", alignItems: "center" }}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="interestedInInteriors"
+                  checked={formData.interestedInInteriors}
+                  onChange={handleChange}
+                  size="small"
+                  sx={{ color: "#b8924a", '&.Mui-checked': { color: "#1f2d3d" }, p: 0.5 }}
+                />
+              }
+              label={<Typography sx={{ fontSize: { xs: "0.75rem", sm: "0.8rem" }, color: "#555" }}>Need turnkey luxury interior design (Tvashta Interior)</Typography>}
+              sx={{ m: 0, display: "flex", alignItems: "center" }}
+            />
+          </Box>
         </motion.div>
         <motion.div variants={SlideUp(2)}>
           <Button

@@ -14,9 +14,13 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ViewInArOutlinedIcon from "@mui/icons-material/ViewInArOutlined";
+import ChairOutlinedIcon from "@mui/icons-material/ChairOutlined";
+import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import { Link as RouterLink, useParams } from "react-router-dom";
 import { styled } from "@mui/system";
 import Logo from "../../assets/images/Logo.png";
+import EcosystemTopBar from "./EcosystemTopBar";
 
 const DesktopMenu = styled("div")(({ theme }) => ({
   display: "none",
@@ -148,6 +152,7 @@ const Header = () => {
 
   return (
     <>
+      <EcosystemTopBar />
       <AppBar
         position="static"
         sx={{
@@ -378,6 +383,70 @@ const Header = () => {
           >
             LOGIN
           </MenuItem>
+
+          {/* Mobile Drawer Group Brands */}
+          <Box sx={{ mx: 3, mb: 3, p: 2, bgcolor: "rgba(184,146,74,0.08)", borderRadius: "10px", border: "1px solid rgba(184,146,74,0.25)" }}>
+            <Typography sx={{ fontSize: "0.7rem", fontWeight: 800, color: "var(--gold-deep)", letterSpacing: "0.1em", mb: 1.4, textTransform: "uppercase" }}>
+              Our Group Brands
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1.2 }}>
+              <Box
+                component="a"
+                href="https://gruhamsxrstudio.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  textDecoration: "none",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  color: "var(--text-primary)",
+                  fontSize: "0.85rem",
+                  fontWeight: 600,
+                  py: 0.5,
+                  transition: "color 0.2s ease",
+                  "&:hover": { color: "var(--gold-deep)" },
+                }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <ViewInArOutlinedIcon sx={{ fontSize: "1.05rem", color: "var(--gold)" }} />
+                  <span>Gruhams XR Studio</span>
+                </Box>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.3, color: "var(--gold-deep)", fontSize: "0.75rem", fontWeight: 700 }}>
+                  <span>1:1 Walkthrough</span>
+                  <NorthEastRoundedIcon sx={{ fontSize: "0.8rem" }} />
+                </Box>
+              </Box>
+
+              <Box
+                component="a"
+                href="https://tvashtainterior.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  textDecoration: "none",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  color: "var(--text-primary)",
+                  fontSize: "0.85rem",
+                  fontWeight: 600,
+                  py: 0.5,
+                  transition: "color 0.2s ease",
+                  "&:hover": { color: "var(--gold-deep)" },
+                }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <ChairOutlinedIcon sx={{ fontSize: "1.05rem", color: "var(--gold)" }} />
+                  <span>Tvashta Interior</span>
+                </Box>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.3, color: "var(--gold-deep)", fontSize: "0.75rem", fontWeight: 700 }}>
+                  <span>Luxury Interiors</span>
+                  <NorthEastRoundedIcon sx={{ fontSize: "0.8rem" }} />
+                </Box>
+              </Box>
+            </Box>
+          </Box>
         </Box>
       )}
     </>

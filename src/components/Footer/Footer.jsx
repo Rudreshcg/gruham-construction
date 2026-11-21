@@ -20,6 +20,10 @@ import {
   Pinterest,
   LinkedIn,
   KeyboardArrowUp,
+  HomeWorkOutlined,
+  ViewInArOutlined,
+  ChairOutlined,
+  NorthEastRounded,
 } from "@mui/icons-material";
 
 const Footer = () => {
@@ -218,6 +222,122 @@ const Footer = () => {
             </motion.div>
           </Grid>
         </Grid>
+
+        {/* Ecosystem Group Brands Row */}
+        <Box
+          sx={{
+            mt: 6,
+            p: 3,
+            borderRadius: "10px",
+            bgcolor: "#fdfbf7",
+            border: "1px solid rgba(184, 146, 74, 0.3)",
+          }}
+        >
+          <Typography
+            variant="overline"
+            sx={{
+              color: "#927944",
+              letterSpacing: "0.14em",
+              fontWeight: 800,
+              display: "block",
+              mb: 2,
+              textAlign: { xs: "center", md: "left" },
+            }}
+          >
+            The Gruham & Tvashta Living Group — Group Brands
+          </Typography>
+          <Grid container spacing={2.5}>
+            <Grid item xs={12} md={4}>
+              <Box
+                sx={{
+                  p: 2.5,
+                  borderRadius: "8px",
+                  bgcolor: "rgba(184, 146, 74, 0.12)",
+                  border: "1px solid rgba(184, 146, 74, 0.4)",
+                  height: "100%",
+                }}
+              >
+                <Typography variant="subtitle2" sx={{ color: "#927944", fontWeight: 700, mb: 0.8, display: "flex", alignItems: "center", gap: 1 }}>
+                  <HomeWorkOutlined sx={{ fontSize: "1.1rem", color: "#927944" }} />
+                  <span>Gruham Construction (This Builder)</span>
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#555", fontSize: "0.82rem", lineHeight: 1.6 }}>
+                  Turnkey civil engineering, architectural design, and luxury home construction in Bangalore.
+                </Typography>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <Box
+                component="a"
+                href="https://gruhamsxrstudio.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: "block",
+                  textDecoration: "none",
+                  p: 2.5,
+                  borderRadius: "8px",
+                  bgcolor: "#ffffff",
+                  border: "1px solid rgba(184, 146, 74, 0.25)",
+                  height: "100%",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    bgcolor: "rgba(184, 146, 74, 0.08)",
+                    borderColor: "#b8924a",
+                    transform: "translateY(-2px)",
+                  },
+                }}
+              >
+                <Typography variant="subtitle2" sx={{ color: "#1f2d3d", fontWeight: 700, mb: 0.8, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <ViewInArOutlined sx={{ fontSize: "1.1rem", color: "#b8924a" }} />
+                    <span>Gruhams XR Studio</span>
+                  </Box>
+                  <NorthEastRounded sx={{ fontSize: "0.85rem", color: "#b8924a" }} />
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#555", fontSize: "0.82rem", lineHeight: 1.6 }}>
+                  India's premier 1:1 scale pre-construction walkthrough studio. Experience your blueprint in life size before building.
+                </Typography>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={4}>
+              <Box
+                component="a"
+                href="https://tvashtainterior.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: "block",
+                  textDecoration: "none",
+                  p: 2.5,
+                  borderRadius: "8px",
+                  bgcolor: "#ffffff",
+                  border: "1px solid rgba(184, 146, 74, 0.25)",
+                  height: "100%",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    bgcolor: "rgba(184, 146, 74, 0.08)",
+                    borderColor: "#b8924a",
+                    transform: "translateY(-2px)",
+                  },
+                }}
+              >
+                <Typography variant="subtitle2" sx={{ color: "#1f2d3d", fontWeight: 700, mb: 0.8, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <ChairOutlined sx={{ fontSize: "1.1rem", color: "#b8924a" }} />
+                    <span>Tvashta Interior</span>
+                  </Box>
+                  <NorthEastRounded sx={{ fontSize: "0.85rem", color: "#b8924a" }} />
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#555", fontSize: "0.82rem", lineHeight: 1.6 }}>
+                  Group luxury interior design atelier with German-automated factory for bespoke modular cabinetry & decor.
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
 
         <Divider sx={{ mt: 6, borderColor: 'rgba(56, 56, 56, 0.18)' }} />
 
