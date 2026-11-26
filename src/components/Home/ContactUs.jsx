@@ -15,6 +15,7 @@ import {
 import {
   PersonOutline,
   LocalPhoneOutlined,
+  LocationOnOutlined,
   SendRounded,
   CheckCircle,
   Star,
@@ -35,27 +36,30 @@ const float = keyframes`
 
 const StyledTextField = styled(TextField)(() => ({
   "& .MuiOutlinedInput-root": {
-    background: homeTheme.colors.backgroundNeutral,
-    borderRadius: "6px",
+    background: "#ffffff",
+    borderRadius: "8px",
     color: homeTheme.colors.textPrimary,
-    minHeight: "54px",
-    transition: "border-color 0.2s ease",
+    minHeight: "46px",
+    transition: "border-color 0.2s ease, box-shadow 0.2s ease",
     "& fieldset": { 
-      borderColor: homeTheme.colors.divider,
+      borderColor: "rgba(29, 29, 27, 0.14)",
     },
     "&:hover fieldset": {
       borderColor: homeTheme.colors.accent,
+    },
+    "&.Mui-focused": {
+      boxShadow: "0 0 0 3px rgba(184, 146, 74, 0.14)",
     },
     "&.Mui-focused fieldset": {
       borderColor: homeTheme.colors.accent,
       borderWidth: "1px",
     },
     "& .MuiInputBase-input": {
-      padding: "14px 12px",
-      fontSize: "0.9rem",
+      padding: "11px 12px",
+      fontSize: "0.88rem",
       color: homeTheme.colors.textPrimary,
       "&::placeholder": {
-        color: homeTheme.colors.textSecondary,
+        color: "rgba(93, 90, 86, 0.72)",
         opacity: 1,
       },
     },
@@ -64,29 +68,37 @@ const StyledTextField = styled(TextField)(() => ({
 
 const fieldLabelSx = {
   display: "block",
-  mb: 0.75,
+  mb: 0.6,
   color: homeTheme.colors.textPrimary,
-  fontSize: "0.82rem",
+  fontSize: "0.8rem",
   fontWeight: 700,
-  lineHeight: 1.4,
+  lineHeight: 1.35,
 };
 
-const StyledButton = styled(Button)(() => ({
-  background: homeTheme.colors.accent,
-  color: homeTheme.colors.textPrimary,
-  borderRadius: "4px",
+const StyledButton = styled(Button)(({ theme }) => ({
+  background: "linear-gradient(135deg, #c39a50 0%, #9b7737 100%)",
+  color: "#ffffff",
+  borderRadius: "8px",
   fontWeight: 700,
   textTransform: "none",
-  padding: { xs: "10px 0", sm: "12px 0" },
-  fontSize: { xs: "0.9rem", sm: "1rem" },
-  transition: "background-color 0.2s ease",
-  boxShadow: "0 8px 22px rgba(146, 121, 68, 0.2)",
+  padding: "11px 16px",
+  fontSize: "0.92rem",
+  letterSpacing: "0.02em",
+  transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease",
+  boxShadow: "0 10px 24px rgba(155, 119, 55, 0.26)",
+  [theme.breakpoints.up("sm")]: {
+    padding: "12px 20px",
+    fontSize: "0.95rem",
+  },
   "&:hover": {
-    background: "#d6bd83",
+    background: "linear-gradient(135deg, #b58d45 0%, #8a682e 100%)",
+    boxShadow: "0 12px 28px rgba(155, 119, 55, 0.34)",
+    transform: "translateY(-1px)",
   },
   "&:active": {
+    transform: "translateY(0)",
     background: homeTheme.colors.accentDark,
-    color: homeTheme.colors.backgroundNeutral,
+    color: "#ffffff",
   },
 }));
 
@@ -167,13 +179,15 @@ const ContactUs = ({ onClose }) => {
         onSubmit={handleSubmit}
         sx={{
           background: "transparent",
-          minHeight: "100%",
+          minHeight: { xs: "auto", md: "100%" },
           overflow: "visible",
-          p: { xs: 1.75, sm: 2.5, md: 3.5 },
+          px: { xs: 2.25, sm: 2.75, md: 3.5 },
+          pt: { xs: 2, sm: 2.5, md: 3.25 },
+          pb: { xs: 2.25, sm: 2.75, md: 3.25 },
           maxWidth: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: { xs: 1.25, sm: 1.5 },
+          gap: { xs: 1.25, sm: 1.4 },
         }}
       >
         <Box
@@ -182,9 +196,9 @@ const ContactUs = ({ onClose }) => {
             alignItems: "flex-start",
             justifyContent: "space-between",
             gap: 1.5,
-            pb: 1.25,
+            pb: { xs: 1, md: 1.25 },
             borderBottom: `1px solid ${homeTheme.colors.divider}`,
-            position: "sticky",
+            position: { xs: "static", md: "sticky" },
             top: 0,
             zIndex: 2,
             background: homeTheme.colors.backgroundNeutral,
@@ -193,6 +207,7 @@ const ContactUs = ({ onClose }) => {
           <Box sx={{ minWidth: 0 }}>
             <Typography
               sx={{
+                display: { xs: "none", md: "block" },
                 color: homeTheme.colors.accentDark,
                 fontSize: "0.65rem",
                 fontWeight: 800,
@@ -207,21 +222,22 @@ const ContactUs = ({ onClose }) => {
               id="contact-modal-title"
               component="h2"
               sx={{
-                mt: 0.25,
+                mt: { xs: 0, md: 0.25 },
                 color: homeTheme.colors.textPrimary,
-                fontFamily: homeTheme.fonts.heading,
-                fontSize: { xs: "1.3rem", sm: "1.55rem", md: "1.8rem" },
+                fontFamily: `${homeTheme.fonts.heading} !important`,
+                fontSize: { xs: "1.35rem", sm: "1.55rem", md: "1.8rem" },
                 lineHeight: 1.2,
+                letterSpacing: "0 !important",
               }}
             >
               Get Free Quote
             </Typography>
             <Typography
               sx={{
-                mt: 0.5,
+                mt: 0.35,
                 color: homeTheme.colors.textSecondary,
-                fontSize: { xs: "0.76rem", sm: "0.82rem" },
-                lineHeight: 1.5,
+                fontSize: { xs: "0.78rem", sm: "0.84rem" },
+                lineHeight: 1.45,
               }}
             >
               Tell us about your project and we’ll be in touch.
@@ -231,10 +247,11 @@ const ContactUs = ({ onClose }) => {
             onClick={onClose}
             aria-label="Close contact form"
             sx={{
+              display: { xs: "none", md: "inline-flex" },
               flex: "0 0 auto",
               color: homeTheme.colors.textPrimary,
               border: `1px solid ${homeTheme.colors.divider}`,
-              borderRadius: "6px",
+              borderRadius: "8px",
               width: 36,
               height: 36,
               mt: 0.25,
@@ -258,11 +275,11 @@ const ContactUs = ({ onClose }) => {
             sx={{
               display: "grid",
               gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-              gap: { xs: 0.5, sm: 0.75 },
+              gap: { xs: 0.65, sm: 0.85 },
               "& .MuiToggleButtonGroup-grouped": {
                 m: 0,
-                border: `1px solid ${homeTheme.colors.divider} !important`,
-                borderRadius: "5px !important",
+                border: "1px solid rgba(29, 29, 27, 0.14) !important",
+                borderRadius: "8px !important",
               },
             }}
           >
@@ -272,20 +289,28 @@ const ContactUs = ({ onClose }) => {
                 value={type}
                 sx={{
                   minWidth: 0,
-                  minHeight: { xs: 40, sm: 44 },
-                  px: { xs: 0.3, sm: 0.75 },
+                  minHeight: { xs: 40, sm: 42 },
+                  px: { xs: 0.5, sm: 0.75 },
+                  backgroundColor: "#ffffff",
                   color: homeTheme.colors.textSecondary,
-                  fontSize: { xs: "0.64rem", sm: "0.76rem" },
-                  fontWeight: 700,
-                  lineHeight: 1.15,
+                  fontSize: { xs: "0.72rem", sm: "0.78rem" },
+                  fontWeight: 600,
+                  lineHeight: 1.2,
                   textTransform: "none",
-                  whiteSpace: "normal",
-                  "&.Mui-selected": {
-                    color: homeTheme.colors.textPrimary,
-                    background: homeTheme.colors.accentMuted,
-                    borderColor: homeTheme.colors.accent,
+                  whiteSpace: "nowrap",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    backgroundColor: "rgba(184, 146, 74, 0.06)",
+                    borderColor: `${homeTheme.colors.accent} !important`,
                   },
-                  "&.Mui-selected:hover": { background: homeTheme.colors.accentMuted },
+                  "&.Mui-selected": {
+                    color: homeTheme.colors.accentDark,
+                    fontWeight: 700,
+                    backgroundColor: "rgba(184, 146, 74, 0.14)",
+                    borderColor: `${homeTheme.colors.accent} !important`,
+                    boxShadow: "inset 0 0 0 1px rgba(184, 146, 74, 0.35)",
+                  },
+                  "&.Mui-selected:hover": { backgroundColor: "rgba(184, 146, 74, 0.18)" },
                 }}
               >
                 {type}
@@ -307,6 +332,13 @@ const ContactUs = ({ onClose }) => {
             fullWidth
             value={formData.location}
             onChange={handleChange}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LocationOnOutlined sx={{ color: homeTheme.colors.accent, fontSize: "1.15rem" }} />
+                </InputAdornment>
+              ),
+            }}
           />
         </Box>
 
@@ -390,20 +422,18 @@ const ContactUs = ({ onClose }) => {
 
         <StyledButton
           type="submit"
-          endIcon={isLoading ? <Star sx={{ animation: `${float} 1s ease-in-out infinite` }} /> : <SendRounded />}
+          endIcon={isLoading ? <Star sx={{ animation: `${float} 1s ease-in-out infinite` }} /> : <SendRounded sx={{ fontSize: "1.05rem" }} />}
           disabled={isLoading || isSubmitted}
           sx={{
             mt: 0.25,
-            py: { xs: 1, sm: 1.2 },
-            px: { xs: 1.5, sm: 2 },
-            fontSize: { xs: "0.8rem", sm: "0.9rem" },
             width: "100%",
             maxWidth: "100%",
-            minHeight: { xs: "48px", sm: "52px" },
+            minHeight: { xs: "46px", sm: "48px" },
             opacity: isSubmitted ? 0.7 : 1,
             "&:disabled": {
               background: homeTheme.colors.accentMuted,
               color: homeTheme.colors.textSecondary,
+              boxShadow: "none",
             }
           }}
         >

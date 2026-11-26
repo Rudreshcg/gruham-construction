@@ -6,10 +6,9 @@ import {
   IconButton,
   Divider,
   Box,
-  useMediaQuery,
-  useTheme,
   MenuItem,
   Menu,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -31,10 +30,8 @@ const DesktopMenu = styled("div")(({ theme }) => ({
 }));
 
 const Header = () => {
-  const theme = useTheme();
   const params = useParams();
 
-  const isTabletOrMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Dropdown states
